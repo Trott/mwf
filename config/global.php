@@ -26,11 +26,11 @@ require_once(dirname(dirname(__FILE__)).'/root/assets/lib/config.class.php');
  * DO NOT INCLUDE A TRAILING SLASH
  */
 
-Config::set('global', 'site_url', false);
-Config::set('global', 'site_assets_url', false);
+Config::set('global', 'site_url', 'http://'.$_SERVER['SERVER_NAME']);
+Config::set('global', 'site_assets_url', Config::get('global','site_url').'/assets');
 Config::set('global', 'site_nonmobile_url', false);
-Config::set('global', 'full_site_url', false);
-Config::set('global', 'help_site_url', false);
+Config::set('global', 'full_site_url', 'http://www.ucsf.edu/');
+Config::set('global', 'help_site_url', '/feedback');
 
 /**
  * CORE
@@ -47,17 +47,22 @@ Config::set('global', 'cookie_prefix', 'mwf_');
  * - copyright_text         The footer copyright notice written by decorator.
  * - header_home_button     Full image path for the header home button image.
  * - header_home_button_alt Alternate text for the header home button image.
+ * - header_home_text       Text appearing next to header home button image.
  * - title_text             Title written by decorator into the head
+ * - header_separator       HTML that separates elements in the header, e.g. for breadcrumbs
  */
 
-Config::set('global', 'appicon_img',                Config::get('global', 'site_assets_url').'/img/mwf-appicon.png');
-Config::set('global', 'appicon_img_precomposed',    Config::get('global', 'site_assets_url').'/img/mwf-appicon-precomposed.png');
+Config::set('global', 'appicon_img',                Config::get('global', 'site_assets_url').'/img/ucsf-appicon.png');
+Config::set('global', 'appicon_img_precomposed',    Config::get('global', 'site_assets_url').'/img/ucsf-appicon-precomposed.png');
 Config::set('global', 'appicon_allow_disable_flag', true);
-Config::set('global', 'back_to_home_text',          'Go Back to Home');
-Config::set('global', 'copyright_text',             'University of California &copy; 2010 UC Regents');
-Config::set('global', 'header_home_button',         Config::get('global', 'site_assets_url').'/img/mwf-header.gif');
-Config::set('global', 'header_home_button_alt',     'MWF');
-Config::set('global', 'title_text',                 'UCLA MWF');
+Config::set('global', 'back_to_home_text',          'Back');
+Config::set('global', 'copyright_text',             'University of California &copy; 2010-'.date('Y').' UC Regents');
+Config::set('global', 'header_home_button',         Config::get('global', 'site_assets_url').'/img/ucsf-logo.png');
+Config::set('global', 'header_home_text',           'Mobile');
+Config::set('global', 'header_home_button_alt',     'UCSF');
+Config::set('global', 'title_text',                 'UCSF Mobile');
+Config::set('global', 'header_separator', '<img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator" />');
+
 
 /******************************************************************
  *

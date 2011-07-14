@@ -1,0 +1,94 @@
+/* ucsf-default-basic
+ *
+ *
+ *
+ */
+#header {
+    background: #666666  url(img/ucsf-header-bg.png) repeat-x; 
+    height: 36px;
+    border-bottom: 0px solid #ffffff;
+} 
+
+body {
+    background-color: #88bbbb;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+}
+
+body.front-page h1#header {
+	background: #666666  url(img/ucsf-header-bg.png) repeat-x; 
+	height: 36px;
+	text-align: left;
+	border-bottom: 0px solid #ffffff;
+}
+
+body.front-page h1#header span {
+        display: inline;
+        padding: 0;
+}
+
+body h1#header span {
+	float: none;
+	margin-left: 4px;
+}
+
+body h1#header span {
+	position:relative;
+	bottom: 12px;
+}
+
+h1#header {
+	padding-left: 10px;
+}
+
+h1#header span {
+	font-size: 15px;
+	font-family: Arial Regular, Arial, Helvetica, Verdana, sans-serif;
+	padding: 0;
+}
+
+h1#header img {
+	float:none;
+}
+
+h1#header img.separator {
+	padding: 0 8px 0 5px;
+}
+
+h4.light {
+	color: #555;
+}
+
+span.highlight_time {
+	font-weight: bold;
+}
+
+span.smallprint.light {
+	color: #999999;
+}
+
+ul li {
+	font-weight: normal;
+	list-style-type: none;
+}
+
+ul.bulleted li {
+	list-style-type: disc;
+}
+
+ul.bulleted li a {
+	padding: 0em;
+	display: inline;
+}
+
+.form-full select {
+	padding: 0.3em;
+}
+
+.external {
+	padding-right: 13px;
+	background: url(img/ucsf-external-link.png) center right no-repeat;
+}
+
+li a, a {
+	color:#38939b;
+} 

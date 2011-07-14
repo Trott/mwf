@@ -20,7 +20,8 @@ echo Site_Decorator::ucsf_header('Emergency');
 </ol>
 </div>
 <a href="javascript:history.back()" id="button-top" class="button-full button-padded">Back</a>    
-<?php echo Site_Decorator::ucsf_footer()->render(); ?>
+<?php echo Site_Decorator::ucsf_footer()->render(); 
+echo HTML_Decorator::body_end()->render();
 
-</body>
-</html>
+echo HTML_Decorator::html_end()->render();
+?>

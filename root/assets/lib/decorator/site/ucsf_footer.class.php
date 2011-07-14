@@ -19,7 +19,7 @@
 require_once(dirname(__FILE__).'/default_footer.class.php');
 
 class Ucsf_Footer_Site_Decorator extends Default_Footer_Site_Decorator
-{
+{	
 	public function __construct()
     {          
         parent::__construct();

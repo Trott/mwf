@@ -58,20 +58,16 @@ echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header($header_title)
         ->render();
 ?>
+
 <div class="content-full content-padded"><?php if($id != $_GET['id'] || !isset($item['description'])): ?>
-
 <h1 class="content-first light">Error Encountered</h1>
-
 <div class="content-last">
-
 <p>An error was encountered while trying to fetch the requested news
 entry. Please go back to the articles list and try again.</p>
-
 </div>
 
 <?php else: ?>
 <h1 class="content-first align-left light"><?php echo $item['title']; ?></h1>
-
 <div class="content">
 <p><?php echo $item['date']; ?></p>
 <?php $allowed_tags ?> <?php echo $purifier->purify($item['description'], HTMLPurifier_Config::create(array('HTML.AllowedElements' => $allowed_tags))); ?>

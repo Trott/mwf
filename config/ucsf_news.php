@@ -12,7 +12,7 @@
  * @link /assets/config.php
  */
 
-require_once(dirname(dirname(__FILE__)).'/lib/config.class.php');
+require_once(dirname(dirname(__FILE__)).'/root/assets/lib/config.class.php');
 
 /**
  * feeds

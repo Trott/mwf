@@ -28,11 +28,11 @@ require_once(dirname(dirname(__FILE__)).'/assets/config.php');
 
 echo HTML_Decorator::html_start()->render();
 
-echo Site_Decorator::head()->set_title(Config::get('global', 'title_text') . ' | About')->render();
+echo Site_Decorator::head()->set_title(Config::get('global', 'title_text') . " | About")->render();
 
 echo HTML_Decorator::body_start()->render();
 
-echo Site_Decorator::ucsf_header('About')
+echo Site_Decorator::ucsf_header("About")
         ->render();
 
 echo Site_Decorator::content_full()
@@ -52,7 +52,5 @@ echo Site_Decorator::content_full()
 ?><a href="javascript:history.back()" id="button-top" class="button-full button-padded">Back</a><?php
 
 echo Site_Decorator::ucsf_footer()->show_powered_by(true)->render();
-
 echo HTML_Decorator::body_end()->render();
-
 echo HTML_Decorator::html_end()->render();

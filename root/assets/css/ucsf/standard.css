@@ -54,6 +54,7 @@ div.button-full a.button-light:active {
 
 
 .menu-full li a {
+    padding: 1em;
     background:url(img/ucsf-list-arrow.png) no-repeat 95% center; /* Controls menu items */
 }
 

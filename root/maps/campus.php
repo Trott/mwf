@@ -40,7 +40,8 @@ var lat=<?php echo $lat; ?>;
 var lon=<?php echo $lon; ?>;
 var initialZoom=<?php echo $initialZoom; ?>;
 var mapTypeId = 'UCSF Custom Map';
-var mapStyle = [{featureType:"landscape", elementType:"all", stylers:[{hue:"#dae6c3"},{saturation:16},{lightness:-7}]}, 
+var mapStyle = [{featureType:"administrative", elementType:"all", stylers:[{hue:"#dae6c3"},{saturation:22},{lightness:-5}]}, //81, 15, 90
+                {featureType:"landscape", elementType:"all", stylers:[{hue:"#dae6c3"},{saturation:16},{lightness:-7}]},
                 {featureType:"road", elementType:"geometry", stylers:[{hue:"#ffffff"},{saturation:-100},{lightness:100}]}];
 var styledMap = new google.maps.StyledMapType(mapStyle);
 

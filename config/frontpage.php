@@ -68,7 +68,7 @@ Config::set('frontpage', 'menu',
    'default'=>array(
         array('name'=>'Shuttle',
               'id'=>'shuttle',
-              'url'=>'?s=shuttle'),
+              'url'=>'shuttle'),
         array('name'=>'Directory',
               'id'=>'directory',
               'url'=>'directory'),
@@ -91,17 +91,5 @@ Config::set('frontpage', 'menu',
               'id'=>'emergency',
               'url'=>'emergency')
         ),
-    'shuttle'=>array(
-        array('name'=>'Trip Planner',
-              'url'=>'shuttle/planner'),
-        array('name'=>'Shuttles By Color',
-              'url'=>'shuttle/list/color'),
-        array('name'=>'Shuttles By Location',
-              'url'=>'shuttle/list/location'),
-        array('name'=>'<span class="external">System Map <span class="smallprint light">PDF</span></span>',
-              'url'=>'http://campuslifeservices.ucsf.edu/transportation/shuttles/timetables/shuttlemap.pdf'),
-        array('name'=>'<span class="external">Holiday Schedule <span class="smallprint light">PDF</span></span>',
-              'url'=>'http://www.campuslifeservices.ucsf.edu/transportation/shuttles/timetables/pdf/ShuttleHolidaySchedule.pdf')
-        )
     )
 );

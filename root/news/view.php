@@ -4,7 +4,7 @@ require_once(dirname(dirname(__FILE__)).'/assets/config.php');
 require_once(dirname(dirname(dirname(__FILE__))).'/auxiliary/feed/magpierss/rss_fetch.inc');
 require_once(dirname(dirname(dirname(__FILE__))).'/auxiliary/feed/htmlpurifier/HTMLPurifier.includes.php');
 $feeds = array_merge(Config::get('ucsf_news','feeds'),Config::get('ucsf_news','alternate_feeds'));
-$header_title = 'News';
+$header_title = '<a href="/news">News</a>';
 $header_feed = '';
 
 if (array_key_exists('feed',$_GET) && array_key_exists($_GET['feed'],$feeds)) {

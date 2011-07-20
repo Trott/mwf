@@ -31,7 +31,7 @@ echo Site_Decorator::head()
     ->add_javascript('http://maps.google.com/maps/api/js?sensor=false')
     ->render();
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header("$startLocation Map");
+echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>');
 echo HTML_Decorator::tag('div',false,array('id'=>'map_canvas'));
 ?>
 <a href="javascript:history.back()" id="button-top" class="button-full">Back</a>

@@ -33,7 +33,7 @@ require_once(dirname(dirname(__FILE__)).'/root/assets/lib/config.class.php');
  *  
  *  - direct_link :: boolean; when displaying the items in the feed, link to the <link> contents and not to our view of the <description> contents; omit for default of false
  *
- *  - header_title :: string; blank for default ('News')
+ *  - header_title :: string; blank for default ('<a href="/news">News</a>')
  *  
  * @link /news/index.php
  * @link /news/view.php
@@ -62,7 +62,7 @@ Config::set('ucsf_news', 'feeds', array(
  *  
  *  - direct_link :: boolean; when displaying the items in the feed, link to the <link> contents and not to our view of the <description> contents; omit for default of false
  *  
- *  - header_title :: string; blank for default ('News')
+ *  - header_title :: string; blank for default ('<a href="/news">News</a>')
  *  
  *  - hidden :: boolean; do not show feed in list of feeds on main page; omit for default of false
  *  
@@ -71,6 +71,6 @@ Config::set('ucsf_news', 'feeds', array(
  */
 Config::set('ucsf_news', 'alternate_feeds', array(
 				'facstaff'=>array('name'=>'UCSF Faculty/Staff News','url'=>'http://feeds.feedburner.com/UCSF_Faculty-Staff_News?format=xml','allowed_tags'=>array('b', 'i', 'p', 'a', 'em', 'strong')),
-				'ucsfevents'=>array('name'=>'UCSF Events','url'=>'http://feeds2.feedburner.com/ucsf/event-calendar','date_format'=>'l, F j, g:i A','header_title'=>'Events','hidden'=>true),
+				'ucsfevents'=>array('name'=>'UCSF Events','url'=>'http://feeds2.feedburner.com/ucsf/event-calendar','date_format'=>'l, F j, g:i A','header_title'=>'<a href="/events">Events</a>','hidden'=>true),
 				'pharmacy'=>array('name'=>'School of Pharmacy News','url'=>'http://pharmacy.ucsf.edu/news/20.xml'),
 				'library'=>array('name'=>'Library News','url'=>'http://www.library.ucsf.edu/news/all/feed')));

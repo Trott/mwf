@@ -4,7 +4,7 @@ require_once(dirname(dirname(dirname(__FILE__))).'/assets/config.php');
 echo HTML_Decorator::html_start()->render();
 echo Site_Decorator::head()->set_title(Config::get('global', 'title_text') . " | Library | Mobile Resources")->render();
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header("Library")
+echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
         ->render();
 ?>
 <form class="form-full form-padded" method="get" action="http://ucsf.worldcat.org/m/advancedsearch"> 

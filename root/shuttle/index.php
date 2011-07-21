@@ -13,7 +13,8 @@ echo Site_Decorator::ucsf_header('<a href="/shuttle">Shuttle</a>')
             <li><a href="list/color">Shuttles By Color</a></li>
             <li><a href="list/location">Shuttles By Location</a></li>
             <li><a href="http://campuslifeservices.ucsf.edu/transportation/shuttles/timetables/shuttlemap.pdf"><span class="external">System Map <span class="smallprint light">PDF</span></span></a></li>
-            <li class="menu-last"><a href="http://www.campuslifeservices.ucsf.edu/transportation/shuttles/timetables/pdf/ShuttleHolidaySchedule.pdf"><span class="external">Holiday Schedule <span class="smallprint light">PDF</span></span></a></li>
+            <li><a href="http://www.campuslifeservices.ucsf.edu/transportation/shuttles/timetables/pdf/ShuttleHolidaySchedule.pdf"><span class="external">Holiday Schedule <span class="smallprint light">PDF</span></span></a></li>
+            <li class="menu-last"><a href="http://campuslifeservices.ucsf.edu/transportation/feedback/"><span class="external">Transportation Feedback</span></a></li>
         </ol> 
     </div> 
         <a href="javascript:history.back()" id="button-top" class="button-full button-padded">Back</a> 

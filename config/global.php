@@ -56,7 +56,7 @@ Config::set('global', 'appicon_img',                Config::get('global', 'site_
 Config::set('global', 'appicon_img_precomposed',    Config::get('global', 'site_assets_url').'/img/ucsf-appicon-precomposed.png');
 Config::set('global', 'appicon_allow_disable_flag', true);
 Config::set('global', 'back_to_home_text',          'Back');
-Config::set('global', 'copyright_text',             'University of California &copy; 2010-'.date('Y').' UC Regents');
+Config::set('global', 'copyright_text',             'University of California &copy; ' . date('Y') . ' UC Regents');
 Config::set('global', 'header_home_button',         Config::get('global', 'site_assets_url').'/img/ucsf-logo.png');
 Config::set('global', 'header_home_text',           'Mobile');
 Config::set('global', 'header_home_button_alt',     'UCSF');

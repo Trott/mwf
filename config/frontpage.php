@@ -15,8 +15,9 @@
 require_once(dirname(dirname(__FILE__)).'/root/assets/lib/config.class.php');
 
 /**
- * full_site_url    URL of non-mobile site link on front page for mobile devices.
- * help_site_url    URL of the help site or FALSE if there is none.
+ * full_site_url        URL of non-mobile site link on front page for mobile devices.
+ * help_site_url        URL of the help site or FALSE if there is none.
+ * feedback_site_url    URL of the feedback site or FALSE if there is none
  *
  * @link index.php
  */
@@ -31,12 +32,11 @@ Config::set('frontpage', 'help_site_url', Config::get('global', 'help_site_url')
  * header_main_text
  */
 
-Config::set('frontpage', 'header_image_main', Config::get('global', 'site_assets_url').'/img/mwf-header-front.gif');
-Config::set('frontpage', 'header_image_main_alt', 'MWF');
-Config::set('frontpage', 'header_image_sub_alt', 'MWF');
-Config::set('frontpage', 'header_image_sub', Config::get('global', 'site_assets_url').'/img/mwf-header.gif');
-Config::set('frontpage', 'header_main_text', 'UCLA Mobile Web Framework');
-
+Config::set('frontpage', 'header_image_main', Config::get('global', 'site_assets_url').'/img/ucsf-logo.png');
+Config::set('frontpage', 'header_image_main_alt', 'UCSF');
+Config::set('frontpage', 'header_image_sub_alt', 'UCSF');
+Config::set('frontpage', 'header_image_sub', Config::get('global', 'site_assets_url').'/img/ucsf-logo.png');
+Config::set('frontpage', 'header_main_text', 'Mobile');
 
 /**
  * menu
@@ -66,30 +66,30 @@ Config::set('frontpage', 'header_main_text', 'UCLA Mobile Web Framework');
 Config::set('frontpage', 'menu',  
    array(
    'default'=>array(
-        array('name'=>'About',
-              'id'=>'about',
-              'url'=>'mwf/about.php')
-        ,array('name'=>'Collaboration',
-              'id'=>'showcase',
-              'url'=>'index.php?s=collaboration')
-        ,array('name'=>'License',
-              'id'=>'license',
-              'url'=>'mwf/license.php')
-        ,array('name'=>'Credits',
-              'id'=>'credits',
-              'url'=>'mwf/credits.php')
-        )
-    ,'collaboration'=>array(
-        array('name'=>'Home',
-              'url'=>'http://mwf.ucla.edu'),
-        array('name'=>'Repository',
-              'url'=>'https://github.com/ucla/mwf'),
-        array('name'=>'Documentation',
-              'url'=>'https://github.com/ucla/mwf/wiki'),
-        array('name'=>'Forums',
-              'url'=>'http://mwf.ucla.edu/forum'),
-        array('name'=>'Issue Tracker',
-              'url'=>'https://jira.ats.ucla.edu:8443/')
-        )
+        array('name'=>'Shuttle',
+              'id'=>'shuttle',
+              'url'=>'shuttle'),
+        array('name'=>'Directory',
+              'id'=>'directory',
+              'url'=>'directory'),
+        array('name'=>'Fitness',
+              'id'=>'fitness',
+              'url'=>'fitness'),
+        array('name'=>'Maps',
+              'id'=>'maps',
+              'url'=>'maps'),
+        array('name'=>'Library',
+              'id'=>'library',
+              'url'=>'library'),
+        array('name'=>'Events',
+              'id'=>'events',
+              'url'=>'events'),
+        array('name'=>'News',
+              'id'=>'news',
+              'url'=>'news'),
+        array('name'=>'Emergency',
+              'id'=>'emergency',
+              'url'=>'emergency')
+        ),
     )
 );

@@ -1,0 +1,90 @@
+/* ucsf-default-touch
+ *
+ *
+ *
+ */
+
+#header {
+    border-bottom: 0px solid #fff;
+}
+
+
+/********************************************************
+ * BUTTONS
+ *******************************************************/
+
+a#button-top {
+    background-color: #808080;
+}
+
+a#button-top:hover,
+a#button-top:active,
+a#button-top:focus{
+    background-color: #8d8580 !important;
+}
+
+a.button-full,
+div.button-full a {
+        background-color: #565759;
+}
+
+a.button-full:hover,
+a.button-full:focus,
+a.button-full:active,
+div.button-full a:hover,
+div.button-full a:focus,
+div.button-full a:active,
+a.button-full.button-light:hover,
+a.button-full.button-light:focus,
+a.button-full.button-light:active,
+div.button-full a.button-light:hover,
+div.button-full a.button-light:focus,
+div.button-full a.button-light:active {
+        background-color: white !important;
+}
+
+
+/********************************************************
+ * LISTS
+ *******************************************************/
+
+.front-page .menu-front li a {
+    padding: 1.2em 1em 1.2em 4em;
+}
+
+
+.menu-full li a {
+    padding: 1em;
+    background:url(img/ucsf-list-arrow.png) no-repeat 95% center; /* Controls menu items */
+}
+
+.menu-full li a:hover,
+.menu-full li a:focus,
+.menu-full li a:active {
+    background-color: rgba(234, 242, 250, 0.5);
+}
+
+.front-page #shuttle {
+	background: #fff url(img/ucsf-icon-shuttle.png) -1px 0 no-repeat;
+}
+.front-page #library {
+	background: #fff url(img/ucsf-icon-library.png) -1px 0 no-repeat;
+}
+.front-page #events {
+	background: #fff url(img/ucsf-icon-events.png) -1px 0 no-repeat;
+}
+.front-page #news {
+	background: #fff url(img/ucsf-icon-news.png) -1px 0 no-repeat;
+}
+.front-page #directory {
+	background: #fff url(img/ucsf-icon-directory.png) -1px 0 no-repeat;
+}
+.front-page #fitness {
+	background: #fff url(img/ucsf-icon-fitness.png) -1px 0 no-repeat;
+}
+.front-page #maps {
+	background: #fff url(img/ucsf-icon-maps.png) -1px 0 no-repeat;
+}
+.front-page #emergency {
+	background: #fff url(img/ucsf-icon-emergency.png) -1px 0 no-repeat;
+}

@@ -108,7 +108,7 @@ echo HTML_Decorator::body_start($main_menu ? array('class'=>'front-page') : arra
  */
 
 if($main_menu)
-    echo '<h1 id="header"><img src="'.Config::get('frontpage', 'header_image_main').'" alt="'.Config::get('frontpage', 'header_image_main_alt').'"><span>'.Config::get('frontpage', 'header_main_text').'</span></h1>';
+    echo '<h1 id="header"><a href="/"><img src="'.Config::get('frontpage', 'header_image_main').'" alt="'.Config::get('frontpage', 'header_image_main_alt').'"><span>'.Config::get('frontpage', 'header_main_text').'</span></a></h1>';
 else
     echo Site_Decorator::header()->set_title(ucwords(str_replace('_', ' ', $_GET['s'])))->render();
 
@@ -151,13 +151,7 @@ if(!$main_menu)
  * Footer
  */
 
-$footer = Site_Decorator::footer();
-
-if($full_site_url = Config::get('frontpage', 'full_site_url'))
-    $footer->set_full_site('Full Site', Config::get('frontpage', 'full_site_url'));
-
-if($help_site_url = Config::get('frontpage', 'help_site_url'))
-    $footer->set_help_site('Help', Config::get('frontpage', 'help_site_url'));
+$footer = Site_Decorator::ucsf_footer();
 
 echo $footer->render();
 

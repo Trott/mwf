@@ -1,0 +1,12 @@
+AddDefaultCharset UTF-8
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^public(.*)$ /ci/public$1 [L]
+#    RewriteRule ^shuttle/options /?s=shuttle [R,L]
+    RewriteRule ^shuttle/(.+)$ /ci/shuttle/$1 [L]
+    RewriteRule ^events /news/?feed=ucsfevents [R,L]
+    RewriteRule ^news/library /news/?feed=library [L]
+    RewriteRule ^directory(.*)$ /ci/directory$1 [L]
+    RewriteRule ^fitness(.*)$ /ci/fitness$1 [L]
+</IfModule>

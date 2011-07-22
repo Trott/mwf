@@ -23,11 +23,31 @@ class Ucsf_Footer_Site_Decorator extends Default_Footer_Site_Decorator
 	public function __construct()
     {          
         parent::__construct();
+        
         $this->show_powered_by(false);
+        
         if($full_site_url = Config::get('global', 'full_site_url'))
             $this->set_full_site('View Full Site', Config::get('frontpage', 'full_site_url'));
 
         if($help_site_url = Config::get('global', 'help_site_url'))
             $this->set_help_site('Feedback', Config::get('frontpage', 'help_site_url'));        
+    }
+    
+    public function render()
+    {
+        $library_ga_rollup = '';
+        if (strncasecmp($_SERVER['PHP_SELF'],"/library",8) == 0) {
+            $library_ga_rollup = <<<EOD
+<script type="text/javascript"> 
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+try {
+var pageTracker = _gat._getTracker("UA-552286-29");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+EOD;
+        }
+        echo parent::render() . $library_ga_rollup;
     }
 }

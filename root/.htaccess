@@ -3,7 +3,7 @@ AddDefaultCharset UTF-8
     RewriteEngine On
     RewriteBase /
     RewriteRule ^public(.*)$ /ci/public$1 [L]
-    RewriteRule ^shuttle/(.+)$ /ci/shuttle/$1 [L]
+    RewriteRule ^shuttle/(.+)$ /ci/shuttle/$1 [R,L]
     RewriteRule ^events /news/?feed=ucsfevents [R,L]
     RewriteRule ^news/library /news/?feed=library [L]
     RewriteRule ^directory(.*)$ /ci/directory$1 [L]

@@ -72,6 +72,6 @@ Config::set('ucsf_news', 'feeds', array(
 Config::set('ucsf_news', 'alternate_feeds', array(
 				'facstaff'=>array('name'=>'UCSF Faculty/Staff News','url'=>'http://feeds.feedburner.com/UCSF_Faculty-Staff_News?format=xml','allowed_tags'=>array('b', 'i', 'p', 'a', 'em', 'strong')),
 				'ucsfevents'=>array('name'=>'UCSF Events','url'=>'http://feeds2.feedburner.com/ucsf/event-calendar','date_format'=>'l, F j, g:i A','header_title'=>'<a href="/events">Events</a>','hidden'=>true),
-                'ucsfmhealth'=>array('name'=>'UCSF mHealth Group','url'=>'http://www.ucsfmhealth.org/home/?q=rss.xml','header_title'=>'UCSF mHealth Group','hidden'=>true),
+                'ucsfmhealth'=>array('name'=>'UCSF mHealth Group','url'=>'http://www.ucsfmhealth.org/home/?q=rss.xml','header_title'=>'mHealth Group','hidden'=>true),
 				'pharmacy'=>array('name'=>'School of Pharmacy News','url'=>'http://pharmacy.ucsf.edu/news/20.xml'),
 				'library'=>array('name'=>'Library News','url'=>'http://www.library.ucsf.edu/news/all/feed')));

@@ -1,4 +1,5 @@
 <?php
+define('MAGPIE_CACHE_DIR','/var/mobile/cache/magpierss');
 require_once(dirname(dirname(__FILE__)).'/assets/lib/decorator.class.php');
 require_once(dirname(dirname(__FILE__)).'/assets/config.php');
 require_once(dirname(dirname(dirname(__FILE__))).'/auxiliary/feed/magpierss/rss_fetch.inc');

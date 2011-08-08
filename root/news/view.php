@@ -1,9 +1,7 @@
 <?php
-define('MAGPIE_CACHE_DIR','/var/mobile/cache/magpierss');
 require_once(dirname(dirname(__FILE__)).'/assets/lib/decorator.class.php');
 require_once(dirname(dirname(__FILE__)).'/assets/config.php');
-require_once(dirname(dirname(dirname(__FILE__))).'/auxiliary/feed/magpierss/rss_fetch.inc');
-require_once(dirname(dirname(dirname(__FILE__))).'/auxiliary/feed/htmlpurifier/HTMLPurifier.includes.php');
+require_once(dirname(dirname(dirname(__FILE__))).'/auxiliary/feed/feed.class.php');
 $feeds = array_merge(Config::get('ucsf_news','feeds'),Config::get('ucsf_news','alternate_feeds'));
 $header_title = '<a href="/news">News</a>';
 $header_feed = '';
@@ -20,38 +18,26 @@ if (array_key_exists('feed',$_GET) && array_key_exists($_GET['feed'],$feeds)) {
 	$feed_code='';
 }
 
-$purifier = HTMLPurifier::getInstance();
+$rss = new Feed($feed['name'],$feed['url']);
 
-function handle_error($errno, $errstr) { if($errno == E_USER_WARNING){ throw new ErrorException($errstr, $errno); } }
-set_error_handler('handle_error');
-
-$fetch_error = false;
-define('MAGPIE_OUTPUT_ENCODING', 'UTF-8');
-try{ $rss = fetch_rss($feed['url']); }
-catch (ErrorException $e) { $fetch_error = true; }
-
-restore_error_handler();
-
-if($fetch_error === true)
-header('Location: index.php');
+if(! $rss)
+    header('Location: index.php');
 
 $id = false;
-for($i=0; $i < count($rss->items) && $id != $_GET['id']; $i++) {
-	$item = $rss->items[$i];
-	$id = md5($item['link']);
+$items = $rss->get_items();
+$item = false;
+for($i=0; $i < count($items) && $id != $_GET['id']; $i++) {
+	$item = $items[$i];
+	$id = md5($item->get_link());
 }
 
-$date_format = array_key_exists('date_format',$feed) ? $feed['date_format'] : 'F j, Y';
-$allowed_tags = array_key_exists('allowed_tags',$feed) ? $feed['allowed_tags'] : array('b', 'i', 'p', 'a', 'em', 'strong','img');
+if(! $item)
+    header('Location: index.php');
 
+$date_format = array_key_exists('date_format',$feed) ? $feed['date_format'] : '';
 date_default_timezone_set('America/Los_Angeles');
-if (array_key_exists('date_timestamp',$item)) {
-	$item['date'] = date($date_format, $item['date_timestamp']);
-} else if (array_key_exists('dc',$item) && array_key_exists('date',$item['dc'])) {
-	$item['date'] = date($date_format,parse_w3cdtf($item['dc']['date']));
-} else {
-	$item['date']='';
-}
+$date = empty($date_format) ? $item->get_date() : $item->get_date($date_format);
+$description = $item->get_description();
 
 echo HTML_Decorator::html_start()->render();
 echo Site_Decorator::head()->set_title(Config::get('global', 'title_text') . " | $header_title")->render();
@@ -60,7 +46,7 @@ echo Site_Decorator::ucsf_header($header_title)
         ->render();
 ?>
 
-<div class="content-full content-padded"><?php if($id != $_GET['id'] || !isset($item['description'])): ?>
+<div class="content-full content-padded"><?php if($id != $_GET['id'] || empty($description)): ?>
 <h1 class="content-first light">Error Encountered</h1>
 <div class="content-last">
 <p>An error was encountered while trying to fetch the requested news
@@ -68,16 +54,16 @@ entry. Please go back to the articles list and try again.</p>
 </div>
 
 <?php else: ?>
-<h1 class="content-first align-left light"><?php echo $item['title']; ?></h1>
+<h1 class="content-first align-left light"><?php echo $item->get_title(); ?></h1>
 <div class="content">
-<p><?php echo $item['date']; ?></p>
-<?php $allowed_tags ?> <?php echo $purifier->purify($item['description'], HTMLPurifier_Config::create(array('HTML.AllowedElements' => $allowed_tags))); ?>
+<p><?php echo $date; ?></p>
+<?php echo $description; ?>
 <p>
 
 </div>
 
 <div class="content-last">
-<p class="center"><a href="<?php echo $item['link']; ?>">View article on
+<p class="center"><a href="<?php echo $item->get_link(); ?>">View article on
 full site</a></p>
 </div>
 

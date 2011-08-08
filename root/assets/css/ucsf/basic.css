@@ -91,4 +91,9 @@ ul.bulleted li a {
 
 li a, a {
 	color:#38939b;
-} 
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}

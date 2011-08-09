@@ -41,16 +41,19 @@ echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header($header_title)
         ->render();
          ?> 
-        <?php foreach ($rss as $feed_code=>$feed):?>
+        <?php foreach ($rss as $feed_code=>$feed): ?>
         <?php $direct_link = array_key_exists('direct_link',$all_feeds[$feed_code]) ? $all_feeds[$feed_code]['direct_link'] : false; ?>
         <?php $date_format = array_key_exists('date_format',$all_feeds[$feed_code]) ? $all_feeds[$feed_code]['date_format'] : ''; ?>
-        <div class="menu-full menu-detailed menu-padded">
-             <h1 class="light menu-first"><?php echo htmlspecialchars($feeds[$feed_code]['name']); ?></h1>
-             <ol>
                 <?php $num_items_displayed = 0;
                       $class = $direct_link ? 'class="external"' : '';
                       $items=$feed->get_items();
-                for($i=0; $i < count($items) && $num_items_displayed<$item_limit; $i++):
+                if (count($items)==0):?>
+                    <div class="content-full content-padded"><h1 class="light content-first"><?php echo htmlspecialchars($feeds[$feed_code]['name']); ?></h1><div class="content-last">This news feed is currently unavailable. Please try again later.</div></div>
+          <?php else: ?>
+          <div class="menu-full menu-detailed menu-padded">
+             <h1 class="light menu-first"><?php echo htmlspecialchars($feeds[$feed_code]['name']); ?></h1>
+                    <ol>
+              <?php for($i=0; $i < count($items) && $num_items_displayed<$item_limit; $i++):
                     $item = $items[$i];
 
                     $description = $item->get_description();
@@ -68,12 +71,13 @@ echo Site_Decorator::ucsf_header($header_title)
                 ?>
                     <li <?php echo $class_text; ?>><a href="<?php echo $link; ?>"><span <?php echo $class;?>><?php echo $item->get_title(); ?></span><br/><span class="smallprint light"><?php echo $date; ?></span></a></li>
                         <?php $num_items_displayed++; ?>
-                <?php endfor; ?>
+                    <?php endfor; ?>
                 <?php if ($more):?>
                     <li class="menu-last"><a href="?feed=<?php echo urlencode($feed_code); ?>">More...</a></li>
                 <?php endif; ?>
-            </ol>
-        </div>
+                    </ol>
+                </div>
+              <?php  endif; ?>
         <?php endforeach; ?>
 
     <?php if ($feeds == Config::get('ucsf_news','feeds')): ?>

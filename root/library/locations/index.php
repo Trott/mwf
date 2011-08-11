@@ -11,7 +11,7 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 <h1 class="content-first">Library Hours and Locations</h1> 
  
 <p>For holidays and other exceptions call:
-<a href="tel:+14154762337">(415)&nbsp;476-2337</a></p> 
+<a href="tel:+14154762334">(415)&nbsp;476-2334</a></p> 
  
 <div> 
 <h4>Parnassus Library</h4> 

@@ -29,7 +29,7 @@ require_once(dirname(dirname(__FILE__)).'/root/assets/lib/config.class.php');
 Config::set('global', 'site_url', 'http://'.$_SERVER['SERVER_NAME']);
 Config::set('global', 'site_assets_url', Config::get('global','site_url').'/assets');
 Config::set('global', 'site_nonmobile_url', false);
-Config::set('global', 'full_site_url', 'http://www.ucsf.edu/');
+Config::set('global', 'full_site_url', '/about');
 Config::set('global', 'help_site_url', '/feedback');
 
 /**

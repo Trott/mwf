@@ -93,6 +93,10 @@ li a, a {
 	color:#38939b;
 }
 
+p a, p a:visited {
+        color: #38939b;
+}
+
 img {
 	max-width: 100%;
 	height: auto;

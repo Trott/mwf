@@ -42,10 +42,8 @@ echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>');
 
      <a href="javascript:history.back()" id="button-top" class="button-full button-padded">Back</a>
 
-    <div id="footer">
-        <p><?php echo Config::get('global','copyright_text'); ?><br />
-           <a href="http://www.ucsf.edu/">View Full Site</a> | <a href="/feedback">Feedback</a></p>
-    </div>
+<?php echo Site_Decorator::ucsf_footer()->render(); ?>
+
     
     <script>
     if(typeof $ != 'undefined')
@@ -70,5 +68,6 @@ echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>');
         window.setTimeout(filter, 500);
     }
     </script>
-  </body>
-</html>
+<?php echo HTML_Decorator::body_end()->render();
+echo HTML_Decorator::html_end()->render();
+?>

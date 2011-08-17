@@ -41,10 +41,10 @@ echo Site_Decorator::content_full()
                 HTML_Decorator::tag('a', 'UCSF Library &amp; Center for Knowledge Management', array('href' => 'http://library.ucsf.edu')) .
                 ' in collaboration with:' .
                 '<ul><li>Transportation Services (Shuttle)</li>' .
-                '<li>Information Technology Services (Directory)</li>' .
+                '<li>IT Services (Directory)</li>' .
                 '<li>Campus Life Services (Fitness)</li>' .
                 '<li>Campus Planning (Maps)</li>' .
-                '<li>University Relations (Events, News, image assets)</li></ul>')
+                '<li>University Relations (Events, News)</li></ul>')
         ->add_section('The UCSF Mobile website is powered by the ' .
                 HTML_Decorator::tag('a', 'UCLA Mobile Web Framework', array('href' => 'http://mwf.ucla.edu')) . '.')
         ->render();

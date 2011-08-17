@@ -49,8 +49,6 @@ pageTracker._trackPageview();
 EOD;
         }
         
-        //echo new Tag_HTML_Decorator('p', 'This site is a service of the <a href="http://library.ucsf.edu/">UCSF Library</a>.<br/>Powered by the <a href="http://mwf.ucla.edu" target="_blank">UCLA Mobile Web Framework</a>.',array('class'=>'powered-by'));
-
         $this->add_inner_tag('p', 'This site is a service of the <a href="http://library.ucsf.edu/">UCSF Library</a>.');
         
         echo parent::render();

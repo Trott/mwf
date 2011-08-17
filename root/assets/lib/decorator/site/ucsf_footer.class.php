@@ -27,7 +27,7 @@ class Ucsf_Footer_Site_Decorator extends Default_Footer_Site_Decorator
         $this->show_powered_by(false);
         
         if($full_site_url = Config::get('global', 'full_site_url'))
-            $this->set_full_site('View Full Site', Config::get('frontpage', 'full_site_url'));
+            $this->set_full_site('About', Config::get('frontpage', 'full_site_url'));
 
         if($help_site_url = Config::get('global', 'help_site_url'))
             $this->set_help_site('Feedback', Config::get('frontpage', 'help_site_url'));        

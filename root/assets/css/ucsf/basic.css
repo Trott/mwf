@@ -97,7 +97,7 @@ p a, p a:visited {
         color: #38939b;
 }
 
-img {
-	max-width: 100%;
-	height: auto;
+.content-full img {
+	max-width: 100%; 
+	height: auto; 
 }

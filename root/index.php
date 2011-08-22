@@ -97,7 +97,7 @@ else
  * Start page
  */
 
-echo HTML_Decorator::html_start()->render();
+echo HTML_Decorator::html_start(array('manifest'=>'manifest.appcache'))->render();
 
 echo Site_Decorator::head()->set_title(Config::get('global', 'title_text'))->render();
 

@@ -35,7 +35,8 @@ class Ucsf_Header_Site_Decorator extends Header_Site_Decorator
     {
         if(!$this->_home_text)
             $this->_home_text = Config::get('global', 'header_home_text');
-//  HTML_Decorator doesn't do short/void tags.  When it does, we can do something like this:
+//  HTML_Decorator inserts extraneous whitespace into tags  
+//  When this bug is fixed, we can do something like this:
 //        $image = HTML_Decorator::tag('img', false, $this->_image)->render();
 //        $home_text = HTML_Decorator::tag('span', $this->_home_text);
 //        $home_button = HTML_Decorator::tag('a', array($image,$home_text), array('href'=>Config::get('global', 'site_url')))->render();

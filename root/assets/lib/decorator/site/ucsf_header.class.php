@@ -15,25 +15,24 @@
  * @uses Tag_HTML_Decorator
  * @uses Config
  */
+require_once(dirname(__FILE__) . '/header.class.php');
 
-require_once(dirname(__FILE__).'/header.class.php');
+class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
 
-class Ucsf_Header_Site_Decorator extends Header_Site_Decorator
-{
-	private $_image = false;
-	private $_title = false;
-	private $_title_path = false;
+    private $_image = false;
+    private $_title = false;
+    private $_title_path = false;
     private $_home_text = false;
 
     public function __construct($section='') {
-    	$this->_title=($section);
-    	$this->_image=(array('src'=>Config::get('global', 'header_home_button'),
-                                  'alt'=>Config::get('global', 'header_home_button_alt')));
-    	parent::__construct();
+        $this->_title = ($section);
+        $this->_image = (array('src' => Config::get('global', 'header_home_button'),
+            'alt' => Config::get('global', 'header_home_button_alt')));
+        parent::__construct();
     }
-    public function render()
-    {
-        if(!$this->_home_text)
+
+    public function render() {
+        if (!$this->_home_text)
             $this->_home_text = Config::get('global', 'header_home_text');
 //  HTML_Decorator inserts extraneous whitespace into tags  
 //  When this bug is fixed, we can do something like this:
@@ -43,23 +42,24 @@ class Ucsf_Header_Site_Decorator extends Header_Site_Decorator
 //
 //  For now, we'll just do this horrible hack instead:
 //  <horrible_hack>
-        $home_button = '<a href="/"><img src="'.$this->_image['src'].'" alt="'.$this->_image['alt'].'" /><span>Mobile</span></a>';
+        $home_button = '<a href="/"><img src="' . $this->_image['src'] . '" alt="' . $this->_image['alt'] . '" /><span>Mobile</span></a>';
 //  </horrible_hack>
-        if($this->_title_path)
-            $title = $this->_title ? HTML_Decorator::tag('a', $this->_title, array('href'=>$this->_title_path)) : false;
+        if ($this->_title_path)
+            $title = $this->_title ? HTML_Decorator::tag('a', $this->_title, array('href' => $this->_title_path)) : false;
         else
             $title = $this->_title ? $this->_title : '';
 
         $separator = '';
         $title_span = '';
         if ($title) {
-        	$separator = HTML_Decorator::tag('img', false, array("src"=>"/assets/img/ucsf-header-separator.png", "alt"=>" | ", "class"=>"separator"))->render();
-        	$title_span = HTML_Decorator::tag('span',$title)->render();
+            $separator = HTML_Decorator::tag('img', false, array("src" => "/assets/img/ucsf-header-separator.png", "alt" => " | ", "class" => "separator"))->render();
+            $title_span = HTML_Decorator::tag('span', $title)->render();
         }
 
         $this->set_param('id', 'header');
-        $this->add_inner_front($home_button.$separator.$title_span);
-        
+        $this->add_inner_front($home_button . $separator . $title_span);
+
         return Tag_HTML_Decorator::render();
     }
+
 }

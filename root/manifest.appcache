@@ -9,16 +9,6 @@ CACHE:
 
 #internal HTML documents
 /
-/about
-/directory
-/emergency
-/events
-/feedback
-/fitness
-/library
-/maps
-/news
-/shuttle
 
 #style sheets
 /assets/css.php

@@ -9,6 +9,7 @@ CACHE:
 
 #internal HTML documents
 /
+/emergency
 
 #style sheets
 /assets/css.php

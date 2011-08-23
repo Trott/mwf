@@ -10,6 +10,7 @@ AddType text/cache-manifest .appcache
     RewriteRule ^news/library /news/?feed=library [L]
     RewriteRule ^directory(.*)$ /ci/directory$1 [L]
     RewriteRule ^fitness(.*)$ /ci/fitness$1 [L]
+    RewriteRule ^emergency$ /emergency.php [L]
 # For Blackboard Mobile Central links
     RewriteCond %{QUERY_STRING} ^s=shuttle$
     RewriteRule .* /shuttle? [R=permanent,L]

@@ -11,8 +11,7 @@
  * @uses Config
  * @link /assets/config.php
  */
-
-require_once(dirname(dirname(__FILE__)).'/root/assets/lib/config.class.php');
+require_once(dirname(dirname(__FILE__)) . '/root/assets/lib/config.class.php');
 
 /**
  * feeds
@@ -39,8 +38,8 @@ require_once(dirname(dirname(__FILE__)).'/root/assets/lib/config.class.php');
  * @link /news/view.php
  */
 Config::set('ucsf_news', 'feeds', array(
-				'ucsfnews'=>array('name'=>'UCSF News','url'=>'http://feeds.feedburner.com/UCSF_News', 'allowed_tags'=>array('b', 'i', 'p', 'a', 'em', 'strong')),
-				'mediacoverage'=>array('name'=>'Media Coverage','url'=>'http://feeds.feedburner.com/UCSF_Media_Coverage','allowed_tags'=>array('b', 'i', 'p', 'a', 'em', 'strong'),'direct_link'=>true)));
+    'ucsfnews' => array('name' => 'UCSF News', 'url' => 'http://feeds.feedburner.com/UCSF_News', 'allowed_tags' => array('b', 'i', 'p', 'a', 'em', 'strong')),
+    'mediacoverage' => array('name' => 'Media Coverage', 'url' => 'http://feeds.feedburner.com/UCSF_Media_Coverage', 'allowed_tags' => array('b', 'i', 'p', 'a', 'em', 'strong'), 'direct_link' => true)));
 
 
 /**
@@ -70,8 +69,8 @@ Config::set('ucsf_news', 'feeds', array(
  * @link news/view.php
  */
 Config::set('ucsf_news', 'alternate_feeds', array(
-				'facstaff'=>array('name'=>'UCSF Faculty/Staff News','url'=>'http://feeds.feedburner.com/UCSF_Faculty-Staff_News?format=xml','allowed_tags'=>array('b', 'i', 'p', 'a', 'em', 'strong')),
-				'ucsfevents'=>array('name'=>'UCSF Events','url'=>'http://feeds2.feedburner.com/ucsf/event-calendar','date_format'=>'l, F j, g:i A','header_title'=>'<a href="/events">Events</a>','hidden'=>true),
-                'ucsfmhealth'=>array('name'=>'UCSF mHealth Group','url'=>'http://www.ucsfmhealth.org/home/?q=rss.xml','header_title'=>'mHealth Group','hidden'=>true),
-				'pharmacy'=>array('name'=>'School of Pharmacy News','url'=>'http://pharmacy.ucsf.edu/news/20.xml'),
-				'library'=>array('name'=>'Library News','url'=>'http://www.library.ucsf.edu/news/all/feed')));
+    'facstaff' => array('name' => 'UCSF Faculty/Staff News', 'url' => 'http://feeds.feedburner.com/UCSF_Faculty-Staff_News?format=xml', 'allowed_tags' => array('b', 'i', 'p', 'a', 'em', 'strong')),
+    'ucsfevents' => array('name' => 'UCSF Events', 'url' => 'http://feeds2.feedburner.com/ucsf/event-calendar', 'date_format' => 'l, F j, g:i A', 'header_title' => '<a href="/events">Events</a>', 'hidden' => true),
+    'insideguide' => array('name' => 'Student Inside Guide', 'url' => 'http://insideguide.ucsf.edu/rss.xml', 'header_title' => 'Inside Guide', 'hidden' => true),
+    'pharmacy' => array('name' => 'School of Pharmacy News', 'url' => 'http://pharmacy.ucsf.edu/news/20.xml'),
+    'library' => array('name' => 'Library News', 'url' => 'http://www.library.ucsf.edu/news/all/feed')));

@@ -8,6 +8,7 @@ AddType text/cache-manifest .appcache
     RewriteRule ^shuttle/(.+)$ /ci/shuttle/$1 [L]
     RewriteRule ^events /news/?feed=ucsfevents [R,L]
     RewriteRule ^news/library /news/?feed=library [L]
+    RewriteRule ^news/insideguide /news/?feed=insideguide [L]
     RewriteRule ^directory(.*)$ /ci/directory$1 [L]
     RewriteRule ^fitness(.*)$ /ci/fitness$1 [L]
     RewriteRule ^emergency$ /emergency.php [L]

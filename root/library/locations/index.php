@@ -19,10 +19,10 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
   San Francisco, CA 94143-0840<br /> 
   <a href="/maps/map.php?loc=Kalmanovitz+Library">Map</a><br/> 
 <br/> 
-Mon - Thurs:    7:45 am - 8:00 pm    <br/> 
-Fri:    7:45 am - 7:00 pm    <br/> 
+Mon - Thurs:    7:45 am - 10:00 pm    <br/> 
+Fri:    7:45 am - 8:00 pm    <br/> 
 Sat:    CLOSED    <br/> 
-Sun:    12:00 noon - 8:00 pm
+Sun:    12:00 noon - 10:00 pm
 </div> 
 </div> 
  

@@ -1,6 +1,6 @@
 <?php
 require_once(dirname(__FILE__).'/../assets/config.php');
-require_once(dirname(__FILE__).'/../assets/lib/user_agent.class.php');
+require_once(dirname(__FILE__).'/../assets/lib/classification.class.php');
 require_once(dirname(__FILE__).'/../assets/lib/decorator.class.php');
 require_once(dirname(__FILE__).'/location/locations.class.php');
 $locations = new Locations(Config::get('global','site_url').'/maps/ucsf_map_coordinates.xml');
@@ -30,7 +30,7 @@ echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>');
              if(!$search_results)			 	
              if(count($locations) == 0)
                  echo '<li><a><em>No results</em></a></li>';
-			 elseif(User_Agent::is_webkit())
+			 elseif(Classification::is_full())
           		echo '<li><a href="map.php">All Locations</a></li>';
              foreach($locations as $location)
                 echo '<li><a href="map.php?loc='.urlencode($location['name']).'">'.$location['name'].'</a></li>';

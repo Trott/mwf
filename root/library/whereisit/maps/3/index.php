@@ -17,12 +17,11 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 
 <div>
 <span class="smallprint"> 
-Service Desk: A<br/> 
-Copy Services/Cashier: H<br/> 
+Service Desk/Reserves: A<br/> 
+Copy Services/Cashier: B<br/> 
 Current Journals: C<br/> 
-Reserves<br/> 
-Hearst Reading Room<br/> 
-Group Study Rooms<br/> 
+Hearst Reading Room: F<br/> 
+Group Study Rooms: 316-325<br/> 
 </span>
 </div>
 </div>

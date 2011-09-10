@@ -11,9 +11,9 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 <ol>
 <li><a href="1">Floor 1<br/><span class="smallprint">Conference Rooms<br/>Administration<br/>Bound Journals</span></a></li>
 <li><a href="2">Floor 2<br/><span class="smallprint">Technology Commons<br/>Learning Technologies<br/>Teaching &amp; Learning Center<br/>Conference Room</span></a></li>
-<li><a href="3">Floor 3<br/><span class="smallprint">Service Desk<br/>Copy Services/Cashier<br/>Current Journals<br/>Reserves<br/>Hearst Reading Room<br/>Group Study Rooms</span></a></li>
+<li><a href="3">Floor 3<br/><span class="smallprint">Service Desk/Reserves<br/>Copy Services/Cashier<br/>Current Journals<br/>Hearst Reading Room<br/>Group Study Rooms</span></a></li>
 <li><a href="4">Floor 4<br/><span class="smallprint">Books, Q-Z<br/>Group Study Rooms</span></a></li>
-<li class="menu-last"><a href="5">Floor 5<br/><span class="smallprint">Books, A-P<br/>Archives<br/>Lange Reading Room<br/>East Asian Room study space (UCSF students only)</span></a></li>
+<li class="menu-last"><a href="5">Floor 5<br/><span class="smallprint">Books, A-P<br/>Archives<br/>Lange Room<br/>UCSF Quiet Study</span></a></li>
 </ol>
 </div>
 <a href="javascript:history.back()" id="button-top" class="button-full button-padded">Back</a>

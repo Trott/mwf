@@ -18,7 +18,7 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 <div>
 <span class="smallprint"> 
 Books, Q-Z: A, B<br/> 
-Group Study Rooms
+Group Study Rooms: 417, 418, 422, 423, 440, 441
 </span>
 </div>
 </div>

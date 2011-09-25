@@ -36,7 +36,7 @@ if (count($rss) == 1) {
 date_default_timezone_set('America/Los_Angeles');
 
 echo HTML_Decorator::html_start()->render();
-echo Site_Decorator::head()->set_title(Config::get('global', 'title_text') . " | $header_title")->render();
+echo Site_Decorator::head()->set_title(Config::get('global', 'title_text') . " | " . strip_tags($header_title))->render();
 echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header($header_title)
         ->render();

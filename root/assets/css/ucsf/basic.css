@@ -89,7 +89,7 @@ ul.bulleted li a {
 	background: url(img/ucsf-external-link.png) center right no-repeat;
 }
 
-li a, p a, a:visited {
+li a, p a, a, a:visited {
 	color:#38939b;
 }
 

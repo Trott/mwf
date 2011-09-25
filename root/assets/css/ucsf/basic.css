@@ -12,6 +12,7 @@
 body {
     background-color: #88bbbb;
     font-family: Helvetica, Verdana, Arial, sans-serif;
+    line-height: normal;
 }
 
 body.front-page h1#header {

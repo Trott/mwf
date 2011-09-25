@@ -26,6 +26,7 @@
 require_once(dirname(dirname(__FILE__)).'/assets/lib/decorator.class.php');
 require_once(dirname(dirname(__FILE__)).'/assets/lib/classification.class.php');
 require_once(dirname(dirname(__FILE__)).'/assets/lib/user_agent.class.php');
+require_once(dirname(dirname(__FILE__)).'/assets/lib/browser.class.php');
 
 function label($text)
 {
@@ -95,11 +96,19 @@ echo Site_Decorator::content_full()
             ->add_section(label('mwf.userAgent.getOSVersion()').js2text('mwf.userAgent.getOSVersion'))
             ->add_section(label('mwf.userAgent.getBrowser()').js2text('mwf.userAgent.getBrowser'))
             ->add_section(label('mwf.userAgent.getBrowserEngine()').js2text('mwf.userAgent.getBrowserEngine'))
+            ->add_section(label('mwf.userAgent.getBrowserEngineVersion()').js2text('mwf.userAgent.getBrowserEngineVersion'))
             ->add_subheader('PHP User Agent')
             ->add_section(label('User_Agent::get_os()').text2text(User_Agent::get_os()))
             ->add_section(label('User_Agent::get_os_version()').text2text(User_Agent::get_os_version()))
             ->add_section(label('User_Agent::get_browser()').text2text(User_Agent::get_browser()))
             ->add_section(label('User_Agent::get_browser_engine()').text2text(User_Agent::get_browser_engine()))
+            ->add_section(label('User_Agent::get_browser_engine_version()').text2text(User_Agent::get_browser_engine_version()))
+            ->add_subheader('JS Browser')
+            ->add_section(label('mwf.browser.getHeight()').js2text('mwf.browser.getHeight'))
+            ->add_section(label('mwf.browser.getWidth()').js2text('mwf.browser.getWidth'))
+            ->add_subheader('PHP User Browser')
+            ->add_section(label('Browser::get_height()').text2text(Browser::get_height()))
+            ->add_section(label('Browser::get_width()').text2text(Browser::get_width()))
             ->render();
 
 echo Site_Decorator::button_full()

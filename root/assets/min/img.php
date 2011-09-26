@@ -21,7 +21,6 @@
 /**
  * Require necessary libraries. 
  */
-include_once(dirname(dirname(__FILE__)).'/lib/device.class.php');
 include_once(dirname(dirname(__FILE__)).'/lib/browser.class.php');
 include_once(dirname(dirname(__FILE__)).'/lib/local_image.class.php');
 

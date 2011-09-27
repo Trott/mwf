@@ -73,7 +73,7 @@ map.setMapTypeId(mapTypeId);
             );
   <?php endforeach;
     else:
-        $loc = urldecode($_GET['loc']);
+        $loc = $_GET['loc'];
         if ($location = $locations->find($loc)):?>
             google.maps.event.addListener(new google.maps.Marker({position: new google.maps.LatLng(<?php echo $location['lat']; ?>, <?php echo $location['lon']; ?>), map: map, title:"<?php echo htmlspecialchars($location['name']); ?>" }), 
                 'click', 

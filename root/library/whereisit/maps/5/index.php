@@ -19,8 +19,8 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 <span class="smallprint"> 
 Books, A-P: A<br/> 
 Archives: 527<br/> 
-Lange Reading Room: 522<br/> 
-East Asian Room study space (UCSF students only): 506</span>
+Lange Room: 522<br/> 
+UCSF Quiet Study: 506</span>
 </div>
 </div>
 <a href="javascript:history.back()" id="button-top" class="button-full button-padded">Back</a>

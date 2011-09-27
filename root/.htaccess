@@ -1,5 +1,9 @@
 AddDefaultCharset UTF-8
 AddType text/cache-manifest .appcache
+<Files *.appcache>
+    ExpiresActive On
+    ExpiresDefault "access"
+</Files>
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /

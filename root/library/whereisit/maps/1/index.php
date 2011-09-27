@@ -19,7 +19,7 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 <span class="smallprint"> 
 Conference Rooms: 119, 128-129<br/> 
 Administration: 128<br/> 
-Bound Journals: A, B, C</span>
+Bound Journals: A</span>
 </div>
 </div>
 <a href="javascript:history.back()" id="button-top" class="button-full button-padded">Back</a>

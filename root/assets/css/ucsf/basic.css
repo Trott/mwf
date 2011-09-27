@@ -67,6 +67,10 @@ span.smallprint.light {
 	color: #999999;
 }
 
+ul {
+    margin: .5em 0 1em 0;
+}
+
 ul li {
 	font-weight: normal;
 	list-style-type: none;
@@ -74,6 +78,7 @@ ul li {
 
 ul.bulleted li {
 	list-style-type: disc;
+        margin-left: 2em;
 }
 
 ul.bulleted li a {

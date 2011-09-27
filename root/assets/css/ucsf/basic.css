@@ -12,6 +12,7 @@
 body {
     background-color: #88bbbb;
     font-family: Helvetica, Verdana, Arial, sans-serif;
+    line-height: normal;
 }
 
 body.front-page h1#header {
@@ -89,15 +90,17 @@ ul.bulleted li a {
 	background: url(img/ucsf-external-link.png) center right no-repeat;
 }
 
-li a, a {
+li a, p a, a, a:visited {
 	color:#38939b;
-}
-
-p a, p a:visited {
-        color: #38939b;
 }
 
 .content-full img {
 	max-width: 100%; 
 	height: auto; 
+}
+
+.content-elements > h1, .content-full > h1,
+.content-elements > h4, .content-full > h4 {
+    padding: .4em;
+    text-align: center;
 }

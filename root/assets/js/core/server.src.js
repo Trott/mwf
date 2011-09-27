@@ -10,7 +10,7 @@
  * @author ebollens
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20110906
+ * @version 20110921
  *
  * @requires mwf
  * @requires mwf.capability
@@ -28,18 +28,19 @@
     if(!mwf.capability.cookie())
         return;
     
+    var i, cookies = document.cookie.split(';');
+    
     /**
      * Anonymous routine for the classification cookie that will return 
      * true if it needs a page reload to pass the cookie to server.
      */
     var reload = (function(){
 
+        var classification = mwf.classification;
+
         /**
          * Exit routine early with false if matching classification cookie.
          */
-        var i, 
-            cookies = document.cookie.split(';'),
-            classification = mwf.classification;
         for(i=0; i < cookies.length; i++){
             x = cookies[i].substr(0,cookies[i].indexOf("="));
             x = x.replace(/^\s+|\s+$/g,"");
@@ -65,7 +66,11 @@
         }
         cookie += '};path=/';
         document.cookie = cookie;
-        return true;
+        
+        /**
+         * Return true for reload request if cookie has been written.
+         */
+        return document.cookie.indexOf(classification.cookieName) != -1;
 
     })();
             
@@ -74,13 +79,12 @@
      * true if it needs a page reload to pass the cookie to server.
      */
      reload = (function(){
+         
+        var userAgent = mwf.userAgent;
 
         /**
          * Exit routine early with false if matching classification cookie.
          */
-        var i, 
-            cookies = document.cookie.split(';'), 
-            userAgent = mwf.userAgent;
         for(i=0; i < cookies.length; i++){
             x = cookies[i].substr(0,cookies[i].indexOf("="));
             x = x.replace(/^\s+|\s+$/g,"");
@@ -102,12 +106,47 @@
             cookie += ',"b":"'+t+'"';
         if(t = userAgent.getBrowserEngine())
             cookie += ',"be":"'+t+'"';
+        if(t = userAgent.getBrowserEngineVersion())
+            cookie += ',"bev":"'+t+'"';
         cookie += '};path=/';
         document.cookie = cookie;
-        return true;
+        
+        /**
+         * Return true for reload request if cookie has been written.
+         */
+        return document.cookie.indexOf(userAgent.cookieName) != -1;
+
+    })() || reload;
+            
+    /**
+     * Anonymous routine for the browser dimensions cookie that will return 
+     * true if it needs a page reload to pass the cookie to server.
+     */
+     reload = (function(){
+
+        /**
+         * Exit routine early with false if matching classification cookie.
+         */
+        var browser = mwf.browser;
+        for(i=0; i < cookies.length; i++){
+            x = cookies[i].substr(0,cookies[i].indexOf("="));
+            x = x.replace(/^\s+|\s+$/g,"");
+            if(x == browser.cookieName)
+                return false;
+        }
+
+        document.cookie = browser.cookieName+'={"h":"'+browser.getHeight()+'","w":"'+browser.getWidth()+'"};path=/';
+        
+        /**
+         * Return true for reload request if cookie has been written.
+         */
+        return document.cookie.indexOf(browser.cookieName) != -1;
 
     })() || reload;
         
+    /**
+     * Reload the page if needed.
+     */
     if(reload)
         document.location.reload();
      

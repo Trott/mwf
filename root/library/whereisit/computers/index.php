@@ -35,7 +35,7 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 <div> 
 <h4>Mission Bay Library, CC151</h4> 
 <ul class="bulleted"> 
-<li>Macs only</li> 
+<li>Macs only, UCSF student ID access whenever the Rutter Center is open</li> 
 <li>1675 Owens Street, Rutter Community Center</li> 
 <li><a href="tel:+14154764309">(415) 476-4309</a></li> 
 </ul> 

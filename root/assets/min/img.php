@@ -19,6 +19,14 @@
  */
 
 /**
+ * If no img URL is provided, exit.
+ */
+if (! isset($_GET['img'])) {
+    error_log('MWF Notice: Required URL parameter "img" not provided to ' . $_SERVER['PHP_SELF'], 0);
+    exit(1);
+}
+    
+/**
  * Require necessary libraries. 
  */
 include_once(dirname(dirname(__FILE__)).'/lib/browser.class.php');

@@ -68,12 +68,27 @@ span.smallprint.light {
 }
 
 ul {
-    margin: .5em 0 1em 0;
+    margin:.5em 0 1em 0;
+}
+
+ul.ucsf-directory {
+    margin:0; padding:0
 }
 
 ul li {
 	font-weight: normal;
 	list-style-type: none;
+}
+
+ul.ucsf-directory li {
+    padding:1em;
+    margin:0;
+    border: 1px #DDD;
+    border-style: solid none none none;
+}
+
+ul.ucsf-directory li:first-child {
+    border-style: none none none none;
 }
 
 ul.bulleted li {

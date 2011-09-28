@@ -70,7 +70,8 @@ Config::set('ucsf_news', 'feeds', array(
  */
 Config::set('ucsf_news', 'alternate_feeds', array(
     'facstaff' => array('name' => 'UCSF Faculty/Staff News', 'url' => 'http://feeds.feedburner.com/UCSF_Faculty-Staff_News?format=xml', 'allowed_tags' => array('b', 'i', 'p', 'a', 'em', 'strong')),
-    'ucsfevents' => array('name' => 'UCSF Events', 'url' => 'http://feeds2.feedburner.com/ucsf/event-calendar', 'date_format' => 'l, F j, g:i A', 'header_title' => '<a href="/events">Events</a>', 'hidden' => true),
     'insideguide' => array('name' => 'Events from Inside Guide', 'url' => 'http://insideguide.ucsf.edu/rss.xml', 'header_title' => 'Inside Guide', 'hidden' => true, 'date_format' => ' '),
+    'ucsfevents' => array('name' => 'UCSF Events', 'url' => 'http://feeds2.feedburner.com/ucsf/event-calendar', 'date_format' => 'l, F j, g:i A', 'header_title' => 'Events', 'hidden' => true),
+    'academicevents' => array('name' => 'Featured Academic Events', 'url' => 'http://25livepub.collegenet.com/calendars/featured-academic-events.rss', 'header_title' => 'Academic Events', 'hidden' => true),
     'pharmacy' => array('name' => 'School of Pharmacy News', 'url' => 'http://pharmacy.ucsf.edu/news/20.xml'),
     'library' => array('name' => 'Library News', 'url' => 'http://www.library.ucsf.edu/news/all/feed')));

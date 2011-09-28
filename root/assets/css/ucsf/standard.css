@@ -70,8 +70,8 @@ div.button-full a.button-light:active {
 .front-page #library {
 	background: #fff url(img/ucsf-icon-library.png) -1px 0 no-repeat;
 }
-.front-page #events {
-	background: #fff url(img/ucsf-icon-events.png) -1px 0 no-repeat;
+.front-page #calendars {
+	background: #fff url(img/ucsf-icon-calendars.png) -1px 0 no-repeat;
 }
 .front-page #news {
 	background: #fff url(img/ucsf-icon-news.png) -1px 0 no-repeat;

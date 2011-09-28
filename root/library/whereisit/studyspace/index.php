@@ -12,7 +12,7 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 
 <div>
 <h4>Parnassus</h4>
-<h4><small>Parnassus Group Study Spaces</small></h4>
+<h4><small>Group Study Spaces</small></h4>
 <ul class="bulleted">
 <li>Available to UCSF students for group study during library hours</li>
 <li>Include WiFi, electrical outlet, whiteboard, X-ray light box</li>

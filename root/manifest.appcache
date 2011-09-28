@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#version 25Sep2011.3
+#version 28Sep2011
 
 CACHE:
 
@@ -27,7 +27,7 @@ CACHE:
 /assets/img/ucsf-header-bg.png
 /assets/img/ucsf-icon-directory.png
 /assets/img/ucsf-icon-emergency.png
-/assets/img/ucsf-icon-events.png
+/assets/img/ucsf-icon-calendars.png
 /assets/img/ucsf-icon-fitness.png
 /assets/img/ucsf-icon-library.png
 /assets/img/ucsf-icon-maps.png

@@ -30,8 +30,7 @@ if (! isset($_GET['img'])) {
  * Require necessary libraries. 
  */
 include_once(dirname(dirname(__FILE__)).'/lib/screen.class.php');
-include_once(dirname(dirname(__FILE__)).'/lib/image/remote_image.class.php');
-
+include_once(dirname(dirname(__FILE__)).'/lib/image.class.php');
 /**
  * @var int maximum width the image should be as defined first by the browser
  *          width and then more specifically by URI parameters.

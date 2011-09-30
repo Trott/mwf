@@ -42,7 +42,6 @@ class Remote_Image extends Image {
                 /* TODO: need to urlencode() $image_path but only directory and file names */
                 file_put_contents($path, file_get_contents($image_path, FALSE, NULL, -1, 9999999));
             } else {
-                error_log('using curl');
                 $ch = curl_init($image_path);
                 $fh = fopen($path, 'wb');
                 curl_setopt($ch, CURLOPT_FILE, $fh);

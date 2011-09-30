@@ -14,12 +14,12 @@
  * @version 20110921
  *
  * @uses Device
- * @uses Browser
+ * @uses Screen
  * @uses Local_Image
  */
 
 /**
- * If no img URL is provided, exit.
+ * If no img is provided, exit.
  */
 if (! isset($_GET['img'])) {
     error_log('MWF Notice: Required URL parameter "img" not provided to ' . $_SERVER['PHP_SELF'], 0);
@@ -29,20 +29,20 @@ if (! isset($_GET['img'])) {
 /**
  * Require necessary libraries. 
  */
-include_once(dirname(dirname(__FILE__)).'/lib/browser.class.php');
-include_once(dirname(dirname(__FILE__)).'/lib/local_image.class.php');
+include_once(dirname(dirname(__FILE__)).'/lib/screen.class.php');
+include_once(dirname(dirname(__FILE__)).'/lib/image/remote_image.class.php');
 
 /**
  * @var int maximum width the image should be as defined first by the browser
  *          width and then more specifically by URI parameters.
  */
-$max_width = Browser::get_width();
+$max_width = Screen::get_width() * Screen::get_pixel_ratio();
 
 /**
  * @var int maximum height the image should be as defined first by the browser
  *          width and then more specifically by URI parameters.
  */
-$max_height = Browser::get_height();
+$max_height = Screen::get_height() * Screen::get_pixel_ratio();
 
 /**
  * @var bool true if the image should be compressed based on width.
@@ -91,7 +91,7 @@ if(isset($_GET['browser_height_percent']) || isset($_GET['browser_height_force']
 /**
  * @var Local_Image work with a local version of the image specified in URI.
  */
-$image = new Local_Image($_GET['img']);
+$image = Image::factory($_GET['img']);
 
 /** GIF, JPG, and JPEG are within XHTML MP 1.0 specification. */
 $image->set_allowed_extension('gif');

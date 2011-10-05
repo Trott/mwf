@@ -78,7 +78,7 @@
      * Anonymous routine for the classification cookie that will return 
      * true if it needs a page reload to pass the cookie to server.
      */
-     reload = (function(){
+    reload = (function(){
          
         var userAgent = mwf.userAgent;
 
@@ -119,20 +119,19 @@
     })() || reload;
             
     /**
-     * Anonymous routine for the screen dimensions cookie that will return 
-     * true if it needs a page reload to pass the cookie to server.
+     * Check for the screen dimensions cookie and reload if necessary.
      */
-     reload = (function(){
-
+    var checkScreenDimensionsCookie = function() {
         var screen = mwf.screen,
-            cookieContents = screen.cookieName+'={"h":"'+screen.getHeight()+'","w":"'+screen.getWidth()+'","r":"'+screen.getPixelRatio()+'"}';
-
+        cookieContents = screen.cookieName+'={"h":"'+screen.getHeight()+'","w":"'+screen.getWidth()+'","r":"'+screen.getPixelRatio()+'"}';
         /**
-         * Exit routine early with false if matching classification cookie.
-         */
+            * Exit routine early with false if matching classification cookie.
+            */
         for(i=0; i < cookies.length; i++){
-            if(cookies[i].replace(/^\s+|\s+$/g,"") == cookieContents)
-                return false;
+            if(cookies[i].replace(/^\s+|\s+$/g,"") == cookieContents)                       
+                if(reload)
+                    document.location.reload();
+            return false;
         }
         
         document.cookie = cookieContents+';path=/';
@@ -140,14 +139,17 @@
         /**
          * Return true for reload request if cookie has been written.
          */
-        return document.cookie.indexOf(screen.cookieName) != -1;
+        if ((document.cookie.indexOf(screen.cookieName) != -1) || reload)
+            document.location.reload();
+    }
 
-    })() || reload;
-        
-    /**
-     * Reload the page if needed.
-     */
-    if(reload)
-        document.location.reload();
-     
+    var version = mwf.userAgent.getOSVersion();
+    // Android 2.2 and 2.3.X will report height incorrectly without the setTimeout()
+    if ((mwf.userAgent.getOS()=='android') &&
+        ((version.indexOf('2.2')==0) || (version.indexOf('2.3')==0))) {
+        setTimeout(checkScreenDimensionsCookie,0);
+    } else {
+        checkScreenDimensionsCookie();
+    }
+
 })();

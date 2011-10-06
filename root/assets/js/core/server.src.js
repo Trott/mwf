@@ -174,7 +174,7 @@ mwf.server=new function(){
 (function(){
     var version = mwf.userAgent.getOSVersion();
     if(mwf.userAgent.getOS() == 'android' && (version.indexOf('2.2') == 0 || version.indexOf('2.3') == 0)) {
-        setTimeout(mwf.server.init, 0);
+        setTimeout(mwf.server.init, 2000);
     } else {
         mwf.server.init();
     }

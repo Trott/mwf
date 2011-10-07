@@ -131,15 +131,17 @@
          * about screen dimensions, so don't bother getting that information
          * from the browser
          */
-        var height=480;
-        var width=320;
+        var height = 480;
+        var width = 320;
+        var pixelRatio = 1;
         var version = mwf.userAgent.getOSVersion();
         if(mwf.userAgent.getOS() != 'android' || (version.indexOf('2.2') != 0 && version.indexOf('2.3') != 0)) {
             height = screen.getHeight();
             width = screen.getWidth();
+            pixelRatio = screen.getPixelRatio();
         }
         
-        cookieContents = screen.cookieName+'={"h":"'+height+'","w":"'+width+'","r":"'+screen.getPixelRatio()+'"}';
+        cookieContents = screen.cookieName+'={"h":"'+height+'","w":"'+width+'","r":"'+pixelRatio+'"}';
 
         /**
          * Exit routine early with false if matching classification cookie.

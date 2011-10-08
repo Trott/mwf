@@ -2,7 +2,7 @@
 require_once(dirname(__FILE__).'/../assets/config.php');
 require_once(dirname(__FILE__).'/../assets/lib/classification.class.php');
 require_once(dirname(__FILE__).'/../assets/lib/decorator.class.php');
-require_once(dirname(__FILE__).'/location/locations.class.php');
+require_once(dirname(dirname(dirname(__FILE__))).'/auxiliary/location/locations.class.php');
 $locations = new Locations(Config::get('global','site_url').'/maps/ucsf_map_coordinates.xml');
 $search_results = false;
 

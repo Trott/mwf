@@ -43,7 +43,7 @@ h1#header {
 
 h1#header span {
 	font-size: 15px;
-	font-family: Arial Regular, Arial, Helvetica, Verdana, sans-serif;
+	font-family: "Arial Regular", Arial, Helvetica, Verdana, sans-serif;
 	padding: 0;
 }
 
@@ -126,6 +126,5 @@ li a, p a, a, a:visited {
 }
 
 .menu-full li a {
-     background:url(img/ucsf-list-arrow.png) no-repeat 98% center; /* Controls menu items
- */
+     background:url(img/ucsf-list-arrow.png) no-repeat 98%;
 }

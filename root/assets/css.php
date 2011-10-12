@@ -38,6 +38,10 @@ require_once(dirname(__FILE__).'/lib/cssmin.class.php');
 require_once(dirname(__FILE__).'/lib/path.class.php');
 require_once(dirname(__FILE__).'/lib/path_validator.class.php');
 
+?>/** Mobile Web Framework | http://mwf.ucla.edu */
+
+<?php
+
 /**
  * Get custom CSS classes from {'css':'custom'} config variable.
  *

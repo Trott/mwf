@@ -41,6 +41,10 @@ require_once(dirname(__FILE__).'/lib/path_validator.class.php');
 include_once(dirname(__FILE__).'/lib/user_agent.class.php');
 $ext = '.js';
 
+?>/** Mobile Web Framework | http://mwf.ucla.edu */
+
+<?php
+
 /**
  * Core Javascript libraries always included.
  */

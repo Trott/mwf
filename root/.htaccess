@@ -1,5 +1,6 @@
 AddDefaultCharset UTF-8
 AddType text/cache-manifest .appcache
+AddOutputFilterByType DEFLATE text/html text/plain text/xml
 <Files *.appcache>
     ExpiresActive On
     ExpiresDefault "access"

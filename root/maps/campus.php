@@ -28,7 +28,7 @@ echo HTML_Decorator::html_start()->render();
 echo Site_Decorator::head()
     ->set_title(Config::get('global', 'title_text') . " | $startLocation Map")
     ->add_stylesheet('css/ucsf-maps.css.php','screen')
-    ->add_javascript('http://maps.google.com/maps/api/js?sensor=false')
+    ->add_javascript('http://maps.google.com/maps/api/js?sensor=false&v=3.5')
     ->render();
 echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>');

@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/../assets/config.php');
 require_once(dirname(__FILE__) . '/../assets/lib/decorator.class.php');
-require_once(dirname(__FILE__) . '/../assets/lib/user_agent.class.php');
+require_once(dirname(__FILE__) . '/../assets/lib/classification.class.php');
 
 echo HTML_Decorator::html_start()->render();
 echo Site_Decorator::head()->set_title(Config::get('global', 'title_text') . ' | Maps')->render();
@@ -10,7 +10,7 @@ echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>');
 ?>
 <div class="menu-full menu-detailed menu-padded">
     <ol>
-        <?php if (User_Agent::is_standard()): ?>
+        <?php if (Classification::is_standard()): ?>
             <li class="menu-first"><a href="campus.php?campus=Parnassus">Parnassus</a></li>
             <li><a href="campus.php?campus=Mission+Bay">Mission Bay</a></li>
             <li class="menu-last"><a href="locations.php">Location List</a></li>

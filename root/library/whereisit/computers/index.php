@@ -11,7 +11,7 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 <h1 class="content-first">Computers</h1> 
  
 <div> 
-<p>Computing labs, open classrooms, and loaner laptops are available for UCSF students, faculty, and staff. Use your UCSF ID for entry to computing spaces.</p> 
+<p>Computing labs, open classrooms, and loaner laptops/iPads are available for UCSF students, faculty, and staff. Use your UCSF ID for entry to computing spaces.</p> 
 </div> 
  
 <div> 
@@ -46,13 +46,22 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 <ul class="bulleted"> 
 <li>Check out at Parnassus Service Desk</li> 
 <li>Library borrower account required</li> 
-<li>Wireless printing available</li> 
 <li>For use in the Parnassus Library only</li> 
-<li class="content-last">More info: <a href="tel:+14154762336">(415) 476-2336</a></li> 
+<li>More info: <a href="tel:+14154762336">(415) 476-2336</a></li> 
+</ul> 
+</div> 
+
+<div> 
+<h4>Loaner iPads</h4> 
+<ul class="bulleted"> 
+<li>Check out at Tech Commons Service Desk, CL240</li> 
+<li>Library borrower account required</li> 
+<li>1 week loan period, may be <a href="http://www.library.ucsf.edu/request-ipad">reserved</a> in advance</li> 
+<li class="content-last">More info: <a href="tel:+14154762336">(415) 476-4309</a></li> 
 </ul> 
 </div> 
  
-</div>  
+</div>
 <a href="javascript:history.back()" id="button-top" class="button-full button-padded">Back</a> 
 <?php 
 echo Site_Decorator::ucsf_footer()->render();

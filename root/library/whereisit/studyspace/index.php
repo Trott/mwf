@@ -12,21 +12,25 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 
 <div>
 <h4>Parnassus</h4>
-<h4><small>Group Study Spaces</small></h4>
 <ul class="bulleted">
-<li>Available to UCSF students for group study during library hours</li>
-<li>Include WiFi, electrical outlet, whiteboard, X-ray light box</li>
-<li>Check out at Service Desk, advance reservations not available</li>
-<li class="content-last">More info: <a href="tel:+14154762336">(415) 476-2336</a></li>
+<li>In addition to general library space, room 506 is reserved for quiet study, UCSF students only.</li>
 </ul>
 
-<h4><small>Faculty Carrels</small></h4>
+<p>Parnassus Group Study Spaces</p>
+<ul class="bulleted">
+<li>Available to UCSF students for group study during library hours</li>
+<li>Some feature whiteboard, X-ray light box</li>
+<li>Check out at Service Desk. More info: <a href="tel:+14154762336">(415) 476-2336</a></li>
+</ul>
+
+<p>Faculty Carrels</p>
 <ul class="bulleted">
 <li>Available to UCSF faculty during Parnassus library hours</li>
 <li>Daily, weekly, and monthly carrels available</li>
 <li class="content-last">Reservations and more info: <a href="tel:+14154762336">(415) 476-2336</a></li>
 </ul>
 </div>
+
 <div>
 <h4>Mission Bay</h4>
 <ul class="bulleted">
@@ -37,19 +41,18 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 
 </ul>
 </div>
-<div>
 
-<h4>ID Card Required</h4>
+<div>
+<h4>After Hours</h4>
+<p>Enter with proxy/ID card</p>
 <ul class="bulleted">
-<li><a href="/library/whereisit/computers">Computer Spaces</a></li>
-<li>Hearst Room, Parnassus Library:<br />
-    24/7 access, UCSF students only</li>
+<li><a href="/library/whereisit/computers">Computer Spaces</a> (CC151, S165)</li>
+<li>Hearst Room, Parnassus Library: 24/7 access, UCSF students only</li>
 <li class="content-last">More options for students listed on <a href="https://saa.ucsf.edu/studentportal/"><span class="external">SAA portal</span></a></li>
 </ul>
 </div>
 
 </div>
-
 <a href="javascript:history.back()" id="button-top" class="button-full button-padded">Back</a> 
 <?php 
 echo Site_Decorator::ucsf_footer()->render();

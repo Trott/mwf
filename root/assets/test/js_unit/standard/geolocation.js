@@ -1,10 +1,10 @@
 /**
- * Unit tests for mwf.browser
+ * Unit tests for mwf.touch.geolocation
  *
  * @author trott
- * @copyright Copyright (c) 2010-11 UC Regents
+ * @copyright Copyright (c) 2011 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20111015
+ * @version 20111018
  *
  * @requires mwf
  * @requires mwf.touch.geolocation
@@ -62,6 +62,6 @@ test("mwf.touch.geolocation.setTimeout()", function() {
     equal(typeof mwf.touch.geolocation.setTimeout(3000), 'undefined', 'setter should not return a value');
 })
 
-test("mwf.touch.geolocation.setHighSccuracy()", function() {
+test("mwf.touch.geolocation.setHighAccuracy()", function() {
     equal(typeof mwf.touch.geolocation.setHighAccuracy(true), 'undefined', 'setter should not return a value');
 })

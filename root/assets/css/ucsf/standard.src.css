@@ -2,7 +2,7 @@
  *
  *
  *
- */
+*/
 
 #header {
     border-bottom: 0px solid #fff;
@@ -25,7 +25,7 @@ a#button-top:focus{
 
 a.button-full,
 div.button-full a {
-        background-color: #565759;
+    background-color: #565759;
 }
 
 a.button-full:hover,
@@ -40,7 +40,7 @@ a.button-full.button-light:active,
 div.button-full a.button-light:hover,
 div.button-full a.button-light:focus,
 div.button-full a.button-light:active {
-        background-color: white !important;
+    background-color: white !important;
 }
 
 
@@ -52,7 +52,6 @@ div.button-full a.button-light:active {
     padding: 18px 15px 18px 60px;
 }
 
-
 .menu-full li a {
     padding: 1em;
 }
@@ -63,27 +62,71 @@ div.button-full a.button-light:active {
     background-color: rgba(234, 242, 250, 0.5);
 }
 
-.front-page #shuttle {
-	background: #fff url(img/ucsf-icon-shuttle.png) -1px 0 no-repeat;
+.front-page .menu-padded #shuttle {
+    background: #fff url(img/ucsf-icon-shuttle.png) -1px 0 no-repeat;
 }
-.front-page #library {
-	background: #fff url(img/ucsf-icon-library.png) -1px 0 no-repeat;
+
+.front-page .menu-padded #library {
+    background: #fff url(img/ucsf-icon-library.png) -1px 0 no-repeat;
 }
-.front-page #calendars {
-	background: #fff url(img/ucsf-icon-calendars.png) -1px 0 no-repeat;
+
+.front-page .menu-padded #calendars {
+    background: #fff url(img/ucsf-icon-calendars.png) -1px 0 no-repeat;
 }
-.front-page #news {
-	background: #fff url(img/ucsf-icon-news.png) -1px 0 no-repeat;
+
+.front-page .menu-padded #news {
+    background: #fff url(img/ucsf-icon-news.png) -1px 0 no-repeat;
 }
-.front-page #directory {
-	background: #fff url(img/ucsf-icon-directory.png) -1px 0 no-repeat;
+
+.front-page .menu-padded #directory {
+    background: #fff url(img/ucsf-icon-directory.png) -1px 0 no-repeat;
 }
-.front-page #fitness {
-	background: #fff url(img/ucsf-icon-fitness.png) -1px 0 no-repeat;
+
+.front-page .menu-padded #fitness {
+    background: #fff url(img/ucsf-icon-fitness.png) -1px 0 no-repeat;
 }
-.front-page #maps {
-	background: #fff url(img/ucsf-icon-maps.png) -1px 0 no-repeat;
+
+.front-page .menu-padded #maps {
+    background: #fff url(img/ucsf-icon-maps.png) -1px 0 no-repeat;
 }
-.front-page #emergency {
-	background: #fff url(img/ucsf-icon-emergency.png) -1px 0 no-repeat;
+
+.front-page .menu-padded #emergency {
+    background: #fff url(img/ucsf-icon-emergency.png) -1px 0 no-repeat;
 }
+
+
+.front-page .menu-grid #shuttle {
+    background: url(img/ucsf-icon-shuttle.png) 20px 2px no-repeat;
+}
+
+.front-page .menu-grid #library {
+    background: url(img/ucsf-icon-library.png) 20px 2px no-repeat;
+}
+
+.front-page .menu-grid #calendars {
+    background: url(img/ucsf-icon-calendars.png) 20px 2px no-repeat;
+}
+
+.front-page .menu-grid #news {
+    background: url(img/ucsf-icon-news.png) 20px 2px no-repeat;
+}
+
+.front-page .menu-grid #directory {
+    background: url(img/ucsf-icon-directory.png) 20px 2px no-repeat;
+}
+
+.front-page .menu-grid #fitness {
+    background: url(img/ucsf-icon-fitness.png) 20px 2px no-repeat;
+}
+
+.front-page .menu-grid #maps {
+    background: url(img/ucsf-icon-maps.png) 20px 2px no-repeat;
+}
+
+.front-page .menu-grid #emergency {
+    background: url(img/ucsf-icon-emergency.png) 20px 2px no-repeat;
+}
+
+.front-page .menu-grid ol{margin:10px auto!important;overflow:hidden}
+.front-page .menu-grid li{border-top:0;float:left;height:108px;list-style:none;margin:0 4px;padding:0;width:96px;border:0}
+.front-page .menu-grid li a{background:0;color:#fff;font-size:75%;font-weight:normal;margin:0;padding:68px 4px 4px 4px;text-align:center}

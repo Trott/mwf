@@ -74,9 +74,18 @@ else
  * Start page
  */
 
-echo HTML_Decorator::html_start(array('manifest'=>'manifest.appcache'))->render();
+if ($main_menu) {
+    echo HTML_Decorator::html_start(array('manifest'=>'manifest.appcache'))->render();
+} else {
+    echo HTML_Decorator::html_start()->render();
+}
 
-echo Site_Decorator::head()->set_title(Config::get('global', 'title_text'))->render();
+$head = Site_Decorator::head()->set_title(Config::get('global', 'title_text'));
+if ($main_menu) {
+    $head->add_js_handler_library('standard_libs','preferences');
+}
+echo $head->render();
+
 
 echo HTML_Decorator::body_start($main_menu ? array('class'=>'front-page') : array())->render();
 
@@ -93,11 +102,13 @@ else
  * Menu
  */
 
-$menu = Site_Decorator::menu_full()->set_padded()->set_detailed();
+$menu = Site_Decorator::menu_full()->set_detailed();
 
-if($main_menu)
+if($main_menu) {
     $menu->add_class('menu-front');
-
+    $menu->set_param('id','main_menu');
+}
+    
 for($i = 0; $i < count($menu_items); $i++)
 {
     $menu_item = $menu_items[$i];
@@ -132,6 +143,16 @@ $footer = Site_Decorator::ucsf_footer();
 
 echo $footer->render();
 
+//TODO: Put in JS Handler and/or Decorator
+?>
+<script type="text/javascript">
+if (mwf.standard.preferences.isSupported() && mwf.standard.preferences.get("layout")!="list") {
+    document.getElementById("main_menu").className += " menu-padded";
+} else {
+    document.getElementById("main_menu").classNme += " menu-grid";
+}
+</script>
+<?php
 /**
  * End page
  */

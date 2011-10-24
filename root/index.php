@@ -146,10 +146,16 @@ echo $footer->render();
 //TODO: Put in JS Handler and/or Decorator
 ?>
 <script type="text/javascript">
-if (mwf.standard.preferences.isSupported() && mwf.standard.preferences.get("layout")!="list") {
-    document.getElementById("main_menu").className += " menu-padded";
-} else {
-    document.getElementById("main_menu").classNme += " menu-grid";
+if (mwf.standard.preferences.isSupported()) {
+    var main_menu = document.getElementById("main_menu");
+    switch (mwf.standard.preferences.get("main_menu_layout")) {
+        case "list":
+            main_menu.className += " menu-padded";
+            break;
+        case "grid":
+        default:
+            main_menu.className += " menu-grid";
+    }
 }
 </script>
 <?php

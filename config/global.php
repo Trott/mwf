@@ -29,16 +29,18 @@ require_once(dirname(dirname(__FILE__)).'/root/assets/lib/config.class.php');
 Config::set('global', 'site_url', '//'.$_SERVER['SERVER_NAME']);
 Config::set('global', 'site_assets_url', Config::get('global','site_url').'/assets');
 Config::set('global', 'site_nonmobile_url', false);
-Config::set('global', 'full_site_url', '/about');
-Config::set('global', 'help_site_url', '/feedback');
+Config::set('global', 'footer_link_urls', array('/about', '/feedback', '/preferences'));
+Config::set('global', 'footer_link_titles', array('About', 'Feedback', 'Preferences'));
 
 /**
  * CORE
  *
- * - cookie_prefix :: The prefix attached to all cookies that the framework writes.
+ * - cookie_prefix :: Prefix attached to all cookies that the framework writes
+ * - local_storage_prefix :: Prefix attached to all HTML5 LocalStorage that the framework writes
  */
 
 Config::set('global', 'cookie_prefix', 'mwf_');
+Config::set('global', 'local_storage_prefix', 'mwf_');
 
 /**
  * TEXT AND IMAGES

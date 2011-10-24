@@ -6,10 +6,10 @@
  * @package decorator
  * @subpackage site_decorator
  *
- * @author ebollens
+ * @author trott
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20110518
+ * @version 20111023
  *
  * @uses Decorator
  * @uses Tag_HTML_Decorator
@@ -24,13 +24,7 @@ class Ucsf_Footer_Site_Decorator extends Default_Footer_Site_Decorator
     {          
         parent::__construct();
         
-        $this->show_powered_by(false);
-        
-        if($full_site_url = Config::get('global', 'full_site_url'))
-            $this->set_full_site('About', Config::get('frontpage', 'full_site_url'));
-
-        if($help_site_url = Config::get('global', 'help_site_url'))
-            $this->set_help_site('Feedback', Config::get('frontpage', 'help_site_url'));        
+        $this->show_powered_by(false);       
     }
     
     public function render()
@@ -50,9 +44,7 @@ EOD;
         }
         
         $this->add_inner_tag('p', 'This site is a service of the <a href="http://library.ucsf.edu/">UCSF Library</a>.');
-        
-        echo parent::render();
-        
-        echo $library_ga_rollup;
+
+        return parent::render() . $library_ga_rollup;
     }
 }

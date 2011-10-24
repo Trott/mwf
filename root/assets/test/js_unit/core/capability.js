@@ -92,7 +92,11 @@ test("mwf.capability.css.transforms()", function()
     expect(2);
     var transforms = mwf.capability.css.transforms();
     equal(typeof transforms, 'boolean', 'mwf.capability.css.transforms() should return a boolean');
-    equal(transforms, true, 'browser supports transforms');
+
+    var os = mwf.userAgent.getOS();
+    var osVersion = parseInt(mwf.userAgent.getOSVersion());
+    var supports = (os == 'iphone_os') || (os == 'android' && osVersion >= 3);
+    equal(transforms, supports, 'iOS supports transforms, Android only from version 3');
 });
 
 test("mwf.capability.css.transforms2d()", function()
@@ -108,7 +112,11 @@ test("mwf.capability.css.transforms3d()", function()
     expect(2);
     var transforms3d = mwf.capability.css.transforms3d();
     equal(typeof transforms3d, 'boolean', 'mwf.capability.css.transforms3d() should return a boolean');
-    equal(transforms3d, true, 'browser supports transforms3d');
+    
+    var os = mwf.userAgent.getOS();
+    var osVersion = parseInt(mwf.userAgent.getOSVersion());
+    var supports = (os == 'iphone_os') || (os == 'android' && osVersion >= 3);
+    equal(transforms3d, supports, 'iOS supports transforms3d, Android only from version 3');
 });
 
 test("mwf.capability.css.transitions()", function()
@@ -157,11 +165,11 @@ test("mwf.capability.events()", function()
 test("mwf.capability.css.event()", function()
 {
     expect(4);
-    var event = mwf.capability.event('gesturestart');
-    equal(typeof event, 'boolean', 'mwf.capability.event() should return a boolean true');
-    equal(event, true, 'browser supports gesturestart event');
+    var event = mwf.capability.event('touchstart');
+    equal(typeof event, 'boolean', 'mwf.capability.event() should return a boolean');
+    equal(event, true, 'browser supports touchstart event');
     event = mwf.capability.event('nonexistent');
-    equal(typeof event, 'boolean', 'mwf.capability.event() should return a boolean false');
+    equal(typeof event, 'boolean', 'mwf.capability.event() should return a boolean');
     equal(event, false, 'browser does not support nonexistent event')
 });
 
@@ -209,7 +217,10 @@ test("mwf.capability.svg()", function()
     expect(2);
     var svg = mwf.capability.svg();
     equal(typeof svg, 'boolean', 'mwf.capability.svg() should return a boolean');
-    equal(svg, true, 'browser supports SVG');
+    var os = mwf.userAgent.getOS();
+    var osVersion = parseInt(mwf.userAgent.getOSVersion());
+    var supports = (os == 'iphone_os') || (os == 'android' && osVersion >= 3);
+    equal(svg, supports, 'iOS (all versions) and Android 3 and above support SVG');
 });
 
 test("mwf.capability.touch()", function()
@@ -233,7 +244,7 @@ test("mwf.capability.webgl()", function()
     expect(2);
     var webgl = mwf.capability.webgl();
     equal(typeof webgl, 'boolean', 'mwf.capability.webgl() should return a boolean');
-    equal(webgl, true, 'browser supports WebGL');
+    equal(webgl, false, 'mobile browser does not support WebGL');
 });
 
 test("mwf.capability.websockets()", function()
@@ -241,7 +252,11 @@ test("mwf.capability.websockets()", function()
     expect(2);
     var websockets = mwf.capability.websockets();
     equal(typeof websockets, 'boolean', 'mwf.capability.websockets() should return a boolean');
-    equal(websockets, true, 'browser supports web sockets');
+    var os = mwf.userAgent.getOS();
+    var osVersion = mwf.userAgent.getOSVersion();
+    var supports = (os == 'iphone_os' && 
+        (parseInt(osVersion) > 4 || osVersion.indexOf('4.2')==0 || osVersion.indexOf('4.3')==0));
+    equal(websockets, supports, 'browser supports web sockets');
 });
 
 test("mwf.capability.write()", function()

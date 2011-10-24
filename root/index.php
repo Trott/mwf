@@ -32,40 +32,32 @@
  * @link /config/global.php
  * @link assets/redirect/unset_override.php
  */
-
 /**
  * Require necessary libraries.
  */
-
-require_once(dirname(__FILE__).'/assets/config.php');
-require_once(dirname(__FILE__).'/assets/lib/decorator.class.php');
-require_once(dirname(__FILE__).'/assets/redirect/unset_override.php');
+require_once(dirname(__FILE__) . '/assets/config.php');
+require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
+require_once(dirname(__FILE__) . '/assets/redirect/unset_override.php');
 
 /**
  * Ensure that site_url and site_asset_url have been set.
  */
-
-if(!Config::get('global', 'site_url') || !Config::get('global', 'site_assets_url'))
-	die('<h1>Fatal Error</h1><p>The configuration settings {global::site_url} and {global::site_asset_url} must be defined in '.dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'global.php</p>');
+if (!Config::get('global', 'site_url') || !Config::get('global', 'site_assets_url'))
+    die('<h1>Fatal Error</h1><p>The configuration settings {global::site_url} and {global::site_asset_url} must be defined in ' . dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'global.php</p>');
 
 /**
  * Get the menu from {'frontpage':'menu'} defined in config/frontpage.php.
  */
-
 $menu = Config::get('frontpage', 'menu');
 
 /**
  * Handle differences between a subsection and the top-level menu, using key
  * 'default' if on the front page or otherwise the $_GET['s'] parameter.
  */
-
-if(isset($_GET['s']) && isset($menu[$_GET['s']]))
-{
+if (isset($_GET['s']) && isset($menu[$_GET['s']])) {
     $menu_items = $menu[$_GET['s']];
     $main_menu = false;
-}
-else
-{
+} else {
     $menu_items = $menu['default'];
     $main_menu = true;
 }
@@ -73,19 +65,27 @@ else
 /**
  * Start page
  */
+if ($main_menu) {
+    echo HTML_Decorator::html_start(array('manifest' => 'manifest.appcache'))->render();
+} else {
+    echo HTML_Decorator::html_start()->render();
+}
 
-echo HTML_Decorator::html_start(array('manifest'=>'manifest.appcache'))->render();
+$head = Site_Decorator::head()->set_title(Config::get('global', 'title_text'));
+if ($main_menu) {
+    $head->add_js_handler_library('standard_libs', 'preferences');
+}
+echo $head->render();
 
-echo Site_Decorator::head()->set_title(Config::get('global', 'title_text'))->render();
 
-echo HTML_Decorator::body_start($main_menu ? array('class'=>'front-page') : array())->render();
+echo HTML_Decorator::body_start($main_menu ? array('class' => 'front-page') : array())->render();
 
 /*
  * Header
  */
 
-if($main_menu)
-    echo '<h1 id="header"><a href="/"><img src="'.Config::get('frontpage', 'header_image_main').'" alt="'.Config::get('frontpage', 'header_image_main_alt').'"><span>'.Config::get('frontpage', 'header_main_text').'</span></a></h1>';
+if ($main_menu)
+    echo '<h1 id="header"><a href="/"><img src="' . Config::get('frontpage', 'header_image_main') . '" alt="' . Config::get('frontpage', 'header_image_main_alt') . '"><span>' . Config::get('frontpage', 'header_main_text') . '</span></a></h1>';
 else
     echo Site_Decorator::header()->set_title(ucwords(str_replace('_', ' ', $_GET['s'])))->render();
 
@@ -93,23 +93,23 @@ else
  * Menu
  */
 
-$menu = Site_Decorator::menu_full()->set_padded()->set_detailed();
+$menu = Site_Decorator::menu_full()->set_detailed();
 
-if($main_menu)
+if ($main_menu) {
     $menu->add_class('menu-front');
+    $menu->set_param('id', 'main_menu');
+}
 
-for($i = 0; $i < count($menu_items); $i++)
-{
+for ($i = 0; $i < count($menu_items); $i++) {
     $menu_item = $menu_items[$i];
 
-    if(isset($menu_item['restriction']))
-    {
+    if (isset($menu_item['restriction'])) {
         $function = $menu_item['restriction'];
-        if(!User_Agent::$function())
+        if (!User_Agent::$function())
             continue;
     }
 
-    $menu->add_item($menu_item['name'],$menu_item['url'],isset($menu_item['id'])?array('id'=>$menu_item['id']):array());
+    $menu->add_item($menu_item['name'], $menu_item['url'], isset($menu_item['id']) ? array('id' => $menu_item['id']) : array());
 }
 
 echo $menu->render();
@@ -117,25 +117,38 @@ echo $menu->render();
 /**
  * Back button
  */
-
-if(!$main_menu)
+if (!$main_menu)
     echo Site_Decorator::button_full()
-                ->set_padded()
-                ->add_option(Config::get('global', 'back_to_home_text'), 'index.php')
-                ->render();
+            ->set_padded()
+            ->add_option(Config::get('global', 'back_to_home_text'), 'index.php')
+            ->render();
 
 /**
  * Footer
  */
 
-$footer = Site_Decorator::ucsf_footer();
+echo Site_Decorator::ucsf_footer()->render();
 
-echo $footer->render();
+//@TODO: Put this in JS Handler and/or Decorator?
+?>
+<script type="text/javascript">
+    if (mwf.standard.preferences.isSupported()) {
+        var main_menu = document.getElementById("main_menu");
+        switch (mwf.standard.preferences.get("main_menu_layout")) {
+            case "list":
+                main_menu.className += " menu-padded";
+                break;
+            case "grid":
+            default:
+                main_menu.className += " menu-grid";
+        }
+    }
+</script>
+<?php
 
 /**
  * End page
  */
-
 echo HTML_Decorator::body_end()->render();
 
 echo HTML_Decorator::html_end()->render();

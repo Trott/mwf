@@ -55,7 +55,7 @@ class Locations implements Iterator
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_TIMEOUT, 10);
         if(!($result = curl_exec($ch)))
-            trigger_error(curl_error($ch));
+            trigger_error(curl_error($ch),E_USER_ERROR);
         curl_close($ch);
 
         $this->_loc = array();

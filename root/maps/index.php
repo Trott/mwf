@@ -13,6 +13,7 @@ echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>');
         <?php if (Classification::is_standard()): ?>
             <li class="menu-first"><a href="campus.php?campus=Parnassus">Parnassus</a></li>
             <li><a href="campus.php?campus=Mission+Bay">Mission Bay</a></li>
+            <li><a href="campus.php?campus=Mt.+Zion">Mt. Zion</a></li>
             <li class="menu-last"><a href="locations.php">Location List</a></li>
         <?php else: ?>
             <li class="menu-first"><a href="http://www.ucsf.edu/sites/default/files/documents/ucsf_parnassus_1.pdf"><span class="external">Parnassus <span class="smallprint light">PDF</span></span></a></li>

@@ -145,7 +145,6 @@ echo Site_Decorator::ucsf_footer()->render();
     }
 </script>
 <?php
-
 /**
  * End page
  */

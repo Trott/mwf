@@ -88,3 +88,5 @@ Config::set('global', 'header_separator',           '<img src="/assets/img/ucsf-
 
 Config::set('global', 'header_image_sub_alt', 'MWF');
 Config::set('global', 'header_image_sub', Config::get('global', 'site_assets_url').'/img/mwf-header.gif');
+Config::set('global', 'full_site_url', false);
+Config::set('global', 'help_site_url', false);

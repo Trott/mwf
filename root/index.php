@@ -141,6 +141,9 @@ echo Site_Decorator::ucsf_footer()->render();
             case "grid":
             default:
                 main_menu.className += " menu-grid";
+                var width = mwf.browser.getWidth() ? mwf.browser.getWidth() : window.innerWidth;
+                width = Math.floor(width/120) * 120;
+                main_menu.firstChild.setAttribute("style","width:"+width+"px");
         }
     }
 </script>

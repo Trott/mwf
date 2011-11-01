@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#version 25 Oct 2011
+#version 01 Nov 2011
 
 CACHE:
 
@@ -34,6 +34,14 @@ CACHE:
 /assets/img/ucsf-icon-maps.png
 /assets/img/ucsf-icon-news.png
 /assets/img/ucsf-icon-shuttle.png
+/assets/img/ucsf-icon-precomposed-directory.png
+/assets/img/ucsf-icon-precomposed-emergency.png
+/assets/img/ucsf-icon-precomposed-calendars.png
+/assets/img/ucsf-icon-precomposed-fitness.png
+/assets/img/ucsf-icon-precomposed-library.png
+/assets/img/ucsf-icon-precomposed-maps.png
+/assets/img/ucsf-icon-precomposed-news.png
+/assets/img/ucsf-icon-precomposed-shuttle.png
 /assets/img/ucsf-list-arrow.png
 
 #javascript files

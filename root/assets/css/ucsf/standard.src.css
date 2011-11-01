@@ -96,37 +96,38 @@ div.button-full a.button-light:active {
 
 
 .front-page .menu-grid #shuttle {
-    background: url(img/ucsf-icon-precomposed-shuttle.png) 20px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-shuttle.png) 12px 2px no-repeat;
 }
 
 .front-page .menu-grid #library {
-    background: url(img/ucsf-icon-precomposed-library.png) 20px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-library.png) 12px 2px no-repeat;
 }
 
 .front-page .menu-grid #calendars {
-    background: url(img/ucsf-icon-precomposed-calendars.png) 20px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-calendars.png) 12px 2px no-repeat;
 }
 
 .front-page .menu-grid #news {
-    background: url(img/ucsf-icon-precomposed-news.png) 20px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-news.png) 12px 2px no-repeat;
 }
 
 .front-page .menu-grid #directory {
-    background: url(img/ucsf-icon-precomposed-directory.png) 20px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-directory.png) 12px 2px no-repeat;
 }
 
 .front-page .menu-grid #fitness {
-    background: url(img/ucsf-icon-precomposed-fitness.png) 20px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-fitness.png) 12px 2px no-repeat;
 }
 
 .front-page .menu-grid #maps {
-    background: url(img/ucsf-icon-precomposed-maps.png) 20px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-maps.png) 12px 2px no-repeat;
 }
 
 .front-page .menu-grid #emergency {
-    background: url(img/ucsf-icon-precomposed-emergency.png) 20px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-emergency.png) 12px 2px no-repeat;
 }
 
-.front-page .menu-grid ol{margin:10px auto!important;overflow:hidden}
-.front-page .menu-grid li{border-top:0;float:left;height:108px;list-style:none;margin:0 4px;padding:0;width:96px;border:0}
+.front-page h1#header{display:none}
+.front-page .menu-grid ol{margin:auto!important;overflow:hidden;text-align:left}
+.front-page .menu-grid li{border-top:0;display:inline-block;height:108px;list-style:none;padding:0;width:80px;border:0}
 .front-page .menu-grid li a{background:0;color:#fff;font-size:75%;font-weight:normal;margin:0;padding:68px 4px 4px 4px;text-align:center}

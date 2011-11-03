@@ -62,6 +62,10 @@ div.button-full a.button-light:active {
     background-color: rgba(234, 242, 250, 0.5);
 }
 
+.content-padded ol li{
+    margin: 0 0 0 26px;
+}
+
 .front-page .menu-padded #shuttle {
     background: #fff url(img/ucsf-icon-shuttle.png) -1px 0 no-repeat;
 }

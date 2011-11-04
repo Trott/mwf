@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#version 01 Nov 2011
+#version 04 Nov 2011
 
 CACHE:
 
@@ -47,7 +47,7 @@ CACHE:
 #javascript files
 http://www.google-analytics.com/ga.js
 /assets/js.php
-/assets/js.php?standard_libs=preferences
+/assets/js.php?standard_libs=preferences&standard=/assets/js/ucsf/layout.js
 
 NETWORK:
 *

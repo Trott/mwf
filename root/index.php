@@ -74,8 +74,7 @@ if ($main_menu) {
 $head = Site_Decorator::head()->set_title(Config::get('global', 'title_text'));
 if ($main_menu) {
     $head->add_js_handler_library('standard_libs', 'preferences');
-    //@todo: Oof, we have to get rid of this filepath business so we can cleanly appcache the resulting JS.
-    $head->add_js_handler_library('standard', dirname(__FILE__).'/assets/js/ucsf/layout.js');
+    $head->add_js_handler_library('standard', '/assets/js/ucsf/layout.js');
 }
 echo $head->render();
 

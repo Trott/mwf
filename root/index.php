@@ -74,6 +74,8 @@ if ($main_menu) {
 $head = Site_Decorator::head()->set_title(Config::get('global', 'title_text'));
 if ($main_menu) {
     $head->add_js_handler_library('standard_libs', 'preferences');
+    //@todo: Oof, we have to get rid of this filepath business so we can cleanly appcache the resulting JS.
+    $head->add_js_handler_library('standard', dirname(__FILE__).'/assets/js/ucsf/layout.js');
 }
 echo $head->render();
 
@@ -129,25 +131,6 @@ if (!$main_menu)
 
 echo Site_Decorator::ucsf_footer()->render();
 
-//@TODO: Put this in JS Handler and/or Decorator?
-?>
-<script type="text/javascript">
-    if (mwf.standard.preferences.isSupported()) {
-        var main_menu = document.getElementById("main_menu");
-        switch (mwf.standard.preferences.get("main_menu_layout")) {
-            case "list":
-                main_menu.className += " menu-padded";
-                break;
-            case "grid":
-            default:
-                main_menu.className += " menu-grid";
-                var width = mwf.browser.getWidth() ? mwf.browser.getWidth() : window.innerWidth;
-                width = width - (width % 80);
-                main_menu.firstChild.setAttribute("style","width:"+width+"px");
-        }
-    }
-</script>
-<?php
 /**
  * End page
  */

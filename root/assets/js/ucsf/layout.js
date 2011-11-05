@@ -9,11 +9,7 @@ mwf.ucsfLayout = new function() {
         if (main_menu) {
             if (mwf.standard.preferences.isSupported()) {        
                 switch (mwf.standard.preferences.get("main_menu_layout")) {
-                    case "list":
-                        main_menu.className += " menu-padded";
-                        break;
                     case "grid":
-                    default:
                         document.getElementById('header').setAttribute("style","display:none");
                         main_menu.className += " menu-grid";
                         width = (mwf.screen.getWidth() ? mwf.screen.getWidth() : window.innerWidth);
@@ -22,6 +18,10 @@ mwf.ucsfLayout = new function() {
                         height = height - height % 80;
                         mwf.ucsfLayout.setGridWidth(width);
                         window.addEventListener('orientationchange', mwf.ucsfLayout.rotateGrid, false);
+                        break;
+                    case "list":
+                    default:
+                        main_menu.className += " menu-padded";
                 }
             } else {
                 main_menu.className += " menu-padded";        

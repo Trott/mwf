@@ -22,8 +22,8 @@ echo Site_Decorator::ucsf_header("Preferences")
     <h1 class="form-first">Preferences</h1>
     <label  id="main_menu_layout_label" for="main_menu_layout">Home Screen Layout:</label> 
     <select id="main_menu_layout" name="main_menu_layout" tabindex="1"> 
-        <option id="main_menu_grid" value="grid">Grid</option>
         <option id="main_menu_list" value="list">List</option>
+        <option id="main_menu_grid" value="grid">Grid</option>
     </select>
     <input id="save_button" name="save_button" class="form-last" 
            type="submit" value="Save"/>

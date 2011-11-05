@@ -131,7 +131,6 @@ div.button-full a.button-light:active {
     background: url(img/ucsf-icon-precomposed-emergency.png) 12px 2px no-repeat;
 }
 
-.front-page h1#header{display:none}
 .front-page .menu-grid ol{margin:auto!important;overflow:hidden;text-align:left}
 .front-page .menu-grid li{border-top:0;display:inline-block;height:108px;list-style:none;padding:0;width:80px;border:0}
 .front-page .menu-grid li a{background:0;color:#fff;font-size:75%;font-weight:normal;margin:0;padding:68px 4px 4px 4px;text-align:center}

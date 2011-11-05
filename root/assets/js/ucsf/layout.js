@@ -14,6 +14,7 @@ mwf.ucsfLayout = new function() {
                         break;
                     case "grid":
                     default:
+                        document.getElementById('header').setAttribute("style","display:none");
                         main_menu.className += " menu-grid";
                         width = (mwf.screen.getWidth() ? mwf.screen.getWidth() : window.innerWidth);
                         width = width - width % 80;

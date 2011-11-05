@@ -85,6 +85,19 @@ mwf.ucsfCtsiProfile = new function() {
                     publicationsContainer.innerHTML='<h1 class="content-first light">Publications</h1>';
                     publicationsContainer.appendChild(pubList);
                 }
+                
+                if (myProfile.hasOwnProperty("ProfilesURL")) {
+                    var fullProfileItem = document.createElement("li");
+                    var fullProfileAnchor = document.createElement("a");
+                    var fullProfileAnchorText = document.createElement("span");
+                    fullProfileAnchorText.innerHTML="Full Research Profile";
+                    fullProfileAnchorText.setAttribute("class","external");
+                    fullProfileAnchor.appendChild(fullProfileAnchorText);
+                    fullProfileAnchor.setAttribute("href",myProfile.ProfilesURL);
+                    document.getElementById("ctsi-full-profile")
+                    fullProfileItem.appendChild(fullProfileAnchor);
+                    document.getElementById('ctsi-full-profile').appendChild(fullProfileItem);
+                }
             }
         }
     }

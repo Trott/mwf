@@ -19,6 +19,7 @@ echo Site_Decorator::ucsf_header('Research Profile')
 
 <div class="content-full content-padded" id="ctsi-keywords"></div>
 <div class="menu-full menu-padded menu-detailed" id="ctsi-publications"></div>
+<div class="menu-full menu-padded"><ol id="ctsi-full-profile"></ol></div>
 
 <?php
 echo HTML_Decorator::tag('a', 'Back', array('href' => 'javascript:history.back()',

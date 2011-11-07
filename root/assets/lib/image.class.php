@@ -10,7 +10,11 @@
  * @author trott
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
+<<<<<<< HEAD
  * @version 20111107
+=======
+ * @version 20111106
+>>>>>>> develop-1.2
  *
  * @uses Config
  * @uses Path_Validator
@@ -30,6 +34,9 @@ abstract class Image {
     private $_dim_height = false;
     private $_dim_width = false;
     private $_cache_filename = null;
+    
+    /** GIF, JPG, and JPEG are within XHTML MP 1.0 specification. */
+    private $_ext_allowed = array('gif','png', 'jpg', 'jpeg');
 
     /** GIF, JPG, and JPEG are within XHTML MP 1.0 specification. */
     private $_ext_allowed = array('gif', 'png', 'jpg', 'jpeg');
@@ -200,6 +207,7 @@ abstract class Image {
         return (!empty($predicted_mem_usage) &&
                 $predicted_mem_usage > $this->_memory_limit);
     }
+
 
 }
 

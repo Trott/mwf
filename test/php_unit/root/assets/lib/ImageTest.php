@@ -20,7 +20,7 @@ class ImageTest extends PHPUnit_Framework_TestCase {
      * This method is called before a test is executed.
      */
     protected function setUp() {
-
+        
     }
 
     /**
@@ -42,28 +42,36 @@ class ImageTest extends PHPUnit_Framework_TestCase {
      * @test
      */
     public function factory_remotePath_isRemoteImage() {
-        $this->assertEquals('Remote_Image',get_class(Image::factory('http://mwf.ucla.edu/img/ucla-logo.jpg')));
+        $this->assertEquals('Remote_Image', get_class(Image::factory('http://mwf.ucla.edu/img/ucla-logo.jpg')));
     }
 
     /**
      * @test
      */
     public function factory_localPath_isLocalImage() {
-        $this->assertEquals('Local_Image',get_class(Image::factory('/assets/img/mwf-appicon-precomposed.png')));
+        $this->assertEquals('Local_Image', get_class(Image::factory('/assets/img/mwf-appicon-precomposed.png')));
+    }
+
+    /**
+     * @test
+     */
+    public function image_setMaxWidthTo10_widthIs10() {
+        $image = Image::factory('/assets/img/mwf-appicon-precomposed.png');
+        $image->set_max_width(10);
+        $png = imagecreatefromstring($image->get_image_as_string());
+        $this->assertEquals(10, imagesx($png));
     }
     
     /**
      * @test
      */
-    public function image_setMaxHeightWidthTo10_is10By10Image() {
+    public function image_setMaxHeightTo12_heightIs12() {
         $image = Image::factory('/assets/img/mwf-appicon-precomposed.png');
-        $image->set_max_height(10);
-        $image->set_max_width(10);
+        $image->set_max_height(12);
         $png = imagecreatefromstring($image->get_image_as_string());
-        $this->assertEquals(10,imagesx($png));
-        $this->assertEquals(10,imagesy($png));
+        $this->assertEquals(12, imagesy($png));
     }
-    
+
     /**
      * @test
      */
@@ -71,7 +79,7 @@ class ImageTest extends PHPUnit_Framework_TestCase {
         $image = Image::factory('http://mwf.ucla.edu/img/ucla-logo.jpg');
         $this->assertEquals('image/jpeg', $image->get_mimetype());
     }
-    
+
     /**
      * @test
      */
@@ -80,5 +88,14 @@ class ImageTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('image/png', $image->get_mimetype());
     }
 
+    /**
+     * @test
+     */
+    public function factory_RemoteImageTooLarge_noImage() {
+        Config::set('image','memory_limit',1024);
+        $image = Image::factory('http://mwf.ucla.edu/img/ucla-logo.jpg');
+        $this->assertEquals('',$image->get_mimetype());
+    }
 }
+
 ?>

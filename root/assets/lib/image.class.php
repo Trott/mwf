@@ -200,8 +200,6 @@ abstract class Image {
         return (!empty($predicted_mem_usage) &&
                 $predicted_mem_usage > $this->_memory_limit);
     }
-
-
 }
 
 ?>

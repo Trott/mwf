@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#version 08-Nov-2011
+#version 09-Nov-2011
 
 CACHE:
 
@@ -13,7 +13,6 @@ CACHE:
 /emergency
 
 #style sheets
-/assets/css.php
 
 #style sheet images
 /assets/img/button-go.png

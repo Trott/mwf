@@ -82,7 +82,7 @@ mwf.ucsfCtsiProfile = new function() {
                         }
                     }
                     var publicationsContainer = document.getElementById("ctsi-publications");
-                    publicationsContainer.innerHTML='<h1 class="content-first light">Publications</h1>';
+                    publicationsContainer.innerHTML='<h1 class="content-first light">Recent Publications</h1>';
                     publicationsContainer.appendChild(pubList);
                 }
                 

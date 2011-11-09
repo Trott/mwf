@@ -6,19 +6,17 @@ $feeds = array_merge(Config::get('ucsf_news','feeds'),Config::get('ucsf_news','a
 $header_title = '<a href="/news">News</a>';
 $header_feed = '';
 
-if (array_key_exists('feed',$_GET) && array_key_exists($_GET['feed'],$feeds)) {
-	$feed = $feeds[$_GET['feed']];
+if (array_key_exists('feed',$_GET) && in_array($_GET['feed'],$feeds)) {
 	$feed_code = $_GET['feed'];
-	if (array_key_exists('header_title', $feed) && !empty($feed['header_title'])) {
-		$header_title = $feed['header_title'];
+	if (Config::get('ucsf_news',"$feed_code.header_title")) {
+		$header_title = Config::get('ucsf_news',"$feed_code.header_title");
 		$header_feed = $feed_code;
 	}
 } else {
-	$feed = array_shift($feeds);
 	$feed_code='';
 }
 
-$rss = new Feed($feed['name'],$feed['url']);
+$rss = new Feed(Config::get('ucsf_news',"$feed_code.name"),Config::get('ucsf_news',"$feed_code.url"));
 
 if(! $rss)
     header('Location: index.php');
@@ -34,12 +32,12 @@ for($i=0; $i < count($items) && $id != $_GET['id']; $i++) {
 if(! $item)
     header('Location: index.php');
 
-$date_format = array_key_exists('date_format',$feed) ? $feed['date_format'] : '';
+$date_format = Config::get('ucsf_news',"$feed_code.date_format");
 date_default_timezone_set('America/Los_Angeles');
 $date = empty($date_format) ? $item->get_date() : $item->get_date($date_format);
 $description = $item->get_description();
-if (array_key_exists('allowed_tags',$feed)) {
-    $glue = count($feed['allowed_tags'])>0 ? '<'.implode('><',$feed['allowed_tags']).'>' : '';
+if (Config::get('ucsf_news',"$feed_code.allowed_tags")) {
+    $glue = count(Config::get('ucsf_news',"$feed_code.allowed_tags"))>0 ? '<'.implode('><',Config::get('ucsf_news',"$feed_code.allowed_tags")).'>' : '';
     $description = strip_tags($description,$glue);
 }
 

@@ -3,7 +3,7 @@ AddType text/cache-manifest .appcache
 AddOutputFilterByType DEFLATE text/html text/plain text/xml
 <Files *.appcache>
     ExpiresActive On
-    ExpiresDefault "access"
+    ExpiresDefault "access plus 0 seconds"
 </Files>
 <IfModule mod_rewrite.c>
     RewriteEngine On

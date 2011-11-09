@@ -5,7 +5,7 @@ echo HTML_Decorator::html_start()->render();
 
 echo Site_Decorator::head()
         ->set_title(Config::get('global', 'title_text') . " | Research Profile")
-        ->add_js_handler_library('full','/ctsi/js/profile.js')
+        ->add_js_handler_library('full','/research/js/profile.js')
         ->render();
 echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('Research Profile')

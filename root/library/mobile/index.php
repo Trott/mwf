@@ -1,0 +1,1 @@
+<?php header('Location: http://guides.library.ucsf.edu/content.php?pid=252446&sid=2084303'); ?>

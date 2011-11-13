@@ -50,7 +50,9 @@
     [self.view insertSubview:self.splashView atIndex:4];
     self.splashView.hidden = NO;
  
-    
+	self.webView.backgroundColor = [UIColor colorWithRed:0.53215 green:0.73046875 blue:0.73046875 alpha:1.0];	
+    [self.webView setOpaque:NO];
+	 
     //Initially try to load the online version - if there is an error, 
     //and the isOnline flag is set to NO, then the app will go into offline mode. 
     [self goHome];

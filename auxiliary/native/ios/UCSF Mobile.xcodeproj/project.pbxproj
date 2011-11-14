@@ -46,10 +46,10 @@
 		84A7AECD14217581000ABA24 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84A7AECF14217581000ABA24 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84A7AED114217581000ABA24 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		84A7AED514217581000ABA24 /* UCLAMobile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UCLAMobile-Info.plist"; sourceTree = "<group>"; };
+		84A7AED514217581000ABA24 /* UCSFMobile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UCSFMobile-Info.plist"; sourceTree = "<group>"; };
 		84A7AED714217581000ABA24 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84A7AED914217581000ABA24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		84A7AEDB14217581000ABA24 /* UCLAMobile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UCLAMobile-Prefix.pch"; sourceTree = "<group>"; };
+		84A7AEDB14217581000ABA24 /* UCSFMobile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UCSFMobile-Prefix.pch"; sourceTree = "<group>"; };
 		84A7AEDC14217581000ABA24 /* MWFMobileAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWFMobileAppDelegate.h; sourceTree = "<group>"; };
 		84A7AEDD14217581000ABA24 /* MWFMobileAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MWFMobileAppDelegate.m; sourceTree = "<group>"; };
 		84A7AEE014217581000ABA24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
@@ -129,17 +129,16 @@
 				84A7AEE8142175A7000ABA24 /* MWFWebView.m */,
 				84A7AF1F1422E0CB000ABA24 /* MWFWebView.xib */,
 			);
-			name = UCSFMobile;
-			path = UCLAMobile;
+			path = UCSFMobile;
 			sourceTree = "<group>";
 		};
 		84A7AED414217581000ABA24 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84A7AED514217581000ABA24 /* UCLAMobile-Info.plist */,
+				84A7AED514217581000ABA24 /* UCSFMobile-Info.plist */,
 				84A7AED614217581000ABA24 /* InfoPlist.strings */,
 				84A7AED914217581000ABA24 /* main.m */,
-				84A7AEDB14217581000ABA24 /* UCLAMobile-Prefix.pch */,
+				84A7AEDB14217581000ABA24 /* UCSFMobile-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -160,7 +159,7 @@
 			dependencies = (
 			);
 			name = UCSFMobile;
-			productName = UCLAMobile;
+			productName = UCSFMobile;
 			productReference = 84A7AEC914217581000ABA24 /* UCSFMobile.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -293,8 +292,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UCLAMobile/UCLAMobile-Prefix.pch";
-				INFOPLIST_FILE = "UCLAMobile/UCLAMobile-Info.plist";
+				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";
+				INFOPLIST_FILE = "UCSFMobile/UCSFMobile-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -305,8 +304,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UCLAMobile/UCLAMobile-Prefix.pch";
-				INFOPLIST_FILE = "UCLAMobile/UCLAMobile-Info.plist";
+				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";
+				INFOPLIST_FILE = "UCSFMobile/UCSFMobile-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

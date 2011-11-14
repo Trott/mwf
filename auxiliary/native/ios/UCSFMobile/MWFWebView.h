@@ -1,6 +1,6 @@
 //
 //  OnlineWebView.h
-//  UCLAMobile
+//  MWFMobile
 //
 //  Created by UCLA OIT ECTG on 9/14/11.
 //  Copyright 2011 UCLA REGENTS. 

@@ -12,8 +12,8 @@
 	<string></string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>UCLA logo low res.png</string>
-		<string>UCLA logo high res.png</string>
+		<string>UCSF logo low res.png</string>
+		<string>UCSF logo high res.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>MWF.${PRODUCT_NAME:rfc1034identifier}</string>

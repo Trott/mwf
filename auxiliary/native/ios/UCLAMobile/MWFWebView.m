@@ -124,10 +124,10 @@
     {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UCSF Mobile" message:@"UCSF Mobile cannot contact the server. You may need to connect to the Internet." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
         [alert autorelease];
         [alert show];
-        
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+
     }
 }
 

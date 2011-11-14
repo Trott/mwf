@@ -63,7 +63,7 @@
 
 - (void) goHome
 {
-    NSString *fullURL = @"http://m.ucla.edu";
+    NSString *fullURL = @"http://m.ucsf.edu";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     

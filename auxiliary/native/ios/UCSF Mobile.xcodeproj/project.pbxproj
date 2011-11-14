@@ -168,7 +168,7 @@
 /* Begin PBXProject section */
 		84A7AEC014217581000ABA24 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 84A7AEC314217581000ABA24 /* Build configuration list for PBXProject "UCLA Mobile" */;
+			buildConfigurationList = 84A7AEC314217581000ABA24 /* Build configuration list for PBXProject "UCSF Mobile" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -315,7 +315,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84A7AEC314217581000ABA24 /* Build configuration list for PBXProject "UCLA Mobile" */ = {
+		84A7AEC314217581000ABA24 /* Build configuration list for PBXProject "UCSF Mobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84A7AEE214217581000ABA24 /* Debug */,

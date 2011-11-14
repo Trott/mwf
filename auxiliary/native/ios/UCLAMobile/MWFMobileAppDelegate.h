@@ -1,6 +1,6 @@
 //
-//  UCLAMobileAppDelegate.h
-//  UCLAMobile
+//  UCSFMobileAppDelegate.h
+//  UCSFMobile
 //
 //  Created by SVETA on 9/14/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
@@ -10,7 +10,7 @@
 
 #import "MWFWebView.h"
 
-@interface UCLAMobileAppDelegate : NSObject <UIApplicationDelegate>
+@interface UCSFMobileAppDelegate : NSObject <UIApplicationDelegate>
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 

@@ -6,10 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "UCSFMobileAppDelegate.h"
+#import "MWFMobileAppDelegate.h"
 #import "MWFWebView.h"
 
-@implementation UCSFMobileAppDelegate
+@implementation MWFMobileAppDelegate
 
 @synthesize window = _window;
 

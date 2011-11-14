@@ -10,7 +10,7 @@
 
 #import "MWFWebView.h"
 
-@interface UCSFMobileAppDelegate : NSObject <UIApplicationDelegate>
+@interface MWFMobileAppDelegate : NSObject <UIApplicationDelegate>
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 

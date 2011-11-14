@@ -1,6 +1,6 @@
 //
 //  OnlineWebView.m
-//  UCLAMobile
+//  UCSFMobile
 //
 //  Created by SVETA on 9/14/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
@@ -123,8 +123,7 @@
     else
     {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UCLA Mobile" message:@"There was an error loading the page. Are you offline?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Offline Mode", nil];
-        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UCSF Mobile" message:@"UCSF Mobile cannot contact the server. You may need to connect to the Internet." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert autorelease];
         [alert show];
@@ -132,13 +131,13 @@
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+/* - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1) 
-    {
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"]isDirectory:NO]]];
-    }
-}
+	if (buttonIndex == 1) 
+	{
+		[self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"]isDirectory:NO]]];
+	}
+} */
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {

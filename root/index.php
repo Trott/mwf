@@ -72,7 +72,7 @@ $main_menu = ($menu_section == 'default');
  */
 
 if ($main_menu) {
-    echo HTML_Decorator::html_start(array('manifest' => 'manifest.appcache'))->render();
+    echo HTML_Decorator::html_start(array('manifest' => '/assets/appcache.php'))->render();
 } else {
     echo HTML_Decorator::html_start()->render();
 }

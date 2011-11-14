@@ -16,7 +16,6 @@
 		847961F4145B871B008AA79F /* arrowleft.png in Resources */ = {isa = PBXBuildFile; fileRef = 847961F1145B871A008AA79F /* arrowleft.png */; };
 		847961F5145B871B008AA79F /* arrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = 847961F2145B871A008AA79F /* arrowright.png */; };
 		847961F6145B871B008AA79F /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 847961F3145B871A008AA79F /* house.png */; };
-		848907A1145B849300B1B02B /* img in Resources */ = {isa = PBXBuildFile; fileRef = 848907A0145B849300B1B02B /* img */; };
 		84A7AECE14217581000ABA24 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A7AECD14217581000ABA24 /* UIKit.framework */; };
 		84A7AED014217581000ABA24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A7AECF14217581000ABA24 /* Foundation.framework */; };
 		84A7AED214217581000ABA24 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A7AED114217581000ABA24 /* CoreGraphics.framework */; };
@@ -30,6 +29,7 @@
 		84A7AF10142297CB000ABA24 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 84A7AF0C142297CA000ABA24 /* index.html */; };
 		84A7AF11142297CB000ABA24 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 84A7AF0D142297CA000ABA24 /* js */; };
 		84A7AF1E1422E0CB000ABA24 /* MWFWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A7AF1F1422E0CB000ABA24 /* MWFWebView.xib */; };
+		B194842A147184A5002CD8AF /* img in Resources */ = {isa = PBXBuildFile; fileRef = B1948429147184A5002CD8AF /* img */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +42,6 @@
 		847961F1145B871A008AA79F /* arrowleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrowleft.png; path = img/arrowleft.png; sourceTree = "<group>"; };
 		847961F2145B871A008AA79F /* arrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrowright.png; path = img/arrowright.png; sourceTree = "<group>"; };
 		847961F3145B871A008AA79F /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = house.png; path = img/house.png; sourceTree = "<group>"; };
-		848907A0145B849300B1B02B /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
 		84A7AEC914217581000ABA24 /* UCLAMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UCLAMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A7AECD14217581000ABA24 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84A7AECF14217581000ABA24 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,6 +60,7 @@
 		84A7AF0C142297CA000ABA24 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		84A7AF0D142297CA000ABA24 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		84A7AF1F1422E0CB000ABA24 /* MWFWebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MWFWebView.xib; sourceTree = "<group>"; };
+		B1948429147184A5002CD8AF /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,13 +83,13 @@
 				847961F1145B871A008AA79F /* arrowleft.png */,
 				847961F2145B871A008AA79F /* arrowright.png */,
 				847961F3145B871A008AA79F /* house.png */,
-				848907A0145B849300B1B02B /* img */,
 				842440571433A1950098CDCC /* UCLA logo low res.png */,
 				842440551433A18B0098CDCC /* UCLA logo high res.png */,
 				8424404D14329EAA0098CDCC /* icon_high_res.png */,
 				8424404B14329E6C0098CDCC /* icon_low_res.png */,
 				84244048143292A70098CDCC /* Default@2x.png */,
 				8424404614315C110098CDCC /* Default.png */,
+				B1948429147184A5002CD8AF /* img */,
 				84A7AF0A142297CA000ABA24 /* css */,
 				84A7AF0C142297CA000ABA24 /* index.html */,
 				84A7AF0D142297CA000ABA24 /* js */,
@@ -203,10 +203,10 @@
 				8424404F14329EDA0098CDCC /* Default@2x.png in Resources */,
 				842440561433A18B0098CDCC /* UCLA logo high res.png in Resources */,
 				842440581433A1950098CDCC /* UCLA logo low res.png in Resources */,
-				848907A1145B849300B1B02B /* img in Resources */,
 				847961F4145B871B008AA79F /* arrowleft.png in Resources */,
 				847961F5145B871B008AA79F /* arrowright.png in Resources */,
 				847961F6145B871B008AA79F /* house.png in Resources */,
+				B194842A147184A5002CD8AF /* img in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

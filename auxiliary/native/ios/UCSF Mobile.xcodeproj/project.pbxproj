@@ -94,7 +94,7 @@
 				84A7AF0C142297CA000ABA24 /* index.html */,
 				84A7AF0D142297CA000ABA24 /* js */,
 				84A7AEEC14227906000ABA24 /* icon.png */,
-				84A7AED314217581000ABA24 /* UCLAMobile */,
+				84A7AED314217581000ABA24 /* UCSFMobile */,
 				84A7AECC14217581000ABA24 /* Frameworks */,
 				84A7AECA14217581000ABA24 /* Products */,
 			);
@@ -118,7 +118,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		84A7AED314217581000ABA24 /* UCLAMobile */ = {
+		84A7AED314217581000ABA24 /* UCSFMobile */ = {
 			isa = PBXGroup;
 			children = (
 				84A7AEDC14217581000ABA24 /* UCLAMobileAppDelegate.h */,
@@ -129,6 +129,7 @@
 				84A7AEE8142175A7000ABA24 /* MWFWebView.m */,
 				84A7AF1F1422E0CB000ABA24 /* MWFWebView.xib */,
 			);
+			name = UCSFMobile;
 			path = UCLAMobile;
 			sourceTree = "<group>";
 		};

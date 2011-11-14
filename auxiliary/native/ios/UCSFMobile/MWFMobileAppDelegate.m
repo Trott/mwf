@@ -1,15 +1,15 @@
 //
-//  UCLAMobileAppDelegate.m
-//  UCLAMobile
+//  UCSFMobileAppDelegate.m
+//  UCSFMobile
 //
 //  Created by SVETA on 9/14/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "UCLAMobileAppDelegate.h"
+#import "MWFMobileAppDelegate.h"
 #import "MWFWebView.h"
 
-@implementation UCLAMobileAppDelegate
+@implementation MWFMobileAppDelegate
 
 @synthesize window = _window;
 

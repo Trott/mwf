@@ -42,14 +42,14 @@
 		847961F1145B871A008AA79F /* arrowleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrowleft.png; path = img/arrowleft.png; sourceTree = "<group>"; };
 		847961F2145B871A008AA79F /* arrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrowright.png; path = img/arrowright.png; sourceTree = "<group>"; };
 		847961F3145B871A008AA79F /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = house.png; path = img/house.png; sourceTree = "<group>"; };
-		84A7AEC914217581000ABA24 /* UCLAMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UCLAMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84A7AEC914217581000ABA24 /* UCSFMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UCSFMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A7AECD14217581000ABA24 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84A7AECF14217581000ABA24 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84A7AED114217581000ABA24 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		84A7AED514217581000ABA24 /* UCLAMobile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UCLAMobile-Info.plist"; sourceTree = "<group>"; };
+		84A7AED514217581000ABA24 /* UCSFMobile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UCSFMobile-Info.plist"; sourceTree = "<group>"; };
 		84A7AED714217581000ABA24 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84A7AED914217581000ABA24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		84A7AEDB14217581000ABA24 /* UCLAMobile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UCLAMobile-Prefix.pch"; sourceTree = "<group>"; };
+		84A7AEDB14217581000ABA24 /* UCSFMobile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UCSFMobile-Prefix.pch"; sourceTree = "<group>"; };
 		84A7AEDC14217581000ABA24 /* MWFMobileAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWFMobileAppDelegate.h; sourceTree = "<group>"; };
 		84A7AEDD14217581000ABA24 /* MWFMobileAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MWFMobileAppDelegate.m; sourceTree = "<group>"; };
 		84A7AEE014217581000ABA24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		84A7AECA14217581000ABA24 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84A7AEC914217581000ABA24 /* UCLAMobile.app */,
+				84A7AEC914217581000ABA24 /* UCSFMobile.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,17 +129,16 @@
 				84A7AEE8142175A7000ABA24 /* MWFWebView.m */,
 				84A7AF1F1422E0CB000ABA24 /* MWFWebView.xib */,
 			);
-			name = UCSFMobile;
-			path = UCLAMobile;
+			path = UCSFMobile;
 			sourceTree = "<group>";
 		};
 		84A7AED414217581000ABA24 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84A7AED514217581000ABA24 /* UCLAMobile-Info.plist */,
+				84A7AED514217581000ABA24 /* UCSFMobile-Info.plist */,
 				84A7AED614217581000ABA24 /* InfoPlist.strings */,
 				84A7AED914217581000ABA24 /* main.m */,
-				84A7AEDB14217581000ABA24 /* UCLAMobile-Prefix.pch */,
+				84A7AEDB14217581000ABA24 /* UCSFMobile-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -147,9 +146,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		84A7AEC814217581000ABA24 /* UCLAMobile */ = {
+		84A7AEC814217581000ABA24 /* UCSFMobile */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84A7AEE414217581000ABA24 /* Build configuration list for PBXNativeTarget "UCLAMobile" */;
+			buildConfigurationList = 84A7AEE414217581000ABA24 /* Build configuration list for PBXNativeTarget "UCSFMobile" */;
 			buildPhases = (
 				84A7AEC514217581000ABA24 /* Sources */,
 				84A7AEC614217581000ABA24 /* Frameworks */,
@@ -159,9 +158,9 @@
 			);
 			dependencies = (
 			);
-			name = UCLAMobile;
-			productName = UCLAMobile;
-			productReference = 84A7AEC914217581000ABA24 /* UCLAMobile.app */;
+			name = UCSFMobile;
+			productName = UCSFMobile;
+			productReference = 84A7AEC914217581000ABA24 /* UCSFMobile.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -181,7 +180,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84A7AEC814217581000ABA24 /* UCLAMobile */,
+				84A7AEC814217581000ABA24 /* UCSFMobile */,
 			);
 		};
 /* End PBXProject section */
@@ -293,8 +292,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UCLAMobile/UCLAMobile-Prefix.pch";
-				INFOPLIST_FILE = "UCLAMobile/UCLAMobile-Info.plist";
+				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";
+				INFOPLIST_FILE = "UCSFMobile/UCSFMobile-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -305,8 +304,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UCLAMobile/UCLAMobile-Prefix.pch";
-				INFOPLIST_FILE = "UCLAMobile/UCLAMobile-Info.plist";
+				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";
+				INFOPLIST_FILE = "UCSFMobile/UCSFMobile-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -325,7 +324,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84A7AEE414217581000ABA24 /* Build configuration list for PBXNativeTarget "UCLAMobile" */ = {
+		84A7AEE414217581000ABA24 /* Build configuration list for PBXNativeTarget "UCSFMobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84A7AEE514217581000ABA24 /* Debug */,

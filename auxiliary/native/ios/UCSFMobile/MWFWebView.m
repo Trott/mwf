@@ -151,13 +151,29 @@
     
 }
 
-
-
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+	NSString *fullURL = @"http://m.ucsf.edu";
+    NSURL *url = [NSURL URLWithString:fullURL];
+    if (navigationType == UIWebViewNavigationTypeLinkClicked) 
+    {        
+        if(![[url host] isEqualToString:[[request URL] host]])
+        {
+            [[UIApplication sharedApplication] openURL:request.URL];
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    return true;
+}
 
 
 - (void)dealloc {

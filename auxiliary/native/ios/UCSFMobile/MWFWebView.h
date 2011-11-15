@@ -22,7 +22,6 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *parentWindow;
 
-
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
 
 @property (nonatomic, retain) IBOutlet UIImageView *splashView;

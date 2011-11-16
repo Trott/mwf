@@ -26,7 +26,7 @@
 		// Set custom user agent 			
 
 		BSWebViewUserAgent *agent = [[BSWebViewUserAgent alloc] init];
-		NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"%@/%@", [agent userAgentString],@" MWF/1.2.07"], @"UserAgent", nil];
+		NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"%@/%@", [agent userAgentString],@" MWF-Native-iOS/1.2.07"], @"UserAgent", nil];
 		[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
 		[dictionary release];
 		[agent release];

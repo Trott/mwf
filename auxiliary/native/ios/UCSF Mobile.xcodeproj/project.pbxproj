@@ -29,6 +29,7 @@
 		84A7AF10142297CB000ABA24 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 84A7AF0C142297CA000ABA24 /* index.html */; };
 		84A7AF11142297CB000ABA24 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 84A7AF0D142297CA000ABA24 /* js */; };
 		84A7AF1E1422E0CB000ABA24 /* MWFWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A7AF1F1422E0CB000ABA24 /* MWFWebView.xib */; };
+		B12240F814742E51001692BE /* BSWebViewUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = B12240E914742BD9001692BE /* BSWebViewUserAgent.m */; };
 		B194842A147184A5002CD8AF /* img in Resources */ = {isa = PBXBuildFile; fileRef = B1948429147184A5002CD8AF /* img */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,8 @@
 		84A7AF0C142297CA000ABA24 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		84A7AF0D142297CA000ABA24 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		84A7AF1F1422E0CB000ABA24 /* MWFWebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MWFWebView.xib; sourceTree = "<group>"; };
+		B12240E814742BD9001692BE /* BSWebViewUserAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSWebViewUserAgent.h; sourceTree = "<group>"; };
+		B12240E914742BD9001692BE /* BSWebViewUserAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSWebViewUserAgent.m; sourceTree = "<group>"; };
 		B1948429147184A5002CD8AF /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +131,8 @@
 				84A7AEE7142175A7000ABA24 /* MWFWebView.h */,
 				84A7AEE8142175A7000ABA24 /* MWFWebView.m */,
 				84A7AF1F1422E0CB000ABA24 /* MWFWebView.xib */,
+				B12240E814742BD9001692BE /* BSWebViewUserAgent.h */,
+				B12240E914742BD9001692BE /* BSWebViewUserAgent.m */,
 			);
 			path = UCSFMobile;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B12240F814742E51001692BE /* BSWebViewUserAgent.m in Sources */,
 				84A7AEDA14217581000ABA24 /* main.m in Sources */,
 				84A7AEDE14217581000ABA24 /* MWFMobileAppDelegate.m in Sources */,
 				84A7AEEA142175A7000ABA24 /* MWFWebView.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "MWFWebView.h"
+#import "BSWebViewUserAgent.h"
 
 @implementation MWFWebView
 
@@ -21,8 +22,15 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
-        
+ 
+		// Set custom user agent 			
+
+		BSWebViewUserAgent *agent = [[BSWebViewUserAgent alloc] init];
+		NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"%@/%@", [agent userAgentString],@" MWF/1.2.07"], @"UserAgent", nil];
+		[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+		[dictionary release];
+		[agent release];
+
         //Initial page has not been loaded.
         self.initPageLoaded = NO;
         
@@ -63,7 +71,7 @@
 
 - (void) goHome
 {
-    NSString *fullURL = @"http://m.ucsf.edu";
+    NSString *fullURL = @"http://whatsmyuseragent.com";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:requestObj];
@@ -170,7 +178,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-	NSString *fullURL = @"http://m.ucsf.edu";
+	NSString *fullURL = @"http://whatsmyuseragent.com";
     NSURL *url = [NSURL URLWithString:fullURL];
     if (navigationType == UIWebViewNavigationTypeLinkClicked) 
     {        

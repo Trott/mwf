@@ -1,5 +1,5 @@
 //
-//  OnlineWebView.m
+//  MWFWebView.m
 //  UCSFMobile
 //
 //  Created by SVETA on 9/14/11.
@@ -71,7 +71,7 @@
 
 - (void) goHome
 {
-    NSString *fullURL = @"http://whatsmyuseragent.com";
+    NSString *fullURL = @"http://m.ucsf.edu";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:requestObj];
@@ -178,7 +178,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-	NSString *fullURL = @"http://whatsmyuseragent.com";
+	NSString *fullURL = @"http://m.ucsf.edu";
     NSURL *url = [NSURL URLWithString:fullURL];
     if (navigationType == UIWebViewNavigationTypeLinkClicked) 
     {        

@@ -11,9 +11,6 @@
  * @uses PHPUnit_Framework_TestCase
  * @uses Config
  */
-require_once dirname(__FILE__) . '/../../../../../root/assets/lib/config.class.php';
-Config::set('global', 'cookie_prefix', 'mwftest_');
-
 class User_AgentTest extends PHPUnit_Framework_TestCase {
 
     /**
@@ -23,6 +20,8 @@ class User_AgentTest extends PHPUnit_Framework_TestCase {
     protected function setUp() {
         $_SERVER['SERVER_PORT'] = "80";
         $_SERVER['SERVER_NAME'] = 'localhost';
+        require_once dirname(__FILE__) . '/../../../../../root/assets/lib/config.class.php';
+        Config::set('global', 'cookie_prefix', 'mwftest_');
         $_COOKIE = array();
     }
 
@@ -63,7 +62,7 @@ class User_AgentTest extends PHPUnit_Framework_TestCase {
         require_once dirname(__FILE__) . '/../../../../../root/assets/lib/user_agent.class.php';
         $this->assertEquals(false, User_Agent::get_os_version());
     }
-    
+
     /**
      * @test
      * @runInSeparateProcess
@@ -83,7 +82,7 @@ class User_AgentTest extends PHPUnit_Framework_TestCase {
         require_once dirname(__FILE__) . '/../../../../../root/assets/lib/user_agent.class.php';
         $this->assertEquals("safari", User_Agent::get_browser());
     }
-    
+
     /**
      * @test
      * @runInSeparateProcess
@@ -93,7 +92,7 @@ class User_AgentTest extends PHPUnit_Framework_TestCase {
         require_once dirname(__FILE__) . '/../../../../../root/assets/lib/user_agent.class.php';
         $this->assertEquals("webkit", User_Agent::get_browser_engine());
     }
-    
+
     /**
      * @test
      * @runInSeparateProcess
@@ -103,6 +102,7 @@ class User_AgentTest extends PHPUnit_Framework_TestCase {
         require_once dirname(__FILE__) . '/../../../../../root/assets/lib/user_agent.class.php';
         $this->assertEquals("535.2", User_Agent::get_browser_engine_version());
     }
+
 }
 
 ?>

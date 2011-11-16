@@ -66,7 +66,6 @@
     NSString *fullURL = @"http://m.ucsf.edu";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    
     [self.webView loadRequest:requestObj];
 }
 
@@ -178,14 +177,11 @@
         if(![[url host] isEqualToString:[[request URL] host]])
         {
             [[UIApplication sharedApplication] openURL:request.URL];
-            return false;
+            return NO;
         }
-        else
-        {
-            return true;
-        }
-    }
-    return true;
+	}
+	
+    return YES;
 }
 
 

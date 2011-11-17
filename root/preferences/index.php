@@ -37,7 +37,11 @@ echo Site_Decorator::ucsf_footer()->render();
     if (! mwf.standard.preferences.isSupported()) {
         document.getElementById('save_button').disabled="disabled";
     } else {
-        var selected = document.getElementById('main_menu_'+mwf.standard.preferences.get('main_menu_layout'));
+        var pref = mwf.standard.preferences.get('main_menu_layout');
+        if (! pref) {
+            pref = mwf.userAgent.isNative() ? "grid" : "list";
+        }
+        var selected = document.getElementById('main_menu_'+pref);
         if (selected != null) {
             selected.selected = 'selected';
         }

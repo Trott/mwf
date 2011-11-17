@@ -113,7 +113,7 @@ class Classification
     public static function parse($capabilities)
     {
         include_once(dirname(__FILE__).'/json.php');
-        return json_decode(stripslashes($capabilities));
+        return json_decode($capabilities);
     }
     
     /**
@@ -208,6 +208,18 @@ class Classification
     {
         $capabilities = self::get($consider_override);
         return $capabilities && $capabilities->mobile || !isset(self::$_cookie);
+    }
+    
+    /**
+     * A client is regarded as native if it is accessing the site via the MWF 
+     * native container.
+     * 
+     * @return bool 
+     */
+    public static function is_native()
+    {
+        $capabilities = self::get();
+        return $capabilities && $capabilities->native;
     }
     
     /**

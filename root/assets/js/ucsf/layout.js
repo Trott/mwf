@@ -7,8 +7,13 @@ mwf.ucsfLayout = new function() {
         var main_menu = document.getElementById("main_menu");
 
         if (main_menu) {
-            if (mwf.standard.preferences.isSupported()) {        
-                switch (mwf.standard.preferences.get("main_menu_layout")) {
+            if (mwf.standard.preferences.isSupported()) {
+                var pref = mwf.standard.preferences.get("main_menu_layout");
+                if (! pref) {
+                    pref = mwf.userAgent.isNative() ? "grid" : "list";
+                }
+                    
+                switch (pref) {
                     case "grid":
                         document.getElementById('header').setAttribute("style","display:none");
                         main_menu.className += " menu-grid";

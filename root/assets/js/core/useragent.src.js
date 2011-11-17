@@ -177,6 +177,16 @@ mwf.userAgent = new function() {
     }
     
     /**
+     * Determine if the client is classified as a native container based on the 
+     * user agent string.
+     * 
+     * @return bool
+     */
+    this.isNative = function(){
+        return / mwf\/[\d\.]*$/.test(userAgent);
+    }
+    
+    /**
      * Generate JSON content passed into the cookie written by mwf.server.
      * 
      * @return string

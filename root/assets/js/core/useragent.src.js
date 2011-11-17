@@ -183,7 +183,7 @@ mwf.userAgent = new function() {
      * @return bool
      */
     this.isNative = function(){
-        return / mwf\/[\d\.]*$/.test(userAgent);
+        return / mwf\-native\-[a-z]*\/[\d\.]*$/.test(userAgent);
     }
     
     /**
@@ -206,7 +206,7 @@ mwf.userAgent = new function() {
         if(t = this.getBrowserEngineVersion())
             cookie += ',"bev":"'+t+'"';
         cookie += '}';
-        
+
         return cookie;
         
     }

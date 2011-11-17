@@ -55,7 +55,12 @@ test("mwf.classification.get()", function()
 
 test("mwf.classification.generateCookieContent()", function()
 {   
-    var re = /^\{\"mobile\":(true|false),\"basic\":(true|false),\"standard\":(true|false),\"full\":(true|false)\}$/;
+    var re = /^\{\"mobile\":(true|false),\"basic\":(true|false),\"standard\":(true|false),\"full\":(true|false),\"native\":(true|false)\}$/;
     var cookie = mwf.classification.generateCookieContent();
     ok(re.exec(cookie), 'cookie should be in expected format');
+});
+
+test("mwf.classification.isNative()", function()
+{
+    equal(mwf.classification.isNative(), false, 'Native should be false, unit tests not accessible from native container');
 });

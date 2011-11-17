@@ -16,7 +16,7 @@
 		<string>UCSF logo high res.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>MWF.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>edu.ucsf.mwf.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

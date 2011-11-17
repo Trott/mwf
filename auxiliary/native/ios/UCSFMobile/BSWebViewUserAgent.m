@@ -16,7 +16,7 @@
 {
 	webView = [[UIWebView alloc] init];
 	webView.delegate = self;
-	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.example.com/"]]];
+	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://8.8.8.8/"]]];
 	
 	// Wait for the web view to load our bogus request and give us the secret user agent.
 	while (self.userAgent == nil) 

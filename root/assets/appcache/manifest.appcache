@@ -9,11 +9,6 @@ CACHE:
 
 #internal HTML documents
 /
-/shuttle/
-/directory
-/maps/
-/library/
-/calendars/
 /emergency
 
 #style sheets

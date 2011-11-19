@@ -14,6 +14,7 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
             <li><a href="catalog">Find Books/Journals</a></li>
             <li><a href="askus">Ask Us</a></li>
             <li><a href="http://guides.library.ucsf.edu/content.php?pid=252446&sid=2084303"><span class="external">Mobile Resources</span></a></li>
+            <li><a href="http://guides.library.ucsf.edu/index.php"><span class="external">Getting Started Guides</span></a></li>
             <li><a href="howdoi">How Do I?</a></li>
             <li><a href="whereisit">Where Is It?</a></li>
             <li><a href="/news/library">News</a></li>

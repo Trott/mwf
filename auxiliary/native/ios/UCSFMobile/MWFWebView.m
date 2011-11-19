@@ -129,9 +129,8 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    
-    if(error.code != -1009)
-        return;
+	if (error.code == NSURLErrorCancelled)
+		return;
     
     //If the initial page fails to load then redirect the user to the offline mode.
     if(!self.initPageLoaded)

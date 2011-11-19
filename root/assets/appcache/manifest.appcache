@@ -9,6 +9,7 @@ CACHE:
 
 #internal HTML documents
 /
+/calendars
 /emergency
 
 #style sheets

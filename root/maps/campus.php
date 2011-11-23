@@ -1,6 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/../assets/config.php');
 require_once(dirname(__FILE__) . '/../assets/lib/decorator.class.php');
+require_once(dirname(dirname(__FILE__)) . '/assets/lib/classification.class.php');
 
 switch (isset($_GET['campus']) ? $_GET['campus'] : 'none') {
     case 'Mission Bay':
@@ -39,7 +40,8 @@ echo Site_Decorator::head()
 echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>')->render();
 echo HTML_Decorator::tag('div', '', array('id' => 'map_canvas'))->render();
-echo Site_Decorator::ucsf_back_button()->render();
+if (! Classification::is_native()) 
+    echo Site_Decorator::ucsf_back_button()->render();
 ?>
 <script type="text/javascript">
     var lat=<?php echo $lat; ?>;

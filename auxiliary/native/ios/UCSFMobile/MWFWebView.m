@@ -71,7 +71,7 @@
 
 - (void) goHome
 {
-    NSString *fullURL = @"http://m.ucsf.edu";
+    NSString *fullURL = @"http://localhost";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:requestObj];
@@ -177,7 +177,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-	NSString *fullURL = @"http://m.ucsf.edu";
+	NSString *fullURL = @"http://localhost";
     NSURL *url = [NSURL URLWithString:fullURL];
     if (navigationType == UIWebViewNavigationTypeLinkClicked) 
     {        

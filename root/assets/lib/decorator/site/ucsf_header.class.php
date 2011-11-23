@@ -11,11 +11,11 @@
  * @license http://mwf.ucla.edu/license
  * @version 20110518
  *
- * @uses Decorator
- * @uses Tag_HTML_Decorator
- * @uses Config
+ * @uses Header_Site_Decorator
+ * @uses Classification
  */
 require_once(dirname(__FILE__) . '/header.class.php');
+require_once(dirname(dirname(dirname(__FILE__))) . '/classification.class.php');
 
 class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
 
@@ -32,6 +32,9 @@ class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
     }
 
     public function render() {
+        if (Classification::is_native()) 
+            return;
+        
         if (!$this->_home_text)
             $this->_home_text = Config::get('global', 'header_home_text');
 //  HTML_Decorator inserts extraneous whitespace into tags  

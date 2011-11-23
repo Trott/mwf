@@ -22,9 +22,6 @@ echo Site_Decorator::ucsf_header('Research Profile')
 <div class="menu-full menu-padded"><ol id="ctsi-full-profile"></ol></div>
 
 <?php
-echo HTML_Decorator::tag('a', 'Back', array('href' => 'javascript:history.back()',
-    'id' => 'button-top',
-    'class' => 'button-full button-padded'));
 echo Site_Decorator::ucsf_footer()->render();
 ?><script>mwf.ucsfCtsiProfile.getProfile("<?php echo filter_var($_GET['fno'],FILTER_SANITIZE_EMAIL); ?>");</script><?php
 echo HTML_Decorator::body_end()->render();

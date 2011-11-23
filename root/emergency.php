@@ -19,7 +19,6 @@ echo Site_Decorator::ucsf_header('<a href="/emergency">Emergency</a>')->render()
 <li class="menu-last"><a href="tel:+14158857828">UCSF Medical Center Information Hotline<br/><span class="smallprint">(415) 885-7828</span></a></li> 
 </ol>
 </div>
-<a href="javascript:history.back()" id="button-top" class="button-full button-padded">Back</a>    
 <?php echo Site_Decorator::ucsf_footer()->render(); 
 echo HTML_Decorator::body_end()->render();
 

@@ -14,6 +14,7 @@
  * @uses Decorator
  * @uses Tag_HTML_Decorator
  * @uses Config
+ * @uses HTTPS
  */
 
 require_once(dirname(dirname(dirname(__FILE__))).'/decorator.class.php');

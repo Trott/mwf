@@ -37,9 +37,9 @@ echo Site_Decorator::head()
         ->add_javascript('http://maps.google.com/maps/api/js?sensor=false&v=3.5')
         ->render();
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>');
-echo HTML_Decorator::tag('div', '', array('id' => 'map_canvas'));
-echo Site_Decorator::ucsf_back_button();
+echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>')->render();
+echo HTML_Decorator::tag('div', '', array('id' => 'map_canvas'))->render();
+echo Site_Decorator::ucsf_back_button()->render();
 ?>
 <script type="text/javascript">
     var lat=<?php echo $lat; ?>;

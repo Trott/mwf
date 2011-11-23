@@ -11,22 +11,23 @@
  * @license http://mwf.ucla.edu/license
  * @version 20111122
  *
- * @uses Decorator
- * @uses Tag_HTML_Decorator
- * @uses Config
+ * @uses Default_Footer_Site_Decorator
+ * @uses Classification
  */
 
 require_once(dirname(__FILE__).'/default_footer.class.php');
+require_once(dirname(dirname(dirname(__FILE__))).'/classification.class.php');
 
 class Ucsf_Footer_Site_Decorator extends Default_Footer_Site_Decorator
 {
-    private $_back_button = true;
+    private $_back_button;
     
     public function __construct()
     {          
         parent::__construct();
         
-        $this->show_powered_by(false);       
+        $this->show_powered_by(false);  
+        $this->_back_button = ! Classification::is_native();
     }
     
     public function back_button($show=true) {

@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 16-Nov-2011
+# 22-Nov-2011
 
 CACHE:
 
@@ -9,6 +9,7 @@ CACHE:
 
 #internal HTML documents
 /
+/calendars
 /emergency
 
 #style sheets

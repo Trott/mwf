@@ -39,8 +39,8 @@ echo Site_Decorator::head()
 echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>');
 echo HTML_Decorator::tag('div', '', array('id' => 'map_canvas'));
+echo Site_Decorator::ucsf_back_button();
 ?>
-<a href="javascript:history.back()" id="button-top" class="button-full">Back</a>
 <script type="text/javascript">
     var lat=<?php echo $lat; ?>;
     var lon=<?php echo $lon; ?>;

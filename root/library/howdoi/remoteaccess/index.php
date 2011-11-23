@@ -71,7 +71,6 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 </ul> 
 </div> 
 </div> 
-<a href="javascript:history.back()" id="button-top" class="button-full button-padded">Back</a>
 <?php 
 echo Site_Decorator::ucsf_footer()->render();
 echo HTML_Decorator::body_end()->render();

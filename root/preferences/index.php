@@ -29,7 +29,6 @@ echo Site_Decorator::ucsf_header("Preferences")
            type="submit" value="Save"/>
 
 </form>
-<a href="javascript:history.back()" id="button-top" class="button-full button-padded">Back</a>
 <?php
 echo Site_Decorator::ucsf_footer()->render();
 ?>

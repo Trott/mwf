@@ -97,9 +97,7 @@ echo Site_Decorator::ucsf_header($header_title)
             <?php endforeach; ?>
             </ol>
             </div>
-    <?php endif;?>
-<a href="javascript:history.back()" id="button-top" class="button-full button-padded">Back</a>
-<?php 
+    <?php endif;
 echo Site_Decorator::ucsf_footer()->render();
 echo HTML_Decorator::body_end()->render();
 echo HTML_Decorator::html_end()->render();

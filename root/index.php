@@ -130,7 +130,7 @@ if (!$main_menu)
  * Footer
  */
 
-echo Site_Decorator::ucsf_footer()->render();
+echo Site_Decorator::ucsf_footer()->back_button(false)->render();
 
 /**
  * End page

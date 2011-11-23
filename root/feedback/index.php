@@ -31,7 +31,6 @@ if (empty($_POST['Field1'])) {
 
 <input id="saveForm" name="saveForm" class="form-last" type="submit" value="Submit Feedback" />
 </form>
-<a href="javascript:history.back()" id="button-top" class="button-full button-padded">Back</a>
 <script type="text/javascript"> 
 __RULES = [];
 </script> 

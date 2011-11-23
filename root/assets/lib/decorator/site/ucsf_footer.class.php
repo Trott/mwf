@@ -9,7 +9,7 @@
  * @author trott
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20111023
+ * @version 20111122
  *
  * @uses Decorator
  * @uses Tag_HTML_Decorator
@@ -19,16 +19,24 @@
 require_once(dirname(__FILE__).'/default_footer.class.php');
 
 class Ucsf_Footer_Site_Decorator extends Default_Footer_Site_Decorator
-{	
-	public function __construct()
+{
+    private $_back_button = true;
+    
+    public function __construct()
     {          
         parent::__construct();
         
         $this->show_powered_by(false);       
     }
     
+    public function back_button($show=true) {
+        $this->_back_button = $show;
+        return $this;
+    }
+    
     public function render()
     {
+        $back_button = $this->_back_button ? Site_Decorator::ucsf_back_button() : '';
         $library_ga_rollup = '';
         if (strncasecmp($_SERVER['PHP_SELF'],"/library",8) == 0) {
             $library_ga_rollup = <<<EOD
@@ -45,6 +53,6 @@ EOD;
         
         $this->add_inner_tag('p', 'This site is a service of the <a href="http://library.ucsf.edu/">UCSF Library</a>.');
 
-        return parent::render() . $library_ga_rollup;
+        return $back_button . parent::render() . $library_ga_rollup;
     }
 }

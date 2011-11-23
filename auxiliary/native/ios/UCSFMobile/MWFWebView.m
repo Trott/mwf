@@ -71,7 +71,7 @@
 
 - (void) goHome
 {
-    NSString *fullURL = @"http://m.ucsf.edu";
+    NSString *fullURL = @"http://localhost";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:requestObj];
@@ -129,9 +129,8 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    
-    if(error.code != -1009)
-        return;
+	if (error.code == NSURLErrorCancelled)
+		return;
     
     //If the initial page fails to load then redirect the user to the offline mode.
     if(!self.initPageLoaded)
@@ -178,7 +177,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-	NSString *fullURL = @"http://m.ucsf.edu";
+	NSString *fullURL = @"http://localhost";
     NSURL *url = [NSURL URLWithString:fullURL];
     if (navigationType == UIWebViewNavigationTypeLinkClicked) 
     {        

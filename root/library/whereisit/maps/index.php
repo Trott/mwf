@@ -16,7 +16,6 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 <li class="menu-last"><a href="5">Floor 5<br/><span class="smallprint">Books, A-P<br/>Archives<br/>Lange Room<br/>UCSF Quiet Study</span></a></li>
 </ol>
 </div>
-<a href="javascript:history.back()" id="button-top" class="button-full button-padded">Back</a>
 <?php 
 echo Site_Decorator::ucsf_footer()->render();
 echo HTML_Decorator::body_end()->render();

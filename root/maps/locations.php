@@ -15,7 +15,7 @@ echo Site_Decorator::head()
     ->add_js_handler_library('full_libs','jquery')
     ->render();
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>');
+echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>')->render();
 ?>
 <form class="form-full form-padded" action="locations.php" method="get">
          <h1 class="light form-first">Search Locations</h1>

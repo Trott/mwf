@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 22-Nov-2011
+#30-Nov-2011
 
 CACHE:
 
@@ -13,6 +13,8 @@ CACHE:
 /directory
 /maps/
 /library/
+/library/help/
+/library/askus/
 /calendars
 /emergency
 

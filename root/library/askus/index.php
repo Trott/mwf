@@ -7,17 +7,15 @@ echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
         ->render();
 ?>
-<div class="content-full content-padded">
-<h1 class="content-first">Ask Us</h1>
+<div class="menu-full menu-detailed menu-padded">
+<h1 class="menu-first">Ask Us</h1>
 
-<div>
-    Phone:<br/>
-    <a href="tel:+14154762337">(415) 476-2337</a> Parnassus <br />
-    <a href="tel:+14155144060">(415) 514-4060</a> Mission Bay<br/>
-    <br/>
-    <a href="mailto:LibraryHelp@ucsf.edu">Email</a><br/>
-    <a href="mailto:LibraryHelp@ucsf.edu">Arrange a research consultation</a>
-</div>
+<ol>
+    <li><a href="tel:+14154762337">(415) 476-2337<br/><span class="smallprint">Parnassus</span></a></li>
+    <li><a href="tel:+14155144060">(415) 514-4060<br/><span class="smallprint">Mission Bay</span></a></li>
+    <li><a href="mailto:LibraryHelp@ucsf.edu">Email</a></li>
+    <li><a href="mailto:LibraryHelp@ucsf.edu">Arrange a research consultation</a></li>
+</ol>
 </div>
 <?php 
 echo Site_Decorator::ucsf_footer()->render();

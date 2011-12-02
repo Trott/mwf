@@ -51,8 +51,6 @@ pageTracker._trackPageview();
 </script>
 EOD;
         }
-        
-        $this->add_inner_tag('p', 'This site is a service of the <a href="http://library.ucsf.edu/">UCSF Library</a>.');
 
         return $back_button . parent::render() . $library_ga_rollup;
     }

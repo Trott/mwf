@@ -118,10 +118,10 @@ for ($i = 0; $i < count($menu_names); $i++) {
 echo $menu->render();
 
 if (($main_menu) && (Classification::is_full())) {
-    echo Site_Decorator::ucsf_shuttle_menu('Shuttle', array('id' => 'il/shuttle/',
-                'style' => 'display:none'))
-            ->render();
+    echo Site_Decorator::ucsf_shuttle_menu('Shuttle', array('id' => 'il/shuttle/','style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_directory_form('Directory',array('id' => 'il/directory', 'style'=>'display:none'))->render();
+    echo Site_Decorator::ucsf_map_menu('Maps',array('id'=>'il/maps/','style'=>'display:none'))->render();
+    echo Site_Decorator::ucsf_library_menu('Library',array('id'=>'il/library/','style'=>'display:none'))->render();
 }
 
 /**

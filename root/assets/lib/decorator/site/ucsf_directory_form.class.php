@@ -20,8 +20,8 @@ class Ucsf_Directory_Form_Site_Decorator extends Tag_HTML_Decorator {
     private $_title = false;
     private $_list = array();
 
-    public function __construct($title = 'Directory', $params = array('method' => 'post', 'action' => '/directory/query')) {
-        parent::__construct('form', false, $params);
+    public function __construct($title = 'Directory', $params = array()) {
+        parent::__construct('form', false, array_merge($params,array('method' => 'post', 'action' => '/directory/query')));
         $this->add_class('form-full');
         $this->add_class('form-padded');
         if ($title)

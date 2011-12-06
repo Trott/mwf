@@ -122,6 +122,8 @@ if (($main_menu) && (Classification::is_full())) {
     echo Site_Decorator::ucsf_directory_form('Directory',array('id' => 'il/directory', 'style'=>'display:none'))->render();
     echo Site_Decorator::ucsf_map_menu('Maps',array('id'=>'il/maps/','style'=>'display:none'))->render();
     echo Site_Decorator::ucsf_library_menu('Library',array('id'=>'il/library/','style'=>'display:none'))->render();
+    echo Site_Decorator::ucsf_calendar_menu('Calendars',array('id'=>'il/calendars','style'=>'display:none'))->render();
+    echo Site_Decorator::ucsf_emergency_menu('Emergency',array('id'=>'il/emergency','style'=>'display:none'))->render();
 }
 
 /**

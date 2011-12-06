@@ -6,16 +6,9 @@ echo Site_Decorator::head()->set_title(Config::get('global', 'title_text') . " |
 echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('<a href="/calendars">Calendars</a>')
         ->render();
-?>
-<div class="menu-full menu-detailed menu-padded"> 
-    <ol> 
-        <li class="menu-first"><a href="/news/?feed=ucsfevents">UCSF Events</a></li>
-        <li><a href="/news/?feed=academicevents">Featured Academic Events</a></li>
-        <li class="menu-last"><a href="http://www.ucsf.edu/about/ucsf-calendars?ovrrdr=1"><span class="external">UCSF Calendars Website</span></a></li>
-    </ol> 
-</div> 
 
-<?php
+echo Site_Decorator::ucsf_calendar_menu()->render();
+
 echo Site_Decorator::ucsf_footer()->render();
 echo HTML_Decorator::body_end()->render();
 echo HTML_Decorator::html_end()->render();

@@ -47,7 +47,7 @@ mwf.full.history = new function() {
                             show:clickedNodeId, 
                             hide:targetId
                         },'');
-                        window.location.hash = '#' + targetId;
+                        window.location.hash = '#/' + targetId;
                         history.replaceState({
                             show:targetId,
                             hide:clickedNodeId
@@ -67,7 +67,7 @@ mwf.full.history = new function() {
         if (window.location.hash=='')
             showContent('main_menu', '');
         else
-            showContent(window.location.hash.substring(1),'')
+            showContent(window.location.hash.substring(2),'')
     }
 }
 document.addEventListener('DOMContentLoaded', mwf.full.history.init, false);

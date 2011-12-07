@@ -82,7 +82,7 @@ if ($main_menu) {
 }
 echo $head->render();
 
-echo HTML_Decorator::body_start($main_menu ? array('class'=>'front-page') : array())->render();
+echo HTML_Decorator::body_start($main_menu ? array('class'=>'front') : array())->render();
 
 /*
  * Header
@@ -97,10 +97,10 @@ else
  * Menu
  */
 
-$menu = Site_Decorator::menu()->set_detailed();
+$menu = Site_Decorator::menu()->set_padded()->set_detailed();
 
-if ($main_menu)
-    $menu->add_class('menu-front')->set_param('id', 'main_menu');
+if($main_menu)
+    $menu->add_class('front')->set_param('id','main_menu');
         
 if (Classification::is_full())
     $menu->set_param('style', 'display:none');
@@ -139,7 +139,7 @@ if (($main_menu) && (Classification::is_full())) {
  */
 
 if(!$main_menu)
-    echo Site_Decorator::button_full()
+    echo Site_Decorator::button()
                 ->set_padded()
                 ->add_option(Config::get('global', 'back_to_home_text'), 'index.php')
                 ->render();

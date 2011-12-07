@@ -24,7 +24,7 @@
  * @uses Head_Site_Decorator
  * @uses Body_Start_HTML_Decorator
  * @uses Header_Site_Decorator
- * @uses Menu_Full_Site_Decorator
+ * @uses Menu_Site_Decorator
  * @uses Button_Full_Site_Decorator
  * @uses Footer_Site_Decorator
  * @uses Body_End_HTML_Decorator
@@ -97,7 +97,7 @@ else
  * Menu
  */
 
-$menu = Site_Decorator::menu_full()->set_detailed();
+$menu = Site_Decorator::menu()->set_detailed();
 
 if ($main_menu)
     $menu->add_class('menu-front')->set_param('id', 'main_menu');

@@ -8,9 +8,10 @@
  * @author trott
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20111205
+ * @version 20120124
  *
- * @uses Menu_Full_Site_Decorator
+ * @uses HTML_Decorator
+ * @uses Tag_HTML_Decorator
  */
 require_once(dirname(dirname(dirname(__FILE__))) . '/decorator.class.php');
 require_once(dirname(dirname(__FILE__)) . '/html/tag.class.php');

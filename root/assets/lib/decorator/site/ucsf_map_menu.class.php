@@ -8,15 +8,15 @@
  * @author trott
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20111206
+ * @version 20120124
  *
- * @uses Menu_Full_Site_Decorator
+ * @uses Menu_Site_Decorator
  * @uses Classification
  */
-require_once(dirname(__FILE__) . '/menu_full.class.php');
+require_once(dirname(__FILE__) . '/menu.class.php');
 require_once(dirname(dirname(dirname(__FILE__))) . '/classification.class.php');
 
-class Ucsf_Map_Menu_Site_Decorator extends Menu_Full_Site_Decorator {
+class Ucsf_Map_Menu_Site_Decorator extends Menu_Site_Decorator {
 
     public function __construct($title = false, $params = array()) {
         parent::__construct($title, $params);

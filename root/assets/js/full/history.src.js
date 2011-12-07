@@ -86,12 +86,15 @@ mwf.full.history = new function() {
                 showElement.setAttribute("style","display:block");
             else
                 return false;
-            if (mwf.standard.preferences.isSupported() && mwf.standard.preferences.get('main_menu_layout')!='grid') {
-                var buttonDisplay = show=="main_menu" ? "display:none" : "display:block";
-                document.getElementById('button-top').setAttribute("style",buttonDisplay);
-            }
-            if (mwf.userAgent.isNative()) {
-                document.getElementById('button-top').setAttribute("style","display:none");
+            var topButton = document.getElementById('button-top');
+            if (topButton) {
+                if (mwf.standard.preferences.isSupported() && mwf.standard.preferences.get('main_menu_layout')!='grid') {
+                    var buttonDisplay = show=="main_menu" ? "display:none" : "display:block";
+                    document.getElementById('button-top').setAttribute("style",buttonDisplay);
+                }
+                if (mwf.userAgent.isNative()) {
+                    document.getElementById('button-top').setAttribute("style","display:none");
+                }
             }
             mwf.full.history.showHideFooter(show);
             return true;

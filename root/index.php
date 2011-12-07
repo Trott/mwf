@@ -104,6 +104,9 @@ $menu = Site_Decorator::menu_full()->set_detailed();
 
 if ($main_menu)
     $menu->add_class('menu-front')->set_param('id', 'main_menu');
+        
+if (Classification::is_full())
+    $menu->set_param('style', 'display:none');
 
 for ($i = 0; $i < count($menu_names); $i++) {
     if (isset($menu_restrictions[$i])) {
@@ -138,7 +141,7 @@ if (!$main_menu)
 /**
  * Footer
  */
-echo Site_Decorator::ucsf_footer()->back_button(false)->render();
+echo Site_Decorator::ucsf_footer()->back_button()->render();
 
 /**
 * End page

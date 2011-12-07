@@ -52,6 +52,9 @@ mwf.full.history = new function() {
                             show:targetId,
                             hide:clickedNodeId
                         },'');
+                        if(mwf.site.analytics){
+                            mwf.site.analytics.trackPageview(this.element.pathname);
+                        }
                     }
                 }));
         }

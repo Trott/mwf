@@ -9,13 +9,6 @@ CACHE:
 
 #internal HTML documents
 /
-/shuttle/
-/directory
-/maps/
-/library/
-/library/help/
-/library/askus/
-/calendars
 /emergency
 
 #style sheets
@@ -58,5 +51,6 @@ http://www.google-analytics.com/ga.js
 /assets/js/standard/preferences.js
 /assets/js/full/fastLink.js
 /assets/js/full/history.js
+
 NETWORK:
 *

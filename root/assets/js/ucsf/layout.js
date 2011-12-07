@@ -23,6 +23,9 @@ mwf.ucsfLayout = new function() {
                         height = height - height % 80;
                         mwf.ucsfLayout.setGridWidth(width);
                         window.addEventListener('orientationchange', mwf.ucsfLayout.rotateGrid, false);
+                        var backButton = document.getElementById('button-top');
+                        if (backButton!=null)
+                            backButton.setAttribute("style","display:none");
                         break;
                     case "list":
                     default:

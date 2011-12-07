@@ -45,7 +45,7 @@ class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
 //
 //  For now, we'll just do this horrible hack instead:
 //  <horrible_hack>
-        $home_button = '<a href="/"><img src="' . $this->_image['src'] . '" alt="' . $this->_image['alt'] . '" /><span>Mobile</span></a>';
+        $home_button = '<img src="' . $this->_image['src'] . '" alt="' . $this->_image['alt'] . '" /><span>Mobile</span>';
 //  </horrible_hack>
         if ($this->_title_path)
             $title = $this->_title ? HTML_Decorator::tag('a', $this->_title, array('href' => $this->_title_path)) : false;

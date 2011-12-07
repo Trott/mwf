@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#01-Dec-2011
+#07-Dec-2011
 
 CACHE:
 
@@ -53,9 +53,10 @@ CACHE:
 #javascript files
 http://www.google-analytics.com/ga.js
 /assets/js.php
-/assets/js.php?standard_libs=preferences&standard=/assets/js/ucsf/layout.js
+/assets/js.php?standard_libs=preferences&standard=/assets/js/ucsf/layout.js&full_libs=fastLink+history
 /assets/redirect/js_unset_override.php
 /assets/js/standard/preferences.js
-
+/assets/js/full/fastLink.js
+/assets/js/full/history.js
 NETWORK:
 *

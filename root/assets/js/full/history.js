@@ -11,10 +11,14 @@
  * @version 20111205
  *
  * @requires mwf
+ * @requires mwf.standard.preferences
+ * @requires mwf.full.fastLink
  * 
  */
 
 mwf.full.history = new function() {
+    
+    var _link = [];
     
     this.init = function() {
         var anchors = document.getElementsByTagName("a");
@@ -30,29 +34,28 @@ mwf.full.history = new function() {
         }
 
         for (var i = 0; i < anchors.length ; i++) {
-            anchors[i].addEventListener("click", 
-                function (event) {
-                    var targetId = 'il'+this.pathname;
+            if (document.getElementById('il'+anchors[i].pathname) != null)
+                _link.push(new mwf.full.fastLink(anchors[i],function (event) {
+                    var targetId = 'il'+this.element.pathname;
                     var target = document.getElementById(targetId);
                     if (target != null) {
                         event.preventDefault();
-                        var clickedNode = this.parentNode.parentNode.parentNode;
+                        var clickedNode = this.element.parentNode.parentNode.parentNode;
                         var clickedNodeId = clickedNode.getAttribute('id');
                         showContent(targetId,clickedNodeId);
                         history.replaceState({
                             show:clickedNodeId, 
                             hide:targetId
                         },'');
-                        history.pushState({
+                        window.location.hash = '#' + targetId;
+                        history.replaceState({
                             show:targetId,
                             hide:clickedNodeId
-                        },'','#'+targetId);
+                        },'');
                     }
-                }, 
-                false);
+                }));
         }
     
-
         window.addEventListener("popstate", function(event) {
             if (event.state) {
                 if (event.state.hasOwnProperty('hide') && event.state.hasOwnProperty('show')) {

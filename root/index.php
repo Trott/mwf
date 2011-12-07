@@ -81,6 +81,7 @@ $head = Site_Decorator::head()->set_title(Config::get('global', 'title_text'));
 if ($main_menu) {
     $head->add_js_handler_library('standard_libs', 'preferences');
     $head->add_js_handler_library('standard', '/assets/js/ucsf/layout.js');
+    $head->add_js_handler_library('full_libs', 'fastLink');
     $head->add_js_handler_library('full_libs', 'history');
 }
 echo $head->render();

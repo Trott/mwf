@@ -56,12 +56,6 @@ div.button-full a.button-light:active {
     padding: 1em;
 }
 
-.menu-full li a:hover,
-.menu-full li a:focus,
-.menu-full li a:active {
-    background-color: rgba(234, 242, 250, 0.5);
-}
-
 .content-padded ol li{
     margin: 0 0 0 26px;
 }

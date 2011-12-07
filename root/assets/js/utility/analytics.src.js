@@ -8,6 +8,12 @@
  * @requires mwf.userAgent
  */
 
+mwf.site.analytics.trackPageview = function(url) {
+    if (mwf.site.analytics.key) {
+        _gaq.push(["_trackPageview"],url);
+    }
+}
+
 if(mwf.site.analytics.key){
     var _gaq = _gaq || [];
     _gaq.push(["_setAccount", mwf.site.analytics.key]);

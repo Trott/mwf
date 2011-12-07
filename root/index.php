@@ -127,9 +127,9 @@ if (($main_menu) && (Classification::is_full())) {
     echo Site_Decorator::ucsf_map_menu('Maps',array('id'=>'il/maps/','style'=>'display:none'))->render();
     echo Site_Decorator::ucsf_library_menu('Library',array('id'=>'il/library/','style'=>'display:none'))->render();
     echo Site_Decorator::ucsf_library_locations_menu('Locations',array('id'=>'il/library/locations','style'=>'display:none'))->render();
-    echo Site_Decorator::ucsf_library_locations_parnassus_menu('Locations',array('id'=>'il/library/locations/parnassus','style'=>'display:none'))->render();
-    echo Site_Decorator::ucsf_library_locations_missionbay_menu('Locations',array('id'=>'il/library/locations/mission_bay','style'=>'display:none'))->render();
-    echo Site_Decorator::ucsf_library_locations_studyspaces_content('Locations',array('id'=>'il/library/locations/study_spaces','style'=>'display:none'))->render();    
+    echo Site_Decorator::ucsf_library_locations_parnassus_menu('Parnassus Library',array('id'=>'il/library/locations/parnassus','style'=>'display:none'))->render();
+    echo Site_Decorator::ucsf_library_locations_missionbay_menu('Mission Bay Library',array('id'=>'il/library/locations/mission_bay','style'=>'display:none'))->render();
+    echo Site_Decorator::ucsf_library_locations_studyspaces_content('Other Study Spaces',array('id'=>'il/library/locations/study_spaces','style'=>'display:none'))->render();    
     echo Site_Decorator::ucsf_calendar_menu('Calendars',array('id'=>'il/calendars','style'=>'display:none'))->render();
     echo Site_Decorator::ucsf_emergency_menu('Emergency',array('id'=>'il/emergency','style'=>'display:none'))->render();
 }

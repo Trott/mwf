@@ -15,10 +15,6 @@ CACHE:
 /assets/css.php
 
 #style sheet images
-/assets/img/button-go.png
-/assets/img/button-next.png
-/assets/img/button-previous.png
-/assets/img/button-search.png
 /assets/img/header-bg.png
 /assets/img/header-front-page-bg.png
 /assets/img/list-arrow.png

@@ -10,7 +10,7 @@
 
 mwf.site.analytics.trackPageview = function(url) {
     if (mwf.site.analytics.key) {
-        _gaq.push(["_trackPageview"],url);
+        _gaq.push(["_trackPageview",url]);
     }
 }
 

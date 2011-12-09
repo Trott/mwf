@@ -20,19 +20,35 @@ mwf.full.history = new function() {
     
     var _link = [];
     var _states = [];
+    var _indexToUrl = [];
+    
+    this.setState = function(object,url) {
+        var index = _indexToUrl.indexOf(url);
+        if (index<0) {
+            index = _indexToUrl.length; 
+            _indexToUrl.push(url);
+        }
+        _states[index] = object;
+    }
     
     this.saveState = function(object,title,url) {
-        url = url ? url : location.href;
-        _states[history.length] = object;
+        url = url ? url : location.pathname + location.hash;
+        this.setState(object,url);
         history.replaceState(object,title,url);
     }
     
-    this.getState = function() {
-        if (history.length < _states.length) {
-            return _states[history.length];
-        } else {
-            return undefined;
+    this.getState = function(id) {
+        url = id ? location.pathname + '#/' + id : location.pathname + location.hash;
+        console.log(url);
+        var index = _indexToUrl.indexOf(url)
+        return index<0 ? undefined : _states[index];
+    }
+    
+    this.hideArray = function(hide,newHideId) {
+        if (hide.indexOf(newHideId) < 0) {
+            hide.push(newHideId);
         }
+        return hide;
     }
         
     this.init = function() {
@@ -61,15 +77,9 @@ mwf.full.history = new function() {
                         showContent(targetId,[clickedNodeId]);
 
                         var state = mwf.full.history.getState();
-                        var hide;
-                        if (state && state.hasOwnProperty('hide')) {
-                            hide = state.hide;
-                            if (hide.indexOf(targetId) < 0) {
-                                hide.push(targetId);
-                            }
-                        } else {
-                            hide = [targetId];
-                        }
+                        var hide = (state && state.hasOwnProperty('hide')) ? 
+                        mwf.full.history.hideArray(state.hide,targetId) :
+                        [targetId];
                         
                         mwf.full.history.saveState({
                             show:clickedNodeId, 
@@ -78,16 +88,10 @@ mwf.full.history = new function() {
 
                         window.location.hash = '#/' + targetId;
                         
-                        //TODO:  DRY cleanup. This should be a function.
                         state = mwf.full.history.getState();
-                        if (state && state.hasOwnProperty('hide')) {
-                            hide = state.hide;
-                            if (hide.indexOf(clickedNodeId) < 0) {
-                                hide.push(clickedNodeId);
-                            }
-                        } else {
-                            hide = [clickedNodeId];
-                        }
+                        hide = (state && state.hasOwnProperty('hide')) ?
+                        mwf.full.history.hideArray(state.hide,clickedNodeId) :
+                        [clickedNodeId];
                     
                         mwf.full.history.saveState({
                             show:targetId,
@@ -101,11 +105,32 @@ mwf.full.history = new function() {
         }
     
         window.addEventListener("popstate", function(event) {
+            state = mwf.full.history.getState();
+            if (state) {
+                console.log('state');
+                console.log(state)
+                showContent(state.show,state.hide);
+            } 
             if (event.state) {
-                if (event.state.hasOwnProperty('hide') && event.state.hasOwnProperty('show')) {
-                    showContent(event.state.show,event.state.hide);
+                console.log('event state');
+                console.log(event.state);
+                //Retrieve adjacent pages and add our "show" value to their hide values
+                var previousState;
+                var hide;
+                for (i=0; i<event.state.hide.length; i++) {
+                    previousState = mwf.full.history.getState(event.state.hide[i]);
+                    if (previousState) {
+                        hide = mwf.full.history.hideArray(previousState.hide,event.state.show);
+                        mwf.full.history.setState({
+                            show:event.state.hide[i], 
+                            hide:hide
+                        },location.pathname + '#/' + event.state.hide[i]);
+                    }
+                    console.log('previous state');
+                    console.log(previousState);
                 }
-            }
+                showContent(event.state.show,event.state.hide);
+            }            
         }, false);
         
         if (window.location.hash=='')

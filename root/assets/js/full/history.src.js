@@ -59,7 +59,7 @@ mwf.full.history = new function() {
             for (i=0; i<hide.length; i++)
                 document.getElementById(hide[i]).setAttribute("style","display:none"); 
             document.getElementById(show).setAttribute("style","display:block");
-            if (mwf.standard.preferences.isSupported() && mwf.standard.preferences.get('main_menu_layout')!='grid') {
+            if (mwf.standard.preferences.isSupported() && mwf.standard.preferences.get('main_menu_layout')!='grid' && !mwf.userAgent.isNative()) {
                 var buttonDisplay = show=="main_menu" ? "display:none" : "display:block";
                 document.getElementById('button-top').setAttribute("style",buttonDisplay);
             }

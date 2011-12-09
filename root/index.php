@@ -121,6 +121,9 @@ for ($i = 0; $i < count($menu_names); $i++) {
 
 echo $menu->render();
 
+//TODO: Refactor this to read from config file rather than being a series of
+//   hardcoded items
+
 if (($main_menu) && (Classification::is_full())) {
     echo Site_Decorator::ucsf_shuttle_menu('Shuttle', array('id' => 'il/shuttle/','style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_directory_form('Directory',array('id' => 'il/directory', 'style'=>'display:none'))->render();

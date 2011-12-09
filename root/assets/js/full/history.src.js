@@ -19,13 +19,29 @@
 mwf.full.history = new function() {
     
     var _link = [];
+    var _states = [];
     
+    this.saveState = function(object,title,url) {
+        url = url ? url : location.href;
+        _states[history.length] = object;
+        history.replaceState(object,title,url);
+    }
+    
+    this.getState = function() {
+        if (history.length < _states.length) {
+            return _states[history.length];
+        } else {
+            return undefined;
+        }
+    }
+        
     this.init = function() {
         var anchors = document.getElementsByTagName("a");
         
+        
         function showContent(show,hide) {
-            if (hide != '')
-                document.getElementById(hide).setAttribute("style","display:none"); 
+            for (i=0; i<hide.length; i++)
+                document.getElementById(hide[i]).setAttribute("style","display:none"); 
             document.getElementById(show).setAttribute("style","display:block");
             if (mwf.standard.preferences.isSupported() && mwf.standard.preferences.get('main_menu_layout')!='grid') {
                 var buttonDisplay = show=="main_menu" ? "display:none" : "display:block";
@@ -42,15 +58,40 @@ mwf.full.history = new function() {
                         event.preventDefault();
                         var clickedNode = this.element.parentNode.parentNode.parentNode;
                         var clickedNodeId = clickedNode.getAttribute('id');
-                        showContent(targetId,clickedNodeId);
-                        history.replaceState({
+                        showContent(targetId,[clickedNodeId]);
+
+                        var state = mwf.full.history.getState();
+                        var hide;
+                        if (state && state.hasOwnProperty('hide')) {
+                            hide = state.hide;
+                            if (hide.indexOf(targetId) < 0) {
+                                hide.push(targetId);
+                            }
+                        } else {
+                            hide = [targetId];
+                        }
+                        
+                        mwf.full.history.saveState({
                             show:clickedNodeId, 
-                            hide:targetId
+                            hide:hide
                         },'');
+
                         window.location.hash = '#/' + targetId;
-                        history.replaceState({
+                        
+                        //TODO:  DRY cleanup. This should be a function.
+                        state = mwf.full.history.getState();
+                        if (state && state.hasOwnProperty('hide')) {
+                            hide = state.hide;
+                            if (hide.indexOf(clickedNodeId) < 0) {
+                                hide.push(clickedNodeId);
+                            }
+                        } else {
+                            hide = [clickedNodeId];
+                        }
+                    
+                        mwf.full.history.saveState({
                             show:targetId,
-                            hide:clickedNodeId
+                            hide:hide
                         },'');
                         if(mwf.site.analytics){
                             mwf.site.analytics.trackPageview(this.element.pathname);
@@ -68,9 +109,10 @@ mwf.full.history = new function() {
         }, false);
         
         if (window.location.hash=='')
-            showContent('main_menu', '');
+            showContent('main_menu', []);
         else
-            showContent(window.location.hash.substring(2),'')
+            showContent(window.location.hash.substring(2),[])
     }
 }
+
 document.addEventListener('DOMContentLoaded', mwf.full.history.init, false);

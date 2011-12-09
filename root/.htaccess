@@ -17,6 +17,9 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml
     RewriteRule ^fitness(.*)$ /ci/fitness$1 [L]
     RewriteRule ^calendars/?$ /calendars.php [L]
     RewriteRule ^emergency/?$ /emergency.php [L]
+    RewriteRule ^about/?$ /about.php [L]
+    RewriteRule ^feedback/?$ /feedback.php [L]
+    RewriteRule ^preferences/?$ /preferences.php [L]
 # For Blackboard Mobile Central links
     RewriteCond %{QUERY_STRING} ^s=shuttle$
     RewriteRule .* /shuttle? [R=permanent,L]

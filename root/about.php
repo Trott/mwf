@@ -11,8 +11,8 @@
  * @uses Config
  * @uses Ucsf_Back_Button_Full_Site_Decorator
  */
-require_once(dirname(dirname(__FILE__)) . '/assets/lib/decorator.class.php');
-require_once(dirname(dirname(__FILE__)) . '/assets/config.php');
+require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
+require_once(dirname(__FILE__) . '/assets/config.php');
 
 echo HTML_Decorator::html_start()->render();
 
@@ -27,14 +27,14 @@ echo Site_Decorator::ucsf_header("About")
 echo Site_Decorator::content_full()
         ->set_padded()
         ->add_header('About UCSF Mobile')
-        ->add_section('The UCSF Mobile website (m.ucsf.edu) is a project of the ' .
-                HTML_Decorator::tag('a', 'UCSF Library &amp; Center for Knowledge Management', array('href' => 'http://library.ucsf.edu')) .
-                ' in collaboration with:' .
-                '<ul><li>Transportation Services (Shuttle)</li>' .
-                '<li>IT Services (Directory)</li>' .
+        ->add_section('UCSF Mobile is a joint project of: ' .
+                '<ul class="bulleted"><li>Information Technology Services</li>' .
+                '<li>Library &amp; Center for Knowledge Management</li>' .
+                '<li>University Relations</li></ul>' .
+                'In collaboration with:' .
+                '<ul class="bulleted"><li>Transportation Services (Shuttle)</li>' .
                 '<li>Campus Life Services (Fitness)</li>' .
-                '<li>Campus Planning (Maps)</li>' .
-                '<li>University Relations (Events, News)</li></ul>')
+                '<li>Campus Planning (Maps)</li></ul>')
         ->add_section('The UCSF Mobile website is powered by the ' .
                 HTML_Decorator::tag('a', 'UCLA Mobile Web Framework', array('href' => 'http://mwf.ucla.edu')) . '.')
         ->render();

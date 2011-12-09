@@ -1,6 +1,6 @@
 <?php
-require_once(dirname(dirname(__FILE__)) . '/assets/lib/decorator.class.php');
-require_once(dirname(dirname(__FILE__)) . '/assets/config.php');
+require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
+require_once(dirname(__FILE__) . '/assets/config.php');
 echo HTML_Decorator::html_start()->render();
 echo Site_Decorator::head()
         ->add_js_handler_library('standard_libs', 'preferences')

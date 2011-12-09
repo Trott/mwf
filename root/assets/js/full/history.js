@@ -20,19 +20,23 @@ mwf.full.history = new function() {
     
     var _link = [];
     var _states = [];
+    var _indexToUrl = [];
     
     this.saveState = function(object,title,url) {
         url = url ? url : location.href;
-        _states[history.length] = object;
+        var index = _indexToUrl.indexOf(url);
+        if (index<0) {
+            index = _indexToUrl.length; 
+            _indexToUrl.push(url);
+        }
+        console.log(url + ' : ' + index);
+        _states[index] = object;
         history.replaceState(object,title,url);
     }
     
     this.getState = function() {
-        if (history.length < _states.length) {
-            return _states[history.length];
-        } else {
-            return undefined;
-        }
+        var index = _indexToUrl.indexOf(location.href)
+        return index<0 ? undefined : _states[index];
     }
         
     this.init = function() {
@@ -93,6 +97,8 @@ mwf.full.history = new function() {
                             show:targetId,
                             hide:hide
                         },'');
+                        console.log(_indexToUrl);
+                        console.log(_states);
                         if(mwf.site.analytics){
                             mwf.site.analytics.trackPageview(this.element.pathname);
                         }

@@ -39,7 +39,6 @@ mwf.full.history = new function() {
     
     this.getState = function(id) {
         url = id ? location.pathname + '#/' + id : location.pathname + location.hash;
-        console.log(url);
         var index = _indexToUrl.indexOf(url)
         return index<0 ? undefined : _states[index];
     }
@@ -107,13 +106,9 @@ mwf.full.history = new function() {
         window.addEventListener("popstate", function(event) {
             state = mwf.full.history.getState();
             if (state) {
-                console.log('state');
-                console.log(state)
                 showContent(state.show,state.hide);
             } 
             if (event.state) {
-                console.log('event state');
-                console.log(event.state);
                 //Retrieve adjacent pages and add our "show" value to their hide values
                 var previousState;
                 var hide;
@@ -126,8 +121,6 @@ mwf.full.history = new function() {
                             hide:hide
                         },location.pathname + '#/' + event.state.hide[i]);
                     }
-                    console.log('previous state');
-                    console.log(previousState);
                 }
                 showContent(event.state.show,event.state.hide);
             }            

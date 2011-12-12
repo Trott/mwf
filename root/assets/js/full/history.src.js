@@ -53,25 +53,38 @@ mwf.full.history = new function() {
     this.init = function() {
         var anchors = document.getElementsByTagName("a");
         
-        
         function showContent(show,hide) {
-            for (i=0; i<hide.length; i++)
-                document.getElementById(hide[i]).setAttribute("style","display:none"); 
-            document.getElementById(show).setAttribute("style","display:block");
-            if (mwf.standard.preferences.isSupported() && mwf.standard.preferences.get('main_menu_layout')!='grid' && !mwf.userAgent.isNative()) {
+            var hideElement;
+            for (i=0; i<hide.length; i++) {
+                hideElement = document.getElementById(hide[i]);
+                if (hideElement)
+                    hideElement.setAttribute("style","display:none");
+            }
+            var showElement = document.getElementById(show);
+            if (showElement)
+                showElement.setAttribute("style","display:block");
+            else
+                return false;
+            if (mwf.standard.preferences.isSupported() && mwf.standard.preferences.get('main_menu_layout')!='grid') {
                 var buttonDisplay = show=="main_menu" ? "display:none" : "display:block";
                 document.getElementById('button-top').setAttribute("style",buttonDisplay);
             }
+            if (mwf.userAgent.isNative()) {
+                document.getElementById('button-top').setAttribute("style","display:none");
+            }
+            return true;
         }
 
         for (var i = 0; i < anchors.length ; i++) {
-            if (document.getElementById('il'+anchors[i].pathname) != null)
+            if ((document.getElementById('il'+anchors[i].pathname) != null) || (mwf.site.root == anchors[i].href.replace(/\/$/, "")))
                 _link.push(new mwf.full.fastLink(anchors[i],function (event) {
-                    var targetId = 'il'+this.element.pathname;
+                    var targetId = (mwf.site.root == this.element.href.replace(/\/$/, "")) ? 'main_menu' : 'il'+this.element.pathname;
+                    if (targetId == 'il/main_menu') 
+                        targetId = 'main_menu';
                     var target = document.getElementById(targetId);
                     if (target != null) {
                         event.preventDefault();
-                        var clickedNode = this.element.parentNode.parentNode.parentNode;
+                        var clickedNode = document.getElementById(window.location.hash.substr(2));
                         var clickedNodeId = clickedNode.getAttribute('id');
                         showContent(targetId,[clickedNodeId]);
 
@@ -126,10 +139,9 @@ mwf.full.history = new function() {
             }            
         }, false);
         
-        if (window.location.hash=='')
-            showContent('main_menu', []);
-        else
-            showContent(window.location.hash.substring(2),[])
+        if (! window.location.hash ) 
+            window.location.hash = '#/main_menu';
+        showContent(window.location.hash.substring(2),[]);
     }
 }
 

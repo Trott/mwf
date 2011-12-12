@@ -94,35 +94,35 @@ div.button-full a.button-light:active {
 
 
 .front-page .menu-grid #shuttle {
-    background: url(img/ucsf-icon-precomposed-shuttle.png) 12px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-shuttle.png) 12px 8px no-repeat;
 }
 
 .front-page .menu-grid #library {
-    background: url(img/ucsf-icon-precomposed-library.png) 12px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-library.png) 12px 8px no-repeat;
 }
 
 .front-page .menu-grid #calendars {
-    background: url(img/ucsf-icon-precomposed-calendars.png) 12px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-calendars.png) 12px 8px no-repeat;
 }
 
 .front-page .menu-grid #news {
-    background: url(img/ucsf-icon-precomposed-news.png) 12px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-news.png) 12px 8px no-repeat;
 }
 
 .front-page .menu-grid #directory {
-    background: url(img/ucsf-icon-precomposed-directory.png) 12px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-directory.png) 12px 8px no-repeat;
 }
 
 .front-page .menu-grid #fitness {
-    background: url(img/ucsf-icon-precomposed-fitness.png) 12px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-fitness.png) 12px 8px no-repeat;
 }
 
 .front-page .menu-grid #maps {
-    background: url(img/ucsf-icon-precomposed-maps.png) 12px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-maps.png) 12px 8px no-repeat;
 }
 
 .front-page .menu-grid #emergency {
-    background: url(img/ucsf-icon-precomposed-emergency.png) 12px 2px no-repeat;
+    background: url(img/ucsf-icon-precomposed-emergency.png) 12px 8px no-repeat;
 }
 
 .front-page .menu-grid ol{margin:auto!important;overflow:hidden;text-align:left}

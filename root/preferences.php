@@ -18,7 +18,7 @@ echo Site_Decorator::ucsf_header("Preferences")
     }
 </script>
 <form id="preferences_form" class="form-full form-padded" method="post" 
-      action="" onsubmit="mwf.standard.preferences.set('main_menu_layout',document.getElementById('main_menu_layout').value); history.back(); return false">
+      onsubmit="mwf.standard.preferences.set('main_menu_layout',document.getElementById('main_menu_layout').value); history.back(); return false">
     <h1 class="form-first">Preferences</h1>
     <label  id="main_menu_layout_label" for="main_menu_layout">Home Screen Layout:</label> 
     <select id="main_menu_layout" name="main_menu_layout" tabindex="1"> 

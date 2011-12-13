@@ -65,7 +65,6 @@
     //and the isOnline flag is set to NO, then the app will go into offline mode. 
     [self goHome];
     
-    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -73,7 +72,7 @@
 {
     NSString *fullURL = @"http://m.ucsf.edu/";
     NSURL *url = [NSURL URLWithString:fullURL];
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];
     [self.webView loadRequest:requestObj];
 }
 

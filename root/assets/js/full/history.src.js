@@ -49,7 +49,23 @@ mwf.full.history = new function() {
         }
         return hide;
     }
-        
+    
+    // TODO: UCSF-only stuff and certainly not history.  Shouldn't go here.
+    this.rotate = function(e) {
+        if (location.hash=='#/main_menu')
+            mwf.full.history.showHideFooter('main_menu');
+    }
+    
+    this.showHideFooter = function(active) {
+        if ((active=='main_menu') && (window.orientation==0) && (mwf.browser.getWidth()<=320) && (mwf.browser.getHeight()<=480) && mwf.standard.preferences.get('main_menu_layout')!='list') {
+            document.getElementById('footer').setAttribute('style','display:none')
+        } else {
+            document.getElementById('footer').setAttribute('style','display:block');
+        }
+    }
+     
+    // End TODO: UCSF-only stuff that needs to be removed
+    
     this.init = function() {
         var anchors = document.getElementsByTagName("a");
         
@@ -72,8 +88,11 @@ mwf.full.history = new function() {
             if (mwf.userAgent.isNative()) {
                 document.getElementById('button-top').setAttribute("style","display:none");
             }
+            mwf.full.history.showHideFooter(show);
+            
             return true;
         }
+
 
         for (var i = 0; i < anchors.length ; i++) {
             if ((document.getElementById('il'+anchors[i].pathname) != null) || (mwf.site.root == anchors[i].href.replace(/\/$/, "")))
@@ -146,3 +165,4 @@ mwf.full.history = new function() {
 }
 
 document.addEventListener('DOMContentLoaded', mwf.full.history.init, false);
+window.addEventListener('orientationchange', mwf.full.history.rotate, false);

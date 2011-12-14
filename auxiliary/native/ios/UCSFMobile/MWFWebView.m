@@ -65,7 +65,6 @@
     //and the isOnline flag is set to NO, then the app will go into offline mode. 
     [self goHome];
     
-    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -73,7 +72,7 @@
 {
     NSString *fullURL = @"http://m.ucsf.edu/";
     NSURL *url = [NSURL URLWithString:fullURL];
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];
     [self.webView loadRequest:requestObj];
 }
 
@@ -150,14 +149,6 @@
     }
 }
 
-/* - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-	if (buttonIndex == 1) 
-	{
-		[self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"]isDirectory:NO]]];
-	}
-} */
-
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -180,12 +171,15 @@
 	NSString *fullURL = @"http://m.ucsf.edu/";
     NSURL *url = [NSURL URLWithString:fullURL];
     if (navigationType == UIWebViewNavigationTypeLinkClicked) 
-    {        
-        if(![[url host] isEqualToString:[[request URL] host]])
+    {   // Internal MWF pages = do not scale
+		// External pages (like news articles) = scale
+        if([[url host] isEqualToString:[[request URL] host]])
         {
-            [[UIApplication sharedApplication] openURL:request.URL];
-            return NO;
-        }
+			webView.scalesPageToFit=NO;
+        } else {
+			webView.scalesPageToFit=YES;
+		}
+
 	}
 	
     return YES;

@@ -57,9 +57,14 @@ mwf.full.history = new function() {
     }
     
     this.showHideFooter = function(active) {
-        if ((active=='main_menu') && (window.orientation==0) && (mwf.browser.getWidth()<=320) && (mwf.browser.getHeight()<=480) && mwf.standard.preferences.get('main_menu_layout')!='list') {
-            document.getElementById('footer').setAttribute('style','display:none')
-        } else {
+        if ((active=='main_menu') && (window.orientation==0) && (mwf.browser.getWidth()<=320) && (mwf.browser.getHeight()<=480)) {
+            var layout = mwf.standard.preferences.get('main_menu_layout');
+            if ((mwf.classification.isNative() && layout!='list') || layout=='grid') 
+            {
+                document.getElementById('footer').setAttribute('style','display:none');
+            } 
+                
+        } else { 
             document.getElementById('footer').setAttribute('style','display:block');
         }
     }

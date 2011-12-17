@@ -75,14 +75,21 @@ mwf.standard.preferences=new function(){
      * hostname in the URL.  It is the nuclear option and should be used with
      * care.
      * 
+     * We use two separate loops in the implementation because a call to
+     *    localStorage.removeItem() will remove an element from localStorage
+     *    resulting in the loop failing to check the next item as it has moved
+     *    to the index we just checked.
+     * 
      * Caller is responsible for checking isSupported() first.
      * 
      * @return void
      */
     this.clearAll = function(){
-          for (var i=0; i<localStorage.length; i++) 
+          var keysToDelete = new Array();
+          for (var i=0; i<localStorage.length; i++)
               if (localStorage.key(i).indexOf(_localStorageName) == 0)
-                localStorage.removeItem(localStorage.key(i));
-          
+                  keysToDelete.push(localStorage.key(i));
+          for (i=0; i<keysToDelete.length; i++)
+                localStorage.removeItem(keysToDelete[i]);          
     }
 };

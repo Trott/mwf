@@ -58,7 +58,9 @@
     [self.view insertSubview:self.splashView atIndex:4];
     self.splashView.hidden = NO;
  
-	self.webView.scrollView.bounces = NO; 
+    for (id subview in self.webView.subviews)
+        if ([[subview class] isSubclassOfClass: [UIScrollView class]])
+            ((UIScrollView *)subview).bounces = NO;
     
     //Initially try to load the online version - if there is an error, 
     //and the isOnline flag is set to NO, then the app will go into offline mode. 
@@ -168,7 +170,7 @@
 		// External pages (like news articles) = scale
         if([[url host] isEqualToString:[[request URL] host]])
         {
-			webView.scalesPageToFit=NO;
+			webView.scalesPageToFit=YES;
         } else {
 			webView.scalesPageToFit=YES;
 		}

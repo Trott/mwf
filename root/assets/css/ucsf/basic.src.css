@@ -105,9 +105,27 @@ ul.bulleted li a {
 	padding: 0.3em;
 }
 
-.external {
-	padding-right: 13px;
-	background: url(img/ucsf-external-link.png) center right no-repeat;
+a[rel~=external] {
+    display: inline-block;
+}
+
+
+a[rel~=external], .menu-detailed li a span.external {
+	padding-right: 18px;
+        margin-right: 14px;
+        background: url(img/ucsf-external-link.png) center right no-repeat;
+}
+
+/* Allow suppression of external link indicator via class "no-ext-ind". 
+   This is useful for .menu-detailed where a span.external inside an 
+   a[rel=external] can show where the indicator should end up.  This keeps the
+   indicator from floating off to the right away from the relevant text. This is
+   desirable, rather than just not using rel=external, because rel=external 
+   will determine how the link is handled in the native client and possibly in
+   screen readers.
+*/
+a[rel=external].no-ext-ind {
+    background: #fff;
 }
 
 li a, p a, a, a:visited {
@@ -125,6 +143,7 @@ li a, p a, a, a:visited {
     text-align: center;
 }
 
-.menu-full li a {
-     background:url(img/ucsf-list-arrow.png) no-repeat 98%;
+.menu-full li {
+    background:url(img/ucsf-list-arrow.png) no-repeat 98%;
+    background-color: #fff;
 }

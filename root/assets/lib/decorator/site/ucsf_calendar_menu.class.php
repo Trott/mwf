@@ -24,7 +24,7 @@ class Ucsf_Calendar_Menu_Site_Decorator extends Menu_Full_Site_Decorator {
     public function render() {
         $this->add_item('UCSF Events', '/news/?feed=ucsfevents', array());
         $this->add_item('Featured Academic Events', '/news/?feed=academicevents', array());
-        $this->add_item('<span class="external">UCSF Calendars Website</span>', 'http://www.ucsf.edu/about/ucsf-calendars?ovrrdr=1', array());
+        $this->add_item('UCSF Calendars Website', 'http://www.ucsf.edu/about/ucsf-calendars?ovrrdr=1', array(), array('rel'=>'external'));
         return parent::render();
     }
 

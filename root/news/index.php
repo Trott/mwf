@@ -48,6 +48,7 @@ echo Site_Decorator::ucsf_header($header_title)
         <?php $date_format = Config::get('ucsf_news',"$feed_code.date_format");   ?>
                 <?php $num_items_displayed = 0;
                       $class = $direct_link ? 'class="external"' : '';
+                      $rel = $direct_link ? ' rel="external" class="no-ext-ind"' : '';
                       $items=$feed->get_items();
                 if (count($items)==0):?>
                     <div class="content-full content-padded"><h1 class="light content-first"><?php echo htmlspecialchars(Config::get('ucsf_news',"$feed_code.name")); ?></h1><div class="content-last">This news feed is currently unavailable. Please try again later.</div></div>
@@ -71,7 +72,7 @@ echo Site_Decorator::ucsf_header($header_title)
  
                    $date = empty($date_format) ? $item->get_date() : $item->get_date($date_format);
                 ?>
-                    <li <?php echo $class_text; ?>><a href="<?php echo $link; ?>"><span <?php echo $class;?>><?php echo $item->get_title(); ?></span><br/><span class="smallprint light"><?php echo $date; ?></span></a></li>
+                    <li <?php echo $class_text; ?>><a href="<?php echo $link; ?>"<?php echo $rel; ?>><span <?php echo $class;?>><?php echo $item->get_title(); ?></span><br/><span class="smallprint light"><?php echo $date; ?></span></a></li>
                         <?php $num_items_displayed++; ?>
                     <?php endfor; ?>
                 <?php if ($more):?>
@@ -86,7 +87,7 @@ echo Site_Decorator::ucsf_header($header_title)
             <div class="menu-full menu-detailed menu-padded">
             <h1 class="light menu-first">Additional News</h1>
             <ol>
-            <li><a href="http://m.youtube.com/ucsf"><span class="external">UCSF on YouTube</span></a></li>
+            <li><a href="http://m.youtube.com/ucsf" rel="external">UCSF on YouTube</a></li>
             <?php $i = 0; $len = count($alt_feeds);?>
             <?php foreach ($alt_feeds as $feed_code): ?>
                 <?php if (!(Config::get('ucsf_news',"$feed_code.hidden"))): ?>

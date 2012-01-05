@@ -23,11 +23,11 @@ class Ucsf_Library_Menu_Site_Decorator extends Menu_Full_Site_Decorator {
 
     public function render() {
         $this->add_item('Hours and Locations', '/library/locations', array());
-        $this->add_item('<span class="external">Find Books and Journals</span>', 'http://ucsf.worldcat.org/m', array());
-        $this->add_item('<span class="external">Mobile Resources</span>', 'http://guides.library.ucsf.edu/content.php?pid=252446&sid=2084303', array());
+        $this->add_item('Find Books and Journals', 'http://ucsf.worldcat.org/m', array(), array('rel'=>'external'));
+        $this->add_item('Mobile Resources', 'http://guides.library.ucsf.edu/content.php?pid=252446&sid=2084303', array(), array('rel'=>'external'));
         $this->add_item('Get Help', '/library/help/', array());
         $this->add_item('News', '/news/library', array());
-        $this->add_item('<span class="external">Full Library Site</span>','http://library.ucsf.edu/?ovrrdr=1',array());
+        $this->add_item('Full Library Site','http://library.ucsf.edu/?ovrrdr=1',array(), array('rel'=>'external'));
         return parent::render();
     }
 

@@ -71,6 +71,7 @@ mwf.ucsfCtsiProfile = new function() {
                                 thisAnchor = document.createElement("a");
 
                                 thisAnchor.setAttribute("href",publications[j].PublicationSource[0].PublicationSourceURL);
+                                thisAnchor.setAttribute("rel","external");
 
                             } else {
                                 thisAnchor = document.createElement("p");
@@ -89,10 +90,8 @@ mwf.ucsfCtsiProfile = new function() {
                 if (myProfile.hasOwnProperty("ProfilesURL")) {
                     var fullProfileItem = document.createElement("li");
                     var fullProfileAnchor = document.createElement("a");
-                    var fullProfileAnchorText = document.createElement("span");
-                    fullProfileAnchorText.innerHTML="Full Research Profile";
-                    fullProfileAnchorText.setAttribute("class","external");
-                    fullProfileAnchor.appendChild(fullProfileAnchorText);
+                    fullProfileAnchor.innerHTML="Full Research Profile";
+                    fullProfileAnchor.setAttribute("rel","external");
                     fullProfileAnchor.setAttribute("href",myProfile.ProfilesURL);
                     document.getElementById("ctsi-full-profile")
                     fullProfileItem.appendChild(fullProfileAnchor);

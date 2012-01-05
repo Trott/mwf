@@ -33,8 +33,6 @@
 
         //Initial page has not been loaded.
         self.initPageLoaded = NO;
-        
-        
     }
     return self;
 }
@@ -163,20 +161,8 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-	NSString *fullURL = @"http://m.ucsf.edu/";
-    NSURL *url = [NSURL URLWithString:fullURL];
     if (navigationType == UIWebViewNavigationTypeLinkClicked) 
-    {   // Internal MWF pages = do not scale
-		// External pages (like news articles) = scale
-        if([[url host] isEqualToString:[[request URL] host]])
-        {
-			webView.scalesPageToFit=YES;
-        } else {
-			webView.scalesPageToFit=YES;
-		}
-
-	}
-	
+        webView.scalesPageToFit=YES;
     return YES;
 }
 

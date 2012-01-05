@@ -55,6 +55,8 @@
     [self.view insertSubview:self.webView    atIndex:0];
     [self.view insertSubview:self.splashView atIndex:4];
     self.splashView.hidden = NO;
+    self.webView.backgroundColor = [UIColor colorWithRed:0.53215 green:0.73046875 blue:0.73046875 alpha:1.0];  
+    [self.webView setOpaque:NO];
  
     for (id subview in self.webView.subviews)
         if ([[subview class] isSubclassOfClass: [UIScrollView class]])

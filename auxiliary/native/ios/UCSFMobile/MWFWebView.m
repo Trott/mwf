@@ -61,7 +61,7 @@
     for (id subview in self.webView.subviews)
         if ([[subview class] isSubclassOfClass: [UIScrollView class]])
             ((UIScrollView *)subview).bounces = NO;
-    
+
     //Initially try to load the online version - if there is an error, 
     //and the isOnline flag is set to NO, then the app will go into offline mode. 
     [self goHome];
@@ -135,12 +135,10 @@
     //Display an alert message indicating that the user is offline.
     else
     {
-        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UCSF Mobile" message:@"UCSF Mobile cannot contact the server. You may need to connect to the Internet." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert autorelease];
         [alert show];
-		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     }
 }
 
@@ -167,7 +165,6 @@
         webView.scalesPageToFit=YES;
     return YES;
 }
-
 
 - (void)dealloc {
     

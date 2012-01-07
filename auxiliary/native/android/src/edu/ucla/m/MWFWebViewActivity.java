@@ -9,8 +9,6 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Window;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -34,16 +32,6 @@ public class MWFWebViewActivity extends Activity {
 		setContentView(R.layout.main);
 
 		webView = (WebView) findViewById(R.id.webview);
-
-		webView.setWebChromeClient(new WebChromeClient() {
-			@Override
-			public boolean onJsAlert(WebView view, String url, String message,
-					JsResult result) {
-				displayErrorMessage(message);
-				return true;
-				// return super.onJsAlert(view, url, message, result);
-			}
-		});
 
 		settings = webView.getSettings();
 		settings.setJavaScriptEnabled(true);
@@ -148,7 +136,7 @@ public class MWFWebViewActivity extends Activity {
 			} else {
 				view.stopLoading();
 				view.clearView();
-								
+
 				if (view.canGoBack())
 					view.goBack();
 				

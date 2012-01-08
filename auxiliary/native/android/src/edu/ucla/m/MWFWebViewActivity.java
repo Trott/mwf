@@ -8,6 +8,9 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.Window;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -21,7 +24,6 @@ public class MWFWebViewActivity extends Activity {
 
 	private ProgressDialog spinnerDialog;
 
-	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
@@ -47,7 +49,36 @@ public class MWFWebViewActivity extends Activity {
 
 		webView.loadUrl(ONLINE_PAGE);
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.main_menu, menu);
+	    return true;
+	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch (item.getItemId()) {
+	    case R.id.refresh:
+	        webView.reload();
+	        return true;
+	    case R.id.back:
+	    	if (webView.canGoBack())
+	    		webView.goBack();
+	        return true;
+	    case R.id.forward:
+	    	if (webView.canGoForward())
+	    		webView.goForward();
+	        return true;
+	    case R.id.home:
+	        webView.loadUrl(ONLINE_PAGE);
+	        return true;
+	    default:
+	        return super.onOptionsItemSelected(item);
+	    }
+	}
+	
 	/**
 	 * Show the spinner. Must be called from the UI thread.
 	 * 

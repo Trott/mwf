@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+   	<item android:id="@+id/back" 
+    	  android:icon="@drawable/ic_menu_back" 
+    	  android:title="@string/back" />
+    <item android:id="@+id/forward" 
+    	  android:icon="@drawable/ic_menu_forward" 
+    	  android:title="@string/forward" />
+	<item android:id="@+id/home" 
+    	  android:icon="@drawable/ic_menu_home" 
+    	  android:title="@string/home" />
+    <item android:id="@+id/refresh" 
+    	  android:icon="@drawable/ic_menu_refresh" 
+    	  android:title="@string/refresh" />
+</menu>

@@ -21,7 +21,7 @@ import android.webkit.WebViewClient;
 import com.blackboard.android.central.UCSF.R;
 
 public class MWFWebViewActivity extends Activity {
-	protected static final String ONLINE_PAGE = "http://m.ucsf.edu/assets/test/js_unit/";
+	protected static final String ONLINE_PAGE = "http://m.ucsf.edu/";
 
 	protected WebView webView;
 	protected WebSettings settings;
@@ -56,7 +56,7 @@ public class MWFWebViewActivity extends Activity {
 				Context.MODE_PRIVATE).getAbsolutePath());
 		webView.getSettings().setGeolocationDatabasePath(getApplicationContext().getDir("geolocation",
 				Context.MODE_PRIVATE).getAbsolutePath());
-		// settings.setUserAgentString(settings.getUserAgentString().concat("; MWF-Native-Android/1.2.10"));
+		settings.setUserAgentString(settings.getUserAgentString().concat("; MWF-Native-Android/1.2.10"));
 
 		webView.setWebViewClient(new MWFWebViewClient());
 		webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);

@@ -29,8 +29,6 @@ class HTML_Start_HTML_Decorator extends Tag_Open_HTML_Decorator {
     }
     
     public function &add_appcache() {
-        header("Cache-Control: max-age=0, no-cache, no-store, must-revalidate");
-        header("Expires: Wed, 11 Jan 1984 05:00:00 GMT");
         return parent::set_param('manifest',Config::get('global','site_assets_url').'/appcache.php');
     }
 

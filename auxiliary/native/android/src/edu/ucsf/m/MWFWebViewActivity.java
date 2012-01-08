@@ -5,8 +5,11 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -135,9 +138,16 @@ public class MWFWebViewActivity extends Activity {
 
 	public void displayErrorMessage(String message) {
 		new AlertDialog.Builder(this).setMessage(message)
-				.setTitle("UCSF Mobile").setCancelable(true)
-				.setNeutralButton("OK", null).show();
+				.setTitle(R.string.app_name).setCancelable(true)
+				.setNeutralButton("OK", null)
+				.setPositiveButton("Network Settings", new DialogInterface.OnClickListener() {
+		            public void onClick(DialogInterface dialog, int which) {
+		                startActivity(new Intent(Settings.ACTION_WIRELESS_SETTINGS));
+		            }
+		        })
+				.show();
 	}
+	
 
 	/**
 	 * Capture the back key and if available, go back to the previous page in
@@ -173,20 +183,24 @@ public class MWFWebViewActivity extends Activity {
 		@Override
 		public void onReceivedError(WebView view, int errorCode,
 				String description, String failingUrl) {
+			Log.d("MWFWebViewClient","received error");
+			view.stopLoading();
+			view.clearView();
 
 			WebSettings settings = view.getSettings();
 			if (settings.getCacheMode() != WebSettings.LOAD_CACHE_ONLY) {
-				settings.setCacheMode(WebSettings.LOAD_CACHE_ONLY);
-				view.reload();
-			} else {
-				view.stopLoading();
-				view.clearView();
-
 				if (view.canGoBack())
 					view.goBack();
-
+				settings.setCacheMode(WebSettings.LOAD_CACHE_ONLY);
+				// reload() will show a quick flash of the default
+				// WebView error page so we use loadUrl() instead. 
+				view.loadUrl(failingUrl);
+				Log.d("MWFWebViewClient","trying again");
+			} else {
+				Log.d("MWFWebViewClient","no dice");
 				displayErrorMessage("Could not load contents. Are you offline?");
-
+				if (view.canGoBack())
+					view.goBack();
 				settings.setCacheMode(WebSettings.LOAD_DEFAULT);
 			}
 		}

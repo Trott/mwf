@@ -12,13 +12,16 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.Window;
+import android.webkit.GeolocationPermissions;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
 import com.blackboard.android.central.UCSF.R;
 
 public class MWFWebViewActivity extends Activity {
-	protected static final String ONLINE_PAGE = "http://m.ucsf.edu/";
+	protected static final String ONLINE_PAGE = "http://m.ucsf.edu/assets/test/js_unit/";
 
 	protected WebView webView;
 	protected WebSettings settings;
@@ -36,6 +39,13 @@ public class MWFWebViewActivity extends Activity {
 
 		webView = (WebView) findViewById(R.id.webview);
 
+		webView.setWebChromeClient(new WebChromeClient() {
+			public void onGeolocationPermissionsShowPrompt(String origin,
+					GeolocationPermissions.Callback callback) {
+				callback.invoke(origin, true, false);
+			}
+		});
+
 		settings = webView.getSettings();
 		settings.setJavaScriptEnabled(true);
 		settings.setDomStorageEnabled(true);
@@ -44,43 +54,45 @@ public class MWFWebViewActivity extends Activity {
 		// line, it does not work in Android 2.3.3.
 		settings.setAppCachePath(getApplicationContext().getDir("appcache",
 				Context.MODE_PRIVATE).getAbsolutePath());
-		settings.setUserAgentString(settings.getUserAgentString().concat("; MWF-Native-Android/1.2.10"));
-		
+		webView.getSettings().setGeolocationDatabasePath(getApplicationContext().getDir("geolocation",
+				Context.MODE_PRIVATE).getAbsolutePath());
+		// settings.setUserAgentString(settings.getUserAgentString().concat("; MWF-Native-Android/1.2.10"));
+
 		webView.setWebViewClient(new MWFWebViewClient());
 		webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
 
 		webView.loadUrl(ONLINE_PAGE);
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-	    MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.main_menu, menu);
-	    return true;
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main_menu, menu);
+		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-	    switch (item.getItemId()) {
-	    case R.id.refresh:
-	        webView.reload();
-	        return true;
-	    case R.id.back:
-	    	if (webView.canGoBack())
-	    		webView.goBack();
-	        return true;
-	    case R.id.forward:
-	    	if (webView.canGoForward())
-	    		webView.goForward();
-	        return true;
-	    case R.id.home:
-	        webView.loadUrl(ONLINE_PAGE);
-	        return true;
-	    default:
-	        return super.onOptionsItemSelected(item);
-	    }
+		switch (item.getItemId()) {
+		case R.id.refresh:
+			webView.reload();
+			return true;
+		case R.id.back:
+			if (webView.canGoBack())
+				webView.goBack();
+			return true;
+		case R.id.forward:
+			if (webView.canGoForward())
+				webView.goForward();
+			return true;
+		case R.id.home:
+			webView.loadUrl(ONLINE_PAGE);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
-	
+
 	/**
 	 * Show the spinner. Must be called from the UI thread.
 	 * 
@@ -172,7 +184,7 @@ public class MWFWebViewActivity extends Activity {
 
 				if (view.canGoBack())
 					view.goBack();
-				
+
 				displayErrorMessage("Could not load contents. Are you offline?");
 
 				settings.setCacheMode(WebSettings.LOAD_DEFAULT);

@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -183,7 +182,6 @@ public class MWFWebViewActivity extends Activity {
 		@Override
 		public void onReceivedError(WebView view, int errorCode,
 				String description, String failingUrl) {
-			Log.d("MWFWebViewClient","received error");
 			view.stopLoading();
 			view.clearView();
 
@@ -195,9 +193,7 @@ public class MWFWebViewActivity extends Activity {
 				// reload() will show a quick flash of the default
 				// WebView error page so we use loadUrl() instead. 
 				view.loadUrl(failingUrl);
-				Log.d("MWFWebViewClient","trying again");
 			} else {
-				Log.d("MWFWebViewClient","no dice");
 				displayErrorMessage("Could not load contents. Are you offline?");
 				if (view.canGoBack())
 					view.goBack();

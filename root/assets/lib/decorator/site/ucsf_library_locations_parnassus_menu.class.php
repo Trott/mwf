@@ -24,7 +24,7 @@ class Ucsf_Library_Locations_Parnassus_Menu_Site_Decorator extends Menu_Full_Sit
     public function render() {
         $this->add_item('Map<br/><br/><span class="smallprint">530 Parnassus Avenue<br/>San Francisco, CA 94143-0840</span>', '/maps/map.php?loc=Kalmanovitz+Library', array());
         $this->add_item('(415)&nbsp;476-2334', 'tel:+14154762334', array());
-        $this->add_item('<span class="smallprint">Mon - Thurs: 7:45 am - 10:00 pm<br/>Fri: 7:45 am - 8:00 pm<br/>Sat: CLOSED<br/>Sun: 12:00 noon - 10:00 pm</span><br/><br/><span class="external">Holidays and exceptions</span>', 'http://library.ucsf.edu/locations/hours?ovrrdr=1', array());
+        $this->add_item('<span class="smallprint">Mon - Thurs: 7:45 am - 10:00 pm<br/>Fri: 7:45 am - 8:00 pm<br/>Sat: CLOSED<br/>Sun: 12:00 noon - 10:00 pm</span><br/><br/><span class="external">Holidays and exceptions</span>', 'http://library.ucsf.edu/locations/hours?ovrrdr=1', array(),array('rel'=>'external','class'=>'no-ext-ind'));
         return parent::render();
     }
 }

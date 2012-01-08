@@ -15,7 +15,7 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 
 <p>Printing is available for a fee from library workstations and loaner laptops.</p>
 
-<p>You will need a <a class="external" href="https://www.ckm.ucsf.edu/account/">GALEN Account</a>, with money added to your account.</p>
+<p>You will need a <a rel="external" href="https://www.ckm.ucsf.edu/account/">GALEN Account</a>, with money added to your account.</p>
 
 <p>Price per printed side, B/W: $0.14</p>
 

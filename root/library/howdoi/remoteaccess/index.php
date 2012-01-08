@@ -15,7 +15,7 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 </div> 
 <div> 
 <h4>Laptops or Desktop Computers</h4> 
-<p>Go to the <a class="external" href="https://vpn.ucsf.edu/dana-na/auth/url_default/welcome.cgi">VPN page</a> and log in with your MyAccess ID.</p> 
+<p>Go to the <a rel="external" href="https://vpn.ucsf.edu/dana-na/auth/url_default/welcome.cgi">VPN page</a> and log in with your MyAccess ID.</p> 
 <ul class="bulleted"> 
   <li>Option1 &ndash; Network Connect:
     <ul> 
@@ -35,7 +35,7 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 </div> 
 <div> 
 <h4>iOS Mobile Devices (iPad, iPhone, iPod Touch)</h4> 
-<p>Go to the <a class="external" href="http://security.ucsf.edu/EIS/services_products/RemoteAccessVPN/iOS-iPhone-VPN.html" target="_blank">VPN for iOS</a> page and read instructions for setting up your device.</p> 
+<p>Go to the <a rel="external" href="http://security.ucsf.edu/EIS/services_products/RemoteAccessVPN/iOS-iPhone-VPN.html" target="_blank">VPN for iOS</a> page and read instructions for setting up your device.</p> 
 <ul class="bulleted"> 
   <li>View the instructions page on your mobile device and click link to install profile at bottom of page.</li> 
   <li>When prompted, enter your MyAccess credentials and device PIN</li> 
@@ -44,7 +44,7 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 </div> 
 <div> 
 <h4>Other Mobile Devices</h4> 
-<p>Go to the <a class="external" href="https://vpn.ucsf.edu/dana-na/auth/url_default/welcome.cgi">VPN page</a> and log in with your MyAccess ID. </p> 
+<p>Go to the <a rel="external" href="https://vpn.ucsf.edu/dana-na/auth/url_default/welcome.cgi">VPN page</a> and log in with your MyAccess ID. </p> 
 <ul class="bulleted"> 
   <li>Option1 &ndash; Browse:
     <ul> 
@@ -56,20 +56,20 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
     <ul> 
       <li>Choose UCSF Library link on left of the browser window. </li> 
       <li>Proceed to the online materials.</li> 
-      <li>You must stay within the same browser window when using this link. </li> 
+      <li class="content-last">You must stay within the same browser window when using this link. </li> 
     </ul> 
   </li> 
 </ul> 
 </div> 
-<div> 
-<h4>Need Help?</h4> 
-<ul class="bulleted"> 
-  <li>What is a <a href="http://its.ucsf.edu/main/MyAccess/myaccess_faqs.html"><span class="external">MyAccess ID</span></a>?</li> 
-  <li>Don't have a VPN account? <a href="http://its.ucsf.edu/main/networking/219-DSY.html"><span class="external">Request one</span></a></li> 
-  <li>More detailed information is available from ITS  including  <a href="http://its.ucsf.edu/main/7-DSY/email/secured_com/Remote_Access/web_vpn/81-DSY.html"><span class="external">Web VPN Quick Start Guide</span></a>.</li> 
-  <li style="content-last">Contact the <a href="mailto:LibraryHelp@ucsf.edu">Tech Commons Staff</a></li> 
-</ul> 
-</div> 
+</div>
+<div class="menu-full menu-padded">
+<h1 class="menu-first">Help</h1> 
+<ol> 
+  <li><a href="http://its.ucsf.edu/main/MyAccess/myaccess_faqs.html" rel="external">MyAccess FAQ</a></li> 
+  <li><a href="http://its.ucsf.edu/main/networking/219-DSY.html" rel="external">Request a VPN Account</a></li> 
+  <li><a href="http://its.ucsf.edu/main/7-DSY/email/secured_com/Remote_Access/web_vpn/81-DSY.html" rel="external">Web VPN Quick Start Guide</a></li> 
+  <li class="menu-last"><a href="mailto:LibraryHelp@ucsf.edu">Contact the Tech Commons Staff</a></li> 
+</ol> 
 </div> 
 <?php 
 echo Site_Decorator::ucsf_footer()->render();

@@ -48,8 +48,8 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 <ul class="bulleted">
 <li><a href="/library/whereisit/computers">Computer Spaces</a> (CC151, S165)</li>
 <li>Hearst Room, Parnassus Library: 24/7 access, UCSF students only</li>
-<li class="content-last">More options for students listed on <a href="https://saa.ucsf.edu/studentportal/"><span class="external">SAA portal</span></a></li>
 </ul>
+<p class="content-last">More options for students are listed at the <a href="https://saa.ucsf.edu/studentportal/" rel="external">SAA portal</a>.</p>
 </div>
 
 </div>

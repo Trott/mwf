@@ -7,18 +7,15 @@ echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
         ->render();
 ?>
-<div class="content-full content-padded">
-<h1 class="content-first">Renew Books</h1>
+<div class="menu-full menu-padded menu-detailed">
+<h1 class="menu-first">Renew Books</h1>
 
-<div>
-<h4>Online</h4>
-<p><a class="external" href="http://ucsfcat.ucsf.edu/patroninfo/">Log in to the Library Catalog</a> to renew books.</p>
-</div>
-
-<div>
-<h4>By Phone</h4>
-<p>Call the Service Desk at <a href="tel:+14154762336">(415) 476-2336</a>.</p>
-</div>
+<ol>
+<li><a rel="external" href="http://ucsfcat.ucsf.edu/patroninfo/">Online: 
+<span class="smallprint">Log in to the Library Catalog</span>
+</a></li>
+<li class="menu-last"><a href="tel:+14154762336">Phone: (415) 476-2336</a></li>
+</ol>
 </div>
 
 <?php 

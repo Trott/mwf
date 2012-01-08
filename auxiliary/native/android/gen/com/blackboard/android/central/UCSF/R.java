@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package edu.ucla.m;
+package com.blackboard.android.central.UCSF;
 
 public final class R {
     public static final class attr {

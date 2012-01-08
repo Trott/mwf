@@ -1,4 +1,4 @@
-package edu.ucla.m;
+package edu.ucsf.m;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -15,9 +15,10 @@ import android.view.Window;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import com.blackboard.android.central.UCSF.R;
 
 public class MWFWebViewActivity extends Activity {
-	protected static final String ONLINE_PAGE = "http://m.ucla.edu/";
+	protected static final String ONLINE_PAGE = "http://m.ucsf.edu/";
 
 	protected WebView webView;
 	protected WebSettings settings;
@@ -43,7 +44,9 @@ public class MWFWebViewActivity extends Activity {
 		// line, it does not work in Android 2.3.3.
 		settings.setAppCachePath(getApplicationContext().getDir("appcache",
 				Context.MODE_PRIVATE).getAbsolutePath());
-
+		// TODO: Set this correctly and detect it in JS and for GA
+		// settings.setUserAgentString(settings.getUserAgentString().concat("; MWF 1.3"));
+		
 		webView.setWebViewClient(new MWFWebViewClient());
 		webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
 
@@ -121,7 +124,7 @@ public class MWFWebViewActivity extends Activity {
 
 	public void displayErrorMessage(String message) {
 		new AlertDialog.Builder(this).setMessage(message)
-				.setTitle("UCLA Mobile").setCancelable(true)
+				.setTitle("UCSF Mobile").setCancelable(true)
 				.setNeutralButton("OK", null).show();
 	}
 

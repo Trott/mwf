@@ -44,8 +44,7 @@ public class MWFWebViewActivity extends Activity {
 		// line, it does not work in Android 2.3.3.
 		settings.setAppCachePath(getApplicationContext().getDir("appcache",
 				Context.MODE_PRIVATE).getAbsolutePath());
-		// TODO: Set this correctly and detect it in JS and for GA
-		// settings.setUserAgentString(settings.getUserAgentString().concat("; MWF 1.3"));
+		settings.setUserAgentString(settings.getUserAgentString().concat("; MWF-Native-Android/1.2.10"));
 		
 		webView.setWebViewClient(new MWFWebViewClient());
 		webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);

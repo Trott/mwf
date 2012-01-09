@@ -51,6 +51,8 @@ mwf.full.history = new function() {
     }
     
     // TODO: UCSF-only stuff and certainly not history.  Shouldn't go here.
+    //  Hides the footer if we're in portrait mode and grid layout because
+    //  UCSF has a special magical background for that.
     this.rotate = function(e) {
         if (location.hash=='#/main_menu')
             mwf.full.history.showHideFooter('main_menu');

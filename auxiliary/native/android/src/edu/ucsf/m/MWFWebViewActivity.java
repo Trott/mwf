@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.KeyEvent;
@@ -56,9 +57,11 @@ public class MWFWebViewActivity extends Activity {
 		// line, it does not work in Android 2.3.3.
 		settings.setAppCachePath(getApplicationContext().getDir("appcache",
 				Context.MODE_PRIVATE).getAbsolutePath());
-		webView.getSettings().setGeolocationDatabasePath(getApplicationContext().getDir("geolocation",
-				Context.MODE_PRIVATE).getAbsolutePath());
-		settings.setUserAgentString(settings.getUserAgentString().concat("; MWF-Native-Android/1.2.10"));
+		webView.getSettings().setGeolocationDatabasePath(
+				getApplicationContext().getDir("geolocation",
+						Context.MODE_PRIVATE).getAbsolutePath());
+		settings.setUserAgentString(settings.getUserAgentString().concat(
+				"; MWF-Native-Android/1.2.10"));
 
 		webView.setWebViewClient(new MWFWebViewClient());
 		webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
@@ -136,17 +139,20 @@ public class MWFWebViewActivity extends Activity {
 	}
 
 	public void displayErrorMessage(String message) {
-		new AlertDialog.Builder(this).setMessage(message)
-				.setTitle(R.string.app_name).setCancelable(true)
+		new AlertDialog.Builder(this)
+				.setMessage(message)
+				.setTitle(R.string.app_name)
+				.setCancelable(true)
 				.setNeutralButton("OK", null)
-				.setPositiveButton("Network Settings", new DialogInterface.OnClickListener() {
-		            public void onClick(DialogInterface dialog, int which) {
-		                startActivity(new Intent(Settings.ACTION_WIRELESS_SETTINGS));
-		            }
-		        })
-				.show();
+				.setPositiveButton("Network Settings",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int which) {
+								startActivity(new Intent(
+										Settings.ACTION_WIRELESS_SETTINGS));
+							}
+						}).show();
 	}
-	
 
 	/**
 	 * Capture the back key and if available, go back to the previous page in
@@ -167,8 +173,18 @@ public class MWFWebViewActivity extends Activity {
 
 		@Override
 		public boolean shouldOverrideUrlLoading(WebView view, String url) {
-			view.loadUrl(url);
-			return true;
+			// TODO: make this work via rel=external rather than domain name
+			String internalHost = "http://m.ucsf.edu/";
+			boolean external = ! internalHost.equalsIgnoreCase(url.substring(0, internalHost.length()));
+			if (external) {
+				Intent intent = new Intent(Intent.ACTION_VIEW);
+				intent.setData(Uri.parse(url));
+				startActivity(intent);
+				return true;
+			} else {
+				view.loadUrl(url);
+				return false;
+			}
 		}
 
 		public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -191,7 +207,7 @@ public class MWFWebViewActivity extends Activity {
 					view.goBack();
 				settings.setCacheMode(WebSettings.LOAD_CACHE_ONLY);
 				// reload() will show a quick flash of the default
-				// WebView error page so we use loadUrl() instead. 
+				// WebView error page so we use loadUrl() instead.
 				view.loadUrl(failingUrl);
 			} else {
 				displayErrorMessage("Could not load contents. Are you offline?");

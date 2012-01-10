@@ -51,6 +51,8 @@ mwf.full.history = new function() {
     }
     
     // TODO: UCSF-only stuff and certainly not history.  Shouldn't go here.
+    //  Hides the footer if we're in portrait mode and grid layout because
+    //  UCSF has a special magical background for that.
     this.rotate = function(e) {
         if (location.hash=='#/main_menu')
             mwf.full.history.showHideFooter('main_menu');
@@ -72,8 +74,6 @@ mwf.full.history = new function() {
     // End TODO: UCSF-only stuff that needs to be removed
     
     this.init = function() {
-        var anchors = document.getElementsByTagName("a");
-        
         function showContent(show,hide) {
             var hideElement;
             for (i=0; i<hide.length; i++) {
@@ -98,6 +98,14 @@ mwf.full.history = new function() {
             return true;
         }
 
+        if (! window.location.hash ) 
+            window.location.hash = '#/main_menu';
+        showContent(window.location.hash.substring(2),[]);
+        
+        if (! (history instanceof Object && history.replaceState instanceof Function))
+            return;
+
+        var anchors = document.getElementsByTagName("a");
 
         for (var i = 0; i < anchors.length ; i++) {
             if ((document.getElementById('il'+anchors[i].pathname) != null) || (mwf.site.root == anchors[i].href.replace(/\/$/, "")))
@@ -162,10 +170,6 @@ mwf.full.history = new function() {
                 showContent(event.state.show,event.state.hide);
             }            
         }, false);
-        
-        if (! window.location.hash ) 
-            window.location.hash = '#/main_menu';
-        showContent(window.location.hash.substring(2),[]);
     }
 }
 

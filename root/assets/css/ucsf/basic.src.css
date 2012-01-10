@@ -105,15 +105,8 @@ ul.bulleted li a {
 	padding: 0.3em;
 }
 
-a[rel~=external] {
-    display: inline-block;
-}
-
-
-a[rel~=external], .menu-detailed li a span.external {
-	padding-right: 18px;
-        margin-right: 14px;
-        background: url(img/ucsf-external-link.png) center right no-repeat;
+a[rel~=external]:after, .menu-detailed li a span.external:after {
+	content: "\a0 " url(img/ucsf-external-link.png);
 }
 
 /* Allow suppression of external link indicator via class "no-ext-ind". 
@@ -124,8 +117,8 @@ a[rel~=external], .menu-detailed li a span.external {
    will determine how the link is handled in the native client and possibly in
    screen readers.
 */
-a[rel=external].no-ext-ind {
-    background: #fff;
+a[rel=external].no-ext-ind:after {
+    content: "";
 }
 
 li a, p a, a, a:visited {

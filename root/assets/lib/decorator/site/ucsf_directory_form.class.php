@@ -53,7 +53,7 @@ class Ucsf_Directory_Form_Site_Decorator extends Tag_HTML_Decorator {
     public function render() {
         $this->add_item('first_name', 'text', 'First Name');
         $this->add_item('last_name', 'text', 'Last Name');
-        $this->add_item('directory', 'text', 'Directory');
+        $this->add_item('directory', 'text', 'Department');
         $this->add_item('', 'submit', '', array('value' => 'Search'));
 
         $count = count($this->_list);

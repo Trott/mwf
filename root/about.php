@@ -36,7 +36,7 @@ echo Site_Decorator::content_full()
                 '<li>Campus Life Services (Fitness)</li>' .
                 '<li>Campus Planning (Maps)</li></ul>')
         ->add_section('The UCSF Mobile website is powered by the ' .
-                HTML_Decorator::tag('a', 'UCLA Mobile Web Framework', array('href' => 'http://mwf.ucla.edu')) . '.')
+                HTML_Decorator::tag('a', 'Mobile Web Framework', array('href' => 'http://mwf.ucla.edu')) . '.')
         ->render();
 
 echo Site_Decorator::ucsf_footer()->render();

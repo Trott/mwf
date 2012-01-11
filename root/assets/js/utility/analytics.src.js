@@ -20,7 +20,9 @@ if(mwf.site.analytics.key){
     
     if (mwf.userAgent.isNative()) {
         // Special tracking for native client
-        _gaq.push(['_setCustomVar', 5, 'Native Client Type', mwf.userAgent.getOS(), 1]);       
+        _gaq.push(['_setCustomVar', 1, 'Native Client Type', mwf.userAgent.getOS(), 1]);
+        _gaq.push(['_setCustomVar', 2, 'Native Client Type', mwf.userAgent.getOS(), 2]);       
+        _gaq.push(['_setCustomVar', 3, 'Native Client Type', mwf.userAgent.getOS(), 3]);       
     }
     
     _gaq.push(["_trackPageview"]);

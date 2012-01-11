@@ -175,8 +175,9 @@ public class MWFWebViewActivity extends Activity {
 		public boolean shouldOverrideUrlLoading(WebView view, String url) {
 			// TODO: make this work via rel=external rather than domain name
 			String internalHost = "http://m.ucsf.edu/";
-			boolean external = ! internalHost.equalsIgnoreCase(url.substring(0, internalHost.length()));
-			if (external) {
+			boolean external = url.length() >= internalHost.length() && 
+				! internalHost.equalsIgnoreCase(url.substring(0, internalHost.length()));
+			if ((external) || (url.startsWith("tel:"))) {
 				Intent intent = new Intent(Intent.ACTION_VIEW);
 				intent.setData(Uri.parse(url));
 				startActivity(intent);

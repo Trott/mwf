@@ -33,19 +33,15 @@
  * @link /config/global.php
  * @link assets/redirect/unset_override.php
  */
+
 /**
  * Require necessary libraries.
  */
+
 require_once(dirname(__FILE__) . '/assets/lib/classification.class.php');
 require_once(dirname(__FILE__) . '/assets/config.php');
 require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
 require_once(dirname(__FILE__) . '/assets/redirect/unset_override.php');
-
-/**
- * Ensure that site_url and site_asset_url have been set.
- */
-if (!Config::get('global', 'site_url') || !Config::get('global', 'site_assets_url'))
-    die('<h1>Fatal Error</h1><p>The configuration settings {global::site_url} and {global::site_asset_url} must be defined in ' . dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'global.php</p>');
 
 /**
  * Handle differences between a subsection and the top-level menu, using key
@@ -86,7 +82,7 @@ if ($main_menu) {
 }
 echo $head->render();
 
-echo HTML_Decorator::body_start($main_menu ? array('class' => 'front-page') : array())->render();
+echo HTML_Decorator::body_start($main_menu ? array('class'=>'front-page') : array())->render();
 
 /*
  * Header
@@ -140,15 +136,17 @@ if (($main_menu) && (Classification::is_full())) {
 /**
  * Back button
  */
-if (!$main_menu)
+
+if(!$main_menu)
     echo Site_Decorator::button_full()
-            ->set_padded()
-            ->add_option(Config::get('global', 'back_to_home_text'), 'index.php')
-            ->render();
+                ->set_padded()
+                ->add_option(Config::get('global', 'back_to_home_text'), 'index.php')
+                ->render();
 
 /**
  * Footer
  */
+
 echo Site_Decorator::ucsf_footer()->back_button()->render();
 
 /**

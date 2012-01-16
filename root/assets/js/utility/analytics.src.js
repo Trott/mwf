@@ -19,10 +19,8 @@ if(mwf.site.analytics.key){
     _gaq.push(["_setAccount", mwf.site.analytics.key]);
     
     if (mwf.userAgent.isNative()) {
-        // Special tracking for native client
-        _gaq.push(['_setCustomVar', 1, 'VNCT', mwf.userAgent.getOS(), 1]);
-        _gaq.push(['_setCustomVar', 2, 'SNCT', mwf.userAgent.getOS(), 2]);       
-        _gaq.push(['_setCustomVar', 3, 'PNCT', mwf.userAgent.getOS(), 3]);       
+        // Special tracking for native client       
+        _gaq.push(['_setCustomVar', 1, 'mwf_native_client', mwf.userAgent.getOS()]);       
     }
     
     _gaq.push(["_trackPageview"]);

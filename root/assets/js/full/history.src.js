@@ -51,7 +51,7 @@ mwf.full.history = new function() {
     }
     
     // TODO: UCSF-only stuff and certainly not history.  Shouldn't go here.
-    //  Hides the footer if we're in portrait mode and grid layout because
+    //  Hides the footer if we're in grid layout on the main screen because
     //  UCSF has a special magical background for that.
     this.rotate = function(e) {
         if (location.hash=='#/main_menu')
@@ -59,7 +59,7 @@ mwf.full.history = new function() {
     }
     
     this.showHideFooter = function(active) {
-        if ((active=='main_menu') && (window.orientation==0) && (mwf.browser.getWidth()<=320) && (mwf.browser.getHeight()<=480)) {
+        if ((active=='main_menu') && (mwf.browser.getWidth()<=480) && (mwf.browser.getHeight()<=480)) {
             var layout = mwf.standard.preferences.get('main_menu_layout');
             if ((mwf.classification.isNative() && layout!='list') || layout=='grid') 
             {
@@ -94,7 +94,6 @@ mwf.full.history = new function() {
                 document.getElementById('button-top').setAttribute("style","display:none");
             }
             mwf.full.history.showHideFooter(show);
-            
             return true;
         }
 

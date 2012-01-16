@@ -130,4 +130,9 @@ div.button-full a.button-light:active {
 .front-page .menu-grid li a{background:0;color:#fff;font-size:75%;font-weight:normal;margin:0;padding:68px 4px 4px 4px;text-align:center}
 @media screen and (max-width:320px) and (max-height:480px) {
     .front-page .menu-grid {background:url(img/ucsf-background.png) no-repeat;height:480px}
+    .front-page .menu-grid ~ #footer {display:none}
+}
+@media screen and (width:480px) {
+    .front-page .menu-grid {background:url(img/ucsf-background-landscape.png) no-repeat;height:320px}
+    .front-page .menu-grid ~ #footer {display:none}
 }

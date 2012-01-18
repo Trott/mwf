@@ -88,6 +88,10 @@ div.button-full a.button-light:active {
     background: #fff url(img/ucsf-icon-maps.png) -1px 0 no-repeat;
 }
 
+.front-page .menu-padded #social {
+    background: #fff url(img/ucsf-icon-social.png) -1px 0 no-repeat;
+}
+
 .front-page .menu-padded #emergency {
     background: #fff url(img/ucsf-icon-emergency.png) -1px 0 no-repeat;
 }
@@ -119,6 +123,10 @@ div.button-full a.button-light:active {
 
 .front-page .menu-grid #maps {
     background: url(img/ucsf-icon-precomposed-maps.png) 12px 8px no-repeat;
+}
+
+.front-page .menu-grid #social {
+    background: url(img/ucsf-icon-precomposed-social.png) 12px 8px no-repeat;
 }
 
 .front-page .menu-grid #emergency {

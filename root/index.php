@@ -130,6 +130,7 @@ if (($main_menu) && (Classification::is_full())) {
     echo Site_Decorator::ucsf_library_locations_missionbay_menu('Mission Bay Library',array('id'=>'il/library/locations/mission_bay','style'=>'display:none'))->render();
     echo Site_Decorator::ucsf_library_locations_studyspaces_content('Other Study Spaces',array('id'=>'il/library/locations/study_spaces','style'=>'display:none'))->render();    
     echo Site_Decorator::ucsf_calendar_menu('Calendars',array('id'=>'il/calendars','style'=>'display:none'))->render();
+    echo Site_Decorator::ucsf_social_media_menu('Social Media',array('id'=>'il/social','style'=>'display:none'))->render();
     echo Site_Decorator::ucsf_emergency_menu('Emergency',array('id'=>'il/emergency','style'=>'display:none'))->render();
 }
 

@@ -19,9 +19,9 @@ mwf.ucsfLayout = new function() {
                         if (header)
                             header.setAttribute("style","display:none");
                         main_menu.className += " menu-grid";
-                        width = (mwf.screen.getWidth() ? mwf.screen.getWidth() : window.innerWidth);
+                        width = (mwf.browser.getWidth() ? mwf.browser.getWidth() : window.innerWidth);
                         width = width - width % 80;
-                        height = (mwf.screen.getHeight() ? mwf.screen.getHeight() : window.innerHeight);
+                        height = (mwf.browser.getHeight() ? mwf.browser.getHeight() : window.innerHeight);
                         height = height - height % 80;
                         mwf.ucsfLayout.setGridWidth(width);
                         window.addEventListener('orientationchange', mwf.ucsfLayout.rotateGrid, false);

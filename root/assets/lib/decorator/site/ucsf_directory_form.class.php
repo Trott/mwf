@@ -21,7 +21,7 @@ class Ucsf_Directory_Form_Site_Decorator extends Tag_HTML_Decorator {
     private $_list = array();
 
     public function __construct($title = 'Directory', $params = array()) {
-        parent::__construct('form', false, array_merge($params,array('method' => 'post', 'action' => '/directory/query')));
+        parent::__construct('form', false, array_merge($params,array('method' => 'get', 'action' => '/directory/query')));
         $this->add_class('form-full');
         $this->add_class('form-padded');
         if ($title)
@@ -53,7 +53,7 @@ class Ucsf_Directory_Form_Site_Decorator extends Tag_HTML_Decorator {
     public function render() {
         $this->add_item('first_name', 'text', 'First Name');
         $this->add_item('last_name', 'text', 'Last Name');
-        $this->add_item('directory', 'text', 'Department');
+        $this->add_item('department', 'text', 'Department');
         $this->add_item('', 'submit', '', array('value' => 'Search'));
 
         $count = count($this->_list);

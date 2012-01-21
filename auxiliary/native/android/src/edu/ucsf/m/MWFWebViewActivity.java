@@ -21,8 +21,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.blackboard.android.central.UCSF.R;
-
 public class MWFWebViewActivity extends Activity {
 	protected static final String ONLINE_PAGE = "http://m.ucsf.edu/";
 

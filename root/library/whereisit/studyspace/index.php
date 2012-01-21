@@ -20,7 +20,8 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 <ul class="bulleted">
 <li>Available to UCSF students for group study during library hours</li>
 <li>Some feature whiteboard, X-ray light box</li>
-<li>Check out at Service Desk. More info: <a href="tel:+14154762336">(415) 476-2336</a></li>
+<li><a rel="external" href="http://tiny.ucsf.edu/reserve">Make a reservation</a></li>
+<li>More info: <a href="tel:+14154762336">(415) 476-2336</a></li>
 </ul>
 
 <p>Faculty Carrels</p>

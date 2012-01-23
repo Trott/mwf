@@ -57,15 +57,9 @@ class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
         $separator = '';
         $title_span = '';
         if ($title) {
-<<<<<<< HEAD
-            $separator = HTML_Decorator::tag('img', false, array(
-            		"src" => MWF_CONFIG_SITE_ASSETS_URL . "/img/ucsf-header-separator.png", 
-            		"alt" => " | ", "class" => "separator"))->render();
-=======
             $separator_img_url = Config::get('global', 'site_assets_url') . '/img/ucsf-header-separator.png';
             $separator = HTML_Decorator::tag('img', false, 
                     array("src" => $separator_img_url, "alt" => " | ", "class" => "separator"))->render();
->>>>>>> upstream/ucsf/develop
             $title_span = HTML_Decorator::tag('span', $title)->render();
         }
 

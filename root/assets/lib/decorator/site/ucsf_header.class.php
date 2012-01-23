@@ -9,13 +9,15 @@
  * @author ebollens
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20110518
+ * @version 20120122
  *
  * @uses Header_Site_Decorator
  * @uses Classification
+ * @uses Config
  */
 require_once(dirname(__FILE__) . '/header.class.php');
 require_once(dirname(dirname(dirname(__FILE__))) . '/classification.class.php');
+require_once(dirname(dirname(dirname(__FILE__))) . '/config.class.php');
 
 class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
 
@@ -55,9 +57,15 @@ class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
         $separator = '';
         $title_span = '';
         if ($title) {
+<<<<<<< HEAD
             $separator = HTML_Decorator::tag('img', false, array(
             		"src" => MWF_CONFIG_SITE_ASSETS_URL . "/img/ucsf-header-separator.png", 
             		"alt" => " | ", "class" => "separator"))->render();
+=======
+            $separator_img_url = Config::get('global', 'site_assets_url') . '/img/ucsf-header-separator.png';
+            $separator = HTML_Decorator::tag('img', false, 
+                    array("src" => $separator_img_url, "alt" => " | ", "class" => "separator"))->render();
+>>>>>>> upstream/ucsf/develop
             $title_span = HTML_Decorator::tag('span', $title)->render();
         }
 

@@ -13,7 +13,8 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
  <li><a href="/library/howdoi/remoteaccess">Get Network Access</a></li> 
  <li><a href="/library/howdoi/wifi">Use WiFi</a></li> 
  <li><a href="/library/howdoi/print">Print and Copy</a></li> 
- <li class="menu-last"><a href="/library/howdoi/renew">Renew Books</a></li> 
+ <li><a href="/library/howdoi/renew">Renew Books</a></li>
+ <li class="menu-last"><a rel="external" href="http://tiny.ucsf.edu/reserve">Reserve a Study Room</a></li>
 </ol> 
 </div> 
 <?php 

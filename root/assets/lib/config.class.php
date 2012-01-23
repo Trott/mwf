@@ -29,9 +29,7 @@ class Config {
     private static $_vars = array();
 
     public static function init() {
-         	
-
-    	if (self::get('base', 'site_url')) {
+        if (self::get('base', 'site_url')) {
             define('MWF_CONFIG_SITE_URL', self::get('base', 'site_url'));
         } else {
             $scheme = HTTPS::is_https() ? 'https' : 'http';
@@ -40,9 +38,6 @@ class Config {
 
         if (self::get('base', 'site_assets_url')) {
             define('MWF_CONFIG_SITE_ASSETS_URL', self::get('base', 'site_assets_url'));
-        } elseif (self::get('base', 'site_assets_path')) {
-        	// fallback: construct assets-url based on configured path and site-url
-        	define('MWF_CONFIG_SITE_ASSETS_URL', MWF_CONFIG_SITE_URL . self::get('base', 'site_assets_path'));
         } else {
             define('MWF_CONFIG_SITE_ASSETS_URL', MWF_CONFIG_SITE_URL . '/assets');
         }

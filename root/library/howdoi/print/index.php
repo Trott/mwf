@@ -13,7 +13,7 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 <div>
 <h4>Printing</h4>
 
-<p>Printing is available for a fee from library workstations and loaner laptops.</p>
+<p>Printing is available for a fee from library workstations.</p>
 
 <p>You will need a <a rel="external" href="https://www.ckm.ucsf.edu/account/">GALEN Account</a>, with money added to your account.</p>
 
@@ -24,12 +24,11 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 <li>Parnassus Library (and loaner laptops)</li>
 <li>Mission Bay Library</li> 
 <li>Medical Sciences Tech Commons (S-165)</li>
-<li>Mission Bay Genentech Hall study space (GH-227)</li> 
 <li>Medical Student Lounge (S-245) - SOM students only</li>
 <li>Nursing Building (N-735)</li>
 </ul>
 
-<p>Color printing is available in the Tech Commons (CL-506): $0.30 per printed side.</p>
+<p>Color printing is available in the Tech Commons (CL-240): $0.30 per printed side.</p>
 </div>
 
 <div>

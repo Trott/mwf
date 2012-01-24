@@ -1,1 +1,55 @@
-.menu-full li a:hover{background-color:initial}a.button-full,div.button-full a{background:-webkit-gradient(linear,left top,left bottom,from(#424243),to(#565759),color-stop(1,#fff));-webkit-background-origin:padding-box;-webkit-background-clip:padding-box}a#button-top{background:-webkit-gradient(linear,left top,left bottom,from(#767676),to(#6e6e6e),color-stop(1,#fff));-webkit-background-origin:padding-box;-webkit-background-clip:padding-box}a#button-top:hover,a#button-top:active,a#button-top:focus{background:-webkit-gradient(linear,left top,left bottom,from(#8e8e8e),to(#666),color-stop(1,#fff))}a.button-full:hover,a.button-full:focus,a.button-full:active,div.button-full a:hover,div.button-full a:focus,div.button-full a:active,a.button-full.button-light:hover,a.button-full.button-light:focus,a.button-full.button-light:active,div.button-full a.button-light:hover,div.button-full a.button-light:focus,div.button-full a.button-light:active{background:-webkit-gradient(linear,left top,left bottom,from(#eee),to(#fff),color-stop(1,#fff));-webkit-background-origin:padding-box;-webkit-background-clip:padding-box}
+/* ucsf-default-webkit
+ *
+ *
+ *
+ */
+ 
+/********************************************************
+ * BUTTONS
+ * 
+ * fastLink JS library will erroneously track hovers so reset
+ * to default
+ *******************************************************/
+.menu li a, .menu li a:hover {
+    background-color: initial;
+}
+
+ 
+/********************************************************
+ * BUTTONS
+ *******************************************************/
+a.button-full,
+div.button-full a {
+    background: -webkit-gradient(linear, left top, left bottom, from(#424243), to(#565759), color-stop(1, #fff));
+    -webkit-background-origin: padding-box;
+    -webkit-background-clip: padding-box;
+}
+
+a#button-top {
+    background: -webkit-gradient(linear, left top, left bottom, from(#767676), to(#6e6e6e), color-stop(1, #fff));
+    -webkit-background-origin: padding-box;
+    -webkit-background-clip: padding-box;
+}
+
+a#button-top:hover,
+a#button-top:active,
+a#button-top:focus{
+    background: -webkit-gradient(linear, left top, left bottom, from(#8e8e8e), to(#666666), color-stop(1, #fff));
+}
+
+a.button-full:hover,
+a.button-full:focus,
+a.button-full:active,
+div.button-full a:hover,
+div.button-full a:focus,
+div.button-full a:active,
+a.button-full.button-light:hover,
+a.button-full.button-light:focus,
+a.button-full.button-light:active,
+div.button-full a.button-light:hover,
+div.button-full a.button-light:focus,
+div.button-full a.button-light:active{
+    background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#ffffff), color-stop(1, #fff));
+    -webkit-background-origin: padding-box;
+    -webkit-background-clip: padding-box;
+}

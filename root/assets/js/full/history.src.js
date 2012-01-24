@@ -8,7 +8,7 @@
  * @author trott
  * @copyright Copyright (c) 2011 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20111205
+ * @version 20120124
  *
  * @requires mwf
  * @requires mwf.standard.preferences
@@ -59,15 +59,18 @@ mwf.full.history = new function() {
     }
     
     this.showHideFooter = function(active) {
-        if ((active=='main_menu') && (mwf.browser.getWidth()<=480) && (mwf.browser.getHeight()<=480)) {
-            var layout = mwf.standard.preferences.get('main_menu_layout');
-            if ((mwf.classification.isNative() && layout!='list') || layout=='grid') 
-            {
-                document.getElementById('footer').setAttribute('style','display:none');
-            } 
+        var footer = document.getElementById('footer');
+        if (footer) {
+            if ((active=='main_menu') && (mwf.browser.getWidth()<=480) && (mwf.browser.getHeight()<=480)) {
+                var layout = mwf.standard.preferences.get('main_menu_layout');
+                if ((mwf.classification.isNative() && layout!='list') || layout=='grid') 
+                {
+                    footer.setAttribute('style','display:none');
+                } 
                 
-        } else { 
-            document.getElementById('footer').setAttribute('style','display:block');
+            } else { 
+                footer.setAttribute('style','display:block');
+            }
         }
     }
      
@@ -90,10 +93,10 @@ mwf.full.history = new function() {
             if (topButton) {
                 if (mwf.standard.preferences.isSupported() && mwf.standard.preferences.get('main_menu_layout')!='grid') {
                     var buttonDisplay = show=="main_menu" ? "display:none" : "display:block";
-                    document.getElementById('button-top').setAttribute("style",buttonDisplay);
+                    topButton.setAttribute("style",buttonDisplay);
                 }
                 if (mwf.userAgent.isNative()) {
-                    document.getElementById('button-top').setAttribute("style","display:none");
+                    topButton.setAttribute("style","display:none");
                 }
             }
             mwf.full.history.showHideFooter(show);

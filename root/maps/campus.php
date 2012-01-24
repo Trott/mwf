@@ -22,6 +22,12 @@ switch (isset($_GET['campus']) ? $_GET['campus'] : 'none') {
         $initialZoom = 18;
         $startLocation = 'Mt. Zion';
         break;
+    case 'SFGH':
+        $lat = 37.7555365;
+        $lon = -122.405038;
+        $initialZoom = 17;
+        $startLocation = 'SFGH';
+        break;
     default:
         require_once(dirname(__FILE__) . '/location/locations.class.php');
         $locations = new Locations('http://' . $_SERVER['SERVER_NAME'] . '/maps/ucsf_map_coordinates.xml');

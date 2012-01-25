@@ -13,7 +13,7 @@
  *
  * @uses Menu_Full_Site_Decorator
  */
-require_once(dirname(__FILE__) . '/menuclass.php');
+require_once(dirname(__FILE__) . '/menu.class.php');
 
 class Ucsf_Library_Location_Menu_Site_Decorator extends Menu_Site_Decorator {
 

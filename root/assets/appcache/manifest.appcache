@@ -15,7 +15,7 @@ CACHE:
 /preferences
 
 #style sheets
-/assets/css.php
+/assets/css.php?lean
 
 #style sheet images
 /assets/img/header-bg.png

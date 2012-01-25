@@ -219,7 +219,7 @@ class Classification
     public static function is_native()
     {
         $capabilities = self::get();
-        return $capabilities && $capabilities->native;
+        return $capabilities && isset($capabilities->native) && $capabilities->native;
     }
     
     /**

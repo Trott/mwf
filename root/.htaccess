@@ -23,6 +23,6 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml
     RewriteRule ^preferences/?$ /preferences.php [L]
 # For Blackboard Mobile Central links
     RewriteCond %{QUERY_STRING} ^s=shuttle$
-    RewriteRule .* /shuttle? [R=permanent,L]
-    RewriteRule ^library/options$ /library [R=permanent,L]
+    RewriteRule .* /android.php [R=permanent,L]
+    RewriteRule ^library/options$ /android.php [R=permanent,L]
 </IfModule>

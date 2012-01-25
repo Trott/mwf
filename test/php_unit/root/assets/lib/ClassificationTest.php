@@ -119,7 +119,27 @@ class ClassificationTest extends PHPUnit_Framework_TestCase {
      * @runInSeparateProcess
      */
     public function isNative_notNative_False() {
-        $_COOKIE['mwftest_classification']='{mobile":false,"basic":true,"standard":false,"full":false,"native":false}';
+        $_COOKIE['mwftest_classification']='{"mobile":false,"basic":true,"standard":false,"full":false,"native":false}';
+        require_once dirname(__FILE__) . '/../../../../../root/assets/lib/classification.class.php';
+        $this->assertFalse(Classification::is_native());
+    }
+    
+    /**
+     * @test
+     * @runInSeparateProcess
+     */
+    public function isNative_notSet_False() {
+        $_COOKIE['mwftest_classification']='{"mobile":false,"basic":true,"standard":false,"full":false}';
+        require_once dirname(__FILE__) . '/../../../../../root/assets/lib/classification.class.php';
+        $this->assertFalse(Classification::is_native());
+    }
+    
+    /**
+     * @test
+     * @runInSeparateProcess
+     */
+    public function isNative_noCookie_False() {
+        $_COOKIE=array();
         require_once dirname(__FILE__) . '/../../../../../root/assets/lib/classification.class.php';
         $this->assertFalse(Classification::is_native());
     }

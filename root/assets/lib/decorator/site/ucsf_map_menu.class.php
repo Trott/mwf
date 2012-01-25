@@ -28,6 +28,7 @@ class Ucsf_Map_Menu_Site_Decorator extends Menu_Full_Site_Decorator {
             $this->add_item('Parnassus', '/maps/campus.php?campus=Parnassus', array());
             $this->add_item('Mission Bay', '/maps/campus.php?campus=Mission+Bay', array());
             $this->add_item('Mt. Zion', '/maps/campus.php?campus=Mt.+Zion', array());
+            $this->add_item('San Francisco General Hospital', '/maps/campus.php?campus=SFGH');
             $this->add_item('Location List', '/maps/locations.php', array());
         } else {
             $this->add_item('Parnassus <span class="smallprint light">PDF</span>', 'http://www.ucsf.edu/sites/default/files/documents/ucsf_parnassus_1.pdf', array(), array('rel' => 'external'));

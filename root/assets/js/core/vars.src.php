@@ -17,7 +17,6 @@
  * 
  * @uses document.URL
  */
-
 require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
 require_once(dirname(dirname(dirname(__FILE__))) . '/lib/https.class.php');
 require_once(dirname(dirname(dirname(__FILE__))) . '/lib/cookie.class.php');
@@ -31,9 +30,9 @@ $cookies = array('classification' => Cookie::get('classification'),
 );
 
 $cookies_arr = array();
-foreach ($cookies as $key=>$value)
+foreach ($cookies as $key => $value)
     if (isset($value))
-        $cookies_arr[] = $prefix.$key;
+        $cookies_arr[] = $prefix . $key;
 $existing_cookies_var = '["' . implode('","', $cookies_arr) . '"]';
 
 if (isset($cookies['override']))
@@ -139,7 +138,7 @@ mwf.site=new function(){
     this.localStorage = new function(){
         this.prefix = '<?php echo Config::get('global', 'local_storage_prefix'); ?>';
     };
-    
+
     this.analytics = new function(){
 
         this.key = <?php echo (Config::get('analytics', 'account') ? ('\'' . Config::get('analytics', 'account') . '\'') : 'null') ?>;
@@ -251,4 +250,3 @@ mwf.site=new function(){
         return this.asset.root;
     };
 };
-    

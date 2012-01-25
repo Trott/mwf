@@ -91,5 +91,6 @@ mwf.standard.preferences=new function(){
                   keysToDelete.push(localStorage.key(i));
           for (i=0; i<keysToDelete.length; i++)
                 localStorage.removeItem(keysToDelete[i]);
+          
     }
 };

@@ -38,7 +38,6 @@
  */
 
 require_once(dirname(__FILE__) . '/assets/lib/classification.class.php');
-
 require_once(dirname(__FILE__) . '/assets/config.php');
 require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
 require_once(dirname(__FILE__) . '/assets/redirect/unset_override.php');
@@ -152,9 +151,8 @@ if(!$main_menu)
 echo Site_Decorator::ucsf_footer()->back_button()->render();
 
 /**
-* End page
-*/
-
+ * End page
+ */
 echo HTML_Decorator::body_end()->render();
 
 echo HTML_Decorator::html_end()->render();

@@ -33,12 +33,12 @@
  * @link /config/global.php
  * @link assets/redirect/unset_override.php
  */
-
 /**
  * Require necessary libraries.
  */
 
 require_once(dirname(__FILE__) . '/assets/lib/classification.class.php');
+
 require_once(dirname(__FILE__) . '/assets/config.php');
 require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
 require_once(dirname(__FILE__) . '/assets/redirect/unset_override.php');
@@ -47,6 +47,7 @@ require_once(dirname(__FILE__) . '/assets/redirect/unset_override.php');
  * Handle differences between a subsection and the top-level menu, using key
  * 'default' if on the front page or otherwise the $_GET['s'] parameter.
  */
+
 $menu_section = 'default';
 if (isset($_GET['s'])) {
     $menu_section = $_GET['s'];
@@ -56,7 +57,7 @@ $menu_names = Config::get('frontpage', 'menu.name.' . $menu_section);
 
 if (!isset($menu_names)) {
     $menu_section = 'default';
-    $menu_names = Config::get('frontpage', 'menu.name.' . $menu_section);
+    $menu_names = Config::get('frontpage', 'menu.name.'.$menu_section);
 }
 
 $menu_ids = Config::get('frontpage', 'menu.id.' . $menu_section);
@@ -106,6 +107,7 @@ if (Classification::is_full())
     $menu->set_param('style', 'display:none');
 
 for ($i = 0; $i < count($menu_names); $i++) {
+
     if (isset($menu_restrictions[$i])) {
         $function = $menu_restrictions[$i];
         if (!User_Agent::$function())
@@ -137,13 +139,12 @@ if (($main_menu) && (Classification::is_full())) {
 /**
  * Back button
  */
-
 if(!$main_menu)
     echo Site_Decorator::button()
                 ->set_padded()
                 ->add_option(Config::get('global', 'back_to_home_text'), 'index.php')
                 ->render();
-
+    
 /**
  * Footer
  */
@@ -153,6 +154,7 @@ echo Site_Decorator::ucsf_footer()->back_button()->render();
 /**
 * End page
 */
+
 echo HTML_Decorator::body_end()->render();
 
 echo HTML_Decorator::html_end()->render();

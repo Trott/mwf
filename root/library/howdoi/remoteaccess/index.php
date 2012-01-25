@@ -7,7 +7,7 @@ echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
         ->render();
 ?>
-<div class="content-full content-padded"> 
+<div class="content padded"> 
 <h1 class="content-first">Get Network Access</h1> 
 <div> 
 <p>Some  library resources require you to be on the UCSF network to search and get full text. If you are <strong>on campus</strong>, just connect to one of the <a href="/library/howdoi/wifi">UCSF WiFi networks</a>.  </p> 
@@ -62,7 +62,7 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 </ul> 
 </div> 
 </div>
-<div class="menu-full menu-padded">
+<div class="menu padded">
 <h1 class="menu-first">Help</h1> 
 <ol> 
   <li><a href="http://its.ucsf.edu/main/MyAccess/myaccess_faqs.html" rel="external">MyAccess FAQ</a></li> 

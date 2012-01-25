@@ -23,7 +23,7 @@ echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>')->render();
             <input type="submit" name="submit" value="Search" />
     </form>
 
-    <div class="menu-full menu-detailed menu-padded menu-filterable">
+    <div class="menu detailed padded">
          <h1 class="light menu-first">Locations<?php echo $search_results ? ' (Results)' : ''; ?></h1>
          <ol>
              <?php

@@ -7,7 +7,7 @@ echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
         ->render();
 ?>
-<div class="menu-full menu-padded menu-detailed">
+<div class="menu padded detailed">
 <h1 class="menu-first">Where Is It?</h1>
 <ol>
  <li><a href="maps">Parnassus Library Floor Maps</a></li>

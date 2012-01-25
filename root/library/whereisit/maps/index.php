@@ -6,7 +6,7 @@ echo Site_Decorator::head()->set_title(Config::get('global', 'title_text') . " |
 echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
         ->render();
-?><div class="menu-full menu-padded menu-detailed">
+?><div class="menu padded detailed">
 <h1 class="menu-first">Parnassus Floor Maps</h1>
 <ol>
 <li><a href="1">Floor 1<br/><span class="smallprint">Conference Rooms<br/>Administration<br/>Bound Journals</span></a></li>

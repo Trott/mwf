@@ -321,7 +321,8 @@ input, textarea, select {
     background-color: #eaf2fa;
 }
 
-.menu li a {
+.menu li a,
+.menu.detailed.center li a {
     padding: .9em 2em .8em 2em;
 }
 
@@ -332,6 +333,10 @@ input, textarea, select {
 .menu li a:focus h4,
 .menu li a:active h4 {
     color: #494D69;
+}
+
+.menu li > p:first-child:last-child {
+    padding: .9em; /* singular paragraph text within li */
 }
 
 .menu.detailed p {
@@ -402,6 +407,52 @@ div.button a:focus,
 div.button a:active{
     background-color: #ffb300;
     color: #494D69;
+}
+
+/**
+ * Messages
+ */
+
+.message.full {
+    display: block;
+    padding: .5em 0 .5em 1em;
+    text-align: left;
+}
+
+.message.full.alert {
+    border: 1px solid #fa3;
+    background-color: #ffe;
+}
+
+.message.full.confirm {
+    border: 1px solid #6a3;
+    background-color: #efe;
+}
+
+.message.full.error {
+    border: 1px solid #a30;
+    background-color: #fee;
+}
+
+.message.full.info {
+    border: 1px solid #6ac;
+    background-color: #eff;
+}
+
+.message.alert {
+    color: #630;
+}
+
+.message.confirm {
+    color: #360;
+}
+
+.message.error {
+    color: #a00;
+}
+
+.message.info {
+    color: #039;
 }
 
 /****************************************************************************

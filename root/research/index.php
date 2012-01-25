@@ -11,15 +11,15 @@ echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('Research Profile')
         ->render();
 ?>
-<div class="menu-full menu-padded menu-detailed" id="ctsi-menu">
+<div class="menu padded detailed" id="ctsi-menu">
     <h1 class="menu-first" id="ctsi-header"></h1>
     <ol id="ctsi-items"></ol>
 </div>
 <div style="display:none" id="ctsi-narrative-hidden"></div>
 
-<div class="content-full content-padded" id="ctsi-keywords"></div>
-<div class="menu-full menu-padded menu-detailed" id="ctsi-publications"></div>
-<div class="menu-full menu-padded"><ol id="ctsi-full-profile"></ol></div>
+<div class="content padded" id="ctsi-keywords"></div>
+<div class="menu padded detailed" id="ctsi-publications"></div>
+<div class="menu padded"><ol id="ctsi-full-profile"></ol></div>
 
 <?php
 echo Site_Decorator::ucsf_footer()->render();

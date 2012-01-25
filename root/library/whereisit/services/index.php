@@ -7,7 +7,7 @@ echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
         ->render();
 ?>
-<div class="content-full content-padded"> 
+<div class="content padded"> 
 <h1 class="content-first">Parnassus Service Areas</h1> 
  
 <div> 

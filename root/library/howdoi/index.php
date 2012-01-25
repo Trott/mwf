@@ -7,7 +7,7 @@ echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
         ->render();
 ?>
-<div class="menu-full menu-padded menu-detailed"> 
+<div class="menu padded detailed"> 
 <h1 class="menu-first">How Do I?</h1> 
 <ol> 
  <li><a href="/library/howdoi/remoteaccess">Get Network Access</a></li> 

@@ -7,7 +7,7 @@ echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
         ->render();
 ?>
-<div class="menu-full menu-padded menu-detailed">
+<div class="menu padded detailed">
 <h1 class="menu-first">Renew Books</h1>
 
 <ol>

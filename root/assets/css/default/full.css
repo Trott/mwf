@@ -233,6 +233,51 @@ div.button a.light:active{
     background: linear-gradient(#8296c0, #576c9c);
 }
 
+/**
+ * Messages
+ */
+
+.message-wrapper {
+    position: absolute;
+    top: 25%;
+    left: 10px;
+    right: 10px;
+    z-index: 1002;
+    background-color: #fff;
+    border: 1px solid #666;
+    border-radius: .5em;
+}
+
+.message-modal.message {
+    margin-top: .6em;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.message-modal.message.not-padded {
+    margin: 0;
+}
+
+a.message-button {
+    margin: 10px;
+}
+
+a.message-button.not-padded {
+    margin: 0;
+}
+
+.message-mask {
+    position:fixed;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background:#666;
+    opacity:.75;
+    filter:alpha(opacity=75);
+    z-index:1001
+}
+
 /****************************************************************************
  * Special Styles
  */

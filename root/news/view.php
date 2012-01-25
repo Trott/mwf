@@ -48,7 +48,7 @@ echo Site_Decorator::ucsf_header($header_title)
         ->render();
 ?>
 
-<div class="content-full content-padded"><?php if($id != $_GET['id'] || empty($description)): ?>
+<div class="content padded"><?php if($id != $_GET['id'] || empty($description)): ?>
 <h1 class="content-first light">Error Encountered</h1>
 <div class="content-last">
 <p>An error was encountered while trying to fetch the requested news
@@ -56,13 +56,12 @@ entry. Please go back to the articles list and try again.</p>
 </div>
 
 <?php else: ?>
-<h1 class="content-first align-left light"><?php echo $item->get_title(); ?></h1>
-<div class="content">
-<p><?php echo $date; ?></p>
-<?php echo $description; ?>
-<p>
+<h1 class="content-first light"><?php echo $item->get_title(); ?></h1>
 
-</div>
+<p><?php echo $date; ?><br/><br/>
+<?php echo $description; ?></p>
+
+
 
 <div class="content-last">
 <p class="center"><a href="<?php echo $item->get_link(); ?>">View article on

@@ -51,9 +51,9 @@ echo Site_Decorator::ucsf_header($header_title)
                       $rel = $direct_link ? ' rel="external" class="no-ext-ind"' : '';
                       $items=$feed->get_items();
                 if (count($items)==0):?>
-                    <div class="content-full content-padded"><h1 class="light content-first"><?php echo htmlspecialchars(Config::get('ucsf_news',"$feed_code.name")); ?></h1><div class="content-last">This news feed is currently unavailable. Please try again later.</div></div>
+                    <div class="content padded"><h1 class="light content-first"><?php echo htmlspecialchars(Config::get('ucsf_news',"$feed_code.name")); ?></h1><div class="content-last">This news feed is currently unavailable. Please try again later.</div></div>
           <?php else: ?>
-          <div class="menu-full menu-detailed menu-padded">
+          <div class="menu padded detailed">
              <h1 class="light menu-first"><?php echo htmlspecialchars(Config::get('ucsf_news',"$feed_code.name")); ?></h1>
                     <ol>
               <?php for($i=0; $i < count($items) && $num_items_displayed<$item_limit; $i++):
@@ -84,7 +84,7 @@ echo Site_Decorator::ucsf_header($header_title)
         <?php endforeach; ?>
 
     <?php if ($feeds == Config::get('ucsf_news','feeds')): ?>
-            <div class="menu-full menu-detailed menu-padded">
+            <div class="menu padded detailed">
             <h1 class="light menu-first">Additional News</h1>
             <ol>
             <li><a href="http://m.youtube.com/ucsf" rel="external">UCSF on YouTube</a></li>

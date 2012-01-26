@@ -101,10 +101,6 @@ ul.bulleted li a {
 	display: inline;
 }
 
-.form-full select {
-	padding: 0.3em;
-}
-
 a[rel~=external]:after, .detailed li a span.external:after {
 	content: "\a0 " url(img/ucsf-external-link.png);
 }

@@ -8,7 +8,7 @@
  * @author trott
  * @copyright Copyright (c) 2011 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20120124
+ * @version 20120127
  *
  * @requires mwf
  * @requires mwf.standard.preferences
@@ -50,32 +50,6 @@ mwf.full.history = new function() {
         return hide;
     }
     
-    // TODO: UCSF-only stuff and certainly not history.  Shouldn't go here.
-    //  Hides the footer if we're in grid layout on the main screen because
-    //  UCSF has a special magical background for that.
-    this.rotate = function(e) {
-        if (location.hash=='#/main_menu')
-            mwf.full.history.showHideFooter('main_menu');
-    }
-    
-    this.showHideFooter = function(active) {
-        var footer = document.getElementById('footer');
-        if (footer) {
-            if ((active=='main_menu') && (mwf.browser.getWidth()<=480) && (mwf.browser.getHeight()<=480)) {
-                var layout = mwf.standard.preferences.get('main_menu_layout');
-                if ((mwf.classification.isNative() && layout!='list') || layout=='grid') 
-                {
-                    footer.setAttribute('style','display:none');
-                } 
-                
-            } else { 
-                footer.setAttribute('style','display:block');
-            }
-        }
-    }
-     
-    // End TODO: UCSF-only stuff that needs to be removed
-    
     this.init = function() {
         function showContent(show,hide) {
             var hideElement;
@@ -99,7 +73,6 @@ mwf.full.history = new function() {
                     topButton.setAttribute("style","display:none");
                 }
             }
-            mwf.full.history.showHideFooter(show);
             return true;
         }
 

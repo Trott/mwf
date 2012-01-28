@@ -23,19 +23,19 @@ class Ucsf_Shuttle_List_Color_Menu_Site_Decorator extends Menu_Site_Decorator {
 
     //TODO: Don't hardcode this stuff
     public function render() {
-        $this->add_item('<img src="/public/images/0.jpg"  alt="" />&nbsp;Blue','/shuttle/schedule/0');
-        $this->add_item('<img src="/public/images/1.jpg"  alt="" />&nbsp;Gold','/shuttle/schedule/1');
-        $this->add_item('<img src="/public/images/2.jpg"  alt="" />&nbsp;Grey','/shuttle/schedule/2');        
-        $this->add_item('<img src="/public/images/3.jpg"  alt="" />&nbsp;Tan','/shuttle/schedule/3');
-        $this->add_item('<img src="/public/images/4.jpg"  alt="" />&nbsp;Black','/shuttle/schedule/4');
-        $this->add_item('<img src="/public/images/5.jpg"  alt="" />&nbsp;Purple','/shuttle/schedule/5');
-        $this->add_item('<img src="/public/images/6.jpg"  alt="" />&nbsp;Pink','/shuttle/schedule/6');
-        $this->add_item('<img src="/public/images/7.jpg"  alt="" />&nbsp;VA','/shuttle/schedule/7');
-        $this->add_item('<img src="/public/images/8.jpg"  alt="" />&nbsp;Bronze','/shuttle/schedule/8');        
-        $this->add_item('<img src="/public/images/9.jpg"  alt="" />&nbsp;Yellow','/shuttle/schedule/9');
-        $this->add_item('<img src="/public/images/11.jpg"  alt="" />&nbsp;Red','/shuttle/schedule/11');
-        $this->add_item('<img src="/public/images/12.jpg"  alt="" />&nbsp;Lime','/shuttle/schedule/12');
-        $this->add_item('<img src="/public/images/15.jpg"  alt="" />&nbsp;Green','/shuttle/schedule/15');
+        $this->add_item('<img src="/public/images/0.jpg" alt="" />&nbsp;Blue','/shuttle/schedule/blue');
+        $this->add_item('<img src="/public/images/1.jpg" alt="" />&nbsp;Gold','/shuttle/schedule/gold');
+        $this->add_item('<img src="/public/images/2.jpg" alt="" />&nbsp;Grey','/shuttle/schedule/grey');        
+        $this->add_item('<img src="/public/images/3.jpg" alt="" />&nbsp;Tan','/shuttle/schedule/tan');
+        $this->add_item('<img src="/public/images/4.jpg" alt="" />&nbsp;Black','/shuttle/schedule/black');
+        $this->add_item('<img src="/public/images/5.jpg" alt="" />&nbsp;Purple','/shuttle/schedule/purple');
+        $this->add_item('<img src="/public/images/6.jpg" alt="" />&nbsp;Pink','/shuttle/schedule/pink');
+        $this->add_item('<img src="/public/images/7.jpg" alt="" />&nbsp;VA','/shuttle/schedule/va');
+        $this->add_item('<img src="/public/images/8.jpg" alt="" />&nbsp;Bronze','/shuttle/schedule/bronze');        
+        $this->add_item('<img src="/public/images/9.jpg" alt="" />&nbsp;Yellow','/shuttle/schedule/yellow');
+        $this->add_item('<img src="/public/images/11.jpg" alt="" />&nbsp;Red','/shuttle/schedule/red');
+        $this->add_item('<img src="/public/images/12.jpg" alt="" />&nbsp;Lime','/shuttle/schedule/lime');
+        $this->add_item('<img src="/public/images/15.jpg" alt="" />&nbsp;Green','/shuttle/schedule/green');
         return parent::render();
     }
 

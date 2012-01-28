@@ -1,11 +1,24 @@
 CACHE MANIFEST
-#28-Jan-2012 08:23:24
+#28-Jan-2012 08:26:08
 
 CACHE:
 
 #images
 /assets/img/ucsf-logo.png
 /assets/img/ucsf-header-separator.png
+/public/images/0.jpg
+/public/images/1.jpg
+/public/images/2.jpg
+/public/images/3.jpg
+/public/images/4.jpg
+/public/images/5.jpg
+/public/images/6.jpg
+/public/images/7.jpg
+/public/images/8.jpg
+/public/images/9.jpg
+/public/images/11.jpg
+/public/images/12.jpg
+/public/images/15.jpg
 
 #internal HTML documents
 /

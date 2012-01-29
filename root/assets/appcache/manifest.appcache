@@ -1,24 +1,24 @@
 CACHE MANIFEST
-#28-Jan-2012 08:26:08
+#29-Jan-2012 22:30:32
 
 CACHE:
 
 #images
 /assets/img/ucsf-logo.png
 /assets/img/ucsf-header-separator.png
-/public/images/0.jpg
-/public/images/1.jpg
-/public/images/2.jpg
-/public/images/3.jpg
-/public/images/4.jpg
-/public/images/5.jpg
-/public/images/6.jpg
-/public/images/7.jpg
-/public/images/8.jpg
-/public/images/9.jpg
-/public/images/11.jpg
-/public/images/12.jpg
-/public/images/15.jpg
+/public/images/blue.jpg
+/public/images/gold.jpg
+/public/images/grey.jpg
+/public/images/tan.jpg
+/public/images/black.jpg
+/public/images/purple.jpg
+/public/images/pink.jpg
+/public/images/va.jpg
+/public/images/bronze.jpg
+/public/images/yellow.jpg
+/public/images/red.jpg
+/public/images/lime.jpg
+/public/images/green.jpg
 
 #internal HTML documents
 /

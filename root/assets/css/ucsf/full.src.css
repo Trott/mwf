@@ -60,7 +60,7 @@ div.button-full a.button-light:active{
     .menu.front {background:url(img/ucsf-background-landscape.png) no-repeat;height:320px;margin:0;border-radius:0}
     .menu.front ~ #footer {display:none}
     body.front #header{display:none}
-
+}
 /********************************************************   
  * TWO-COLUMN LIST STYLE
  *******************************************************/

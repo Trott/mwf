@@ -22,6 +22,7 @@ if(isset($_GET['mode']) && $_GET['mode'] == 'standards')
     echo '<!DOCTYPE html>';
 
 ?><html><head><title></title></head><body><script type="text/javascript"><?php
+
     if(isset($_GET['return']) && strlen($_GET['return']) > 0)
     {
 

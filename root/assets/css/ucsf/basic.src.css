@@ -15,14 +15,14 @@ body {
     line-height: normal;
 }
 
-body.front-page h1#header {
+body.front h1#header {
 	background: #666666  url(img/ucsf-header-bg.png) repeat-x; 
 	height: 36px;
 	text-align: left;
 	border-bottom: 0px solid #ffffff;
 }
 
-body.front-page h1#header span {
+body.front h1#header span {
         display: inline;
         padding: 0;
 }
@@ -101,16 +101,12 @@ ul.bulleted li a {
 	display: inline;
 }
 
-.form-full select {
-	padding: 0.3em;
-}
-
-a[rel~=external]:after, .menu-detailed li a span.external:after {
+a[rel~=external]:after, .detailed li a span.external:after {
 	content: "\a0 " url(img/ucsf-external-link.png);
 }
 
 /* Allow suppression of external link indicator via class "no-ext-ind". 
-   This is useful for .menu-detailed where a span.external inside an 
+   This is useful for .detailed where a span.external inside an 
    a[rel=external] can show where the indicator should end up.  This keeps the
    indicator from floating off to the right away from the relevant text. This is
    desirable, rather than just not using rel=external, because rel=external 
@@ -125,18 +121,12 @@ li a, p a, a, a:visited {
 	color:#38939b;
 }
 
-.content-full img {
+.content img {
 	max-width: 100%; 
 	height: auto; 
 }
 
-.content-elements > h1, .content-full > h1,
-.content-elements > h4, .content-full > h4 {
-    padding: .4em;
-    text-align: center;
-}
-
-.menu-full li {
+.menu li a {
     background:url(img/ucsf-list-arrow.png) no-repeat 98%;
     background-color: #fff;
 }

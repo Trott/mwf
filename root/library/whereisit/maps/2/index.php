@@ -6,7 +6,7 @@ echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
         ->render();
 ?>
-<div class="content-full">
+<div class="content">
 <h1 class="content-first">Parnassus Floor 2</h1>
 
 

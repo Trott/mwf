@@ -24,7 +24,7 @@
  * @uses Head_Site_Decorator
  * @uses Body_Start_HTML_Decorator
  * @uses Header_Site_Decorator
- * @uses Menu_Full_Site_Decorator
+ * @uses Menu_Site_Decorator
  * @uses Button_Full_Site_Decorator
  * @uses Footer_Site_Decorator
  * @uses Body_End_HTML_Decorator
@@ -33,7 +33,6 @@
  * @link /config/global.php
  * @link assets/redirect/unset_override.php
  */
-
 /**
  * Require necessary libraries.
  */
@@ -47,6 +46,7 @@ require_once(dirname(__FILE__) . '/assets/redirect/unset_override.php');
  * Handle differences between a subsection and the top-level menu, using key
  * 'default' if on the front page or otherwise the $_GET['s'] parameter.
  */
+
 $menu_section = 'default';
 if (isset($_GET['s'])) {
     $menu_section = $_GET['s'];
@@ -56,7 +56,7 @@ $menu_names = Config::get('frontpage', 'menu.name.' . $menu_section);
 
 if (!isset($menu_names)) {
     $menu_section = 'default';
-    $menu_names = Config::get('frontpage', 'menu.name.' . $menu_section);
+    $menu_names = Config::get('frontpage', 'menu.name.'.$menu_section);
 }
 
 $menu_ids = Config::get('frontpage', 'menu.id.' . $menu_section);
@@ -82,7 +82,7 @@ if ($main_menu) {
 }
 echo $head->render();
 
-echo HTML_Decorator::body_start($main_menu ? array('class'=>'front-page') : array())->render();
+echo HTML_Decorator::body_start($main_menu ? array('class'=>'front') : array())->render();
 
 /*
  * Header
@@ -97,15 +97,16 @@ else
  * Menu
  */
 
-$menu = Site_Decorator::menu_full()->set_detailed();
+$menu = Site_Decorator::menu()->set_padded()->set_detailed();
 
-if ($main_menu)
-    $menu->add_class('menu-front')->set_param('id', 'main_menu');
+if($main_menu)
+    $menu->add_class('front')->set_param('id','main_menu');
         
 if (Classification::is_full())
     $menu->set_param('style', 'display:none');
 
 for ($i = 0; $i < count($menu_names); $i++) {
+
     if (isset($menu_restrictions[$i])) {
         $function = $menu_restrictions[$i];
         if (!User_Agent::$function())
@@ -122,6 +123,8 @@ echo $menu->render();
 
 if (($main_menu) && (Classification::is_full())) {
     echo Site_Decorator::ucsf_shuttle_menu('Shuttle', array('id' => 'il/shuttle/','style' => 'display:none'))->render();
+    echo Site_Decorator::ucsf_shuttle_list_color_menu('Shuttles By Color', array('id' => 'il/shuttle/list/color', 'style' => 'display:none'))->render();
+    echo Site_Decorator::ucsf_shuttle_list_location_menu('Shuttles By Location', array('id' => 'il/shuttle/list/location', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_directory_form('Directory',array('id' => 'il/directory', 'style'=>'display:none'))->render();
     echo Site_Decorator::ucsf_map_menu('Maps',array('id'=>'il/maps/','style'=>'display:none'))->render();
     echo Site_Decorator::ucsf_library_menu('Library',array('id'=>'il/library/','style'=>'display:none'))->render();
@@ -137,13 +140,12 @@ if (($main_menu) && (Classification::is_full())) {
 /**
  * Back button
  */
-
 if(!$main_menu)
-    echo Site_Decorator::button_full()
+    echo Site_Decorator::button()
                 ->set_padded()
                 ->add_option(Config::get('global', 'back_to_home_text'), 'index.php')
                 ->render();
-
+    
 /**
  * Footer
  */
@@ -151,8 +153,8 @@ if(!$main_menu)
 echo Site_Decorator::ucsf_footer()->back_button()->render();
 
 /**
-* End page
-*/
+ * End page
+ */
 echo HTML_Decorator::body_end()->render();
 
 echo HTML_Decorator::html_end()->render();

@@ -90,6 +90,7 @@ mwf.standard.preferences=new function(){
               if (localStorage.key(i).indexOf(_localStorageName) == 0)
                   keysToDelete.push(localStorage.key(i));
           for (i=0; i<keysToDelete.length; i++)
-                localStorage.removeItem(keysToDelete[i]);          
+                localStorage.removeItem(keysToDelete[i]);
+          
     }
 };

@@ -3,7 +3,7 @@
  * @author trott
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20111122
+ * @version 20120124
  *
  * @uses Decorator
  * @uses Site_Decorator
@@ -24,7 +24,7 @@ echo Site_Decorator::ucsf_header("About")
         ->render();
 
 //Decorator doesn't yet handle unordered lists, too tedious to use HTML_Decorator::tag, so they're hardcoded for now.
-echo Site_Decorator::content_full()
+echo Site_Decorator::content()
         ->set_padded()
         ->add_header('About UCSF Mobile')
         ->add_section('UCSF Mobile is a joint project of: ' .

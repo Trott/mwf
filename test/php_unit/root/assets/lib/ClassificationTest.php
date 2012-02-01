@@ -19,8 +19,7 @@ class ClassificationTest extends PHPUnit_Framework_TestCase {
      * This method is called before a test is executed.
      */
     protected function setUp() {
-        $_SERVER['SERVER_PORT']="80";
-        $_SERVER['SERVER_NAME']='localhost';
+        $_SERVER['HTTP_HOST']="localhost:80";
         require_once dirname(__FILE__) . '/../../../../../root/assets/lib/config.class.php';
         Config::set('global','cookie_prefix','mwftest_');
         $_COOKIE=array();
@@ -120,7 +119,27 @@ class ClassificationTest extends PHPUnit_Framework_TestCase {
      * @runInSeparateProcess
      */
     public function isNative_notNative_False() {
-        $_COOKIE['mwftest_classification']='{mobile":false,"basic":true,"standard":false,"full":false,"native":false}';
+        $_COOKIE['mwftest_classification']='{"mobile":false,"basic":true,"standard":false,"full":false,"native":false}';
+        require_once dirname(__FILE__) . '/../../../../../root/assets/lib/classification.class.php';
+        $this->assertFalse(Classification::is_native());
+    }
+    
+    /**
+     * @test
+     * @runInSeparateProcess
+     */
+    public function isNative_notSet_False() {
+        $_COOKIE['mwftest_classification']='{"mobile":false,"basic":true,"standard":false,"full":false}';
+        require_once dirname(__FILE__) . '/../../../../../root/assets/lib/classification.class.php';
+        $this->assertFalse(Classification::is_native());
+    }
+    
+    /**
+     * @test
+     * @runInSeparateProcess
+     */
+    public function isNative_noCookie_False() {
+        $_COOKIE=array();
         require_once dirname(__FILE__) . '/../../../../../root/assets/lib/classification.class.php';
         $this->assertFalse(Classification::is_native());
     }

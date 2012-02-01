@@ -10,14 +10,14 @@ echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header("Preferences")
         ->render();
 ?>
-<noscript><div class="content-full content-padded"><p><b>Preferences are disabled on your device because it does not support JavaScript or has JavaScript disabled.</b></p></div></noscript>
+<noscript><div class="content padded"><p><b>Preferences are disabled on your device because it does not support JavaScript or has JavaScript disabled.</b></p></div></noscript>
 <?php // @TODO: Move this JS in to Handler/Decorator? ?>
 <script type="text/javascript">
     if (! mwf.standard.preferences.isSupported()) {
-        document.write('<div class="content-full content-padded"><p><b>Preferences are not supported on your device.</b></p></div>');
+        document.write('<div class="content padded"><p><b>Preferences are not supported on your device.</b></p></div>');
     }
 </script>
-<form id="preferences_form" class="form-full form-padded" method="post" 
+<form id="preferences_form" class="form padded" method="post" 
       onsubmit="mwf.standard.preferences.set('main_menu_layout',document.getElementById('main_menu_layout').value); window.location.href=document.referrer; return false">
     <h1 class="form-first">Preferences</h1>
     <label  id="main_menu_layout_label" for="main_menu_layout">Home Screen Layout:</label> 

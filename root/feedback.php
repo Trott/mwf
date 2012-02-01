@@ -8,7 +8,7 @@ echo Site_Decorator::ucsf_header("Feedback")
         ->render();
 if (empty($_POST['Field1'])) {
 	?>
-<form class="form-full form-padded" method="post" action="">
+<form class="form padded" method="post" action="">
 <h1 class="form-first">Feedback</h1>
 <label  id="title1" for="Field1">I am:</label> 
 <select id="Field1" name="Field1" class="field select medium" onclick="handleInput(this);" onkeyup="handleInput(this);" tabindex="1" > 
@@ -57,7 +57,7 @@ __EMBEDKEY = "false"
     }
     curl_close($curl);
     ?>
-<div class="content-full content-padded"> 
+<div class="content padded"> 
     <p class="content-first">Thank you for the feedback on UCSF Mobile!</p>
     <p class="content-last"><a href="/">Continue</a></p>
 </div>

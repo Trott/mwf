@@ -17,15 +17,15 @@ echo Site_Decorator::head()
 echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>')->render();
 ?>
-<form class="form-full form-padded" action="locations.php" method="get">
-         <h1 class="light form-first">Search Locations</h1>
-            <input class="form-last" type="text" id="menu-filter" name="search" />
+<form class="padded" action="locations.php" method="get">
+         <h1 class="light">Search Locations</h1><br/>
+            <input type="text" id="menu-filter" name="search" />
             <input type="submit" name="submit" value="Search" />
-    </form>
+</form>
 
-    <div class="menu-full menu-detailed menu-padded menu-filterable">
-         <h1 class="light menu-first">Locations<?php echo $search_results ? ' (Results)' : ''; ?></h1>
-         <ol>
+    <div class="menu detailed padded">
+         <h1 class="light">Locations<?php echo $search_results ? ' (Results)' : ''; ?></h1>
+         <ol class="menu-filterable">
              <?php
              if(!$search_results)			 	
              if(count($locations) == 0)
@@ -47,7 +47,6 @@ echo Site_Decorator::ucsf_header('<a href="/maps">Maps</a>')->render();
     if(typeof $ != 'undefined')
     {
         $('#menu-filter').siblings('input[type=submit]').hide();
-        $('#menu-filter').css('right', '0px');
         var filter = function() {
             var str = $('#menu-filter').val().toLowerCase();
             var ele = $('.menu-filterable li');

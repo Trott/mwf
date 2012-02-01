@@ -6,25 +6,23 @@
  * @subpackage site_decorator
  *
  * @author trott
+ * @author topfstedt
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20111207
+ * @version 20120124
  *
- * @uses Menu_Full_Site_Decorator
+ * @uses Ucsf_Library_Location_Menu_Site_Decorator
  */
-require_once(dirname(__FILE__) . '/menu_full.class.php');
+require_once(dirname(__FILE__) . '/ucsf_library_location_menu.class.php');
 
-class Ucsf_Library_Locations_Parnassus_Menu_Site_Decorator extends Menu_Full_Site_Decorator {
+class Ucsf_Library_Locations_Parnassus_Menu_Site_Decorator extends Ucsf_Library_Location_Menu_Site_Decorator {
 
     public function __construct($title = 'Parnassus Library', $params = array()) {
-        parent::__construct($title, $params);
+        parent::__construct($title, $params, '/maps/map.php?loc=Kalmanovitz+Library', 
+                "530 Parnassus Avenue\nSan Francisco, CA 94143-0840", 
+                '(415) 476-2334', "Mon - Thurs: 7:45 am - 10:00 pm\nFri: 7:45 am - 8:00 pm\nSat: 10:00 am - 6:00 pm\nSun: 12:00 noon - 10:00 pm", 
+                'http://library.ucsf.edu/locations/hours?ovrrdr=1');
         $this->set_padded()->set_detailed();
     }
 
-    public function render() {
-        $this->add_item('Map<br/><br/><span class="smallprint">530 Parnassus Avenue<br/>San Francisco, CA 94143-0840</span>', '/maps/map.php?loc=Kalmanovitz+Library', array());
-        $this->add_item('(415)&nbsp;476-2334', 'tel:+14154762334', array());
-        $this->add_item('<span class="smallprint">Mon - Thurs: 7:45 am - 10:00 pm<br/>Fri: 7:45 am - 8:00 pm<br/>Sat: 10:00 am - 6:00 pm<br/>Sun: 12:00 noon - 10:00 pm</span><br/><br/><span class="external">Holidays and exceptions</span>', 'http://library.ucsf.edu/locations/hours?ovrrdr=1', array(),array('rel'=>'external','class'=>'no-ext-ind'));
-        return parent::render();
-    }
 }

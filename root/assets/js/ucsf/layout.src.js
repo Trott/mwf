@@ -1,6 +1,5 @@
 mwf.ucsfLayout = new function() {
 
-
     this.init = function(event) {
         var main_menu = document.getElementById("main_menu");
 
@@ -23,10 +22,10 @@ mwf.ucsfLayout = new function() {
                         break;
                     case "list":
                     default:
-                        main_menu.className += " menu-padded";
+                        main_menu.className += " padded";
                 }
             } else {
-                main_menu.className += " menu-padded";        
+                main_menu.className += " padded";        
             }
         }
     }

@@ -8,7 +8,7 @@
  * @author trott
  * @copyright Copyright (c) 2011 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20111205
+ * @version 20120127
  *
  * @requires mwf
  * @requires mwf.standard.preferences
@@ -50,29 +50,6 @@ mwf.full.history = new function() {
         return hide;
     }
     
-    // TODO: UCSF-only stuff and certainly not history.  Shouldn't go here.
-    //  Hides the footer if we're in grid layout on the main screen because
-    //  UCSF has a special magical background for that.
-    this.rotate = function(e) {
-        if (location.hash=='#/main_menu')
-            mwf.full.history.showHideFooter('main_menu');
-    }
-    
-    this.showHideFooter = function(active) {
-        if ((active=='main_menu') && (mwf.browser.getWidth()<=480) && (mwf.browser.getHeight()<=480)) {
-            var layout = mwf.standard.preferences.get('main_menu_layout');
-            if ((mwf.classification.isNative() && layout!='list') || layout=='grid') 
-            {
-                document.getElementById('footer').setAttribute('style','display:none');
-            } 
-                
-        } else { 
-            document.getElementById('footer').setAttribute('style','display:block');
-        }
-    }
-     
-    // End TODO: UCSF-only stuff that needs to be removed
-    
     this.init = function() {
         function showContent(show,hide) {
             var hideElement;
@@ -86,14 +63,16 @@ mwf.full.history = new function() {
                 showElement.setAttribute("style","display:block");
             else
                 return false;
-            if (mwf.standard.preferences.isSupported() && mwf.standard.preferences.get('main_menu_layout')!='grid') {
-                var buttonDisplay = show=="main_menu" ? "display:none" : "display:block";
-                document.getElementById('button-top').setAttribute("style",buttonDisplay);
+            var topButton = document.getElementById('button-top');
+            if (topButton) {
+                if (mwf.standard.preferences.isSupported() && mwf.standard.preferences.get('main_menu_layout')!='grid') {
+                    var buttonDisplay = show=="main_menu" ? "display:none" : "display:block";
+                    topButton.setAttribute("style",buttonDisplay);
+                }
+                if (mwf.userAgent.isNative()) {
+                    topButton.setAttribute("style","display:none");
+                }
             }
-            if (mwf.userAgent.isNative()) {
-                document.getElementById('button-top').setAttribute("style","display:none");
-            }
-            mwf.full.history.showHideFooter(show);
             return true;
         }
 

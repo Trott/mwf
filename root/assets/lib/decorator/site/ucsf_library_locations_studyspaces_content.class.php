@@ -8,13 +8,13 @@
  * @author trott
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20111207
+ * @version 20120124
  *
- * @uses Menu_Full_Site_Decorator
+ * @uses Content_Site_Decorator
  */
-require_once(dirname(__FILE__) . '/content_full.class.php');
+require_once(dirname(__FILE__) . '/content.class.php');
 
-class Ucsf_Library_Locations_Studyspaces_Content_Site_Decorator extends Content_Full_Site_Decorator {
+class Ucsf_Library_Locations_Studyspaces_Content_Site_Decorator extends Content_Site_Decorator {
 
     public function __construct($title = 'Other Study Spaces', $params = array()) {
         parent::__construct(array(), $params);

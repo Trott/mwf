@@ -8,9 +8,10 @@
  * @author trott
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20111205
+ * @version 20120124
  *
- * @uses Menu_Full_Site_Decorator
+ * @uses HTML_Decorator
+ * @uses Tag_HTML_Decorator
  */
 require_once(dirname(dirname(dirname(__FILE__))) . '/decorator.class.php');
 require_once(dirname(dirname(__FILE__)) . '/html/tag.class.php');
@@ -22,8 +23,7 @@ class Ucsf_Directory_Form_Site_Decorator extends Tag_HTML_Decorator {
 
     public function __construct($title = 'Directory', $params = array()) {
         parent::__construct('form', false, array_merge($params,array('method' => 'get', 'action' => '/directory/query')));
-        $this->add_class('form-full');
-        $this->add_class('form-padded');
+        $this->add_class('padded');
         if ($title)
             $this->set_title($title);
     }
@@ -57,11 +57,6 @@ class Ucsf_Directory_Form_Site_Decorator extends Tag_HTML_Decorator {
         $this->add_item('', 'submit', '', array('value' => 'Search'));
 
         $count = count($this->_list);
-
-        if ($this->_title)
-            $this->_title->add_class('form-first');
-        else
-            $this->_list[0]->add_class('menu-first');
 
         $content='';
         foreach ($this->_list as $list_item)

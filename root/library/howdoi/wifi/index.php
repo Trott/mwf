@@ -7,7 +7,7 @@ echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
         ->render();
 ?>
-<div class="content-full content-padded"> 
+<div class="content padded"> 
 <h1 class="content-first">Use WiFi</h1> 
  
 <div> 
@@ -26,7 +26,7 @@ echo Site_Decorator::ucsf_header('<a href="/library">Library</a>')
 </ul>
 </div>
 </div>
-<div class="menu-full menu-padded">
+<div class="menu padded">
 <h1 class="menu-first">Help</h1> 
 <ol> 
   <li><a href="http://its.ucsf.edu/main/campus_wireless.html" rel="external">ITS Wireless Access Page</a></li> 

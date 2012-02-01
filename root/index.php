@@ -76,8 +76,6 @@ if ($main_menu) {
 
 $head = Site_Decorator::head()->set_title(Config::get('global', 'title_text'));
 if ($main_menu) {
-    $head->add_js_handler_library('standard_libs', 'preferences');
-    $head->add_js_handler_library('standard', '/assets/js/ucsf/layout.js');
     $head->add_js_handler_library('full_libs', 'fastLink');
     $head->add_js_handler_library('full_libs', 'history');
 }
@@ -98,10 +96,13 @@ else
  * Menu
  */
 
-$menu = Site_Decorator::menu()->set_padded()->set_detailed();
+$menu = Site_Decorator::menu();
 
 if($main_menu)
     $menu->add_class('front')->set_param('id','main_menu');
+else {
+    $menu->set_padded()->set_detailed();
+}
         
 if (Classification::is_full())
     $menu->set_param('style', 'display:none');

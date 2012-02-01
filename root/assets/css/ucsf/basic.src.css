@@ -130,3 +130,7 @@ li a, p a, a, a:visited {
     background:url(img/ucsf-list-arrow.png) no-repeat 98%;
     background-color: #fff;
 }
+
+.menu li {
+    background:#fff;
+}

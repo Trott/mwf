@@ -4,7 +4,7 @@
  * fastLink JS library will erroneously track hovers so reset
  * to default
  *******************************************************/
-.menu li a, .menu li a:hover {
+.menu li, .menu li:hover {
     background-color: initial;
 }
 

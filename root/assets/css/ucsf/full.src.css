@@ -1,9 +1,16 @@
 /********************************************************
  * BUTTONS
  * 
- * fastLink JS library will erroneously track hovers so reset
- * to default
+ * fastLink JS library will erroneously track hovers so
+ * let's just turn them off
  *******************************************************/
+.menu li:hover {
+    background-color: #fff;
+}
+/**
+* This is needed to keep the rounded corners on the last child.
+* No, I don't really understand why.
+**/
 .menu li a {
     background-color: initial;
 }

@@ -31,9 +31,6 @@ abstract class Image {
     private $_dim_width = false;
     private $_cache_filename = null;
 
-    /** GIF, JPG, and JPEG are within XHTML MP 1.0 specification. */
-    private $_ext_allowed = array('gif', 'png', 'jpg', 'jpeg');
-
     abstract protected function &get_gd_image();
 
     abstract protected function get_gd_extension();
@@ -201,5 +198,4 @@ abstract class Image {
                 $predicted_mem_usage > $this->_memory_limit);
     }
 }
-
 ?>

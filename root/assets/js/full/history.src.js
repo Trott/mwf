@@ -8,10 +8,9 @@
  * @author trott
  * @copyright Copyright (c) 2011 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20120127
+ * @version 20120201
  *
  * @requires mwf
- * @requires mwf.standard.preferences
  * @requires mwf.full.fastLink
  * @requires mwf.userAgent
  * 
@@ -66,21 +65,35 @@ mwf.full.history = new function() {
                 showElement.setAttribute("style",displayValue);
             else
                 return false;
+            //TODO: Show/hide button/header/footer behavior should be configured in .ini
+            //TODO: Also, we're doing some here and some in CSS.
+            var header = document.getElementById('header');
+            var footer = document.getElementById('footer');
             var topButton = document.getElementById('button-top');
+            
+            var headFootStyle = show=="main_menu" ? "" : "display:block";
+            
             if (topButton) {
-                if (mwf.standard.preferences.isSupported() && mwf.standard.preferences.get('main_menu_layout')!='grid') {
-                    var buttonDisplay = show=="main_menu" ? "display:none" : "display:block";
-                    topButton.setAttribute("style",buttonDisplay);
-                }
-                if (mwf.userAgent.isNative()) {
+                if ((show=="main_menu") || mwf.userAgent.isNative()) {
                     topButton.setAttribute("style","display:none");
+                } else {
+                    topButton.setAttribute("style","display:inline");
                 }
             }
+            
+            if (header)
+                header.setAttribute("style",headFootStyle);
+            
+            if (footer)
+                footer.setAttribute("style",headFootStyle);
+               
             return true;
         }
 
         if (! window.location.hash ) 
+            //TODO: main_menu ID should be configurable and/or use the 1.3 default
             window.location.hash = '#/main_menu';
+        //TODO: default show/hide for home screen and other screens should be set in config
         showContent(window.location.hash.substring(2),[]);
         
         if (! (history instanceof Object && history.replaceState instanceof Function))
@@ -155,4 +168,3 @@ mwf.full.history = new function() {
 }
 
 document.addEventListener('DOMContentLoaded', mwf.full.history.init, false);
-window.addEventListener('orientationchange', mwf.full.history.rotate, false);

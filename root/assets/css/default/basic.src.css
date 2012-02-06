@@ -313,19 +313,17 @@ select {
 }
 
 .menu li {
-    background-color: #FFF;
+    background:url(img/list-arrow.png) no-repeat 95% center;
+    background-color: #fff;
     text-align: center;
     border-bottom: 1px solid #ddd;
 }
 
 .menu li a {
     display: block;
-    background:url(img/list-arrow.png) no-repeat 95% center;
 }
 
-.menu li a:hover,
-.menu li a:focus,
-.menu li a:active {
+.menu li:hover {
     background-color: #eaf2fa;
 }
 
@@ -664,7 +662,7 @@ form .option.justify input[type="radio"]{
 
 /* required label */
 form label.required {
-    background: transparent url('img/astrisk.png') no-repeat top right;
+    background: transparent url('img/asterisk.png') no-repeat top right;
     padding-right: 10px;
 }
 

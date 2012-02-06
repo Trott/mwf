@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#02-Feb-2012 06:46:46
+#05-Feb-2012 00:29:20
 
 CACHE:
 
@@ -25,13 +25,12 @@ CACHE:
 /emergency
 /about
 /feedback
-/preferences
 
 #style sheets
 /assets/css.php?lean
 
 #style sheet images
-/assets/img/astrisk.png
+/assets/img/asterisk.png
 /assets/img/button-go.png
 /assets/img/button-next.png
 /assets/img/button-previous.png
@@ -50,13 +49,6 @@ CACHE:
 /assets/img/select-options-bg.png
 /assets/img/ucsf-external-link.png
 /assets/img/ucsf-header-bg.png
-/assets/img/ucsf-icon-calendars.png
-/assets/img/ucsf-icon-directory.png
-/assets/img/ucsf-icon-emergency.png
-/assets/img/ucsf-icon-fitness.png
-/assets/img/ucsf-icon-library.png
-/assets/img/ucsf-icon-maps.png
-/assets/img/ucsf-icon-news.png
 /assets/img/ucsf-icon-precomposed-calendars.png
 /assets/img/ucsf-icon-precomposed-directory.png
 /assets/img/ucsf-icon-precomposed-emergency.png
@@ -66,8 +58,6 @@ CACHE:
 /assets/img/ucsf-icon-precomposed-news.png
 /assets/img/ucsf-icon-precomposed-shuttle.png
 /assets/img/ucsf-icon-precomposed-social.png
-/assets/img/ucsf-icon-shuttle.png
-/assets/img/ucsf-icon-social.png
 /assets/img/ucsf-list-arrow.png
 /assets/img/ucsf-background.png
 /assets/img/ucsf-background-landscape.png
@@ -75,9 +65,8 @@ CACHE:
 #javascript files
 http://www.google-analytics.com/ga.js
 /assets/js.php
-/assets/js.php?standard_libs=preferences&standard=/assets/js/ucsf/layout.js&full_libs=fastLink+history
+/assets/js.php?full_libs=fastLink+history
 /assets/redirect/js_unset_override.php
-/assets/js/standard/preferences.js
 /assets/js/full/fastLink.js
 /assets/js/full/history.js
 

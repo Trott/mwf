@@ -18,7 +18,6 @@
  * @version 20111206
  *
  * @requires mwf
- * @requires mwf.standard.preferences
  * @requires mwf.full.fastLinks
  * 
  */

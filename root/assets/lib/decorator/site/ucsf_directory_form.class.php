@@ -46,7 +46,7 @@ class Ucsf_Directory_Form_Site_Decorator extends Tag_HTML_Decorator {
         }
 
         $default_params = $var_name ? array('id' => $var_name, 'type' => $input_type, 'name' => $var_name) : array('type' => $input_type);
-        $this->_list[] = HTML_Decorator::tag('input', $input_default, array_merge($input_params, $default_params));
+        $this->_list[] = HTML_Decorator::tag_open('input', array_merge($input_params, $default_params));
         return $this;
     }
 

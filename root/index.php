@@ -59,9 +59,10 @@ if (!isset($menu_names)) {
     $menu_names = Config::get('frontpage', 'menu.name.'.$menu_section);
 }
 
-$menu_ids = Config::get('frontpage', 'menu.id.' . $menu_section);
-$menu_urls = Config::get('frontpage', 'menu.url.' . $menu_section);
-$menu_restrictions = Config::get('frontpage', 'menu.restriction.' . $menu_section);
+$menu_ids = Config::get('frontpage', 'menu.id.'.$menu_section);
+$menu_urls = Config::get('frontpage', 'menu.url.'.$menu_section);
+$menu_restrictions = Config::get('frontpage', 'menu.restriction.'.$menu_section);
+$menu_externals = Config::get('frontpage', 'menu.external.'.$menu_section);
 
 $main_menu = ($menu_section == 'default');
 /**
@@ -75,8 +76,6 @@ if ($main_menu) {
 
 $head = Site_Decorator::head()->set_title(Config::get('global', 'title_text'));
 if ($main_menu) {
-    $head->add_js_handler_library('standard_libs', 'preferences');
-    $head->add_js_handler_library('standard', '/assets/js/ucsf/layout.js');
     $head->add_js_handler_library('full_libs', 'fastLink');
     $head->add_js_handler_library('full_libs', 'history');
 }
@@ -97,10 +96,13 @@ else
  * Menu
  */
 
-$menu = Site_Decorator::menu()->set_padded()->set_detailed();
+$menu = Site_Decorator::menu();
 
 if($main_menu)
     $menu->add_class('front')->set_param('id','main_menu');
+else {
+    $menu->set_padded()->set_detailed();
+}
         
 if (Classification::is_full())
     $menu->set_param('style', 'display:none');
@@ -112,8 +114,16 @@ for ($i = 0; $i < count($menu_names); $i++) {
         if (!User_Agent::$function())
             continue;
     }
+    $link_attributes=array();
+    if (isset($menu_externals[$i])) {
+        if ($menu_externals[$i]) 
+            $link_attributes['rel']='external';
+    }
+    $list_item_attributes=array();
+    if (isset($menu_ids[$i]))
+        $list_item_attributes['id']=$menu_ids[$i];
 
-    $menu->add_item($menu_names[$i], $menu_urls[$i], isset($menu_ids[$i]) ? array('id' => $menu_ids[$i]) : array());
+    $menu->add_item($menu_names[$i], $menu_urls[$i], $list_item_attributes,$link_attributes);
 }
 
 echo $menu->render();

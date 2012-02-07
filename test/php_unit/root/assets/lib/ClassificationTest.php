@@ -103,7 +103,6 @@ class ClassificationTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse(Classification::is_standard());
     }
     
-    
     /**
      * @test
      * @runInSeparateProcess

@@ -165,4 +165,3 @@ mwf.full.history = new function() {
 }
 
 document.addEventListener('DOMContentLoaded', mwf.full.history.init, false);
-window.addEventListener('orientationchange', mwf.full.history.rotate, false);

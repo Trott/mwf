@@ -323,9 +323,7 @@ select {
     display: block;
 }
 
-.menu li a:hover,
-.menu li a:focus,
-.menu li a:active {
+.menu li:hover {
     background-color: #eaf2fa;
 }
 
@@ -362,15 +360,6 @@ select {
 
 .menu.center li {
     text-align: center;
-}
-
-.menu.right li {
-    text-align: right;
-}
-
-.menu.right li a,
-.menu.right.detailed li a {
-    padding-right: 4em;
 }
 
 .menu.detailed li {
@@ -664,7 +653,7 @@ form .option.justify input[type="radio"]{
 
 /* required label */
 form label.required {
-    background: transparent url('img/astrisk.png') no-repeat top right;
+    background: transparent url('img/asterisk.png') no-repeat top right;
     padding-right: 10px;
 }
 

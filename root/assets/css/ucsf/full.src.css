@@ -1,10 +1,17 @@
 /********************************************************
  * BUTTONS
  * 
- * fastLink JS library will erroneously track hovers so reset
- * to default
+ * fastLink JS library will erroneously track hovers so
+ * let's just turn them off
  *******************************************************/
-.menu li a, .menu li a:hover {
+.menu li:hover {
+    background-color: #fff;
+}
+/**
+* This is needed to keep the rounded corners on the last child.
+* No, I don't really understand why.
+**/
+.menu li a {
     background-color: initial;
 }
 
@@ -60,6 +67,26 @@ div.button-full a.button-light:active{
     .menu.front {background:url(img/ucsf-background-landscape.png) no-repeat;height:320px;margin:0;border-radius:0}
     .menu.front ~ #footer {display:none}
     body.front #header{display:none}
+}
+@media screen and (max-width:639px) {
+    .menu.front ol {
+        width:560px
+    }
+}
+@media screen and (max-width:559px) {
+    .menu.front ol {
+        width:480px
+    }
+}
+@media screen and (max-width:479px) {
+    .menu.front ol {
+        width:400px
+    }
+}
+@media screen and (max-width:399px) {
+    .menu.front ol {
+        width:320px
+    }
 }
 /********************************************************   
  * TWO-COLUMN LIST STYLE

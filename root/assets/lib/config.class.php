@@ -30,7 +30,6 @@ class Config {
     
     // @todo: If we are supporting only PHP 5.3.0 and above, use a namespace for
     //    the constants.
-
     public static function init() {
         if (defined('MWF_CONFIG_SITE_URL') && defined('MWF_CONFIG_SITE_ASSETS_URL'))
             return;
@@ -66,7 +65,7 @@ class Config {
 
     /**
      * Static method that sets a value. This should be set in a file with the
-     *      name /assets/config/{$cat}.php to enable corrent lazy loading
+     *      name /assets/config/{$cat}.ini to enable current lazy loading
      *      through Config::get($cat, $key).
      *
      * @param string $cat namespace (name of the config file) where the $key resides

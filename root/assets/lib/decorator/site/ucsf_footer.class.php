@@ -39,19 +39,22 @@ class Ucsf_Footer_Site_Decorator extends Default_Footer_Site_Decorator
     {
         $back_button = $this->_back_button ? Site_Decorator::ucsf_back_button() : '';
         $library_ga_rollup = '';
-        if (strncasecmp($_SERVER['PHP_SELF'],"/library",8) == 0) {
+        /**
+         * Include GA rollup code only if we are on a library page and if a rollup account is configured
+         */
+        if (strncasecmp($_SERVER['REQUEST_URI'],"/library",8) == 0 && Config::get('ucsf_library', 'ga_rollup_acct')) {
+        	$ga_rollup_acct = Config::get('ucsf_library', 'ga_rollup_acct');
             $library_ga_rollup = <<<EOD
 <script type="text/javascript"> 
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 try {
-var pageTracker = _gat._getTracker("UA-552286-29");
+var pageTracker = _gat._getTracker("{$ga_rollup_acct}");
 pageTracker._trackPageview();
 } catch(err) {}
 </script>
 EOD;
         }
-
         return $back_button . parent::render() . $library_ga_rollup;
     }
 }

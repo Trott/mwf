@@ -39,7 +39,7 @@ class Ucsf_Footer_Site_Decorator extends Default_Footer_Site_Decorator
     {
         $back_button = $this->_back_button ? Site_Decorator::ucsf_back_button() : '';
         $library_ga_rollup = '';
-        if (strncasecmp($_SERVER['PHP_SELF'],"/library",8) == 0) {
+        if (strncasecmp($_SERVER['REQUEST_URI'],"/library",8) == 0) {
             $library_ga_rollup = <<<EOD
 <script type="text/javascript"> 
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -51,7 +51,6 @@ pageTracker._trackPageview();
 </script>
 EOD;
         }
-
         return $back_button . parent::render() . $library_ga_rollup;
     }
 }

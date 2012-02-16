@@ -6,12 +6,14 @@
  * @subpackage js
  *
  * @author trott
- * @copyright Copyright (c) 2011 UC Regents
+ * @copyright Copyright (c) 2011-12 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20120201
+ * @version 20120208
  *
  * @requires mwf
  * @requires mwf.full.fastLink
+ * @requires mwf.userAgent
+ * @requires mwf.site.analytics
  * 
  */
 

@@ -21,7 +21,9 @@ class Ucsf_Library_Locations_Missionbay_Menu_Site_Decorator extends Ucsf_Library
         parent::__construct($title, $params, '/maps/map.php?loc=Rutter+Center', 
                 "William J. Rutter Conference Center\nRoom 150\n1675 Owens Street\nSan Francisco, CA 94143-2119", 
                 '(415) 514-4060', 
-                "Mon - Thurs: 9:00 am - 9:00 pm\nFri: 9:00 am - 5:30 pm\nSat - Sun: CLOSED", 
+                "Mon - Thurs: 9:00 am - 9:00 pm\nFri: 9:00 am - 5:30 pm\n" .
+                    "Sat - Sun: CLOSED\n\n" .
+                    "During Rutter Center hours Computer Lab, CC151 (with student ID)", 
                 'http://library.ucsf.edu/locations/hours?ovrrdr=1');
         $this->set_padded()->set_detailed();
     }

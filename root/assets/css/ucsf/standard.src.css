@@ -17,23 +17,23 @@ a#button-top:focus{
     background-color: #8d8580 !important;
 }
 
-a.button-full,
-div.button-full a {
+a.button,
+div.button a {
     background-color: #565759;
 }
 
-a.button-full:hover,
-a.button-full:focus,
-a.button-full:active,
-div.button-full a:hover,
-div.button-full a:focus,
-div.button-full a:active,
-a.button-full.button-light:hover,
-a.button-full.button-light:focus,
-a.button-full.button-light:active,
-div.button-full a.button-light:hover,
-div.button-full a.button-light:focus,
-div.button-full a.button-light:active {
+a.button:hover,
+a.button:focus,
+a.button:active,
+div.button a:hover,
+div.button a:focus,
+div.button a:active,
+a.button.button-light:hover,
+a.button.button-light:focus,
+a.button.button-light:active,
+div.button a.button-light:hover,
+div.button a.button-light:focus,
+div.button a.button-light:active {
     background-color: white !important;
 }
 

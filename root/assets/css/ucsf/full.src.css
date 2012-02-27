@@ -15,7 +15,7 @@
     background-color: initial;
 }
 
- 
+
 /********************************************************
  * BUTTONS
  *******************************************************/
@@ -60,13 +60,13 @@ div.button-full a.button-light:active{
  *******************************************************/
 @media screen and (max-width:320px) and (max-height:480px) {
     .menu.front {background:url(img/ucsf-background.png) no-repeat;height:480px;margin:0;border-radius:0}
-    .menu.front ~ #footer {display:none}
     body.front #header{display:none}
+    div.menu.front[style~="display:block"] ~ #footer {padding:0; position:absolute; bottom:-100px; width:100%}
 }
 @media screen and (width:480px) {
     .menu.front {background:url(img/ucsf-background-landscape.png) no-repeat;height:320px;margin:0;border-radius:0}
-    .menu.front ~ #footer {display:none}
     body.front #header{display:none}
+   div.menu.front[style~="display:block"] ~ #footer {padding:0; position:absolute; bottom:-50px; width:100%}
 }
 @media screen and (max-width:639px) {
     .menu.front ol {
@@ -92,47 +92,47 @@ div.button-full a.button-light:active{
  * TWO-COLUMN LIST STYLE
  *******************************************************/
 ul.two-col-list {
-	width: 100%;
-	padding: 0;
-	margin: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 ul.two-col-list li {
-	margin: 0;
-	padding: 0;
-	width: 50%;
-	float: left;
-	overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    float: left;
+    overflow: hidden;
 }
 
 /********************************************************
  * LIBRARY FLOORPLAN LEGEND STYLES
  *******************************************************/
 .ucsf-library-floorplan-legend {
-	background-repeat: no-repeat;
-	background-position: top left;
-	padding-left: 25px;
+    background-repeat: no-repeat;
+    background-position: top left;
+    padding-left: 25px;
 }
 .ucsf-library-floorplan-legend-computer {
-	background-image: url(img/ucsf-library-floorplan-legend-computer.gif);
+    background-image: url(img/ucsf-library-floorplan-legend-computer.gif);
 }
 
 .ucsf-library-floorplan-legend-elevator {
-	background-image: url(img/ucsf-library-floorplan-legend-elevator.gif);
+    background-image: url(img/ucsf-library-floorplan-legend-elevator.gif);
 }
 
 .ucsf-library-floorplan-legend-photocopy {
-	background-image: url(img/ucsf-library-floorplan-legend-photocopy.gif);
+    background-image: url(img/ucsf-library-floorplan-legend-photocopy.gif);
 }
 
 .ucsf-library-floorplan-legend-reshelving {
-	background-image: url(img/ucsf-library-floorplan-legend-reshelving.gif);
+    background-image: url(img/ucsf-library-floorplan-legend-reshelving.gif);
 }
 
 .ucsf-library-floorplan-legend-restroom {
-	background-image: url(img/ucsf-library-floorplan-legend-restroom.gif);
+    background-image: url(img/ucsf-library-floorplan-legend-restroom.gif);
 }
 
 .ucsf-library-floorplan-legend-stairs {
-	background-image: url(img/ucsf-library-floorplan-legend-stairs.gif);
+    background-image: url(img/ucsf-library-floorplan-legend-stairs.gif);
 }

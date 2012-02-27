@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#16-Feb-2012 03:36:38
+#27-Feb-2012 22:51:02
 
 CACHE:
 
@@ -47,7 +47,7 @@ CACHE:
 /assets/img/message-error.png
 /assets/img/message-info.png
 /assets/img/select-options-bg.png
-/assets/img/ucsf-external-link.png
+/assets/img/external-link.png
 /assets/img/ucsf-header-bg.png
 /assets/img/ucsf-icon-precomposed-calendars.png
 /assets/img/ucsf-icon-precomposed-directory.png
@@ -65,10 +65,12 @@ CACHE:
 #javascript files
 http://www.google-analytics.com/ga.js
 /assets/js.php
-/assets/js.php?full_libs=fastLink+history
+/assets/js.php?full_libs=fastLink+history+ConfigurableMenu
 /assets/redirect/js_unset_override.php
 /assets/js/full/fastLink.js
 /assets/js/full/history.js
+/assets/js/standard/preferences.js
+/assets/js/full/ConfigurableMenu.js
 
 NETWORK:
 *

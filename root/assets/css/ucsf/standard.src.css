@@ -7,6 +7,10 @@
  * BUTTONS
  *******************************************************/
 
+.button {
+    height:2.5em;
+}
+
 a#button-top {
     background-color: #808080;
 }

@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#27-Feb-2012 22:51:02
+#28-Feb-2012 00:17:56
 
 CACHE:
 
@@ -25,6 +25,7 @@ CACHE:
 /emergency
 /about
 /feedback
+/customize_home_screen.php
 
 #style sheets
 /assets/css.php?lean

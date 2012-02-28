@@ -94,7 +94,7 @@ echo Site_Decorator::button()
         ->add_option(Config::get('global', 'back_to_home_text'), 'index.php')
         ->render();
 
-echo Site_Decorator::default_footer()->render();
+echo Site_Decorator::ucsf_footer()->render();
 
 echo HTML_Decorator::body_end()->render();
 

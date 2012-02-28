@@ -26,7 +26,7 @@ Then /I click the "([^"]*)" button/ do |button_text|
 end
 
 And /the "([^"]*)" page loads/ do |header_text|
-  should have_content(header_text)
+  find('h1').should have_content(header_text)
 end
 
 Then /I uncheck so-called "([^"]*)"/ do |item|
@@ -39,4 +39,8 @@ end
 
 And /^I go back$/ do
   evaluate_script('window.history.back()')
+end
+
+And /^I reload$/ do
+  evaluate_script('window.location.reload()')
 end

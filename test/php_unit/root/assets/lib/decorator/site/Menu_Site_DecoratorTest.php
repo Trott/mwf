@@ -37,13 +37,13 @@ class Menu_Site_DecoratorTest extends PHPUnit_Framework_TestCase {
      * @test
      * @runInSeparateProcess
      */
-    public function render_quotesInUrlParam_quotesNotReplacedWithEntities() {
+      public function render_quotesInUrlParam_quotesReplacedWithEntities() {
         require dirname(dirname(dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))))) . '/root/assets/lib/decorator/site/menu.class.php';
 
         $this->object = new Menu_Site_Decorator;
 
         $this->object->add_item('test', 'http://www.example.com/test?"foo"\'bar\'');
-        $this->assertContains('http://www.example.com/test?"foo"\'bar\'', $this->object->render());
+        $this->assertContains('http://www.example.com/test?&quot;foo&quot;\'bar\'', $this->object->render());
     }
 
     /**

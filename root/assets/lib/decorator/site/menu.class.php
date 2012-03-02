@@ -88,6 +88,7 @@ class Menu_Site_Decorator extends Tag_HTML_Decorator {
         } else {
             $this->_list[] = HTML_Decorator::tag('li', $link, $li_params);
         }
+
         return $this;
     }
 
@@ -117,14 +118,14 @@ class Menu_Site_Decorator extends Tag_HTML_Decorator {
             $this->remove_class('padded');
 
         if ($this->_homescreen)
-            $this->add_class('front')->set_param('id','main_menu');
+            $this->add_class('front')->set_param('id', 'main_menu');
         elseif ($this->_homescreen === false)
             $this->remove_class('front');
 
         if ($this->_align)
             $this->add_class($this->_align);
-        
-        if ($this->_homescreen && Classification::is_full() && Config::get('frontpage','configurable_homescreen')) {
+
+        if ($this->_homescreen && Classification::is_full() && Config::get('frontpage', 'configurable_homescreen')) {
 
             // Can't use closures until PHP 5.3. Declare callback here...
             function call_render($obj) {
@@ -132,12 +133,11 @@ class Menu_Site_Decorator extends Tag_HTML_Decorator {
             }
 
             // ...and use the callback here.
-            $js = 'new mwf.full.ConfigurableMenu("homescreen_layout").render("main_menu_list",' . 
+            $js = 'mwf.full.configurableMenu("homescreen_layout").render("main_menu_list",' .
                     json_encode(array_map('call_render', $this->_list)) . ');';
 
-            $menu_markup = HTML_Decorator::tag('ol')->set_param('id','main_menu_list')->render();
+            $menu_markup = HTML_Decorator::tag('ol')->set_param('id', 'main_menu_list')->render();
             $menu_markup .= HTML_Decorator::tag('script', $js)->render();
-
         } else {
             $menu_markup = '';
             if (count($this->_list) > 0) {

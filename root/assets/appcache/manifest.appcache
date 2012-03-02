@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#28-Feb-2012 22:59:04
+#02-Mar-2012 00:22:51
 
 CACHE:
 
@@ -66,12 +66,12 @@ CACHE:
 #javascript files
 http://www.google-analytics.com/ga.js
 /assets/js.php
-/assets/js.php?full_libs=fastLink+history+ConfigurableMenu
+/assets/js.php?full_libs=fastLink+history+configurableMenu
 /assets/redirect/js_unset_override.php
 /assets/js/full/fastLink.js
 /assets/js/full/history.js
 /assets/js/standard/preferences.js
-/assets/js/full/ConfigurableMenu.js
+/assets/js/full/configurableMenu.js
 
 NETWORK:
 *

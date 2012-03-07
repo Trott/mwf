@@ -60,8 +60,10 @@ mwf.full.history = new function() {
                     hideElement.setAttribute("style","display:none");
             }
             var showElement = document.getElementById(show);
+            var displayValue = (mwf.userAgent.isNative() && mwf.userAgent.getOS()=='android' && show=="main_menu") ?
+                "display:inline" : "display:block";
             if (showElement)
-                showElement.setAttribute("style","display:block");
+                showElement.setAttribute("style",displayValue);
             else
                 return false;
             //TODO: Show/hide button/header/footer behavior should be configured in .ini

@@ -108,6 +108,16 @@ ul.two-col-list li {
     overflow: hidden;
 }
 
+/*********************************************************
+ * Sortable Options (used for Customize Home Screen)
+ ********************************************************/
+ div#app_order.option.ui-sortable > div {
+     background-color: #8BB;
+ }
+ .draggable-handle {
+     margin: 3px 5px 2px 5px;
+ }
+
 /********************************************************
  * LIBRARY FLOORPLAN LEGEND STYLES
  *******************************************************/

@@ -562,3 +562,22 @@ div.message-button.padded {
 .webkit-transition-slideXZ .inactive-next{
     -webkit-transform: rotateX(90deg) scale3d(.835,.835,.835) translateX(30%);
 }
+
+/**
+ * Sortable Options (used for Customize Home Screen)
+ */
+ div#app_order.option.ui-sortable > div {
+     background-color: #869AC5;
+     margin: 1px;
+ }
+ div#app_order.option.ui-sortable > div > label {
+     margin: 1em;
+ }
+ .draggable-handle {
+     margin: 5px;
+     float:right;
+     background-image: url("img/draggable-handle.png");
+     background-repeat: no-repeat;
+     width:40px;
+     height:40px;
+ }

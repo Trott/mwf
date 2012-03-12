@@ -38,16 +38,16 @@ a#button-top:focus{
     background: -webkit-gradient(linear, left top, left bottom, from(#8e8e8e), to(#666666), color-stop(1, #fff));
 }
 
-a.button:hover,
+.mwf_notmobile a.button:hover,
 a.button:focus,
 a.button:active,
-div.button a:hover,
+.mwf_notmobile div.button a:hover,
 div.button a:focus,
 div.button a:active,
-a.button.button-light:hover,
+.mwf_notmobile a.button.button-light:hover,
 a.button.button-light:focus,
 a.button.button-light:active,
-div.button a.button-light:hover,
+.mwf_notmobile div.button a.button-light:hover,
 div.button a.button-light:focus,
 div.button a.button-light:active{
     background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#ffffff), color-stop(1, #fff));

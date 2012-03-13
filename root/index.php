@@ -11,7 +11,7 @@
  * @author trott
  * @copyright Copyright (c) 2010-12 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20120218
+ * @version 20120312
  *
  * @uses Classification
  * @uses Config

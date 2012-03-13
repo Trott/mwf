@@ -9,7 +9,7 @@ $all_feeds = array_merge($feeds, $alt_feeds);
 
 $more = TRUE;
 $item_limit = 4;
-$header_title = '<a href="/news">News</a>';
+$header_title = HTML_Decorator::tag('a', 'News', array('href'=>'/news'));
 $header_feed = '';
 
 if (array_key_exists('feed',$_GET) && in_array($_GET['feed'],$all_feeds)) {

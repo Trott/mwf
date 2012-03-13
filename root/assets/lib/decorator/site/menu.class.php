@@ -74,6 +74,8 @@ class Menu_Site_Decorator extends Tag_HTML_Decorator {
         return $this->set_title($inner, $params);
     }
 
+    //@todo Make items their own objects. Add ability to add detail text which 
+    //   will get rendered in a span with class smalltext.
     public function add_item($name, $url, $li_params = array(), $a_params = array(), $key=null) {
         if (!is_array($this->_list))
             $this->_list = array();

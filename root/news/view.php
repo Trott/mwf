@@ -3,7 +3,7 @@ require_once(dirname(dirname(__FILE__)).'/assets/lib/decorator.class.php');
 require_once(dirname(dirname(__FILE__)).'/assets/config.php');
 require_once(dirname(dirname(dirname(__FILE__))).'/auxiliary/feed/feed.class.php');
 $feeds = array_merge(Config::get('ucsf_news','feeds'),Config::get('ucsf_news','alternate_feeds'));
-$header_title = '<a href="/news">News</a>';
+$header_title = HTML_Decorator::tag('a', 'News', array('href'=>'/news'));
 $header_feed = '';
 
 if (array_key_exists('feed',$_GET) && in_array($_GET['feed'],$feeds)) {

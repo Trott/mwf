@@ -31,8 +31,9 @@ class Ucsf_Map_Menu_Site_Decorator extends Menu_Site_Decorator {
             $this->add_item('San Francisco General Hospital', '/maps/campus.php?campus=SFGH');
             $this->add_item('Location List', '/maps/locations.php', array());
         } else {
-            $this->add_item('Parnassus <span class="smallprint light">PDF</span>', 'http://www.ucsf.edu/sites/default/files/documents/ucsf_parnassus_1.pdf', array(), array('rel' => 'external'));
-            $this->add_item('Mission Bay <span class="smallprint light">PDF</span>', 'http://www.ucsf.edu/sites/default/files/documents/ucsf-mission-bay-8-16.pdf', array(), array('rel' => 'external'));
+            $pdf_denotation = HTML_Decorator::tag('span', 'PDF', array('class'=>'smallprint light'));
+            $this->add_item(array('Parnassus ', $pdf_denotation), 'http://www.ucsf.edu/sites/default/files/documents/ucsf_parnassus_1.pdf', array(), array('rel' => 'external'));
+            $this->add_item(array('Mission Bay ', $pdf_denotation), 'http://www.ucsf.edu/sites/default/files/documents/ucsf-mission-bay-8-16.pdf', array(), array('rel' => 'external'));
         }
 
         return parent::render();

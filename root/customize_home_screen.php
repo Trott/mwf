@@ -17,6 +17,7 @@
  * @uses Head_Site_Decorator
  * @uses Body_Start_HTML_Decorator
  * @uses Header_Site_Decorator
+ * @uses Form_Decorator
  * @uses Button_Full_Site_Decorator
  * @uses Default_Footer_Site_Decorator
  * @uses Body_End_HTML_Decorator
@@ -50,11 +51,9 @@ if (Classification::is_full()) {
 
         $this_id = htmlspecialchars($ids[$key]);
         $encoded_key = json_encode($key);
-        $apps_rendered[$key] = '<div data-id="' . $encoded_key . '"><input id="' . $this_id . '" type="checkbox" checked>&nbsp;<label for="' .
-                $this_id .
-                '">' .
+        $apps_rendered[$key] = '<label data-id="' . $encoded_key . '"><input id="' . $this_id . '" type="checkbox" checked>&nbsp;' .
                 htmlspecialchars($apps[$key]) .
-                '</label><span class="draggable-handle"></span></div>';
+                '<span class="draggable-handle"></span></label>';
         $disabled_apps_rendered[$key] = '<div data-id="' . $encoded_key . '"><input id="' . $this_id . '" type="checkbox"><label for="' . $this_id . '">' .
                 htmlspecialchars($apps[$key]) . '</label><div class="draggable-handle"></div></div>';
     }

@@ -4,9 +4,9 @@
  * Test class for Image.
  * 
  * @author trott
- * @copyright Copyright (c) 2010-11 UC Regents
+ * @copyright Copyright (c) 2010-12 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20111106
+ * @version 20120312
  *
  * @uses PHPUnit_Framework_TestCase
  * @uses Cache
@@ -30,6 +30,7 @@ class ImageTest extends PHPUnit_Framework_TestCase {
         require_once dirname(dirname(dirname(dirname(dirname(__DIR__))))) . '/root/assets/lib/image.class.php';
         $cache = new Cache(Config::get('image', 'cache_name'));
         $cache_files = glob($cache->get_cache_path() . '/*');
+
         foreach ($cache_files as $cache_file) {
             if (is_file($cache_file))
                 unlink($cache_file);
@@ -140,9 +141,15 @@ class ImageTest extends PHPUnit_Framework_TestCase {
      * @runInSeparateProcess
      */
     public function factory_RemoteImageTooLarge_noImage() {
+        /* This is expected to log a warning. Suppress it. */
+        $reporting = error_reporting();
+        error_reporting($reporting ^ ( E_USER_WARNING ));
+
         Config::set('image', 'memory_limit', 1024);
         $image = Image::factory('http://mwf.ucla.edu/img/ucla-logo.jpg');
-        $this->assertEquals('', @$image->get_mimetype());
+        $this->assertEquals('', $image->get_mimetype());
+
+        error_reporting($reporting);
     }
 
 }

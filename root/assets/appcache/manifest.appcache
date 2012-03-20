@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#08-Mar-2012 00:43:07
+#12-Mar-2012 18:11:50
 
 CACHE:
 
@@ -36,6 +36,7 @@ CACHE:
 /assets/img/button-next.png
 /assets/img/button-previous.png
 /assets/img/button-search.png
+/assets/img/draggable-handle.png
 /assets/img/forms-tip-bg-down.png
 /assets/img/forms-tip-bg.png
 /assets/img/forms-tip.png
@@ -67,11 +68,15 @@ CACHE:
 http://www.google-analytics.com/ga.js
 /assets/js.php
 /assets/js.php?full_libs=fastLink+history+configurableMenu
+/assets/js.php?full_libs=configurableMenu+jquery_ui_touch_punch
 /assets/redirect/js_unset_override.php
 /assets/js/full/fastLink.js
 /assets/js/full/history.js
 /assets/js/standard/preferences.js
 /assets/js/full/configurableMenu.js
+https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
+https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js
+/assets/js/full/jquery_ui_touch_punch.js
 
 NETWORK:
 *

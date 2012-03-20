@@ -15,14 +15,16 @@
  * @uses Head_Site_Decorator
  * @uses Body_Start_HTML_Decorator
  * @uses Header_Site_Decorator
- * @uses Content_Full_Site_Decorator
- * @uses Button_Full_Site_Decorator
+ * @uses Content_Site_Decorator
+ * @uses Form_Site_Decorator
+ * @uses Input_Site_Decorator
+ * @uses Button_Site_Decorator
  * @uses Default_Footer_Site_Decorator
  * @uses Body_End_HTML_Decorator
  * @uses HTML_End_HTML_Decorator
  */
-require_once(dirname(dirname(dirname(__FILE__))) . '/assets/lib/decorator.class.php');
-require_once(dirname(dirname(dirname(__FILE__))) . '/assets/config.php');
+require_once(dirname(dirname(__DIR__)) . '/assets/config.php');
+require_once(dirname(dirname(__DIR__)) . '/assets/lib/decorator.class.php');
 
 
 echo HTML_Decorator::html_start()->render();
@@ -50,53 +52,48 @@ echo Site_Decorator::content()
 
 <?php
 /* short form */
+$text_input = Site_Decorator::input('text-1', 'Name');
+
 echo Site_Decorator::form()
         ->set_padded()
         ->set_short()
         ->set_title('Short Form')
-        ->add_text('text-1', 'Name')
-        ->add_submit()
+        ->add_input($text_input)
+        ->add_input(Site_Decorator::input()->type_submit())
         ->render();
+?>
 
+<!-- option form -->
+
+<?php
 /* option form */
 echo Site_Decorator::form()
         ->set_padded()
         ->set_title('Option Form')
-        ->add_checkboxes('checkbox-group-1', 'Label for Checkbox',
-                array(
-                        array('id' => 'checkbox-1', 'label' => 'One', 'value' => 1),
-                        array('id' => 'checkbox-2', 'label' => 'Two', 'value' => 2),
-                        array('id' => 'checkbox-3', 'label' => 'Three', 'value' => 3)
+        ->add_checkbox_group('checkbox-group-1', 'Label for Checkbox Group', array(
+            Site_Decorator::input('checkbox-1', 'One')->set_param('value', 1),
+            Site_Decorator::input('checkbox-2', 'Two')->set_param('value', 2),
+            Site_Decorator::input('checkbox-3', 'Three')->set_param('value', 3)
                 )
-          )
-        ->add_radios('radio-group-1', 'Label for Right Aligned Radio',
-                array(
-                        array('id' => 'radio-1', 'label' => 'One', 'value' => 1),
-                        array('id' => 'radio-2', 'label' => 'Two', 'value' => 2),
-                        array('id' => 'radio-3', 'label' => 'Three', 'value' => 3)
-                ),
-                array('align' => 'right')
-          )
-        ->add_radios('radio-group-2', 'Label for Justify Aligned Radio',
-                array(
-                        array('id' => 'radio-4', 'label' => 'One', 'value' => 1),
-                        array('id' => 'radio-5', 'label' => 'Two', 'value' => 2),
-                        array('id' => 'radio-6', 'label' => 'Three', 'value' => 3)
-                ),
-                array('align' => 'justify')
-          )
+        )
+        ->add_radio_group('radio-group-1', 'Label for Radio Group', array(
+            Site_Decorator::input('radio-1', 'One')->set_param('value', 1),
+            Site_Decorator::input('radio-2', 'Two')->set_param('value', 2),
+            Site_Decorator::input('radio-3', 'Three')->set_param('value', 3)
+                )
+        )
         ->render();
 
 /* full button form */
 echo Site_Decorator::form()
         ->set_padded()
         ->set_title('Full Button Form')
-        ->add_primary_button('Primary Button')
-        ->add_secondary_button('Secondary Button', 'secondary')
-        ->add_button('Neutral Button', 'neutral')
-        ->add_primary_link_button('Primary Link', 'primary')
-        ->add_secondary_link_button('Secondary Link', 'secondary')
-        ->add_link_button('Neutral Link', 'neutral')
+        ->add_input(Site_Decorator::input()->type_button()->primary()->set_param('value', 'Primary Button'))
+        ->add_input(Site_Decorator::input()->type_button()->secondary()->set_param('value', 'Secondary Button'))
+        ->add_input(Site_Decorator::input()->type_button()->set_param('value', 'Neutral Button'))
+        ->add_link_button_primary('Primary Link', '#')
+        ->add_link_button_secondary('Secondary Link', '#')
+        ->add_link_button_neutral('Neutral Link', '#')
         ->render();
 
 /* textarea form */
@@ -110,92 +107,82 @@ echo Site_Decorator::form()
 echo Site_Decorator::form()
         ->set_padded()
         ->set_title('Select Form')
-        ->add_select('select-group-1', 'Label for Select',
-                array(
-                        array('label' => 'One', 'value' => 1),
-                        array('label' => 'Two', 'value' => 2),
-                        array('label' => 'Three', 'value' => 3)
+        ->add_select('select-group-1', 'Label for Select', array(
+            array('label' => 'One', 'value' => 1),
+            array('label' => 'Two', 'value' => 2),
+            array('label' => 'Three', 'value' => 3)
                 )
-          )
+        )
         ->render();
 
 /* required form */
+$text_input = Site_Decorator::input('text-10', 'Name')
+        ->mandatory();
+$checkbox_input = Site_Decorator::input('checkbox-10', 'Checkbox')
+        ->type_checkbox()
+        ->mandatory();
+
 echo Site_Decorator::form()
         ->set_padded()
         ->set_title('Required Form')
-        ->add_text('text-10', 'Name', array('required' => true))
-        ->add_checkboxes('checkbox-group-10', 'Checkbox',
-                array(
-                        array('id' => 'checkbox-11', 'label' => 'One', 'value' => 1),
-                        array('id' => 'checkbox-12', 'label' => 'Two', 'value' => 2),
-                        array('id' => 'checkbox-13', 'label' => 'Three', 'value' => 3)
-                ),
-                array('required' => true)
-          )
-        ->add_select('select-group-10', 'Select',
-                array(
-                        array('label' => 'One', 'value' => 1),
-                        array('label' => 'Two', 'value' => 2),
-                        array('label' => 'Three', 'value' => 3)
-                ),
-                array('required' => true)
-          )
+        ->add_input($text_input)
+        ->add_input($checkbox_input)
+        ->add_select('select-group-10', 'Select', array(
+            array('label' => 'One', 'value' => 1),
+            array('label' => 'Two', 'value' => 2),
+            array('label' => 'Three', 'value' => 3)
+                ), array('required' => true)
+        )
         ->add_textarea('textarea-10', 'Textarea', array('required' => true))
         ->render();
 
 /* invalid form */
+$text_input = Site_Decorator::input('text-20', 'Name')
+        ->mandatory()
+        ->invalid('Text input error message goes here');
+$checkbox_input = Site_Decorator::input('checkbox-20', 'Checkbox')
+        ->type_checkbox()
+        ->mandatory()
+        ->invalid('Checkbox error message goes here');
 echo Site_Decorator::form()
         ->set_padded()
         ->set_title('Invalid Form')
-        ->add_text('text-20', 'Name', array('required' => true, 'invalid' => 'Error messager goes here'))
-        ->add_checkboxes('checkbox-group-20', 'Checkbox',
-                array(
-                        array('id' => 'checkbox-21', 'label' => 'One', 'value' => 1),
-                        array('id' => 'checkbox-22', 'label' => 'Two', 'value' => 2),
-                        array('id' => 'checkbox-23', 'label' => 'Three', 'value' => 3)
-                ),
-                array('required' => true, 'invalid' => 'Error messager goes here')
-          )
-        ->add_select('select-group-20', 'Select',
-                array(
-                        array('label' => 'One', 'value' => 1),
-                        array('label' => 'Two', 'value' => 2),
-                        array('label' => 'Three', 'value' => 3)
-                ),
-                array('required' => true, 'invalid' => 'Error messager goes here')
-          )
+        ->add_input($text_input)
+        ->add_input($checkbox_input)
+        ->add_select('select-group-20', 'Select', array(
+            array('label' => 'One', 'value' => 1),
+            array('label' => 'Two', 'value' => 2),
+            array('label' => 'Three', 'value' => 3)
+                ), array('required' => true, 'invalid' => 'Error messager goes here')
+        )
         ->add_textarea('textarea-20', 'Textarea', array('required' => true, 'invalid' => 'Error messager goes here'))
         ->render();
 
 /* disabled form */
+$text_input = Site_Decorator::input('text-30', 'Name')
+        ->disable();
+$checkbox_input = Site_Decorator::input('checkbox-20', 'Checkbox')
+        ->type_checkbox()
+        ->disable();
 echo Site_Decorator::form()
         ->set_padded()
         ->set_title('Disabled Form')
-        ->add_text('text-30', 'Name', array('disabled' => true))
-        ->add_checkboxes('checkbox-group-30', 'Checkbox',
-                array(
-                        array('id' => 'checkbox-31', 'label' => 'One', 'value' => 1),
-                        array('id' => 'checkbox-32', 'label' => 'Two', 'value' => 2),
-                        array('id' => 'checkbox-33', 'label' => 'Three', 'value' => 3)
-                ),
-                array('disabled' => true)
-          )
-        ->add_select('select-group-30', 'Select',
-                array(
-                        array('label' => 'One', 'value' => 1),
-                        array('label' => 'Two', 'value' => 2),
-                        array('label' => 'Three', 'value' => 3)
-                ),
-                array('disabled' => true)
-          )
+        ->add_input($text_input)
+        ->add_input($checkbox_input)
+        ->add_select('select-group-30', 'Select', array(
+            array('label' => 'One', 'value' => 1),
+            array('label' => 'Two', 'value' => 2),
+            array('label' => 'Three', 'value' => 3)
+                ), array('disabled' => true)
+        )
         ->add_textarea('textarea-30', 'Textarea', array('disabled' => true))
         ->render();
 
 /* not padded form */
 echo Site_Decorator::form()
         ->set_title('Not Padded Form')
-        ->add_text('text-100', 'Label')
-        ->add_submit('Search')
+        ->add_input(Site_Decorator::input('text-100', 'Label'))
+        ->add_input(Site_Decorator::input()->type_submit()->set_param('value', 'Search'))
         ->render();
 
 
@@ -204,12 +191,9 @@ echo Site_Decorator::form()
         ->set_padded()
         ->set_title('Prototype 0')
         ->add_subtitle('Subtitle')
-        ->add_paragraph('A content bo with paragraph content')
-        ->add_section('<p>One of multiple paragraphs defined within one content box(div).</p><p>Another of multiple paragraphs defined within one content box(div).</p>')
-        ->add_fieldset('<p>One of multiple paragraphs defined within one content box(fieldset).</p><p>Another of multiple paragraphs defined within one content box(fieldset).</p>')
-        ->add_submit('Submit')
+        ->add_paragraph('A content box with paragraph content')
+        ->add_input(Site_Decorator::input()->type_submit()->set_param('value', 'Submit'))
         ->render();
-
 ?>
 
 <!-- prototype 1 -->

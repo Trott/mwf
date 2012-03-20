@@ -7,7 +7,7 @@
  * @author trott
  * @copyright Copyright (c) 2012 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20120220
+ * @version 20120314
  *
  * @uses Config
  * @uses Decorator
@@ -17,20 +17,22 @@
  * @uses Head_Site_Decorator
  * @uses Body_Start_HTML_Decorator
  * @uses Header_Site_Decorator
+ * @uses Form_Decorator
  * @uses Button_Full_Site_Decorator
  * @uses Default_Footer_Site_Decorator
  * @uses Body_End_HTML_Decorator
  * @uses HTML_End_HTML_Decorator
  * @uses Classification
  */
-require_once(dirname(__FILE__) . '/assets/config.php');
-require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
-require_once(dirname(__FILE__) . '/assets/lib/classification.class.php');
+require_once(__DIR__ . '/assets/config.php');
+require_once(__DIR__ . '/assets/lib/decorator.class.php');
+require_once(__DIR__ . '/assets/lib/classification.class.php');
 
 echo HTML_Decorator::html_start()->render();
 
 echo Site_Decorator::head()->set_title('Customize Home Screen')
         ->add_js_handler_library('full_libs', 'configurableMenu')
+        ->add_js_handler_library('full_libs', 'jquery_ui_touch_punch')
         ->render();
 
 echo HTML_Decorator::body_start()->render();
@@ -49,38 +51,44 @@ if (Classification::is_full()) {
 
         $this_id = htmlspecialchars($ids[$key]);
         $encoded_key = json_encode($key);
-        $apps_rendered[$key] = '<div><input type="submit" onclick="cm.moveUp(' .
-                $encoded_key . '); renderMenu(); return false" value="Up">' .
-                '&nbsp;<input type="submit" onclick="cm.moveDown(' .
-                $encoded_key . '); renderMenu(); return false" value="Down">' .
-                '&nbsp;<input type="checkbox" onclick="cm.set(' .
-                $encoded_key . ',this.checked); renderMenu()" id="'.$this_id.'" checked>&nbsp;<label for="' .
-                $this_id .
-                '">' .
+        $apps_rendered[$key] = '<label data-id="' . $encoded_key . '"><input id="' . $this_id . '" type="checkbox" checked>&nbsp;' .
                 htmlspecialchars($apps[$key]) .
-                '</label></div>';
-        $disabled_apps_rendered[$key] = '<div><input type="submit" value="Up" disabled>' .
-                '<input type="submit" value="Down" disabled>' .
-                '<input type="checkbox" onclick="cm.set(' .
-                $encoded_key . ',this.checked); renderMenu()" id="'.$this_id.'"><label for="' . $this_id . '">' .
-                htmlspecialchars($apps[$key]) . '</label></div>';
+                '<span class="draggable-handle"></span></label>';
+        $disabled_apps_rendered[$key] = '<div data-id="' . $encoded_key . '"><input id="' . $this_id . '" type="checkbox"><label for="' . $this_id . '">' .
+                htmlspecialchars($apps[$key]) . '</label><div class="draggable-handle"></div></div>';
     }
 
+    //@todo Move JS to external file, include with JS handler (perhaps part of configurableMenu, perhaps not)
     $js = 'var apps=' . json_encode($apps_rendered) . ';var disabledApps=' . json_encode($disabled_apps_rendered) . ';';
 
     echo Site_Decorator::form('Customize Home Screen')
-            ->set_short()
             ->set_padded()
-            ->add_paragraph('Changes are saved automatically.')
+            ->add_paragraph('Drag menu items to desired order. Use checkboxes to remove items.')
             ->add_inner_tag('div', '', array('class' => 'option', 'id' => 'app_order'))
+            ->render();
+
+    echo Site_Decorator::button()
+            ->set_padded()
+            ->add_option('Save', '#', array('onclick' => 'saveMenu(); renderMenu(); return false'))
+            ->add_option('Cancel', '#', array('onclick' => 'renderMenu(); return false'))
+            ->render();
+
+    echo Site_Decorator::button()
+            ->set_padded()
+            ->add_option('Reset To Default', '#', array('onclick' => 'cm.reset(); renderMenu(); return false'))
             ->render();
 
     echo HTML_Decorator::tag('script')
             ->add_inner($js .
-                    "var cm = mwf.full.configurableMenu('homescreen_layout');".
-                    "function renderMenu()".
-                    "{cm.render('app_order',apps,disabledApps)}".
-                    "renderMenu();")
+                    "var cm = mwf.full.configurableMenu('homescreen_layout');" .
+                    "function saveMenu()" .
+                    "{cm.reset();\$('#app_order').children().each(" .
+                    "  function(index,element) {cm.setItemPosition(element.getAttribute('data-id'),index+1);" .
+                    "cm.enableItem(element.getAttribute('data-id'),this.querySelector('[type=checkbox]').checked)})}" .
+                    "function renderMenu()" .
+                    "{cm.render('app_order',apps, disabledApps)}" .
+                    "renderMenu();" .
+                    '$(function() { $( "#app_order" ).sortable({handle:".draggable-handle"}); $( "#app_order" ).disableSelection();});')
             ->render();
 } else {
     echo Site_Decorator::Content()

@@ -38,16 +38,16 @@ a#button-top:focus{
     background: -webkit-gradient(linear, left top, left bottom, from(#8e8e8e), to(#666666), color-stop(1, #fff));
 }
 
-a.button:hover,
+.mwf_notmobile a.button:hover,
 a.button:focus,
 a.button:active,
-div.button a:hover,
+.mwf_notmobile div.button a:hover,
 div.button a:focus,
 div.button a:active,
-a.button.button-light:hover,
+.mwf_notmobile a.button.button-light:hover,
 a.button.button-light:focus,
 a.button.button-light:active,
-div.button a.button-light:hover,
+.mwf_notmobile div.button a.button-light:hover,
 div.button a.button-light:focus,
 div.button a.button-light:active{
     background: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#ffffff), color-stop(1, #fff));
@@ -69,7 +69,7 @@ div.button a.button-light:active{
     body.mwf_os_iphone_os .menu.front {background:url(img/ucsf-background-landscape.png) no-repeat;height:320px;margin:0;border-radius:0}
     body.mwf_os_iphone_os.front #header{display:none}
     /* width:99% because 100% makes second-level lightning-touch menus horizontally scroll */
-    body.mwf_os_iphone_os div.menu.front[style~="display:block"] ~ #footer {padding:0; position:absolute; bottom:-50px; width:99%}
+    body.mwf_os_iphone_os div.menu.front[style~="display:block"] ~ #footer {padding:0; position:absolute; margin-top:-50px; width:99%; height:50px}
 }
 @media screen and (max-width:639px) {
     .menu.front ol {
@@ -106,6 +106,13 @@ ul.two-col-list li {
     width: 50%;
     float: left;
     overflow: hidden;
+}
+
+/*********************************************************
+ * Sortable Options (used for Customize Home Screen)
+ ********************************************************/
+div#app_order.option.ui-sortable > label {
+    background-color: #8BB;
 }
 
 /********************************************************

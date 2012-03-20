@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  *
  * @package decorator
@@ -17,14 +16,13 @@ require_once(dirname(__FILE__) . '/menu.class.php');
 
 class Ucsf_Library_Location_Menu_Site_Decorator extends Menu_Site_Decorator {
 
-	protected $_mapLink;
-	protected $_address;
-	protected $_phone;
-	protected $_hours;
-	protected $_extLink;
-	
-    public function __construct($title, $params = array(), $mapLink = '',
-    		$address = '', $phone = '', $hours = '', $extLink = '') {
+    protected $_mapLink;
+    protected $_address;
+    protected $_phone;
+    protected $_hours;
+    protected $_extLink;
+
+    public function __construct($title, $params = array(), $mapLink = '', $address = '', $phone = '', $hours = '', $extLink = '') {
         parent::__construct($title, $params);
         $this->_mapLink = $mapLink;
         $this->_address = $address;
@@ -35,9 +33,28 @@ class Ucsf_Library_Location_Menu_Site_Decorator extends Menu_Site_Decorator {
     }
 
     public function render() {
-        $this->add_item('Map<br/><br/><span class="smallprint">' . nl2br($this->_address, true) . '</span>', $this->_mapLink, array());
-        $this->add_item(str_replace(' ', '&nbsp;', $this->_phone), 'tel:+1' . preg_replace('/[^0-9]/', '', $this->_phone), array());
-        $this->add_item('<span class="smallprint">' . nl2br($this->_hours, true) . '</span><br/><br/><span class="external">Holidays and exceptions</span>', $this->_extLink, array(),array('rel'=>'external','class'=>'no-ext-ind'));
+        $address_array = preg_split("/[\n]+/", $this->_address);
+        $address = array();
+        foreach ($address_array as $address_element) {
+            $address[] = $address_element;
+            $address[] = HTML_Decorator::tag_open('br');
+        }
+        
+        $hours_array = preg_split("/[\n]+/", $this->_hours);
+        $hours = array();
+        foreach ($address_array as $address_element) {
+            $hours[] = $address_element;
+            $hours[] = HTML_Decorator::tag_open('br');
+        }
+
+
+        $this->add_item(array('Map', HTML_Decorator::tag_open('br'), HTML_Decorator::tag_open('br'),
+            HTML_Decorator::tag('span', $address, array('class' => 'smallprint'))), $this->_mapLink);
+        $this->add_item($this->_phone, 'tel:+1' . preg_replace('/[^0-9]/', '', $this->_phone), array());
+        $this->add_item(array(HTML_Decorator::tag('span', $hours, array('class' => 'smallprint')),
+            HTML_Decorator::tag_open('br'), HTML_Decorator::tag_open('br'),
+            HTML_Decorator::tag('span', 'Holidays and exceptions', array('class'=>'external'))), $this->_extLink, array(), array('rel' => 'external', 'class' => 'no-ext-ind'));
         return parent::render();
     }
+
 }

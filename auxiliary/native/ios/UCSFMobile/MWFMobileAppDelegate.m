@@ -84,6 +84,20 @@
      */
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    /*
+     We don't use any of the data from the custom URL, so we can always handle it.
+     */
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    /*
+     We don't use any of the data from the custom URL, so we can always handle it.
+     */
+    return YES;
+}
+
 - (void)dealloc
 {
     [_window release];

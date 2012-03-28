@@ -35,7 +35,7 @@
  */
 require_once(__DIR__ . '/config.class.php');
 
-class Cache {
+class Disk_Cache {
 
     private $_cache_dir;
 

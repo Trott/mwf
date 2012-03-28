@@ -6,10 +6,10 @@
  * @author trott
  * @copyright Copyright (c) 2010-12 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20120312
+ * @version 20120328
  *
  * @uses PHPUnit_Framework_TestCase
- * @uses Cache
+ * @uses Disk_Cache
  * @uses Image
  * @uses Config
  */
@@ -25,10 +25,11 @@ class ImageTest extends PHPUnit_Framework_TestCase {
      * This method is called before a test is executed.
      */
     protected function setUp() {
+
         require_once dirname(dirname(dirname(dirname(dirname(__DIR__))))) . '/root/assets/lib/config.class.php';
-        require_once(dirname(dirname(dirname(dirname(dirname(__DIR__))))) . '/root/assets/lib/cache.class.php');
+        require_once(dirname(dirname(dirname(dirname(dirname(__DIR__))))) . '/root/assets/lib/disk_cache.class.php');
         require_once dirname(dirname(dirname(dirname(dirname(__DIR__))))) . '/root/assets/lib/image.class.php';
-        $cache = new Cache(Config::get('image', 'cache_name'));
+        $cache = new Disk_Cache(Config::get('image', 'cache_name'));
         $cache_files = glob($cache->get_cache_path() . '/*');
 
         foreach ($cache_files as $cache_file) {
@@ -141,15 +142,9 @@ class ImageTest extends PHPUnit_Framework_TestCase {
      * @runInSeparateProcess
      */
     public function factory_RemoteImageTooLarge_noImage() {
-        /* This is expected to log a warning. Suppress it. */
-        $reporting = error_reporting();
-        error_reporting($reporting ^ ( E_USER_WARNING ));
-
         Config::set('image', 'memory_limit', 1024);
         $image = Image::factory('http://mwf.ucla.edu/img/ucla-logo.jpg');
-        $this->assertEquals('', $image->get_mimetype());
-
-        error_reporting($reporting);
+        $this->assertEquals('', @$image->get_mimetype());
     }
 
 }

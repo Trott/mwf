@@ -10,9 +10,9 @@
  *
  * @uses PHPUnit_Framework_TestCase
  * @uses Config
- * @uses Cache
+ * @uses Disk_Cache
  */
-class CacheTest extends PHPUnit_Framework_TestCase {
+class Disk_CacheTest extends PHPUnit_Framework_TestCase {
 
     public function run(PHPUnit_Framework_TestResult $result = NULL) {
         $this->setPreserveGlobalState(false);
@@ -20,7 +20,7 @@ class CacheTest extends PHPUnit_Framework_TestCase {
     }
 
     public function setUp() {
-        require_once dirname(dirname(dirname(dirname(dirname(__DIR__))))) . '/root/assets/lib/cache.class.php';
+        require_once dirname(dirname(dirname(dirname(dirname(__DIR__))))) . '/root/assets/lib/disk_cache.class.php';
     }
 
     /**
@@ -28,7 +28,7 @@ class CacheTest extends PHPUnit_Framework_TestCase {
      * @test
      */
     public function getCachePath_test_varCacheTest() {
-        $cache = new Cache('test');
+        $cache = new Disk_Cache('test');
         $cache_dir = $cache->get_cache_path();
         $this->assertEquals(Config::get('global', 'var_dir') . '/cache/test', $cache_dir);
         rmdir($cache_dir);
@@ -39,7 +39,7 @@ class CacheTest extends PHPUnit_Framework_TestCase {
      * @test
      */
     public function getCachePath_testAndPath_varCacheTestHash() {
-        $cache = new Cache('test');
+        $cache = new Disk_Cache('test');
         $cache_path = $cache->get_cache_path('foo');
         $this->assertContains(Config::get('global', 'var_dir') . '/cache/test/', $cache_path);
         rmdir($cache->get_cache_path());

@@ -184,8 +184,10 @@ class Form_Site_DecoratorTest extends PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function addSelect_ampersandInId_idIsEncoded() {
-        $this->object->add_select('Bartles&James', 'LogginsAndMessina');
+    public function addInput_selectWithAmpersandInId_idIsEncoded() {
+        $select = Site_Decorator::input('Bartles&James', 'LogginsAndMessina')
+                ->type_select();
+        $this->object->add_input($select);
         $result = $this->object->render();
         $this->assertContains('Bartles&amp;James', $result);
     }
@@ -193,8 +195,10 @@ class Form_Site_DecoratorTest extends PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function addSelect_ampersandInLabel_labelIsEncoded() {
-        $this->object->add_select('BartlesAndJames', 'Loggins&Messina');
+    public function addInput_SelectWithAmpersandInLabel_labelIsEncoded() {
+        $select = Site_Decorator::input('BartlesAndJames', 'Loggins&Messina')
+                ->type_select();
+        $this->object->add_input($select);
         $result = $this->object->render();
         $this->assertContains('Loggins&amp;Messina', $result);
     }
@@ -202,9 +206,10 @@ class Form_Site_DecoratorTest extends PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function addSelect_bracketsInOptionLabelAndValue_bracketsAreEncoded() {
-//        $this->object->add_select('BartlesAndJames', 'LogginsAndMessina', array(Site_Decorator::input(false, 'and><or')->set_value('a<waggle>')));
-        $this->object->add_select('BartlesAndJames', 'LogginsAndMessina', array(array('label' => 'and><or', 'value' => 'a<waggle>')));
+    public function addInput_bracketsInOptionLabelAndValue_bracketsAreEncoded() {
+        $select = Site_Decorator::input('BartlesAndJames', 'LogginsAndMessina')
+                ->add_option('a<waggle>', 'and><or');
+        $this->object->add_input($select);
         $result = $this->object->render();
         $this->assertContains('and&gt;&lt;or', $result);
         $this->assertContains('&lt;waggle&gt;', $result);
@@ -213,8 +218,10 @@ class Form_Site_DecoratorTest extends PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function addTextarea_ampersandInId_idIsEncoded() {
-        $this->object->add_textarea('Bartles&James', 'LogginsAndMessina');
+    public function addInput_textareaWithAmpersandInId_idIsEncoded() {
+        $textarea = Site_Decorator::input('Bartles&James', 'LogginsAndMessina')
+                ->type_textarea();
+        $this->object->add_input($textarea);
         $result = $this->object->render();
         $this->assertContains('Bartles&amp;James', $result);
     }
@@ -222,38 +229,45 @@ class Form_Site_DecoratorTest extends PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function addTextarea_ampersandInLabel_labelIsEncoded() {
-        $this->object->add_textarea('BartlesAndJames', 'Loggins&Messina');
+    public function addInput_textareaWithAmpersandInLabel_labelIsEncoded() {
+        $textarea = Site_Decorator::input('BartlesAndJames', 'Loggins&Messina')
+                ->type_textarea();
+        $this->object->add_input($textarea);
         $result = $this->object->render();
         $this->assertContains('Loggins&amp;Messina', $result);
     }
-
+    
     /**
      * @test
      */
-    public function addSelect_quotationMarksInTooltip_tooltipIsEncoded() {
-        $this->object->add_select(
-                'BartlesAndJames', 'Loggins&Messina', array(array('id' => 'id', 'label' => 'label', 'value' => 'value')), array('tooltip' => '"Palace Family Steak House"'));
-        $result = $this->object->render();
-        $this->assertContains('<span class="tiptext">&quot;Palace Family Steak House&quot;</span>', $result);
+    public function addInput_colorMandatory_mandatoryIgnored() {
+        $color = Site_Decorator::input('foo', 'bar')->type_color()->mandatory();
+        $this->object->add_input($color);
+        $this->assertNotContains('required', $this->object->render());
     }
 
     /**
      * @test
      */
-    public function addTextarea_ampersandInPlaceholder_placeholderIsEncoded() {
-        $this->object->add_textarea('BartlesAndJames', 'Loggins&Messina', array('placeholder' => 'Hall & Oates'));
+    public function addInput_textareaWithAmpersandInPlaceholder_placeholderIsEncoded() {
+        $textarea = Site_Decorator::input('BartlesAndJames', 'Loggins&Messina')
+                ->type_textarea()
+                ->set_placeholder('Hall & Oates');
+        $this->object->add_input($textarea);
         $result = $this->object->render();
-        $this->assertContains('<span class="placeholder">Hall &amp; Oates</span>', $result);
+        $this->assertContains('placeholder="Hall &amp; Oates"', $result);
     }
 
     /**
      * @test
      */
-    public function addTextarea_ampersandInInvalid_invalidIsEncoded() {
-        $this->object->add_textarea('BartlesAndJames', 'Loggins&Messina', array('invalid' => 'Simon & Garfunkel'));
+    public function addInput_textareaWithAmpersandInInvalid_invalidIsEncoded() {
+        $textarea = Site_Decorator::input('BartlesAndJames', 'Loggins&Messina')
+                ->type_textarea()
+                ->invalid('Simon & Garfunkel');
+        $this->object->add_input($textarea);
         $result = $this->object->render();
-        $this->assertContains('<p class="invalid">Simon &amp; Garfunkel</p>', $result);
+        $this->assertContains('<span class="invalid">Simon &amp; Garfunkel</span>', $result);
     }
 
     /**
@@ -327,8 +341,8 @@ class Form_Site_DecoratorTest extends PHPUnit_Framework_TestCase {
     public function invalid_message_messageRendered() {
         $this->object->add_input(Site_Decorator::input('Bartles&James', 'LogginsAndMessina')->invalid('Input invalid!'));
         $rendered = $this->object->render();
-        $this->assertRegExp('/class="invalid">.*<p class="invalid"/', $rendered);
-        $this->assertContains('<p class="invalid">Input invalid!</p>', $rendered);
+        $this->assertRegExp('/class="invalid">.*<span class="invalid"/', $rendered);
+        $this->assertContains('<span class="invalid">Input invalid!</span>', $rendered);
     }
 
 }

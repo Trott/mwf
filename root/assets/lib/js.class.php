@@ -86,9 +86,7 @@ class JS
         self::$_dependencies['transitions'] = array('jquery');
         self::$_dependencies['touch_transitions'] = array('transitions', 'jquery.swipe');
         self::$_dependencies['messages'] = array('jquery');
-        self::$_dependencies['forms'] = array('jquery');
         self::$_dependencies['formsPolyfills'] = array('jquery');
-        self::$_dependencies['tooltip'] = array('jquery', 'jquery.tooltip');
         self::$_dependencies['configurableMenu'] = array('preferences');
     }
     

@@ -6,7 +6,7 @@
  * @author trott
  * @copyright Copyright (c) 2012 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20120315
+ * @version 20120318
  *
  * @uses PHPUnit_Framework_TestCase
  * @uses Input_Site_Decorator
@@ -45,9 +45,16 @@ class Input_Site_DecoratorTest extends PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function setPlacedholder_placeholderText_placedholderRendered() {
+    public function setPlaceholder_placeholderText_placedholderRendered() {
         $this->object->set_placeholder('Input placeholder text');
-        $this->assertContains('Input placeholder text', $this->object->render());
+        $this->assertContains('placeholder="Input placeholder text"', $this->object->render());
+    }
+
+    /**
+     * @test
+     */
+    public function setPlaceholder_placeholderText_returnsInputSiteDecorator() {
+        $this->assertTrue(is_a($this->object->set_placeholder('Input placeholder text'), 'Input_Site_Decorator'));
     }
 
     /**
@@ -117,6 +124,30 @@ class Input_Site_DecoratorTest extends PHPUnit_Framework_TestCase {
     public function typeColor_void_colorRendered() {
         $this->object->type_color();
         $this->assertContains('type="color"', $this->object->render());
+    }
+
+    /**
+     * @test
+     */
+    public function typeColor_mandatory_mandatoryIgnored() {
+        $this->object->type_color()->mandatory();
+        $this->assertNotContains('required', $this->object->render());
+    }
+
+    /**
+     * @test
+     */
+    public function isMandatory_colorMandatory_notMandatory() {
+        $this->object->type_color()->mandatory();
+        $this->assertFalse($this->object->is_mandatory());
+    }
+
+    /**
+     * @test
+     */
+    public function isMandatory_mandatoryColor_notMandatory() {
+        $this->object->mandatory()->type_color();
+        $this->assertFalse($this->object->is_mandatory());
     }
 
     /**
@@ -242,6 +273,109 @@ class Input_Site_DecoratorTest extends PHPUnit_Framework_TestCase {
     /**
      * @test
      */
+    public function typeNumber_void_numberRendered() {
+        $this->object->type_number();
+        $this->assertContains('type="number"', $this->object->render());
+    }
+
+    /**
+     * @test
+     */
+    public function typeRange_void_rangeRendered() {
+        $this->object->type_range();
+        $this->assertContains('type="range"', $this->object->render());
+    }
+
+    /**
+     * @test
+     */
+    public function typeSelect_void_selectTagRendered() {
+        $this->object->type_select();
+        $this->assertEquals('<select id="input_id" name="input_id"></select>', $this->object->render());
+    }
+
+    /**
+     * @test
+     */
+    public function typeSelect_multiple_multipleRendered() {
+        $this->object->type_select()
+                ->multiple();
+        $this->assertRegexp('/<select [^>]*\bmultiple\b.*><\/select>/', $this->object->render());
+    }
+
+    /**
+     * @test
+     */
+    public function typeText_multiple_multipleIgnored() {
+        $this->object->type_text()
+                ->multiple();
+        $this->assertNotContains('multiple', $this->object->render());
+    }
+
+    /**
+     * @test
+     */
+    public function typeTextarea_multiple_multipleIgnored() {
+        $this->object->type_textarea()
+                ->multiple();
+        $this->assertNotContains('multiple', $this->object->render());
+    }
+
+    /**
+     * @test
+     */
+    public function typeText_size_sizeRendered() {
+        $this->object->type_text()
+                ->set_size(5);
+        $this->assertRegexp('/<input [^>]* size="5".*>/', $this->object->render());
+    }
+
+    /**
+     * @test
+     */
+    public function typeTextarea_size_sizeIgnored() {
+        $this->object->type_textarea()
+                ->set_size(5);
+        $this->assertNotContains('size', $this->object->render());
+    }
+
+    /**
+     * @test
+     */
+    public function typeSelect_size_sizeRendered() {
+        $this->object->type_select()
+                ->set_size(5);
+        $this->assertRegexp('/<select [^>]* size="5".*><\/select>/', $this->object->render());
+    }
+
+    /**
+     * @test
+     */
+    public function typeTextarea_void_textareaTagRendered() {
+        $this->object->type_textarea();
+        $this->assertEquals('<textarea id="input_id" name="input_id"></textarea>', $this->object->render());
+    }
+
+    /**
+     * @test
+     */
+    public function typeTextarea_setValue_valueIsTagContents() {
+        $this->object->type_textarea();
+        $this->object->set_value('foo');
+        $this->assertRegexp('/^<textarea .*?>foo<\/textarea>/', $this->object->render());
+    }
+
+    /**
+     * @test
+     */
+    public function addOption_fooBar_optionRendered() {
+        $this->object->add_option('foo', 'bar');
+        $this->assertEquals('<select id="input_id" name="input_id"><option value="foo">bar</option></select>', $this->object->render());
+    }
+
+    /**
+     * @test
+     */
     public function primary_void_classPrimary() {
         $this->object->type_button();
         $this->object->primary();
@@ -324,6 +458,35 @@ class Input_Site_DecoratorTest extends PHPUnit_Framework_TestCase {
     public function isOption_text_false() {
         $this->object->type_text();
         $this->assertFalse($this->object->is_option());
+    }
+
+    /**
+     * @test
+     * 
+     * HTML5 requires tha the first child option element of a select element 
+     * with a required attribute and without a multiple attribute, and whose 
+     * size is 1, must have either an empty value attribute, or must have no 
+     * text content.
+     */
+    public function typeSelect_mandatoryNotMultipleSizeNotSetNoOptions_emptyOptionAdded() {
+        $this->object->type_select()
+                ->mandatory();
+        $this->assertContains('<option value></option>', $this->object->render());
+    }
+
+    /**
+     * @test
+     * 
+     * See comment for typeSelect_mandatoryNotMultipleSizeNotSetNoOptions_emptyOptionAdded()
+     */
+    public function typeSelect_mandatoryNotMultipleSizeNotSetOptions_emptyOptionAddedAsFirstOption() {
+        $this->object->type_select()
+                ->add_option(1, 'The Beatles')
+                ->add_option(2, 'The Rolling Stones')
+                ->add_option(3, 'The Who')
+                ->add_option(4, 'The Kinks')
+                ->mandatory();
+        $this->assertRegexp('/<select [^>]+><option value><\/option>/', $this->object->render());
     }
 
 }

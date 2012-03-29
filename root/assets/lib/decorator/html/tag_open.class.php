@@ -24,7 +24,7 @@ class Tag_Open_HTML_Decorator extends Decorator {
     public function __construct($tag, $params = array()) {
         $this->_tag = $tag;
         $this->_params = $params;
-        $this->_needs_entities = $this->_tag !== 'script';
+        $this->_needs_entities = ($this->_tag !== 'script' && $this->_tag !== 'style');
     }
 
     public function set_param($key, $val) {
@@ -57,12 +57,11 @@ class Tag_Open_HTML_Decorator extends Decorator {
 
         return $this;
     }
-    
-    
+
     /**
      * Whether the contents of the element need to use HTML entities.
      * 
-     * @todo Ideally we wouldn't allow script tag content at all.
+     * @todo Ideally we wouldn't allow script and style tag content at all.
      * 
      * @return boolean 
      */
@@ -70,13 +69,11 @@ class Tag_Open_HTML_Decorator extends Decorator {
         return $this->_needs_entities;
     }
 
-
-    public function render()
-    {
-        $str = '<'.$this->_tag;
-        if(count($this->_params) > 0)
-            foreach($this->_params as $name=>$val)
-                $str .= ' '.$name.((string)$val!=='' ? '="'.htmlspecialchars($val).'"' : '');
+    public function render() {
+        $str = '<' . $this->_tag;
+        if (count($this->_params) > 0)
+            foreach ($this->_params as $name => $val)
+                $str .= ' ' . $name . ((string) $val !== '' ? '="' . htmlspecialchars($val) . '"' : '');
         $str .= '>';
         return $str;
     }

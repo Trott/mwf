@@ -21,10 +21,10 @@ class Ucsf_Library_Locations_Menu_Site_Decorator extends Menu_Site_Decorator {
         $this->set_padded()->set_detailed();
     }
 
-    public function render() {
+    public function render($raw = false) {
         $this->add_item('Parnassus Library', '/library/locations/parnassus', array());
         $this->add_item('Mission Bay Library', '/library/locations/mission_bay', array());
-        return parent::render();
+        return parent::render($raw);
     }
 
 }

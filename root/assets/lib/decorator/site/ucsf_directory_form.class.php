@@ -50,7 +50,7 @@ class Ucsf_Directory_Form_Site_Decorator extends Tag_HTML_Decorator {
         return $this;
     }
 
-    public function render() {
+    public function render($raw = false) {
         $this->add_item('first_name', 'text', 'First Name');
         $this->add_item('last_name', 'text', 'Last Name');
         $this->add_item('department', 'text', 'Department');
@@ -66,7 +66,7 @@ class Ucsf_Directory_Form_Site_Decorator extends Tag_HTML_Decorator {
             $this->add_inner_front($this->_title);
         }
 
-        return parent::render();
+        return parent::render($raw);
     }
 
 }

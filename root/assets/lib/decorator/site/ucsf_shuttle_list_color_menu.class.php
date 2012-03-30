@@ -22,7 +22,7 @@ class Ucsf_Shuttle_List_Color_Menu_Site_Decorator extends Menu_Site_Decorator {
     }
 
     //TODO: Don't hardcode this stuff
-    public function render() {
+    public function render($raw = false) {
         $this->add_item(array(HTML_Decorator::tag('img',false,array('src'=>"/public/images/blue.jpg", 'alt'=>"")), ' Blue'),'/shuttle/schedule/blue');
         $this->add_item(array(HTML_Decorator::tag('img',false,array('src'=>"/public/images/gold.jpg", 'alt'=>"")), ' Gold'),'/shuttle/schedule/gold');
         $this->add_item(array(HTML_Decorator::tag('img',false,array('src'=>"/public/images/grey.jpg", 'alt'=>"")), ' Grey'),'/shuttle/schedule/grey');        
@@ -36,7 +36,7 @@ class Ucsf_Shuttle_List_Color_Menu_Site_Decorator extends Menu_Site_Decorator {
         $this->add_item(array(HTML_Decorator::tag('img',false,array('src'=>"/public/images/red.jpg", 'alt'=>"")), ' Red'),'/shuttle/schedule/red');
         $this->add_item(array(HTML_Decorator::tag('img',false,array('src'=>"/public/images/lime.jpg", 'alt'=>"")), ' Lime'),'/shuttle/schedule/lime');
         $this->add_item(array(HTML_Decorator::tag('img',false,array('src'=>"/public/images/green.jpg", 'alt'=>"")), ' Green'),'/shuttle/schedule/green');
-        return parent::render();
+        return parent::render($raw);
     }
 
 }

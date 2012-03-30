@@ -33,7 +33,7 @@ class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
         parent::__construct();
     }
 
-    public function render() {
+    public function render($raw = false) {
         if (Classification::is_native())
             return;
 
@@ -63,7 +63,7 @@ class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
         }
         $this->add_inner_front($home_button);
 
-        return Tag_HTML_Decorator::render();
+        return Tag_HTML_Decorator::render($raw);
     }
 
 }

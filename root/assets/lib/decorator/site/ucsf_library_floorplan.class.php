@@ -54,7 +54,7 @@ class Ucsf_Library_Floorplan_Site_Decorator extends Content_Site_Decorator {
      * @see Content_Site_Decorator::render()
      * @uses Ucsf_Library_Map_Legend_Site_Decorator
      */
-    public function render() {
+    public function render($raw = false) {
 
         //add floorplan
         if (!empty($this->_mapUrl)) {
@@ -83,7 +83,7 @@ class Ucsf_Library_Floorplan_Site_Decorator extends Content_Site_Decorator {
             }
             $this->add_section(HTML_Decorator::tag('span', $description, array('class' => 'smallprint')));
         }
-        return parent::render();
+        return parent::render($raw);
     }
 
 }

@@ -22,7 +22,7 @@ class Ucsf_Shuttle_List_Location_Menu_Site_Decorator extends Menu_Site_Decorator
     }
 
     //TODO: Don't hardcode this stuff.
-    public function render() {
+    public function render($raw = false) {
         $this->add_item('Parnassus','/shuttle/list/location/parnassus');
         $this->add_item('SFGH','/shuttle/list/location/sfgh');
         $this->add_item('Mission Bay (4th St.)','/shuttle/list/location/mission_bay');        
@@ -42,7 +42,7 @@ class Ucsf_Shuttle_List_Location_Menu_Site_Decorator extends Menu_Site_Decorator
         $this->add_item('2300 Harrison','/shuttle/list/location/2300');
         $this->add_item('20th St. CPFM','/shuttle/list/location/20th');
         $this->add_item('654 Minnesota','/shuttle/list/location/654_minnesota');
-        return parent::render();
+        return parent::render($raw);
     }
 
 }

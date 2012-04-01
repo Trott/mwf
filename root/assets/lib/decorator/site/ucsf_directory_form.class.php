@@ -8,13 +8,13 @@
  * @author trott
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20120124
+ * @version 20120313
  *
  * @uses HTML_Decorator
  * @uses Tag_HTML_Decorator
  */
-require_once(dirname(dirname(dirname(__FILE__))) . '/decorator.class.php');
-require_once(dirname(dirname(__FILE__)) . '/html/tag.class.php');
+require_once(dirname(dirname(__DIR__)) . '/decorator.class.php');
+require_once(dirname(__DIR__) . '/html/tag.class.php');
 
 class Ucsf_Directory_Form_Site_Decorator extends Tag_HTML_Decorator {
 
@@ -50,7 +50,7 @@ class Ucsf_Directory_Form_Site_Decorator extends Tag_HTML_Decorator {
         return $this;
     }
 
-    public function render() {
+    public function render($raw = false) {
         $this->add_item('first_name', 'text', 'First Name');
         $this->add_item('last_name', 'text', 'Last Name');
         $this->add_item('department', 'text', 'Department');
@@ -58,14 +58,15 @@ class Ucsf_Directory_Form_Site_Decorator extends Tag_HTML_Decorator {
 
         $count = count($this->_list);
 
-        $content='';
-        foreach ($this->_list as $list_item)
-            $content .= $list_item->render();
+        foreach ($this->_list as $list_item) {
+            $this->add_inner($list_item);
+        }
 
-        $title = is_a($this->_title, 'Decorator') ? $this->_title->render() : ($this->_title ? $this->_title : '');
+        if (is_a($this->_title, 'Decorator')) {
+            $this->add_inner_front($this->_title);
+        }
 
-        $this->add_inner_front($title . $content);
-        return parent::render();
+        return parent::render($raw);
     }
 
 }

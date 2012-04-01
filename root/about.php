@@ -3,7 +3,7 @@
  * @author trott
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20120124
+ * @version 20120313
  *
  * @uses Decorator
  * @uses Site_Decorator
@@ -11,8 +11,8 @@
  * @uses Config
  * @uses Ucsf_Back_Button_Full_Site_Decorator
  */
-require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
-require_once(dirname(__FILE__) . '/assets/config.php');
+require_once(__DIR__ . '/assets/lib/decorator.class.php');
+require_once(__DIR__ . '/assets/config.php');
 
 echo HTML_Decorator::html_start()->render();
 
@@ -27,16 +27,22 @@ echo Site_Decorator::ucsf_header("About")
 echo Site_Decorator::content()
         ->set_padded()
         ->add_header('About UCSF Mobile')
-        ->add_section('UCSF Mobile is a joint project of: ' .
-                '<ul class="bulleted"><li>Information Technology Services</li>' .
-                '<li>Library &amp; Center for Knowledge Management</li>' .
-                '<li>University Relations</li></ul>' .
-                'In collaboration with:' .
-                '<ul class="bulleted"><li>Transportation Services (Shuttle)</li>' .
-                '<li>Campus Life Services (Fitness)</li>' .
-                '<li>Campus Planning (Maps)</li></ul>')
-        ->add_section('The UCSF Mobile website is powered by the ' .
-                HTML_Decorator::tag('a', 'Mobile Web Framework', array('href' => 'http://mwf.ucla.edu')) . '.')
+        ->add_section(array('UCSF Mobile is a joint project of:', 
+            HTML_Decorator::tag('ul', array(
+                HTML_Decorator::tag('li', 'Information Technology Services'),
+                HTML_Decorator::tag('li', 'Library & Center for Knowledge Management'),
+                HTML_Decorator::tag('li', 'University Relations')),
+                    array('class'=>'bulleted')),
+            'In collaboration with:',
+            HTML_Decorator::tag('ul', array(
+                HTML_Decorator::tag('li', 'Transportation Services (Shuttle)'),
+                HTML_Decorator::tag('li', 'Campus Life Services (Fitness)'),
+                HTML_Decorator::tag('li', 'Campus Planning (Maps)')),
+                    array('class'=>'bulleted'))
+            ))
+        ->add_section(array('The UCSF Mobile website is powered by the ',
+                HTML_Decorator::tag('a', 'Mobile Web Framework', array('href' => 'http://mwf.ucla.edu')), 
+            '.'))
         ->render();
 
 echo Site_Decorator::ucsf_footer()->render();

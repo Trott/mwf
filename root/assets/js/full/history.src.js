@@ -8,7 +8,7 @@
  * @author trott
  * @copyright Copyright (c) 2011-12 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20120208
+ * @version 20120227
  *
  * @requires mwf
  * @requires mwf.full.fastLink
@@ -69,7 +69,6 @@ mwf.full.history = new function() {
             //TODO: Show/hide button/header/footer behavior should be configured in .ini
             //TODO: Also, we're doing some here and some in CSS.
             var header = document.getElementById('header');
-            var footer = document.getElementById('footer');
             var topButton = document.getElementById('button-top');
             
             var headFootStyle = show=="main_menu" ? "" : "display:block";
@@ -84,10 +83,7 @@ mwf.full.history = new function() {
             
             if (header)
                 header.setAttribute("style",headFootStyle);
-            
-            if (footer)
-                footer.setAttribute("style",headFootStyle);
-               
+
             return true;
         }
 

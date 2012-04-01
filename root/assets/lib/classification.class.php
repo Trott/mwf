@@ -11,7 +11,7 @@
  * @author ebollens
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20111108
+ * @version 20120306
  * 
  * @uses Cookie
  */
@@ -43,7 +43,7 @@ class Classification
     private static $_cookie = '';
     
     /**
-     * An array of capabilities if know, or false otherwise. Null until loaded
+     * An array of capabilities if known, or false otherwise. Null until loaded
      * by invoking init().
      * 
      * @var array|false
@@ -110,7 +110,7 @@ class Classification
      * @param string $capabilities
      * @return object 
      */
-    public static function parse($capabilities)
+    private static function parse($capabilities)
     {
         include_once(dirname(__FILE__).'/json.php');
         return json_decode($capabilities);
@@ -123,7 +123,7 @@ class Classification
      * @param bool $consider_override
      * @return object|false 
      */
-    public static function get($consider_override = true)
+    private static function get($consider_override = true)
     {
         /**
          * Initialize if not already initialized.
@@ -287,8 +287,3 @@ class Classification
         return self::is_override() && !self::is_mobile(false);
     }
 }
-
-/**
- * Initialize the Device static object.
- */
-Classification::init();

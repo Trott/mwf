@@ -21,14 +21,14 @@ class Ucsf_Emergency_Menu_Site_Decorator extends Menu_Site_Decorator {
         $this->set_padded()->set_detailed();
     }
 
-    public function render() {
-        $this->add_item('911 <span class="smallprint">for emergencies only</span>', 'tel:+911', array());
-        $this->add_item('UCSF Police Non-Emergency<br/><span class="smallprint">(415) 476-1414</span>', 'tel:+14154761414', array());
-        $this->add_item('UCSF Medical Center Security<br/><span class="smallprint">(415) 885-7890</span>', 'tel:+14158857890', array());
-        $this->add_item('Campus Emergency Information Hotline<br/><span class="smallprint">(415) 502-4000</span>', 'tel:+14155024000', array());
-        $this->add_item('Back-up Campus Emergency Hotline<br/><span class="smallprint">1 (800) 873-8232</span>', 'tel:+18008738232', array());
-        $this->add_item('UCSF Medical Center Information Hotline<br/><span class="smallprint">(415) 885-7828</span>', 'tel:+14158857828', array());
-        return parent::render();
+    public function render($raw = false) {
+        $this->add_item(array('911 ', HTML_Decorator::tag('span', 'for emergencies only', array('class'=>'smallprint'))), 'tel:+911', array());
+        $this->add_item(array('UCSF Police Non-Emergency', HTML_Decorator::tag_open('br'), HTML_Decorator::tag('span', '(415) 476-1414', array('class'=>'smallprint'))), 'tel:+14154761414', array());
+        $this->add_item(array('UCSF Medical Center Security', HTML_Decorator::tag_open('br'),HTML_Decorator::tag('span', '(415) 885-7890', array('class'=>'smallprint'))), 'tel:+14158857890', array());
+        $this->add_item(array('Campus Emergency Information Hotline', HTML_Decorator::tag_open('br'),HTML_Decorator::tag('span', '(415) 502-4000', array('class'=>'smallprint'))), 'tel:+14155024000', array());
+        $this->add_item(array('Back-up Campus Emergency Hotline', HTML_Decorator::tag_open('br'),HTML_Decorator::tag('span', '1 (800) 873-8232', array('class'=>'smallprint'))), 'tel:+18008738232', array());
+        $this->add_item(array('UCSF Medical Center Information Hotline', HTML_Decorator::tag_open('br'),HTML_Decorator::tag('span', '(415) 885-7828', array('class'=>'smallprint'))), 'tel:+14158857828', array());
+        return parent::render($raw);
     }
 
 }

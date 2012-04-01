@@ -21,11 +21,11 @@ class Ucsf_Social_Media_Menu_Site_Decorator extends Menu_Site_Decorator {
         $this->set_padded()->set_detailed();
     }
     
-    public function render() {
+    public function render($raw = false) {
         $this->add_item('Twitter', 'http://www.twitter.com/ucsf', array(), array('rel'=>'external'));
         $this->add_item('YouTube', 'http://www.youtube.com/ucsf', array(), array('rel'=>'external'));
         $this->add_item('Facebook', 'http://www.facebook.com/ucsf', array(), array('rel'=>'external'));
-        return parent::render();
+        return parent::render($raw);
     }
 
 }

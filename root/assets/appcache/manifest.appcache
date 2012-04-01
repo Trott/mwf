@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#16-Feb-2012 03:36:38
+#12-Mar-2012 18:11:50
 
 CACHE:
 
@@ -25,6 +25,7 @@ CACHE:
 /emergency
 /about
 /feedback
+/customize_home_screen.php
 
 #style sheets
 /assets/css.php?lean
@@ -35,6 +36,7 @@ CACHE:
 /assets/img/button-next.png
 /assets/img/button-previous.png
 /assets/img/button-search.png
+/assets/img/draggable-handle.png
 /assets/img/forms-tip-bg-down.png
 /assets/img/forms-tip-bg.png
 /assets/img/forms-tip.png
@@ -47,7 +49,7 @@ CACHE:
 /assets/img/message-error.png
 /assets/img/message-info.png
 /assets/img/select-options-bg.png
-/assets/img/ucsf-external-link.png
+/assets/img/external-link.png
 /assets/img/ucsf-header-bg.png
 /assets/img/ucsf-icon-precomposed-calendars.png
 /assets/img/ucsf-icon-precomposed-directory.png
@@ -65,10 +67,16 @@ CACHE:
 #javascript files
 http://www.google-analytics.com/ga.js
 /assets/js.php
-/assets/js.php?full_libs=fastLink+history
+/assets/js.php?full_libs=fastLink+history+configurableMenu
+/assets/js.php?full_libs=configurableMenu+jquery_ui_touch_punch
 /assets/redirect/js_unset_override.php
 /assets/js/full/fastLink.js
 /assets/js/full/history.js
+/assets/js/standard/preferences.js
+/assets/js/full/configurableMenu.js
+https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
+https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js
+/assets/js/full/jquery_ui_touch_punch.js
 
 NETWORK:
 *

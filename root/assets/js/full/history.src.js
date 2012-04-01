@@ -85,8 +85,11 @@ mwf.full.history = new function() {
             if (header)
                 header.setAttribute("style",headFootStyle);
             
-            if (footer)
-                footer.setAttribute("style",headFootStyle);
+            if (footer && mwf.userAgent.isNative() && mwf.userAgent.getOS()==="iphone_os" && show==="main_menu") {
+                footer.setAttribute("style","display:none");
+            } else {
+                footer.setAttribute("style","")
+            }
 
             return true;
         }

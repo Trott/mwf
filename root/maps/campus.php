@@ -44,9 +44,9 @@ echo Site_Decorator::head()
         ->add_javascript('http://maps.google.com/maps/api/js?sensor=false&v=3.5')
         ->render();
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a', 'Maps', array('href'=>'/maps')))->render();
+echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a', 'Maps', array('href' => '/maps')))->render();
 echo HTML_Decorator::tag('div', '', array('id' => 'map_canvas'))->render();
-if (! Classification::is_native()) 
+if (!Classification::is_native())
     echo Site_Decorator::ucsf_back_button()->render();
 ?>
 <script type="text/javascript">
@@ -54,9 +54,13 @@ if (! Classification::is_native())
     var lon=<?php echo $lon; ?>;
     var initialZoom=<?php echo $initialZoom; ?>;
     var mapTypeId = 'UCSF Custom Map';
-    var mapStyle = [{featureType:"administrative", elementType:"all", stylers:[{hue:"#dae6c3"},{saturation:22},{lightness:-5}]}, 
+    var mapStyle = [
+        {featureType:"administrative", elementType:"all", stylers:[{hue:"#dae6c3"},{saturation:22},{lightness:-5}]}, 
         {featureType:"landscape", elementType:"all", stylers:[{hue:"#dae6c3"},{saturation:16},{lightness:-7}]},
-        {featureType:"road", elementType:"geometry", stylers:[{hue:"#ffffff"},{saturation:-100},{lightness:100}]}];
+        {featureType:"road", elementType:"geometry", stylers:[{hue:"#ffffff"},{saturation:-100},{lightness:100}]},
+        {featureType: "road.local", elementType: "labels", stylers: [{ visibility: "off" }]}
+    ];
+    
     var styledMap = new google.maps.StyledMapType(mapStyle);
 
     var mapType = new google.maps.ImageMapType({
@@ -79,30 +83,30 @@ if (empty($startLocation)):
     if (!isset($_GET['loc'])):
         foreach ($locations as $location):
             ?> 
-                        google.maps.event.addListener(new google.maps.Marker({position: new google.maps.LatLng(<?php echo $location['lat']; ?>, <?php echo $location['lon']; ?>), map: map, title:"<?php echo htmlspecialchars($location['name']); ?>" }), 
-                        'click', 
-                        function(){
-                            var info = new google.maps.InfoWindow({content:"<?php echo htmlspecialchars($location['name']); ?>",
-                                position:new google.maps.LatLng(<?php echo $location['lat']; ?>, <?php echo $location['lon']; ?>)});
-                            info.open(map);
-                        }
-                    );
-        <?php
+                            google.maps.event.addListener(new google.maps.Marker({position: new google.maps.LatLng(<?php echo $location['lat']; ?>, <?php echo $location['lon']; ?>), map: map, title:"<?php echo htmlspecialchars($location['name']); ?>" }), 
+                            'click', 
+                            function(){
+                                var info = new google.maps.InfoWindow({content:"<?php echo htmlspecialchars($location['name']); ?>",
+                                    position:new google.maps.LatLng(<?php echo $location['lat']; ?>, <?php echo $location['lon']; ?>)});
+                                info.open(map);
+                            }
+                        );
+            <?php
         endforeach;
     else:
         $loc = $_GET['loc'];
         if ($location = $locations->find($loc)):
             ?>
-                        google.maps.event.addListener(new google.maps.Marker({position: new google.maps.LatLng(<?php echo $location['lat']; ?>, <?php echo $location['lon']; ?>), map: map, title:"<?php echo htmlspecialchars($location['name']); ?>" }), 
-                        'click', 
-                        function(){
-                            var info = new google.maps.InfoWindow({content:"<?php echo htmlspecialchars($location['name']); ?>",
-                                position:new google.maps.LatLng(<?php echo $location['lat']; ?>, <?php echo $location['lon']; ?>)});
-                            info.open(map);
-                        }
-                    );
-                        map.setCenter(new google.maps.LatLng(<?php echo $location['lat']; ?>,<?php echo $location['lon']; ?>));
-                        map.setZoom(17);
+                            google.maps.event.addListener(new google.maps.Marker({position: new google.maps.LatLng(<?php echo $location['lat']; ?>, <?php echo $location['lon']; ?>), map: map, title:"<?php echo htmlspecialchars($location['name']); ?>" }), 
+                            'click', 
+                            function(){
+                                var info = new google.maps.InfoWindow({content:"<?php echo htmlspecialchars($location['name']); ?>",
+                                    position:new google.maps.LatLng(<?php echo $location['lat']; ?>, <?php echo $location['lon']; ?>)});
+                                info.open(map);
+                            }
+                        );
+                            map.setCenter(new google.maps.LatLng(<?php echo $location['lat']; ?>,<?php echo $location['lon']; ?>));
+                            map.setZoom(17);
         <?php endif; ?>
     <?php endif; ?>
 <?php endif; ?>

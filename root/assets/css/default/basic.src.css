@@ -642,9 +642,10 @@ form .option {
 }
 
 /* required label */
-span.required::before {
+span.required:after {
     content: "*";
-    color: red;
+    color: #536895;
+    padding-left:.2em;
 }
 
 /* invalid */
@@ -656,7 +657,7 @@ form span.invalid {
     display: block;
 }
 
-form span.invalid::before {
+form span.invalid:before {
     content: '\26a0';
     font-size: 1.5em;
     vertical-align: middle;

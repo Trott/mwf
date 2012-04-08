@@ -22,15 +22,15 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
- 
+        
 		// Set custom user agent 			
-
+        
 		BSWebViewUserAgent *agent = [[BSWebViewUserAgent alloc] init];
 		NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"%@/%@", [agent userAgentString],@" MWF-Native-iOS/1.2.07"], @"UserAgent", nil];
 		[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
 		[dictionary release];
 		[agent release];
-
+        
         //Initial page has not been loaded.
         self.initPageLoaded = NO;
     }
@@ -50,18 +50,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
+    
     
     [self.view insertSubview:self.webView    atIndex:0];
     [self.view insertSubview:self.splashView atIndex:4];
     self.splashView.hidden = NO;
     self.webView.backgroundColor = [UIColor colorWithRed:0.53215 green:0.73046875 blue:0.73046875 alpha:1.0];  
     [self.webView setOpaque:NO];
- 
+    
     for (id subview in self.webView.subviews)
         if ([[subview class] isSubclassOfClass: [UIScrollView class]])
             ((UIScrollView *)subview).bounces = NO;
-
+    
     //Initially try to load the online version - if there is an error, 
     //and the isOnline flag is set to NO, then the app will go into offline mode. 
     [self goHome];
@@ -148,9 +148,9 @@
     
     //Indicate that at least one page has loaded.
     self.initPageLoaded = YES;
-
+    
     self.splashView.hidden = YES;
-
+    
     
 }
 
@@ -163,7 +163,17 @@
 {
     if (navigationType == UIWebViewNavigationTypeLinkClicked) 
         webView.scalesPageToFit=YES;
-    return YES;
+    
+    NSString *scheme = [[request URL] scheme];
+    
+    if ([scheme isEqualToString:@"http"] ||
+        [scheme isEqualToString:@"https"]) {
+        
+        return YES;
+    }
+    
+    [[UIApplication sharedApplication] openURL:[request URL]];
+    return NO;
 }
 
 - (void)dealloc {

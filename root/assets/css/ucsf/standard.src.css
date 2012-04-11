@@ -43,8 +43,12 @@ div.button a.button-light:active {
 
 
 /********************************************************
- * LISTS
+ * MENUS/LISTS
  *******************************************************/
+
+body.front .menu {
+    border:0;
+}
 
 body.front .menu.front li a {
     padding: 18px 15px 18px 60px;
@@ -95,5 +99,5 @@ body.front .menu.front #emergency {
 }
 
 body.front .menu.front ol{margin:auto!important;overflow:hidden;text-align:left}
-body.front .menu.front li{border-top:0;display:inline-block;height:108px;list-style:none;padding:0;width:80px;border:0}
+body.front .menu.front li{display:inline-block;height:108px;list-style:none;padding:0;width:80px;border:0}
 body.front .menu.front li a{background:0;color:#fff;font-size:75%;font-weight:normal;margin:0;padding:68px 4px 4px 4px;text-align:center}

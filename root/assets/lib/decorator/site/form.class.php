@@ -35,19 +35,19 @@ class Form_Site_Decorator extends Tag_HTML_Decorator {
         if ($title)
             $this->set_title($title);
     }
-
-    /**
-     * Sets the form's padded attribute.
-     * 
-     * @param boolean $val Defaults to true.
-     * @return Form_Site_Decorator 
-     */
-    public function set_padded($val = true) {
-        if ($val) {
-            $this->add_class('padded');
-        } else {
-            $this->remove_class('padded');
-        }
+    
+    public function &set_padded($val = true)
+    {
+        return $this->set_not_padded(!$val);
+    }
+    
+    public function &set_not_padded($val = true)
+    {
+        if($val)
+            $this->add_class('not-padded');
+        else
+            $this->remove_class('not-padded');
+        
         return $this;
     }
 
@@ -74,7 +74,7 @@ class Form_Site_Decorator extends Tag_HTML_Decorator {
      * @return Form_Site_Decorator 
      */
     public function set_title($text, $params = array()) {
-        $this->_title = $text === false ? false : HTML_Decorator::tag('h1', $text, $params);
+        $this->_title = $text === false ? false : HTML_Decorator::tag('h2', $text, $params);
         return $this;
     }
 
@@ -111,7 +111,7 @@ class Form_Site_Decorator extends Tag_HTML_Decorator {
         if ($label) {
             $span_decorator = HTML_Decorator::tag('span', $label);
 
-            if ($input_decorator->is_mandatory()) {
+            if ($input_decorator->is_required()) {
                 $span_decorator->add_class('required');
             }
 

@@ -127,7 +127,7 @@
 		return;
     
     //If the initial page fails to load then redirect the user to the offline mode.
-    if(!self.initPageLoaded)
+    if (!self.initPageLoaded)
     {
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"]isDirectory:NO]]];
     }
@@ -172,7 +172,16 @@
         return YES;
     }
     
-    [[UIApplication sharedApplication] openURL:[request URL]];
+    if ([[UIApplication sharedApplication] canOpenURL:[request URL]]) {
+        [[UIApplication sharedApplication] openURL:[request URL]];
+    } else {
+        //@todo: Handle custom URLs for UCSF apps that are not installed.
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UCSF Mobile" message:@"Action is unsupported." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert autorelease];
+        [alert show];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    }
+    
     return NO;
 }
 

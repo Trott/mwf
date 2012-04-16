@@ -94,6 +94,10 @@ body.front .menu.front #social {
     background: url(img/ucsf-icon-precomposed-social.png) 12px 8px no-repeat;
 }
 
+body.front .menu.front #trivia {
+    background: url(img/ucsf-icon-precomposed-trivia.png) 12px 8px no-repeat;
+}
+
 body.front .menu.front #emergency {
     background: url(img/ucsf-icon-precomposed-emergency.png) 12px 8px no-repeat;
 }

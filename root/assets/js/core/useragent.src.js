@@ -8,14 +8,14 @@
  * @author ebollens
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20120306
+ * @version 20120411
  * 
  * @requires mwf.site
  * 
  * @uses nagivator.userAgent
  */
 
-mwf.userAgent = new function() {
+mwf.userAgent = new function(optionalUAString) {
     
     /**
      * Name of the user agent cookie that may be written to expose UA-based
@@ -23,7 +23,8 @@ mwf.userAgent = new function() {
      */
     this.cookieName = mwf.site.cookie.prefix + 'user_agent';
     
-    var userAgent = navigator.userAgent.toLowerCase();
+    var uaString = typeof optionalUAString === 'undefined' ? navigator.userAgent : optionalUAString;
+    var userAgent = uaString.toLowerCase();
     
     var userAgentSubstringExists = function(s){
         return userAgent.indexOf(s) != -1;
@@ -41,7 +42,7 @@ mwf.userAgent = new function() {
         
         var i = 0,
         osToTest = ['android','blackberry','windows phone os',
-        'symbian','webos','mac os x','windows nt','linux'];
+            'symbian','webos','mac os x','windows nt','linux'];
                     
         for(;i<osToTest.length;i++)
             if(userAgentSubstringExists(osToTest[i]))
@@ -64,7 +65,7 @@ mwf.userAgent = new function() {
                 x = ua.match(/(iphone|cpu) os ([\d_]+)/);
                 if (x!=null) 
                     r = x[2];
-                break;               
+                break;
             case 'blackberry':
                 x = ua.match(/^mozilla\/5\.0 \(blackberry;.* version\/([\d\.]+)/);
                 if (x!=null) {
@@ -173,7 +174,7 @@ mwf.userAgent = new function() {
     this.generateCookieContent = function(){
         var t;
         var cookie = '{';
-        cookie += '"s":"'+navigator.userAgent+'"';
+        cookie += '"s":"'+uaString+'"';
         if(t = this.getOS())
             cookie += ',"os":"'+t+'"';
         if(t = this.getOSVersion())

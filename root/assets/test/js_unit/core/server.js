@@ -4,7 +4,7 @@
  * @author trott
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
- * @version 20111214
+ * @version 20120415
  *
  * @requires mwf
  * @requires qunit
@@ -12,28 +12,32 @@
  */
 
 module("core/server.js"); 
-            
-test("mwf.server.setCookie() same origin", function()
-{
-    var saveIsSameOrigin = mwf.site.local.isSameOrigin;
-    mwf.site.local.isSameOrigin = function() {
-        return true;
-    }
-    mwf.server.setCookie('mwf_test_cookie',';');
-    ok(document.cookie.match(/mwf_test_cookie=%3B/), 'cookie should be set and values encoded');
-    mwf.site.local.isSameOrigin = saveIsSameOrigin;
-});
 
-test("mwf.server.setCookie() not same origin", function()
+test("mwf.server.init() not same origin, redirects if cookie not set", function()
 {
+    window.test_result = false;
     var saveIsSameOrigin = mwf.site.local.isSameOrigin;
     mwf.site.local.isSameOrigin = function() {
         return false;
     }
-    mwf.server.setCookie('mwf_test_cookie',';');
-    ok(mwf.server.mustRedirect,'if not same origin, setting cookie should result in redirect');
-    mwf.site.local.isSameOrigin = saveIsSameOrigin;
+    
+    var saveExists = mwf.site.cookie.exists;
+    mwf.site.cookie.exists = function(cookieName) {
+        return cookieName != mwf.screen.cookieName;
+    }
+    
+    var saveRedirect = mwf.site.redirect;
+    mwf.site.redirect = function() {
+        window.test_result = true;
+    }
+    
+    mwf.server.init();
+    ok(window.test_result,'if not same origin, setting cookie should result in redirect');
 
+    mwf.site.local.isSameOrigin = saveIsSameOrigin;
+    mwf.site.cookie.exists = saveExists;
+    mwf.site.redirect = saveRedirect;
+    delete window.test_result;
 });
 
 test("mwf.server.init() same origin sets cookies", function()
@@ -57,8 +61,8 @@ test("mwf.server.init() same origin sets cookies", function()
         return "e=f"
     };
     
-    var saveReload = mwf.site.reload;
-    mwf.site.reload=function() {
+    var saveRedirect = mwf.site.redirect;
+    mwf.site.redirect=function() {
         return;
     };
     
@@ -74,12 +78,12 @@ test("mwf.server.init() same origin sets cookies", function()
     ok(/classification=a%3Db/i.test(document.cookie), 
         'classification cookie should be set and values encoded');
     ok(/user_agent=c%3Dd/i.test(document.cookie), 
-        'classification cookie should be set and values encoded');
+        'user_agend cookie should be set and values encoded');
     ok(/screen=e%3Df/i.test(document.cookie), 
-        'classification cookie should be set and values encoded');
+        'screen cookie should be set and values encoded');
     
     mwf.site.cookie.exists = saveCookieExists;
-    mwf.site.reload = saveReload;
+    mwf.site.redirect = saveRedirect;
     mwf.screen.generateCookieContent = saveScreen;
     mwf.userAgent.generateCookieContent = saveUserAgent;
     mwf.classification.generateCookieContent = saveClassification;

@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#23-Apr-2012 00:52:04
+#23-Apr-2012 05:19:52
 
 CACHE:
 
@@ -62,11 +62,12 @@ CACHE:
 #javascript files
 http://www.google-analytics.com/ga.js
 /assets/js.php
-/assets/js.php?full_libs=lightningTouch+history+configurableMenu
+/assets/js.php?full_libs=lightningTouch+history+configurableMenu&full=/assets/js/ucsf/mainPage.js
 /assets/js.php?full_libs=configurableMenu+jquery_ui_touch_punch
 /assets/redirect/js_unset_override.php
 /assets/js/full/lightningTouch.js
 /assets/js/full/history.js
+/assets/js/ucsf/mainPage.js
 /assets/js/standard/preferences.js
 /assets/js/full/configurableMenu.js
 https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js

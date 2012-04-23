@@ -45,31 +45,6 @@ mwf.full.history = function() {
             } else {
                 return false;
             }
-            
-            //TODO: UCSF specific code to be moved to its own module
-            var header = document.getElementById('header');
-            var footer = document.getElementById('footer');
-            var topButton = document.getElementById('button-top');
-            
-            var headFootStyle = show=="main_menu" ? "" : "display:block";
-            
-            if (topButton) {
-                if ((show=="main_menu") || mwf.userAgent.isNative()) {
-                    topButton.setAttribute("style","display:none");
-                } else {
-                    topButton.setAttribute("style","display:inline");
-                }
-            }
-            
-            if (header)
-               header.setAttribute("style",headFootStyle);
-            
-            if (footer && mwf.userAgent.isNative() && mwf.userAgent.getOS()==="iphone_os" && show==="main_menu") {
-                footer.setAttribute("style","display:none");
-            } else {
-                footer.setAttribute("style","")
-            }
-            //END-TODO
 
             return true;
         }
@@ -94,7 +69,7 @@ mwf.full.history = function() {
                     if (target != null) {
                         event.preventDefault();
                         var clickedNode = document.getElementById(window.location.hash.substr(2));
-                        var clickedNodeId = clickedNode.getAttribute('id');
+                        var clickedNodeId = clickedNode ? clickedNode.getAttribute('id') : 'main_menu';
                         showContent(targetId,[clickedNodeId]);
 
                         var state = mwf.full.history.getState();

@@ -18,7 +18,6 @@
  * @version 20120422
  *  
  * @requires mwf
- * @requires mwf.full.clickBuster
  */
 
 mwf.full.lightningTouch = function(element, handler) {
@@ -59,10 +58,6 @@ mwf.full.lightningTouch.prototype.onClick = function(event) {
   event.stopPropagation();
   this.reset();
   this.handler(event);
-
-  if (event.type == 'touchend') {
-    mwf.clickBuster.preventGhostClick(this.startX, this.startY);
-  }
 };
 
 mwf.full.lightningTouch.prototype.reset = function() {

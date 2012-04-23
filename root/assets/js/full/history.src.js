@@ -11,7 +11,7 @@
  * @version 20120227
  *
  * @requires mwf
- * @requires mwf.full.fastLink
+ * @requires mwf.full.lightningTouch
  * @requires mwf.userAgent
  * @requires mwf.site.analytics
  * 
@@ -107,7 +107,7 @@ mwf.full.history = new function() {
 
         for (var i = 0; i < anchors.length ; i++) {
             if ((document.getElementById('il'+anchors[i].pathname) != null) || (mwf.site.root == anchors[i].href.replace(/\/$/, "")))
-                _link.push(new mwf.full.fastLink(anchors[i],function (event) {
+                _link.push(new mwf.full.lightningTouch(anchors[i],function (event) {
                     var targetId = (mwf.site.root == this.element.href.replace(/\/$/, "")) ? 'main_menu' : 'il'+this.element.pathname;
                     if (targetId == 'il/main_menu') 
                         targetId = 'main_menu';

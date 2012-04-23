@@ -1,26 +1,70 @@
 /**
- * Defines methods under mwf.full.history that handle browser history for 
- * in-page actions.
- *
- * @package full
- * @subpackage js
  *
  * @author trott
  * @copyright Copyright (c) 2011-12 UC Regents
- * @license http://mwf.ucla.edu/license
- * @version 20120422
+ * @version 20120423
  *
  * @requires mwf
- * @requires mwf.full.lightningTouch
  * @requires mwf.userAgent
  * @uses mwf.site.analytics
- * 
- * @events mwf_pageChanged
  * 
  */
 
 (function() {
     
+    var lightningTouch = function(element, handler) {
+        this.element = element;
+        this.handler = handler;
+
+        element.addEventListener('touchstart', this, false);
+        element.addEventListener('click', this, false);  
+    };
+
+    lightningTouch.prototype.handleEvent = function(event) {
+        switch (event.type) {
+            case 'touchstart':
+                this.onTouchStart(event);
+                break;
+            case 'touchmove':
+                this.onTouchMove(event);
+                break;
+            case 'touchend':
+                this.onClick(event);
+                break;
+            case 'click':
+                this.onClick(event);
+                break;
+        }
+    };
+
+    lightningTouch.prototype.onTouchStart = function(event) {
+        event.stopPropagation();
+
+        this.element.addEventListener('touchend', this, false);
+        document.body.addEventListener('touchmove', this, false);
+
+        this.startX = event.touches[0].clientX;
+        this.startY = event.touches[0].clientY;
+    };
+
+    lightningTouch.prototype.onTouchMove = function(event) {
+        if (Math.abs(event.touches[0].clientX - this.startX) > 10 ||
+            Math.abs(event.touches[0].clientY - this.startY) > 10) {
+            this.reset();
+        }
+    };
+
+    lightningTouch.prototype.onClick = function(event) {
+        event.stopPropagation();
+        this.reset();
+        this.handler(event);
+    };
+
+    lightningTouch.prototype.reset = function() {
+        this.element.removeEventListener('touchend', this, false);
+        document.body.removeEventListener('touchmove', this, false);
+    };
+        
     var link = [];
     var states = [];
     var indexToUrl = [];
@@ -128,7 +172,7 @@
 
         for (var i = 0; i < anchors.length ; i++) {
             if ((document.getElementById('il'+anchors[i].pathname) != null) || (mwf.site.root == anchors[i].href.replace(/\/$/, "")))
-                link.push(new mwf.full.lightningTouch(anchors[i], this.touchHandler));
+                link.push(new lightningTouch(anchors[i], this.touchHandler));
         }
     
         this.popHandler = function(event) {

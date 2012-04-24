@@ -1,7 +1,7 @@
 /********************************************************
  * BUTTONS
  * 
- * fastLink JS library will erroneously track hovers so
+ * lightningTouch JS library will erroneously track hovers so
  * let's just turn them off
  *******************************************************/
 .menu li:hover {

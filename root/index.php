@@ -74,8 +74,8 @@ if ($main_menu) {
 $head = Site_Decorator::head()->set_title(Config::get('global', 'title_text'));
 
 if ($main_menu) {
-    $head->add_js_handler_library('full_libs', 'fastLink');
-    $head->add_js_handler_library('full_libs', 'history');
+    $head->add_js_handler_library('full_libs', array('lightningTouch'))
+            ->set_js_handler_params(array('full'=>'/assets/js/ucsf/mainPage.js'));
 }
 
 if ($main_menu && Config::get('frontpage','configurable_homescreen'))
@@ -83,7 +83,7 @@ if ($main_menu && Config::get('frontpage','configurable_homescreen'))
 
 echo $head->render();
 
-echo HTML_Decorator::body_start($main_menu ? array('class' => 'front') : array())->render();
+echo HTML_Decorator::body_start($main_menu ? array('class' => 'front', 'data-default-target-id' => 'main_menu') : array())->render();
 
 /*
  * Header
@@ -118,6 +118,9 @@ foreach ($menu_names as $key => $menu_name) {
     if (isset($menu_externals[$key])) {
         if ($menu_externals[$key])
             $link_attributes['rel'] = 'external';
+    }
+    if ($main_menu && Classification::is_full()) {
+        $link_attributes['data-target-id'] = 'il/' . $menu_urls[$key];
     }
     $list_item_attributes = array();
     if (isset($menu_ids[$key]))

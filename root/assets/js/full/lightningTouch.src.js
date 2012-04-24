@@ -10,8 +10,7 @@
  * 
  */
 
-(function() {
-    
+(function () {
     var lightningTouch = function(element, handler) {
         this.element = element;
         this.handler = handler;
@@ -129,18 +128,13 @@
         if (! (history instanceof Object && history.replaceState instanceof Function))
             return;
 
-        var anchors = document.getElementsByTagName("a");
-
-
         this.touchHandler = function (event) {
-            var targetId = 'il'+this.element.pathname;
-            if (targetId == 'il/') 
-                targetId = 'main_menu';
+            var targetId = this.element.getAttribute("data-target-id");
             var target = document.getElementById(targetId);
             if (target != null) {
                 event.preventDefault();
                 var clickedNode = document.getElementById(window.location.hash.substr(2));
-                var clickedNodeId = clickedNode ? clickedNode.getAttribute('id') : 'main_menu';
+                var clickedNodeId = clickedNode ? clickedNode.getAttribute('id') : '/main_menu';
                 showContent(targetId,[clickedNodeId]);
 
                 var state = getState();
@@ -170,11 +164,12 @@
             }
         };
 
+        var anchors = document.getElementsByTagName("a");
         for (var i = 0; i < anchors.length ; i++) {
-            if ((document.getElementById('il'+anchors[i].pathname) != null) || (mwf.site.root == anchors[i].href.replace(/\/$/, "")))
+            if (anchors[i].getAttribute('data-target-id')!=null){
                 link.push(new lightningTouch(anchors[i], this.touchHandler));
+            }
         }
-    
         this.popHandler = function(event) {
             state = getState();
             if (state) {

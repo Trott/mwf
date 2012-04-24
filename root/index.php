@@ -119,6 +119,9 @@ foreach ($menu_names as $key => $menu_name) {
         if ($menu_externals[$key])
             $link_attributes['rel'] = 'external';
     }
+    if ($main_menu && Classification::is_full()) {
+        $link_attributes['data-target-id'] = 'il/' . $menu_urls[$key];
+    }
     $list_item_attributes = array();
     if (isset($menu_ids[$key]))
         $list_item_attributes['id'] = $menu_ids[$key];

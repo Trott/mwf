@@ -24,7 +24,7 @@ class Ucsf_Library_Help_Menu_Site_Decorator extends Menu_Site_Decorator {
     public function render($raw = false) {
         $this->add_item('Ask Us', '/library/askus/');
         $this->add_item('Getting Started Guides', 'http://guides.library.ucsf.edu/', array(), array('rel'=>'external'));
-        $this->add_item('How Do I?', '/library/howdoi/');
+        $this->add_item('How Do I?', '/library/howdoi/', array(), array('data-target-id' => 'il/library/howdoi/'));
         $this->add_item('Where Is It?', '/library/whereisit/');
         return parent::render($raw);
     }

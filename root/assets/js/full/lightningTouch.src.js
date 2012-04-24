@@ -133,7 +133,8 @@
 
 
         this.touchHandler = function (event) {
-            var targetId = (mwf.site.root == this.element.href.replace(/\/$/, "")) ? 'main_menu' : 'il'+this.element.pathname;
+            console.log(this.element.href);
+            var targetId = 'il'+this.element.pathname;
             if (targetId == 'il/main_menu') 
                 targetId = 'main_menu';
             var target = document.getElementById(targetId);

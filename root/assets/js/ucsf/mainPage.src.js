@@ -1,6 +1,13 @@
 mwf.ucsf = mwf.ucsf || {};
 
-mwf.ucsf.toggleHeaderAndFooter = function() {
+mwf.ucsf.callAnalytics = function () {
+    var path = (window.location.hash == '#/main_menu') ? '/' : window.location.hash.substr(4);
+    mwf.site.analytics.trackPageview(path);
+}
+
+document.addEventListener('hashchange',mwf.ucsf.callAnalytics);
+
+mwf.ucsf.toggleHeaderAndFooter = function () {
     var header = document.getElementById('header');
     var footer = document.getElementById('footer');
     var topButton = document.getElementById('button-top');
@@ -24,8 +31,13 @@ mwf.ucsf.toggleHeaderAndFooter = function() {
     }
 }
 
-if ("onhashchange" in window) {
-    window.onhashchange = mwf.ucsf.toggleHeaderAndFooter;
+document.addEventListener('hashchange', mwf.ucsf.toggleHeaderAndFooter);
+document.addEventListener('DOMContentLoaded', mwf.ucsf.toggleHeaderAndFooter, false);
+
+mwf.ucsf.nativeAndroidDisplayFix = function () {
+    if (mwf.userAgent.isNative() && mwf.userAgent.getOS()=='android' && location.hash=="#/main_menu") {
+        document.getElementById('main_menu').setAttribute("style", "display:inline");
+    }
 }
 
-document.addEventListener('DOMContentLoaded', mwf.ucsf.toggleHeaderAndFooter, false);
+document.addEventListener('hashchange', mwf.ucsf.nativeAndroidDisplayFix);

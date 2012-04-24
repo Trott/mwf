@@ -83,7 +83,7 @@ if ($main_menu && Config::get('frontpage','configurable_homescreen'))
 
 echo $head->render();
 
-echo HTML_Decorator::body_start($main_menu ? array('class' => 'front') : array())->render();
+echo HTML_Decorator::body_start($main_menu ? array('class' => 'front', 'data-default-target-id' => 'main_menu') : array())->render();
 
 /*
  * Header

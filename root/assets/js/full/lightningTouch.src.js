@@ -1,12 +1,12 @@
 /**
+ * Lightning Touch
+ * 
+ * Make switching divs in response to touched links responsive without the several
+ *    hundred millisecond delay typical in a hendheld touchscreen browser.
  *
- * @author trott
- * @copyright Copyright (c) 2011-12 UC Regents
- * @version 20120423
- *
- * @requires mwf
- * @requires mwf.userAgent
- * @uses mwf.site.analytics
+ * @author Richard Trott
+ * @copyright Copyright (c) 2012 UC Regents
+ * @version 0.99
  * 
  */
 
@@ -66,7 +66,8 @@
         
     var link = [],
     states = [],
-    indexToUrl = [];
+    indexToUrl = [],
+    defaultTargetId;
     
     var setState = function (object,url) {
         var index = indexToUrl.indexOf(url);
@@ -105,25 +106,21 @@
                     hideElement.setAttribute("style", "display:none");
                 }
             }
-            var showElement = document.getElementById(show);
-            
-            //TODO: Do we really need this? 
-            var displayValue = (mwf.userAgent.isNative() && mwf.userAgent.getOS()=='android' && show=="main_menu") ? "display:inline" : "display:block";
-            //END-TODO
+            var showElement = document.getElementById(show) || document.getElementById(defaultTargetId);
             
             if (showElement) {
-                //TODO: UCSF specific variable in next line. 
-                showElement.setAttribute("style", displayValue);
+                showElement.setAttribute("style", "display:block");
             } else {
                 return false;
             }
 
             return true;
         }
+        
+        defaultTargetId = document.body.getAttribute('data-default-target-id') || '';
 
         if (! window.location.hash ) {
-            //TODO: main_menu ID should be configurable
-            window.location.hash = '#/main_menu';
+            window.location.hash = '#/' + defaultTargetId;
         }
         showContent(window.location.hash.substring(2),[]);
         
@@ -137,7 +134,7 @@
             if (target !== null) {
                 event.preventDefault();
                 var clickedNode = document.getElementById(window.location.hash.substr(2));
-                var clickedNodeId = clickedNode ? clickedNode.getAttribute('id') : '/main_menu';
+                var clickedNodeId = clickedNode ? clickedNode.getAttribute('id') : '/' + defaultTargetId;
                 showContent(targetId,[clickedNodeId]);
 
                 var state = getState();
@@ -161,9 +158,6 @@
                     show:targetId,
                     hide:hide
                 },'');
-                if(mwf.site.analytics){
-                    mwf.site.analytics.trackPageview(this.element.pathname);
-                }
             }
         };
 

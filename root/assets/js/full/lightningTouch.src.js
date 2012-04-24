@@ -133,9 +133,8 @@
 
 
         this.touchHandler = function (event) {
-            console.log(this.element.href);
             var targetId = 'il'+this.element.pathname;
-            if (targetId == 'il/main_menu') 
+            if (targetId == 'il/') 
                 targetId = 'main_menu';
             var target = document.getElementById(targetId);
             if (target != null) {

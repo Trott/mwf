@@ -59,6 +59,7 @@ $menu_ids = Config::get('frontpage', 'menu.id.' . $menu_section);
 $menu_urls = Config::get('frontpage', 'menu.url.' . $menu_section);
 $menu_restrictions = Config::get('frontpage', 'menu.restriction.' . $menu_section);
 $menu_externals = Config::get('frontpage', 'menu.external.' . $menu_section);
+$menu_lightnings = Config::get('frontpage', 'menu.lightning.' . $menu_section);
 
 $main_menu = ($menu_section == 'default');
 
@@ -118,7 +119,7 @@ foreach ($menu_names as $key => $menu_name) {
         if ($menu_externals[$key])
             $link_attributes['rel'] = 'external';
     }
-    if ($main_menu && Classification::is_full()) {
+    if ($main_menu && Classification::is_full() && $menu_lightnings[$key]) {
         $link_attributes['data-target-id'] = 'il/' . $menu_urls[$key];
     }
     $list_item_attributes = array();

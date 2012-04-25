@@ -5,7 +5,7 @@ mwf.ucsf.callAnalytics = function () {
     mwf.site.analytics.trackPageview(path);
 }
 
-document.addEventListener('hashchange', mwf.ucsf.callAnalytics, false);
+window.addEventListener('hashchange', mwf.ucsf.callAnalytics, false);
 
 mwf.ucsf.toggleHeaderAndFooter = function () {
     var header = document.getElementById('header');
@@ -31,7 +31,7 @@ mwf.ucsf.toggleHeaderAndFooter = function () {
     }
 }
 
-document.addEventListener('hashchange', mwf.ucsf.toggleHeaderAndFooter, false);
+window.addEventListener('hashchange', mwf.ucsf.toggleHeaderAndFooter, false);
 window.addEventListener('DOMContentLoaded', mwf.ucsf.toggleHeaderAndFooter, false);
 
 mwf.ucsf.nativeAndroidDisplayFix = function () {
@@ -40,4 +40,4 @@ mwf.ucsf.nativeAndroidDisplayFix = function () {
     }
 }
 
-document.addEventListener('hashchange', mwf.ucsf.nativeAndroidDisplayFix, false);
+window.addEventListener('hashchange', mwf.ucsf.nativeAndroidDisplayFix, false);

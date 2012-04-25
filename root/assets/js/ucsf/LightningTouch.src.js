@@ -2,7 +2,7 @@
  * Lightning Touch
  * 
  * Make switching divs in response to touched links responsive without the several
- *    hundred millisecond delay typical in a hendheld touchscreen browser.
+ * hundred millisecond delay typical in a hendheld touchscreen browser.
  *
  * @author Richard Trott
  * @copyright Copyright (c) 2012 UC Regents
@@ -23,7 +23,46 @@
         saveState,
         getState,
         hideArray,
+        coordinates,
+        pop,
+        preventGhostClick,
+        clickBust,
         init;
+
+/**
+ * Click events can take 300 ms or so to register on a mobile device because 
+ * the device is waiting to see if it's a double click or a touch-and-drag 
+ * event.  Use touchStart etc. to work around this issue, but it's not as 
+ * straightforward as one might hope.
+ * 
+ * This code started with a portion of fastButtons created and shared by Google
+ * and used according to terms described in the Creative Commons 3.0 Attribution
+ * License.  fastButtons can be found at: 
+ * http://code.google.com/mobile/articles/fast_buttons.html
+ */
+    coordinates = [];
+
+    pop = function () {
+        coordinates.splice(0, 2);
+    };
+
+    preventGhostClick = function (x, y) {
+        coordinates.push(x, y);
+        window.setTimeout(pop, 2500);
+    };
+
+    clickBust = function (event) {
+        var i, x, y;
+        for (i = 0; i < coordinates.length; i += 2) {
+            x = coordinates[i];
+            y = coordinates[i + 1];
+            if (Math.abs(event.clientX - x) < 25 && Math.abs(event.clientY - y) < 25) {
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        }
+    };
+    document.addEventListener('click', clickBust, true);
 
     LightningTouch = function (element, handler) {
         this.element = element;
@@ -71,6 +110,10 @@
         event.stopPropagation();
         this.reset();
         this.handler(event);
+
+        if (event.type === 'touchend') {
+            preventGhostClick(this.startX, this.startY);
+        }
     };
 
     LightningTouch.prototype.reset = function () {

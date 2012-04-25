@@ -26,7 +26,7 @@
         coordinates,
         pop,
         preventGhostClick,
-        clikBust,
+        clickBust,
         init;
 
 /**

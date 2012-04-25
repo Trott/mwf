@@ -11,7 +11,18 @@
  */
 
 (function () {
-    var lightningTouch = function (element, handler) {
+    var link = [],
+    states = [],
+    indexToUrl = [],
+    defaultTargetId,
+    lightningTouch,
+    setState,
+    saveState,
+    getState,
+    hideArray,
+    init;
+    
+    lightningTouch = function (element, handler) {
         this.element = element;
         this.handler = handler;
 
@@ -63,13 +74,8 @@
         this.element.removeEventListener('touchend', this, false);
         document.body.removeEventListener('touchmove', this, false);
     };
-        
-    var link = [],
-    states = [],
-    indexToUrl = [],
-    defaultTargetId;
     
-    var setState = function (object,url) {
+    setState = function (object,url) {
         var index = indexToUrl.indexOf(url);
         if (index<0) {
             index = indexToUrl.length; 
@@ -78,35 +84,38 @@
         states[index] = object;
     };
     
-    var saveState = function (object,title,url) {
+    saveState = function (object,title,url) {
         url = url || location.pathname + location.hash;
         setState(object,url);
         history.replaceState(object,title,url);
     };
     
-    var getState = function (id) {
-        var url = id ? location.pathname + '#/' + id : location.pathname + location.hash;
-        var index = indexToUrl.indexOf(url)
+    getState = function (id) {
+        var index,
+        url = id ? location.pathname + '#/' + id : location.pathname + location.hash;
+        index = indexToUrl.indexOf(url);
         return index<0 ? undefined : states[index];
     };
     
-    var hideArray = function (hide,newHideId) {
+    hideArray = function (hide,newHideId) {
         if (hide.indexOf(newHideId) < 0) {
             hide.push(newHideId);
         }
         return hide;
     };
     
-    var init = function () { 
+    init = function () {
+        var anchors, i;
+        
         function showContent(show,hide) {
-            var hideElement, i;
+            var hideElement, showElement, i;
             for (i=0; i<hide.length; i++) {
                 hideElement = document.getElementById(hide[i]);
                 if (hideElement) {
                     hideElement.setAttribute("style", "display:none");
                 }
             }
-            var showElement = document.getElementById(show) || document.getElementById(defaultTargetId);
+            showElement = document.getElementById(show) || document.getElementById(defaultTargetId);
             
             if (showElement) {
                 showElement.setAttribute("style", "display:block");
@@ -129,16 +138,17 @@
         }
 
         this.touchHandler = function (event) {
-            var targetId = this.element.getAttribute("data-target-id");
-            var target = document.getElementById(targetId);
+            var targetId, target, clickedNode, clickedNodeId, state, hide;
+            targetId = this.element.getAttribute("data-target-id");
+            target = document.getElementById(targetId);
             if (target !== null) {
                 event.preventDefault();
-                var clickedNode = document.getElementById(window.location.hash.substr(2));
-                var clickedNodeId = clickedNode ? clickedNode.getAttribute('id') : '/' + defaultTargetId;
+                clickedNode = document.getElementById(window.location.hash.substr(2));
+                clickedNodeId = clickedNode ? clickedNode.getAttribute('id') : '/' + defaultTargetId;
                 showContent(targetId,[clickedNodeId]);
 
-                var state = getState();
-                var hide = (state && state.hasOwnProperty('hide')) ? 
+                state = getState();
+                hide = (state && state.hasOwnProperty('hide')) ? 
                 hideArray(state.hide,targetId) :
                 [targetId];
                         
@@ -161,21 +171,20 @@
             }
         };
 
-        var anchors = document.getElementsByTagName("a");
-        for (var i = 0; i < anchors.length ; i++) {
+        anchors = document.getElementsByTagName("a");
+        for (i = 0; i < anchors.length ; i++) {
             if (anchors[i].getAttribute('data-target-id')!=null){
                 link.push(new lightningTouch(anchors[i], this.touchHandler));
             }
         }
         this.popHandler = function (event) {
+            var state, previousState, hide;
             state = getState();
             if (state) {
                 showContent(state.show,state.hide);
             } 
             if (event.state) {
                 //Retrieve adjacent pages and add our "show" value to their hide values
-                var previousState;
-                var hide;
                 for (i=0; i<event.state.hide.length; i++) {
                     previousState = getState(event.state.hide[i]);
                     if (previousState) {

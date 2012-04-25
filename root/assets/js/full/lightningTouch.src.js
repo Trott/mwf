@@ -109,31 +109,27 @@
     init = function () {
         var anchors, i;
 
-        function showContent(show, hide) {
-            var hideElement, showElement, i;
-            for (i = 0; i < hide.length; i += 1) {
-                hideElement = document.getElementById(hide[i]);
-                if (hideElement) {
-                    hideElement.setAttribute("style", "display:none");
-                }
-            }
-            showElement = document.getElementById(show) || document.getElementById(defaultTargetId);
-
-            if (showElement) {
-                showElement.setAttribute("style", "display:block");
-            } else {
-                return false;
-            }
-
-            return true;
-        }
-
         defaultTargetId = document.body.getAttribute('data-default-target-id') || '';
 
-        if (!window.location.hash) {
-            window.location.hash = '#/' + defaultTargetId;
+        function showContent(show, hide) {
+            var hideElement, showElement, i;
+
+            showElement = document.getElementById(show) || document.getElementById(defaultTargetId);
+            if (showElement) {
+                for (i = 0; i < hide.length; i += 1) {
+                    hideElement = document.getElementById(hide[i]);
+                    if (hideElement) {
+                        hideElement.setAttribute("style", "display:none");
+                    }
+                }
+                showElement.setAttribute("style", "display:block");
+            }
         }
-        showContent(window.location.hash.substring(2), []);
+
+        if (!location.hash) {
+            location.hash = '#/' + defaultTargetId;
+        }
+        showContent(location.hash.substring(2), []);
 
         if (!(history instanceof Object && history.replaceState instanceof Function)) {
             return;
@@ -145,8 +141,8 @@
             target = document.getElementById(targetId);
             if (target !== null) {
                 event.preventDefault();
-                clickedNode = document.getElementById(window.location.hash.substr(2));
-                clickedNodeId = clickedNode ? clickedNode.getAttribute('id') : '/' + defaultTargetId;
+                clickedNode = document.getElementById(location.hash.substr(2));
+                clickedNodeId = clickedNode ? clickedNode.getAttribute('id') : defaultTargetId;
                 showContent(targetId, [clickedNodeId]);
 
                 state = getState();
@@ -159,7 +155,7 @@
                     hide: hide
                 }, '');
 
-                window.location.hash = '#/' + targetId;
+                location.hash = '#/' + targetId;
 
                 state = getState();
                 hide = (state && state.hasOwnProperty('hide')) ?

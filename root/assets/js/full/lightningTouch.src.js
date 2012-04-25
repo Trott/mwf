@@ -10,7 +10,10 @@
  * 
  */
 
+/*global document: false, history: false, location: false, window: false */
+
 (function () {
+    "use strict";
     var link = [],
         states = [],
         indexToUrl = [],

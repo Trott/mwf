@@ -62,7 +62,8 @@ CACHE:
 #javascript files
 http://www.google-analytics.com/ga.js
 /assets/js.php
-/assets/js.php?full=/assets/js/ucsf/LightningTouch.js+/assets/js/ucsf/mainPage.js&full_libs=configurableMenu/assets/js.php?full_libs=configurableMenu+jquery_ui_touch_punch
+/assets/js.php?full=/assets/js/ucsf/LightningTouch.js+/assets/js/ucsf/mainPage.js&full_libs=configurableMenu
+/assets/js.php?full_libs=configurableMenu+jquery_ui_touch_punch
 /assets/redirect/js_unset_override.php
 /assets/js/ucsf/LightningTouch.js
 /assets/js/ucsf/mainPage.js

@@ -1,32 +1,33 @@
 <?php
-require_once(dirname(dirname(__FILE__)).'/assets/lib/decorator.class.php');
-require_once(dirname(dirname(__FILE__)).'/assets/config.php');
-require_once(dirname(dirname(dirname(__FILE__))).'/auxiliary/feed/feed.class.php');
 
-$feeds = Config::get('ucsf_news','feeds');
-$alt_feeds = Config::get('ucsf_news','alternate_feeds');
+require_once(dirname(__DIR__) . '/assets/lib/decorator.class.php');
+require_once(dirname(__DIR__) . '/assets/config.php');
+require_once(dirname(dirname(__DIR__)) . '/auxiliary/feed/feed.class.php');
+
+$feeds = Config::get('ucsf_news', 'feeds');
+$alt_feeds = Config::get('ucsf_news', 'alternate_feeds');
 $all_feeds = array_merge($feeds, $alt_feeds);
 
 $more = TRUE;
 $item_limit = 4;
-$header_title = HTML_Decorator::tag('a', 'News', array('href'=>'/news'));
+$header_title = HTML_Decorator::tag('a', 'News', array('href' => '/news'));
 $header_feed = '';
 
-if (array_key_exists('feed',$_GET) && in_array($_GET['feed'],$all_feeds)) {
-    $my_feed=$_GET['feed'];
+if (array_key_exists('feed', $_GET) && in_array($_GET['feed'], $all_feeds)) {
+    $my_feed = $_GET['feed'];
     $feeds = array($my_feed);
-    if (Config::get('ucsf_news',"$my_feed.header_title")) {
+    if (Config::get('ucsf_news', "$my_feed.header_title")) {
         $header_title = Config::get('ucsf_news', "$my_feed.header_title");
-        $header_feed=$my_feed;
+        $header_feed = $my_feed;
     }
-    
+
     $item_limit = PHP_INT_MAX;
     $more = FALSE;
 }
 
 $rss = array();
 foreach ($feeds as $feed_code) {
-        $rss[$feed_code] = new Feed(Config::get('ucsf_news',"$feed_code.name"),Config::get('ucsf_news',"$feed_code.url"));
+    $rss[$feed_code] = new Feed(Config::get('ucsf_news', "$feed_code.name"), Config::get('ucsf_news', "$feed_code.url"));
 }
 
 $home_feed_code = '';
@@ -40,66 +41,61 @@ date_default_timezone_set('America/Los_Angeles');
 echo HTML_Decorator::html_start()->render();
 echo Site_Decorator::head()->set_title(Config::get('global', 'title_text') . " | " . strip_tags($header_title))->render();
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header($header_title)
-        ->render();
-         ?> 
-        <?php foreach ($rss as $feed_code=>$feed): ?>
-        <?php $direct_link = Config::get('ucsf_news',"$feed_code.direct_link"); ?>
-        <?php $date_format = Config::get('ucsf_news',"$feed_code.date_format");   ?>
-                <?php $num_items_displayed = 0;
-                      $class = $direct_link ? 'class="external"' : '';
-                      $rel = $direct_link ? ' rel="external" class="no-ext-ind"' : '';
-                      $items=$feed->get_items();
-                if (count($items)==0):?>
-                    <div class="content padded"><h1 class="light content-first"><?php echo htmlspecialchars(Config::get('ucsf_news',"$feed_code.name")); ?></h1><div class="content-last">This news feed is currently unavailable. Please try again later.</div></div>
-          <?php else: ?>
-          <div class="menu padded detailed">
-             <h1 class="light menu-first"><?php echo htmlspecialchars(Config::get('ucsf_news',"$feed_code.name")); ?></h1>
-                    <ol>
-              <?php for($i=0; $i < count($items) && $num_items_displayed<$item_limit; $i++):
-                    $item = $items[$i];
+echo Site_Decorator::ucsf_header($header_title)->render();
+foreach ($rss as $feed_code => $feed) {
+    $direct_link = Config::get('ucsf_news', "$feed_code.direct_link");
+    $date_format = Config::get('ucsf_news', "$feed_code.date_format");
+    $num_items_displayed = 0;
+    $class = $direct_link ? 'class="external"' : '';
+    $items = $feed->get_items();
+    if (count($items) == 0) {
+        echo Site_Decorator::content()
+                ->add_header_light(Config::get('ucsf_news', "$feed_code.name"))
+                ->add_section('This news feed is currently unavailable. Please try again later.')
+                ->render();
+    } else {
+        $menu = Site_Decorator::menu()
+                ->set_detailed()
+                ->set_title_light(Config::get('ucsf_news', "$feed_code.name"));
 
-                    $description = $item->get_description();
-                    if (empty($description))
-                        continue;
+        for ($i = 0; $i < count($items) && $num_items_displayed < $item_limit; $i++) {
+            $item = $items[$i];
 
-                    $link = $direct_link ? $item->get_link() : 'view.php?feed=' . urlencode($feed_code) . '&amp;id=' . md5($item->get_link());
-                    if (!$more && ($i == count($feed->get_items())-1)) {
-                        $class_text='class="menu-last"';
-                    } else {
-                        $class_text='';
-                    }
- 
-                   $date = empty($date_format) ? $item->get_date() : $item->get_date($date_format);
-                ?>
-                    <li <?php echo $class_text; ?>><a href="<?php echo $link; ?>"<?php echo $rel; ?>><span <?php echo $class;?>><?php echo $item->get_title(); ?></span><br/><span class="smallprint light"><?php echo $date; ?></span></a></li>
-                        <?php $num_items_displayed++; ?>
-                    <?php endfor; ?>
-                <?php if ($more):?>
-                    <li class="menu-last"><a href="?feed=<?php echo urlencode($feed_code); ?>">More...</a></li>
-                <?php endif; ?>
-                    </ol>
-                </div>
-              <?php  endif; ?>
-        <?php endforeach; ?>
+            $description = $item->get_description();
+            if (empty($description))
+                continue;
 
-    <?php if ($feeds == Config::get('ucsf_news','feeds')): ?>
-            <div class="menu padded detailed">
-            <h1 class="light menu-first">Additional News</h1>
-            <ol>
-            <li><a href="http://m.youtube.com/ucsf" rel="external">UCSF on YouTube</a></li>
-            <?php $i = 0; $len = count($alt_feeds);?>
-            <?php foreach ($alt_feeds as $feed_code): ?>
-                <?php if (!(Config::get('ucsf_news',"$feed_code.hidden"))): ?>
-                <?php $class = $i==$len-1 ? 'class="menu-last"' : ''; ?>
-                <li <?php echo $class; ?>><a href="?feed=<?php echo urlencode($feed_code); ?>"><?php echo Config::get('ucsf_news',"$feed_code.name"); ?></a></li>
-                <?php endif; ?>
-             <?php $i++; ?>
-            <?php endforeach; ?>
-            </ol>
-            </div>
-    <?php endif;
+            $link = $direct_link ? $item->get_link() : 'view.php?feed=' . urlencode($feed_code) . '&amp;id=' . md5($item->get_link());
+            $date = empty($date_format) ? $item->get_date() : $item->get_date($date_format);
+            $item_text = array(
+                HTML_Decorator::tag('span', $item->get_title(), $direct_link ? array('class' => 'external') : array()),
+                HTML_Decorator::tag('br', false),
+                HTML_Decorator::tag('span', $date, array('class' => 'smallprint light'))
+            );
+            $menu->add_item($item_text, $link, $direct_link ? array('rel' => 'external', 'class' => 'no-ext-ind') : array());
+            $num_items_displayed++;
+        }
+        if ($more) {
+            $menu->add_item('More...', '?feed=' . $feed_code);
+        }
+        echo $menu->render();
+    }
+}
+
+if ($feeds == Config::get('ucsf_news', 'feeds')) {
+    $menu = Site_Decorator::menu()
+            ->set_detailed()
+            ->set_title_light('Addtional News')
+            ->add_item('UCSF on YouTube', 'http://m.youtube.com/ucsf', array(), array('rel' => 'external'));
+
+    $len = count($alt_feeds);
+    foreach ($alt_feeds as $feed_code) {
+        if (!(Config::get('ucsf_news', "$feed_code.hidden"))) {
+            $menu->add_item(Config::get('ucsf_news', "$feed_code.name"), '?feed=' . $feed_code);
+        }
+    }
+    echo $menu->render();
+}
 echo Site_Decorator::ucsf_footer()->render();
 echo HTML_Decorator::body_end()->render();
 echo HTML_Decorator::html_end()->render();
-?>

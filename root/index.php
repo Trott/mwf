@@ -75,7 +75,7 @@ if ($main_menu) {
 $head = Site_Decorator::head()->set_title(Config::get('global', 'title_text'));
 
 if ($main_menu) {
-    $head->set_js_handler_params(array('full'=>'/assets/js/ucsf/LightningTouch.js+/assets/js/ucsf/mainPage.js'));
+    $head->set_js_handler_params(array('full'=>'/assets/js/ucsf/LightningTouch-1.0.0.min.js+/assets/js/ucsf/mainPage.js'));
 }
 
 if ($main_menu && Config::get('frontpage','configurable_homescreen'))

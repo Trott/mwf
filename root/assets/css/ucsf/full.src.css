@@ -1,7 +1,7 @@
 /********************************************************
  * BUTTONS
  * 
- * LightningTouch JS library will erroneously track hovers so
+ * Lightning Touch JS library will erroneously track hovers so
  * let's just turn them off
  *******************************************************/
 .menu li:hover {

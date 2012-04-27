@@ -33,7 +33,7 @@ class UCSF_News_Section_Site_Decorator extends Tag_HTML_Decorator {
         return parent::__construct('section', '', $params);
     }
 
-    public function render() {
+    public function render($raw = false) {
         $rss = array();
         foreach ($this->_feeds as $feed_code) {
             $rss[$feed_code] = new Feed(Config::get('ucsf_news', "$feed_code.name"), Config::get('ucsf_news', "$feed_code.url"));
@@ -103,7 +103,7 @@ class UCSF_News_Section_Site_Decorator extends Tag_HTML_Decorator {
         }
 
 
-        return parent::render();
+        return parent::render($raw);
     }
 
 }

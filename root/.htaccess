@@ -14,7 +14,8 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml
     RewriteRule ^events /news/?feed=ucsfevents [R,L]
     RewriteRule ^news/library /news/?feed=library [L]
     RewriteRule ^directory(.*)$ /ci/directory$1 [L]
-    RewriteRule ^fitness(.*)$ /ci/fitness$1 [L]
+    RewriteCond %{REQUEST_URI} !/fitness/index.php
+    RewriteRule ^fitness/(.+)$ /ci/fitness/$1 [L]
     RewriteRule ^calendars/?$ /calendars.php [L]
     RewriteRule ^social/?$ /social.php [L]
     RewriteRule ^emergency/?$ /emergency.php [L]

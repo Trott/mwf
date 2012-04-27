@@ -27,7 +27,6 @@ class Ucsf_Fitness_Menu_Site_Decorator extends Menu_Site_Decorator {
     //         we'd work with to get the feed changed so we can make this suck 
     //         less.
     public function render($raw = false) {
-        //TODO: OMG cache this shit!
         $alert_cache = new Disk_Cache('ucsf_fitness_alert');
         $alerts = $alert_cache->get('alerts');
         if ($alerts === false) {

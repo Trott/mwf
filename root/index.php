@@ -56,7 +56,7 @@ if (!isset($menu_names)) {
 
 $menu_ids = Config::get('frontpage', 'menu.id.' . $menu_section);
 $menu_urls = Config::get('frontpage', 'menu.url.' . $menu_section);
-$menu_restrictions = Config::get('frontpage', 'menu.restriction.' . $menu_section);
+$menu_classes = Config::get('frontpage', 'menu.class.' . $menu_section);
 $menu_externals = Config::get('frontpage', 'menu.external.' . $menu_section);
 $menu_lightnings = Config::get('frontpage', 'menu.lightning.' . $menu_section);
 
@@ -79,6 +79,7 @@ if ($main_menu) {
 
 if ($main_menu && Config::get('frontpage', 'configurable_homescreen'))
     $head->add_js_handler_library('full_libs', 'configurableMenu');
+
 
 echo $head->render();
 
@@ -108,16 +109,21 @@ if (Classification::is_full())
     $menu->set_param('style', 'display:none');
 
 foreach ($menu_names as $key => $menu_name) {
-    if (isset($menu_restrictions[$key])) {
-        $function = $menu_restrictions[$key];
-        if (!User_Agent::$function())
-            continue;
+
+    $list_item_attributes = array();
+    if (isset($menu_classes[$key])) {
+        $list_item_attributes['class'] = $menu_classes[$key];
     }
+    if (isset($menu_ids[$key])) {
+        $list_item_attributes['id'] = $menu_ids[$key];
+    }
+
     $link_attributes = array();
     if (isset($menu_externals[$key])) {
         if ($menu_externals[$key])
             $link_attributes['rel'] = 'external';
     }
+
     if ($main_menu && Classification::is_full() && $menu_lightnings[$key]) {
         $link_attributes['data-target-id'] = 'il/' . $menu_urls[$key];
     }

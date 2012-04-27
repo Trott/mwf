@@ -24,13 +24,13 @@ class UCSF_News_Section_Site_Decorator extends Tag_HTML_Decorator {
     private $_item_limit;
     private $_alt_feeds;
 
-    public function __construct($header_title, $feeds, $item_limit, $more, $alt_feeds) {
+    public function __construct($header_title, $feeds, $item_limit, $more, $alt_feeds, $params=array()) {
         $this->_header_title = $header_title;
         $this->_feeds = $feeds;
         $this->_item_limit = $item_limit;
         $this->_more = $more;
         $this->_alt_feeds = $alt_feeds;
-        return parent::__construct('section');
+        return parent::__construct('section', '', $params);
     }
 
     public function render() {
@@ -70,7 +70,7 @@ class UCSF_News_Section_Site_Decorator extends Tag_HTML_Decorator {
                     if (empty($description))
                         continue;
 
-                    $link = $direct_link ? $item->get_link() : 'view.php?feed=' . $feed_code . '&id=' . md5($item->get_link());
+                    $link = $direct_link ? $item->get_link() : '/news/view.php?feed=' . $feed_code . '&id=' . md5($item->get_link());
                     $date = empty($date_format) ? $item->get_date() : $item->get_date($date_format);
                     $item_text = array(
                         HTML_Decorator::tag('span', $item->get_title(), $direct_link ? array('class' => 'external') : array()),
@@ -81,7 +81,7 @@ class UCSF_News_Section_Site_Decorator extends Tag_HTML_Decorator {
                     $num_items_displayed++;
                 }
                 if ($this->_more) {
-                    $menu->add_item('More...', '?feed=' . $feed_code);
+                    $menu->add_item('More...', '/news/?feed=' . $feed_code);
                 }
                 $this->add_inner($menu);
             }
@@ -96,7 +96,7 @@ class UCSF_News_Section_Site_Decorator extends Tag_HTML_Decorator {
             $len = count($this->_alt_feeds);
             foreach ($this->_alt_feeds as $feed_code) {
                 if (!(Config::get('ucsf_news', "$feed_code.hidden"))) {
-                    $menu->add_item(Config::get('ucsf_news', "$feed_code.name"), '?feed=' . $feed_code);
+                    $menu->add_item(Config::get('ucsf_news', "$feed_code.name"), '/news/?feed=' . $feed_code);
                 }
             }
             $this->add_inner($menu);

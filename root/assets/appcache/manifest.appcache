@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#04-May-2012 00:35:53
+#04-May-2012 06:17:40
 
 CACHE:
 
@@ -56,13 +56,13 @@ CACHE:
 /assets/img/ucsf-icon-precomposed-shuttle.png
 /assets/img/ucsf-icon-precomposed-social.png
 /assets/img/ucsf-list-arrow.png
-/assets/img/ucsf-background.png
-/assets/img/ucsf-background-landscape.png
+/assets/img/ucsf-background-decor.png
+/assets/img/ucsf-watermark.png
 
 #javascript files
 http://www.google-analytics.com/ga.js
 /assets/js.php
-/assets/js.php?full=/assets/js/ucsf/LightningTouch-1.0.0.min.js+/assets/js/ucsf/mainPage.js&full_libs=configurableMenu
+/assets/js.php?full=/assets/js/ucsf/LightningTouch-1.0.0.min.js+/assets/js/ucsf/mainPage.js+/assets/js/ucsf/overflowScrolling.js&full_libs=configurableMenu
 /assets/js.php?full_libs=configurableMenu+jquery_ui_touch_punch
 /assets/redirect/js_unset_override.php
 /assets/js/ucsf/LightningTouch-1.0.0.min.js

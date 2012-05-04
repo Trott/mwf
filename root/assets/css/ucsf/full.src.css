@@ -4,6 +4,13 @@ body,html {
     height:100%;
 }
 
+html.no-touch,
+html.no-touch body,
+html.touch.overflowscrolling,
+html.touch.overflowscrolling body{
+    overflow:auto;
+}
+
 body {
     font:100%/1.25 Arial,Helvetica,sans-serif;
     font-size:.93em;
@@ -12,7 +19,7 @@ body {
     line-height:normal;
 }
 
-body,html{ 
+body{
     width:100%;
     position:relative;
     background-image: url(img/ucsf-watermark.png), url(img/ucsf-background-decor.png), -moz-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%, rgba(98,172,180,1) 100%); /* FF3.6+ */

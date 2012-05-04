@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#04-May-2012 06:17:40
+#04-May-2012 13:35:44
 
 CACHE:
 
@@ -62,7 +62,7 @@ CACHE:
 #javascript files
 http://www.google-analytics.com/ga.js
 /assets/js.php
-/assets/js.php?full=/assets/js/ucsf/LightningTouch-1.0.0.min.js+/assets/js/ucsf/mainPage.js+/assets/js/ucsf/overflowScrolling.js&full_libs=configurableMenu
+/assets/js.php?full=/assets/js/ucsf/LightningTouch-1.0.0.min.js+/assets/js/ucsf/mainPage.js&full_libs=configurableMenu
 /assets/js.php?full_libs=configurableMenu+jquery_ui_touch_punch
 /assets/redirect/js_unset_override.php
 /assets/js/ucsf/LightningTouch-1.0.0.min.js

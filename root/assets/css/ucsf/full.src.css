@@ -11,6 +11,10 @@ html.touch.overflowscrolling body{
     overflow:auto;
 }
 
+html.touch.overflowscrolling {
+    -webkit-overflow-scrolling:touch;
+}
+
 body {
     font:100%/1.25 Arial,Helvetica,sans-serif;
     font-size:.93em;

@@ -1,9 +1,7 @@
-
 body,html {
     margin:0;
     padding:0;
     height:100%;
-    overflow:auto;
 }
 
 body {
@@ -14,7 +12,7 @@ body {
     line-height:normal;
 }
 
-body{ 
+body,html{ 
     width:100%;
     position:relative;
     background-image: url(img/ucsf-watermark.png), url(img/ucsf-background-decor.png), -moz-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%, rgba(98,172,180,1) 100%); /* FF3.6+ */

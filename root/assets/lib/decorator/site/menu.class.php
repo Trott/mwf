@@ -78,8 +78,6 @@ class Menu_Site_Decorator extends Tag_HTML_Decorator {
         return $this->set_title($inner, $params);
     }
 
-    //@todo Make items their own objects. Add ability to add detail text which 
-    //   will get rendered in a span with class smalltext.
     public function add_item($name, $url, $li_params = array(), $a_params = array(), $key=null) {
         if (!is_array($this->_list))
             $this->_list = array();
@@ -126,20 +124,19 @@ class Menu_Site_Decorator extends Tag_HTML_Decorator {
         elseif ($this->_home_screen === false)
             $this->remove_class('front');
 
-        if ($this->_align) {
+        if ($this->_align)
             $this->add_class($this->_align);
-        }
 
         if ($this->_title) {
             $this->add_inner_front($this->_title);
         }
 
         if ($this->_home_screen && Classification::is_full() && Config::get('frontpage', 'customizable_home_screen')) {
-            $js = 'mwf.full.customizableMenu("home_screen_layout").render("main_menu_list",' .
-                    json_encode(
-                            array_map(function($obj, $raw) {
-                                        return $obj->render($raw);
-                                    }, $this->_list, array_fill(0, count($this->_list), $raw))) . ');';
+            $js = 'mwf.cm = mwf.full.customizableMenu("home_screen_layout");';
+            foreach ($this->_list as $key=>$value) {
+                $js .= 'mwf.cm.addItem(' . json_encode($key) . ',' . json_encode($value->render($raw)) . ');';
+            }
+            $js .= 'mwf.cm.render("main_menu_list");';
             $this->add_inner(HTML_Decorator::tag('ol')->set_param('id', 'main_menu_list'));
             $this->add_inner(HTML_Decorator::tag('script', $js));
         } else {

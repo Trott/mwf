@@ -1,3 +1,78 @@
+body,html {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+html.no-touch,
+html.no-touch body,
+html.touch.overflowscrolling,
+html.touch.overflowscrolling body{
+    overflow:auto;
+}
+
+html.touch.overflowscrolling {
+    -webkit-overflow-scrolling:touch;
+}
+
+body {
+    font:100%/1.25 Arial,Helvetica,sans-serif;
+    font-size:.93em;
+    background: rgb(141,201,207); /* Old browsers */
+    font-family:Helvetica,Verdana,Arial,sans-serif;
+    line-height:normal;
+}
+
+body{
+    width:100%;
+    position:relative;
+    background-image: url(img/ucsf-watermark.png), url(img/ucsf-background-decor.png), -moz-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%, rgba(98,172,180,1) 100%); /* FF3.6+ */
+    background-image: url(img/ucsf-watermark.png), url(img/ucsf-background-decor.png), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(141,201,207,1)), color-stop(100%,rgba(98,172,180,1))); /* Chrome,Safari4+ */
+    background-image: url(img/ucsf-watermark.png), url(img/ucsf-background-decor.png), -webkit-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%,rgba(98,172,180,1) 100%); /* Chrome10+,Safari5.1+ */
+    background-image: url(img/ucsf-watermark.png), url(img/ucsf-background-decor.png), -o-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%,rgba(98,172,180,1) 100%); /* Opera 12+ */
+    background-image: url(img/ucsf-watermark.png), url(img/ucsf-background-decor.png), -ms-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%,rgba(98,172,180,1) 100%); /* IE10+ */
+    background-image: url(img/ucsf-watermark.png), url(img/ucsf-background-decor.png), radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%,rgba(98,172,180,1) 100%); /* W3C */
+    background-repeat:no-repeat, no-repeat, no-repeat;
+    background-position:left top, right bottom, left top;
+    background-size:auto 100%, 100% 70%, 100% 100%;
+}
+
+/* Don't hide banner on Android (which we detect with .touch.not-overflowscrolling--lame!) 
+      because Android doesn't show the background branding (also lame!) */
+html.no-touch body.front #header,
+html.touch.overflowscrolling body.front #header{
+    display:none;	
+}
+
+div#main_menu {
+    margin:0
+}
+
+#footer {
+    font-size:.80em;
+    text-align:center;
+    position:relative;
+    width:auto;
+    margin:25px 0 15px;
+    overflow:visible;
+    height:28px;
+    display:block;
+}
+
+
+#footer,#footer a,#footer a:visited,#footer a:hover {
+    color:#fff;
+}
+
+#footer a,#footer a:visited {
+
+    text-decoration:none;
+    border-bottom:1px solid #fff;
+}
+
+
+
+
 /********************************************************
  * BUTTONS
  * 
@@ -58,19 +133,6 @@ div.button a.button-light:active{
 /********************************************************
  * HOME SCREEN
  *******************************************************/
-@media screen and (max-width:320px) and (max-height:480px) {
-    body.mwf_os_iphone_os .menu.front {background:url(img/ucsf-background.png) no-repeat;height:480px;margin:0;border-radius:0}
-    body.mwf_os_iphone_os.front #header{display:none}
-    /* width:99% because 100% makes second-level lightning-touch menus horizontally scroll */
-    body.mwf_os_iphone_os div.menu.front[style~="display:block"] ~ #footer {padding:0; position:absolute; bottom:-100px; width:99%}
-    body.mwf_os_iphone_os {width:320px; overflow-x:hidden}
-}
-@media screen and (width:480px) {
-    body.mwf_os_iphone_os .menu.front {background:url(img/ucsf-background-landscape.png) no-repeat;height:320px;margin:0;border-radius:0}
-    body.mwf_os_iphone_os.front #header{display:none}
-    /* width:99% because 100% makes second-level lightning-touch menus horizontally scroll */
-    body.mwf_os_iphone_os div.menu.front[style~="display:block"] ~ #footer {padding:0; position:absolute; margin-top:-50px; width:99%; height:50px}
-}
 @media screen and (max-width:639px) {
     .menu.front ol {
         width:560px

@@ -1,24 +1,11 @@
 CACHE MANIFEST
-#11-May-2012 02:37:01
+#11-May-2012 21:58:43
 
 CACHE:
 
 #images
 /assets/img/ucsf-logo.png
 /assets/img/ucsf-header-separator.png
-/public/images/blue.jpg
-/public/images/gold.jpg
-/public/images/grey.jpg
-/public/images/tan.jpg
-/public/images/black.jpg
-/public/images/purple.jpg
-/public/images/pink.jpg
-/public/images/va.jpg
-/public/images/bronze.jpg
-/public/images/yellow.jpg
-/public/images/red.jpg
-/public/images/lime.jpg
-/public/images/green.jpg
 
 #internal HTML documents
 /
@@ -62,16 +49,10 @@ CACHE:
 #javascript files
 http://www.google-analytics.com/ga.js
 /assets/js.php
-/assets/js.php?full=/assets/js/ucsf/LightningTouch-1.0.0.min.js+/assets/js/ucsf/mainPage.js&full_libs=customizableMenu
-/assets/js.php?full_libs=customizableMenu+jquery_ui_touch_punch
+/assets/js.php?full=/assets/js/ucsf/LightningTouch-1.0.0.min.js+/assets/js/ucsf/mainPage.js
 /assets/redirect/js_unset_override.php
 /assets/js/ucsf/LightningTouch-1.0.0.min.js
 /assets/js/ucsf/mainPage.js
-/assets/js/standard/preferences.js
-/assets/js/full/customizableMenu.js
-https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
-https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js
-/assets/js/full/jquery_ui_touch_punch.js
 
 NETWORK:
 *

@@ -3,6 +3,7 @@ Feature: Customize Home screen
   The users
   Should be able to customize their home screen
 
+@ignore
 Scenario: Remove an item
   Given I have no previous preferences
   And I am on the home page
@@ -17,7 +18,7 @@ Scenario: Remove an item
   Then I should see the home page
   And I should not see the so-called "third_item" menu item
 
-
+@ignore
 Scenario: Reset to default
   Given I have no previous preferences
   And I am on the home page

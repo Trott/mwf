@@ -9,7 +9,6 @@ window.addEventListener('hashchange', mwf.ucsf.callAnalytics, false);
 
 mwf.ucsf.toggleHeaderAndFooter = function () {
     var header = document.getElementById('header');
-    var footer = document.getElementById('footer');
     var topButton = document.getElementById('button-top');
             
     var headFootStyle = location.hash=="#/main_menu" ? "" : "display:block";
@@ -23,12 +22,6 @@ mwf.ucsf.toggleHeaderAndFooter = function () {
             
     if (header)
         header.setAttribute("style",headFootStyle);
-            
-    if (footer && mwf.userAgent.isNative() && mwf.userAgent.getOS()==="iphone_os" && location.hash==="#/main_menu") {
-        footer.setAttribute("style","display:none");
-    } else {
-        footer.setAttribute("style","")
-    }
 }
 
 window.addEventListener('hashchange', mwf.ucsf.toggleHeaderAndFooter, false);

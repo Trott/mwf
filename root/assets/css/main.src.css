@@ -893,7 +893,6 @@ li a, p a, a, a:visited {
 .content {
     width: auto;
     margin: 10px 10px 0 10px;
-    border: 1px solid #d0d0d0;
 }
 
 .content > *:last-child {

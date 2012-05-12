@@ -826,7 +826,7 @@ ul.bulleted li a {
 }
 
 a[rel~=external]:after, .detailed li a span.external:after {
-	content: "\a0 " url(img/ucsf-external-link.png);
+	content: "\a0 " url(img/external-link.png);
 }
 
 /* Allow suppression of external link indicator via class "no-ext-ind".

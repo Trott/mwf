@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#12-May-2012 18:47:02
+#12-May-2012 23:26:07
 
 CACHE:
 
@@ -17,8 +17,6 @@ CACHE:
 /assets/css.php?lean
 
 #style sheet images
-/assets/img/button-next.png
-/assets/img/button-previous.png
 /assets/img/select-options-bg.png
 /assets/img/external-link.png
 /assets/img/ucsf-header-bg.png

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The front page when the user arrives at the mobile site on a mobile device.
  * If the user is on a non-mobile device and 
@@ -96,45 +95,48 @@ else
 /*
  * Menu
  */
+?>
 
-$menu = Site_Decorator::menu();
 
-if ($main_menu)
-    $menu->set_home_screen();
-else
-    $menu->set_padded()->set_detailed();
 
-if (Classification::is_full())
+
+<!-- TODO: JS for:  if (Classification::is_full())
     $menu->set_param('style', 'display:none');
+Maybe fix in Lightning Touch?
 
+TODO: profile load times and payload sizes against current production site. may
+need to yui compress css, compress html, optimize pngs/sprites
 
-foreach ($menu_names as $key => $menu_name) {
-    $list_item_attributes = array();
-    if (isset($menu_classes[$key])) {
-        $list_item_attributes['class'] = $menu_classes[$key];
-    }
-    if (isset($menu_ids[$key])) {
-        $list_item_attributes['id'] = $menu_ids[$key];
-    }
+TODO: move .scss and sources for sprite out of webroot
 
-    $link_attributes = array();
-    if (isset($menu_externals[$key])) {
-        if ($menu_externals[$key])
-            $link_attributes['rel'] = 'external';
-    }
+TODO: change all instances of css.php to main.css
 
-    if ($main_menu && Classification::is_full() && $menu_lightnings[$key]) {
-        $link_attributes['data-target-id'] = 'il/' . $menu_urls[$key];
-    }
-    $list_item_attributes = array();
-    if (isset($menu_ids[$key]))
-        $list_item_attributes['id'] = $menu_ids[$key];
+TODO: check compass best practices. might want to use screen.css
 
-    $menu->add_item($menu_name, $menu_urls[$key], $list_item_attributes, $link_attributes, $key);
-}
-
-echo $menu->render();
-
+-->
+<div class="menu front" id="main_menu">
+    <ol>
+        <li>
+            <a data-target-id="il/shuttle/" href="shuttle/"><div class="homescreen-shuttle"></div><div>Shuttle</div></a>
+        </li><li>
+            <a data-target-id="il/directory" href="directory"><div class="homescreen-directory"></div><div>Directory</div></a>
+        </li><li>
+            <a data-target-id="il/news" href="news"><div class="homescreen-news"></div><div>News</div></a>
+        </li><li>
+            <a data-target-id="il/maps/" href="maps/"><div class="homescreen-maps"></div><div>Maps</div></a>
+        </li><li>
+            <a data-target-id="il/library/" href="library/"><div class="homescreen-library"></div><div>Library</div></a>
+        </li><li>
+            <a data-target-id="il/fitness" href="fitness"><div class="homescreen-fitness"></div><div>Fitness</div></a>
+        </li><li>
+            <a data-target-id="il/calendars" href="calendars"><div class="homescreen-calendars"></div><div>Calendars</div></a>
+        </li><li>
+            <a data-target-id="il/social" href="social"><div class="homescreen-social"></div><div>Social&nbsp;Media</div></a>
+        </li><li><a data-target-id="il/emergency" href="emergency"><div class="homescreen-emergency"></div><div>Emergency</div></a>
+        </li>
+    </ol>
+</div>
+<?php
 //TODO: Refactor this to read from config file rather than being a series of
 //   hardcoded items
 
@@ -142,16 +144,11 @@ if (($main_menu) && (Classification::is_full())) {
     echo Site_Decorator::ucsf_shuttle_menu('Shuttle', array('id' => 'il/shuttle/', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_shuttle_list_color_menu('Shuttles By Color', array('id' => 'il/shuttle/list/color', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_shuttle_list_location_menu('Shuttles By Location', array('id' => 'il/shuttle/list/location', 'style' => 'display:none'))->render();
-    echo Site_Decorator::ucsf_directory_form('Directory',array('id' => 'il/directory', 'style'=>'display:none'))->render();
+    echo Site_Decorator::ucsf_directory_form('Directory', array('id' => 'il/directory', 'style' => 'display:none'))->render();
 
-    echo Site_Decorator::ucsf_news_section( 
-            HTML_Decorator::tag('a', 'News', array('href' => '/news')), 
-            Config::get('ucsf_news', 'feeds'), 
-            4, 
-            TRUE, 
-            Config::get('ucsf_news', 'alternate_feeds'),
-            array('id'=>'il/news', 'style'=>'display:none'))->render();
-    
+    echo Site_Decorator::ucsf_news_section(
+            HTML_Decorator::tag('a', 'News', array('href' => '/news')), Config::get('ucsf_news', 'feeds'), 4, TRUE, Config::get('ucsf_news', 'alternate_feeds'), array('id' => 'il/news', 'style' => 'display:none'))->render();
+
     echo Site_Decorator::ucsf_map_menu('Maps', array('id' => 'il/maps/', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_library_menu('Library', array('id' => 'il/library/', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_library_locations_menu('Locations', array('id' => 'il/library/locations', 'style' => 'display:none'))->render();
@@ -178,7 +175,7 @@ if (!$main_menu)
  * Footer
  */
 $footer = Site_Decorator::ucsf_footer()->back_button();
-if ($main_menu && Classification::is_full() && Config::get('frontpage','customizable_home_screen'))
+if ($main_menu && Classification::is_full() && Config::get('frontpage', 'customizable_home_screen'))
     $footer->add_footer_link('Customize Home Screen', "/customize_home_screen.php");
 echo $footer->render();
 

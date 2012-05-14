@@ -1,3 +1,16 @@
+@import "homescreen/*.png";
+@include all-homescreen-sprites;
+@import "compass/css3";
+
+$icon_height: homescreen-sprite-height(shuttle);
+$icon_width: homescreen-sprite-width(shuttle);
+
+.homescreen-calendars, .homescreen-directory, .homescreen-emergency, .homescreen-fitness, .homescreen-library, .homescreen-maps, .homescreen-news, .homescreen-shuttle, .homescreen-social {
+    width: $icon_width;
+    height: $icon_height;
+    margin: 0 auto 0.4em auto;
+}
+
 body, html {
     border: 0;
 }
@@ -32,7 +45,7 @@ pre {
     padding: 0;
     margin: 0;
 }
-
+q
 h1,
 h2,
 h3,
@@ -856,7 +869,12 @@ li a, p a, a, a:visited {
 
 .menu li {
     background:#fff;
-}/****************************************************************************
+}
+
+#main_menu.menu li {
+    background:inherit;
+}
+/****************************************************************************
  * Global Definitions
  */
 
@@ -1091,9 +1109,6 @@ form.not-padded {
  * Front Page
  */
 
-body.front .menu.front li a{
-    padding: 1.2em;
-}
 #header {
     border-bottom: 0px solid #fff;
 }
@@ -1146,57 +1161,23 @@ body.front .menu {
     border:0;
 }
 
-body.front .menu.front li a {
-    padding: 18px 15px 18px 60px;
-}
 
 .menu li a {
     padding: 1em;
 }
 
+.menu.front li a {
+    padding: 1em 0 0 0;
+}
+
+
 .content ol li{
     margin: 0 0 0 26px;
 }
 
-body.front .menu.front #shuttle {
-    background: url(img/ucsf-icon-precomposed-shuttle.png) 12px 8px no-repeat;
-}
-
-body.front .menu.front #library {
-    background: url(img/ucsf-icon-precomposed-library.png) 12px 8px no-repeat;
-}
-
-body.front .menu.front #calendars {
-    background: url(img/ucsf-icon-precomposed-calendars.png) 12px 8px no-repeat;
-}
-
-body.front .menu.front #news {
-    background: url(img/ucsf-icon-precomposed-news.png) 12px 8px no-repeat;
-}
-
-body.front .menu.front #directory {
-    background: url(img/ucsf-icon-precomposed-directory.png) 12px 8px no-repeat;
-}
-
-body.front .menu.front #fitness {
-    background: url(img/ucsf-icon-precomposed-fitness.png) 12px 8px no-repeat;
-}
-
-body.front .menu.front #maps {
-    background: url(img/ucsf-icon-precomposed-maps.png) 12px 8px no-repeat;
-}
-
-body.front .menu.front #social {
-    background: url(img/ucsf-icon-precomposed-social.png) 12px 8px no-repeat;
-}
-
-body.front .menu.front #emergency {
-    background: url(img/ucsf-icon-precomposed-emergency.png) 12px 8px no-repeat;
-}
-
-body.front .menu.front ol{margin:auto!important;overflow:hidden;text-align:left}
-body.front .menu.front li{display:inline-block;height:108px;list-style:none;padding:0;width:80px;border:0}
-body.front .menu.front li a{background:0;color:#fff;font-size:75%;font-weight:normal;margin:0;padding:68px 4px 4px 4px;text-align:center}/****************************************************************************
+body.front .menu.front li{display:inline-block;height:108px;width:80px;list-style:none;padding:0;border:0;margin:0}
+body.front .menu.front li a{background:0;color:#fff;font-size:75%;font-weight:normal;text-align:center}
+/****************************************************************************
  * Global Definitions
  */
 
@@ -1661,15 +1642,17 @@ body {
     line-height:normal;
 }
 
-body{
+$watermark: url(/assets/img/watermark.png);
+$decor: url(/assets/img/background-decor.png);
+body {
     width:100%;
-    position:relative;
-    background-image: url(img/ucsf-watermark.png), url(img/ucsf-background-decor.png), -moz-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%, rgba(98,172,180,1) 100%); /* FF3.6+ */
-    background-image: url(img/ucsf-watermark.png), url(img/ucsf-background-decor.png), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(141,201,207,1)), color-stop(100%,rgba(98,172,180,1))); /* Chrome,Safari4+ */
-    background-image: url(img/ucsf-watermark.png), url(img/ucsf-background-decor.png), -webkit-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%,rgba(98,172,180,1) 100%); /* Chrome10+,Safari5.1+ */
-    background-image: url(img/ucsf-watermark.png), url(img/ucsf-background-decor.png), -o-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%,rgba(98,172,180,1) 100%); /* Opera 12+ */
-    background-image: url(img/ucsf-watermark.png), url(img/ucsf-background-decor.png), -ms-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%,rgba(98,172,180,1) 100%); /* IE10+ */
-    background-image: url(img/ucsf-watermark.png), url(img/ucsf-background-decor.png), radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%,rgba(98,172,180,1) 100%); /* W3C */
+    position:relative; 
+    background-image: $watermark, $decor, -moz-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%, rgba(98,172,180,1) 100%); /* FF3.6+ */
+    background-image: $watermark, $decor, -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(141,201,207,1)), color-stop(100%,rgba(98,172,180,1))); /* Chrome,Safari4+ */
+    background-image: $watermark, $decor, -webkit-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%,rgba(98,172,180,1) 100%); /* Chrome10+,Safari5.1+ */
+    background-image: $watermark, $decor, -o-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%,rgba(98,172,180,1) 100%); /* Opera 12+ */
+    background-image: $watermark, $decor, -ms-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%,rgba(98,172,180,1) 100%); /* IE10+ */
+    background-image: $watermark, $decor, radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%,rgba(98,172,180,1) 100%); /* W3C */
     background-repeat:no-repeat, no-repeat, no-repeat;
     background-position:left top, right bottom, left top;
     background-size:auto 100%, 100% 70%, 100% 100%;

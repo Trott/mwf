@@ -874,27 +874,6 @@ li a, p a, a, a:visited {
 #main_menu.menu li {
     background:inherit;
 }
-/****************************************************************************
- * Global Definitions
- */
-
-/**
- * Visibility Controls
- */
-
-.not-basic,
-.not-webkit,
-.not-full {
-	display: block;
-}
-
-.basic-only,
-.only-basic,
-.only-webkit
-.only-full {
-    display: none;
-}
-
 
 /****************************************************************************
  * Page Elements
@@ -1177,23 +1156,6 @@ body.front .menu {
 
 body.front .menu.front li{display:inline-block;height:108px;width:80px;list-style:none;padding:0;border:0;margin:0}
 body.front .menu.front li a{background:0;color:#fff;font-size:75%;font-weight:normal;text-align:center}
-/****************************************************************************
- * Global Definitions
- */
-
-/**
- * Visibility Controls
- */
-
-.only-webkit,
-.only-full {
-    display: block;
-}
-
-.not-webkit,
-.not-full {
-    display: none;
-}
 
 /**
  * General Styles

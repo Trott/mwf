@@ -34,10 +34,4 @@ class Ucsf_Footer_Site_Decorator extends Default_Footer_Site_Decorator
         $this->_back_button = $show;
         return $this;
     }
-    
-    public function render($raw = false)
-    {
-        $back_button = $this->_back_button ? Site_Decorator::ucsf_back_button() : '';
-        return $back_button . parent::render($raw);
-    }
 }

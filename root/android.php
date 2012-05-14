@@ -10,7 +10,6 @@
  * @uses Site_Decorator
  * @uses HTML_Decorator
  * @uses Config
- * @uses Ucsf_Back_Button_Full_Site_Decorator
  * @uses Classification
  */
 require_once(__DIR__ . '/assets/lib/decorator.class.php');

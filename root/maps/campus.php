@@ -46,8 +46,6 @@ echo Site_Decorator::head()
 echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a', 'Maps', array('href' => '/maps')))->render();
 echo HTML_Decorator::tag('div', '', array('id' => 'map_canvas'))->render();
-if (!Classification::is_native())
-    echo Site_Decorator::ucsf_back_button()->render();
 ?>
 <script type="text/javascript">
     var lat=<?php echo $lat; ?>;

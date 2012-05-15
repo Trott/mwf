@@ -172,7 +172,7 @@ if (!$main_menu)
 /**
  * Footer
  */
-$footer = Site_Decorator::ucsf_footer()->back_button();
+$footer = Site_Decorator::ucsf_footer();
 if ($main_menu && Classification::is_full() && Config::get('frontpage', 'customizable_home_screen'))
     $footer->add_footer_link('Customize Home Screen', "/customize_home_screen.php");
 echo $footer->render();

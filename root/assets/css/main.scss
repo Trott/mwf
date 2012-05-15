@@ -48,6 +48,7 @@ h2 {
     line-height: 1.2em;
     font-size: 1.2em;
     font-weight: bold;
+    color: #000;
 }
 
 h3,
@@ -202,12 +203,6 @@ select {
 }
 
 .content > h1,
-.content > h2 {
-    background-color: #e9e9e9;
-    color: #000;
-}
-
-.content > h1,
 .content > h2,
 .content > h3,
 .content > h4 {
@@ -219,12 +214,6 @@ select {
 .content > h2.light {
     background-color: #f9f9f9;
     color: #555;
-}
-
-.content > h1.blue,
-.content > h2.blue {
-    background-color: #809FE2;
-    color: #fff;
 }
 
 .content > * {
@@ -278,12 +267,6 @@ select {
 .menu > h2.light {
     background-color: #f6f6f6;
     color: #555;
-}
-
-.menu > h1.blue,
-.menu > h2.blue {
-    background-color: #809FE2;
-    color: #fff;
 }
 
 .menu p {
@@ -407,12 +390,6 @@ form > h1.light,
 form > h2.light {
     background-color: #f6f6f6;
     color: #555;
-}
-
-form > h1.blue,
-form > h2.blue {
-    background-color: #809FE2;
-    color: #fff;
 }
 
 form > h3,
@@ -1024,14 +1001,6 @@ body.front .menu.front li a{background:0;color:#fff;font-size:75%;font-weight:no
     background: -o-linear-gradient(top, #fff, #e5e5e5);
     background: linear-gradient(#fff, #e5e5e5);
 }
-.content > h1.blue,
-.content > h2.blue {
-    background: -webkit-gradient(linear, left top, left bottom, from(#809FE2), to(#637CB0));
-    background: -moz-linear-gradient(#809FE2, #637CB0);
-    background: -o-linear-gradient(top, #809FE2, #637CB0);
-    background: linear-gradient(#809FE2, #637CB0);
-
-}
 
 .content > *:first-child {
     -webkit-border-top-left-radius: .5em;
@@ -1076,14 +1045,6 @@ body.front .menu.front li a{background:0;color:#fff;font-size:75%;font-weight:no
     background: -moz-linear-gradient(#fff, #e5e5e5);
     background: -o-linear-gradient(top, #fff, #e5e5e5);
     background: linear-gradient(#fff, #e5e5e5);
-}
-
-.menu > h1.blue,
-.menu > h2.blue {
-    background: -webkit-gradient(linear, left top, left bottom, from(#809FE2), to(#637CB0));
-    background: -moz-linear-gradient(#809FE2, #637CB0);
-    background: -o-linear-gradient(top, #809FE2, #637CB0);
-    background: linear-gradient(#809FE2, #637CB0);
 }
 
 .menu {

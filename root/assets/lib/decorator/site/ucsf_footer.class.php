@@ -25,6 +25,5 @@ class Ucsf_Footer_Site_Decorator extends Default_Footer_Site_Decorator
         parent::__construct();
         
         $this->show_powered_by(false);  
-        $this->add_class('footer');
     }
 }

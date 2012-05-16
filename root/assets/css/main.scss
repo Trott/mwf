@@ -133,19 +133,19 @@ select {
  * Header
  */
 
-.header img {
+header img {
     border: none;
     float: left;
 }
 
-.header span {
+header span {
     float: left;
     padding: 8px 0 0 5px;
     font-weight: normal;
     font-size: 16px;
 }
 
-.header span, .header span a {
+header span, header span a {
     color: #fff;
 }
 
@@ -153,26 +153,26 @@ select {
  * Footer
  */
 
-.footer {
+footer {
 	font-size: 80%;
 	padding: 1em;
 	text-align: center;
 }
 
-.footer,
-.footer a,
-.footer a:visited,
-.footer a:hover {
+footer,
+footer a,
+footer a:visited,
+footer a:hover {
 	color: #666666;
 }
 
-.footer a,
-.footer a:visited {
+footer a,
+footer a:visited {
 	text-decoration: none;
 	border-bottom: 1px solid #666666;
 }
 
-.footer a:hover {
+footer a:hover {
 	border-bottom: none;
 }
 
@@ -687,7 +687,7 @@ form .time-field select {
  * Front Page
  */
 
-body.front h1.header img {
+body.front header img {
     float: none;
 }
 
@@ -696,48 +696,46 @@ body.front h1.header img {
  *
  *
  */
-.header {
+header {
     background: #666666  url(img/ucsf-header-bg.png) repeat-x;
     height: 36px;
 }
 
-body.front h1.header {
-	background: #666666  url(img/ucsf-header-bg.png) repeat-x;
-	height: 36px;
+body.front header {
 	text-align: left;
 	border-bottom: 0px solid #ffffff;
 }
 
-body.front h1.header span {
+body.front header span {
         display: inline;
         padding: 0;
 }
 
-body h1.header span {
+body header span {
 	float: none;
 	margin-left: 4px;
 }
 
-body h1.header span {
+body header span {
 	position:relative;
 	bottom: 12px;
 }
 
-h1.header {
+header {
 	padding-left: 10px;
 }
 
-h1.header span {
+header span {
 	font-size: 15px;
 	font-family: "Arial Regular", Arial, Helvetica, Verdana, sans-serif;
 	padding: 0;
 }
 
-h1.header img {
+header img {
 	float:none;
 }
 
-h1.header img.separator {
+.separator {
 	padding: 0 8px 0 5px;
 }
 
@@ -803,7 +801,7 @@ a[rel=external].no-ext-ind:after {
     content: "";
 }
 
-li a, p a, a, a:visited {
+li a, p a, a {
 	color:#38939b;
 }
 
@@ -918,7 +916,7 @@ form.not-padded {
  * Front Page
  */
 
-.header {
+header {
     border-bottom: 0px solid #fff;
 }
 
@@ -1365,8 +1363,8 @@ body {
 
 /* Don't hide banner on Android (which we detect with .touch.not-overflowscrolling--lame!)
       because Android doesn't show the background branding (also lame!) */
-html.no-touch body.front .header,
-html.touch.overflowscrolling body.front .header{
+html.no-touch body.front header,
+html.touch.overflowscrolling body.front header{
     display:none;
 }
 
@@ -1374,7 +1372,7 @@ div#main_menu {
     margin:0
 }
 
-.footer {
+footer {
     font-size:.80em;
     text-align:center;
     position:relative;
@@ -1386,11 +1384,11 @@ div#main_menu {
 }
 
 
-.footer,.footer a,.footer a:visited,.footer a:hover {
+footer,footer a,footer a:visited,footer a:hover {
     color:#fff;
 }
 
-.footer a,.footer a:visited {
+footer a,footer a:visited {
 
     text-decoration:none;
     border-bottom:1px solid #fff;

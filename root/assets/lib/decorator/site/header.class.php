@@ -28,7 +28,7 @@ class Header_Site_Decorator extends Tag_HTML_Decorator {
     private $_image = false;
 
     public function __construct() {
-        parent::__construct('h1');
+        parent::__construct('header');
     }
 
     public function set_title($title) {

@@ -27,7 +27,7 @@ class Footer_Site_Decorator extends Tag_HTML_Decorator {
     private $_powered_by = true;
 
     public function __construct() {
-        parent::__construct('div');
+        parent::__construct('footer');
 
         if ($copyright = Config::get('global', 'copyright_text'))
             $this->set_copyright_text($copyright);

@@ -176,7 +176,7 @@
 		84A7AEC014217581000ABA24 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 84A7AEC314217581000ABA24 /* Build configuration list for PBXProject "UCSF Mobile" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -274,6 +274,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -294,6 +295,7 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: University of California at San Francisco";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -312,6 +314,7 @@
 				CODE_SIGN_ENTITLEMENTS = "~/mwf/auxiliary/native/ios/Entitlements.plist";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "UCSFMobile/UCSFMobile-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
@@ -326,6 +329,7 @@
 				CODE_SIGN_ENTITLEMENTS = "~/mwf/auxiliary/native/ios/Entitlements.plist";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "UCSFMobile/UCSFMobile-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
@@ -345,6 +349,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -363,6 +368,7 @@
 				CODE_SIGN_ENTITLEMENTS = "~/mwf/auxiliary/native/ios/Entitlements.plist";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "UCSFMobile/UCSFMobile-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;

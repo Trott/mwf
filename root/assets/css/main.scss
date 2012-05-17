@@ -1340,16 +1340,16 @@ html.touch.overflowscrolling {
 body {
     font:100%/1.25 Arial,Helvetica,sans-serif;
     font-size:.93em;
-    background: rgb(141,201,207); /* Old browsers */
     font-family:Helvetica,Verdana,Arial,sans-serif;
     line-height:normal;
 }
 
 $watermark: url(/assets/img/watermark.png);
 $decor: url(/assets/img/background-decor.png);
-body {
+html {
     width:100%;
-    position:relative; 
+    position:relative;
+    background: rgb(98,172,180); /* Old browsers */
     background-image: $watermark, $decor, -moz-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%, rgba(98,172,180,1) 100%); /* FF3.6+ */
     background-image: $watermark, $decor, -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(141,201,207,1)), color-stop(100%,rgba(98,172,180,1))); /* Chrome,Safari4+ */
     background-image: $watermark, $decor, -webkit-radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%,rgba(98,172,180,1) 100%); /* Chrome10+,Safari5.1+ */

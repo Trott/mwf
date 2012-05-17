@@ -943,7 +943,7 @@ body.front .menu {
     margin: 0 0 0 26px;
 }
 
-body.front .menu.front li{display:inline-block;height:108px;width:80px;list-style:none;padding:0;border:0;margin:0}
+body.front .menu.front li{display:inline-block;height:108px;width:25%;list-style:none;padding:0;border:0;margin:0}
 body.front .menu.front li a{background:0;color:#fff;font-size:75%;font-weight:normal;text-align:center}
 
 /**
@@ -1409,29 +1409,6 @@ footer a,footer a:visited {
     background-color: initial;
 }
 
-/********************************************************
- * HOME SCREEN
- *******************************************************/
-@media screen and (max-width:639px) {
-    .menu.front ol {
-        width:560px
-    }
-}
-@media screen and (max-width:559px) {
-    .menu.front ol {
-        width:480px
-    }
-}
-@media screen and (max-width:479px) {
-    .menu.front ol {
-        width:400px
-    }
-}
-@media screen and (max-width:399px) {
-    .menu.front ol {
-        width:320px
-    }
-}
 /********************************************************
  * TWO-COLUMN LIST STYLE
  *******************************************************/

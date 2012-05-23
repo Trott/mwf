@@ -9,16 +9,8 @@ window.addEventListener('hashchange', mwf.ucsf.callAnalytics, false);
 
 mwf.ucsf.toggleHeaderAndFooter = function () {
     var header = document.getElementById('header');
-    var topButton = document.getElementById('button-top');
             
     var headFootStyle = location.hash=="#/main_menu" ? "" : "display:block";
-    if (topButton) {
-        if ((location.hash=="#/main_menu") || mwf.userAgent.isNative()) {
-            topButton.setAttribute("style","display:none");
-        } else {
-            topButton.setAttribute("style","display:inline");
-        }
-    }
             
     if (header)
         header.setAttribute("style",headFootStyle);

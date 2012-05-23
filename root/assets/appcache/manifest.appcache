@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#12-May-2012 00:37:09
+#14-May-2012
 
 CACHE:
 
@@ -17,40 +17,17 @@ CACHE:
 /assets/css.php?lean
 
 #style sheet images
-/assets/img/button-go.png
-/assets/img/button-next.png
-/assets/img/button-previous.png
-/assets/img/button-search.png
-/assets/img/draggable-handle.png
-/assets/img/header-bg.png
-/assets/img/header-front-page-bg.png
-/assets/img/list-arrow.png
-/assets/img/message-alert.png
-/assets/img/message-confirm.png
-/assets/img/message-error.png
-/assets/img/message-info.png
 /assets/img/select-options-bg.png
 /assets/img/external-link.png
 /assets/img/ucsf-header-bg.png
-/assets/img/ucsf-icon-precomposed-calendars.png
-/assets/img/ucsf-icon-precomposed-directory.png
-/assets/img/ucsf-icon-precomposed-emergency.png
-/assets/img/ucsf-icon-precomposed-fitness.png
-/assets/img/ucsf-icon-precomposed-library.png
-/assets/img/ucsf-icon-precomposed-maps.png
-/assets/img/ucsf-icon-precomposed-news.png
-/assets/img/ucsf-icon-precomposed-shuttle.png
-/assets/img/ucsf-icon-precomposed-social.png
-/assets/img/ucsf-list-arrow.png
-/assets/img/ucsf-background-decor.png
-/assets/img/ucsf-watermark.png
+/assets/img/homescreen-s6611822116.png
 
 #javascript files
 http://www.google-analytics.com/ga.js
 /assets/js.php
-/assets/js.php?full=/assets/js/ucsf/LightningTouch-1.0.0.min.js+/assets/js/ucsf/mainPage.js
+/assets/js.php?full=/assets/js/ucsf/LightningTouch-1.0.1.min.js+/assets/js/ucsf/mainPage.js
 /assets/redirect/js_unset_override.php
-/assets/js/ucsf/LightningTouch-1.0.0.min.js
+/assets/js/ucsf/LightningTouch-1.0.1.min.js
 /assets/js/ucsf/mainPage.js
 
 NETWORK:

@@ -37,6 +37,7 @@ class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
         if (Classification::is_native())
             return;
 
+        $this->add_class('header');
         $this->set_param('id', 'header');
 
         if (!$this->_home_text) {

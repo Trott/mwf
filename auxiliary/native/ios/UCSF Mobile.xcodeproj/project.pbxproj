@@ -30,6 +30,8 @@
 		84A7AF11142297CB000ABA24 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 84A7AF0D142297CA000ABA24 /* js */; };
 		84A7AF1E1422E0CB000ABA24 /* MWFWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A7AF1F1422E0CB000ABA24 /* MWFWebView.xib */; };
 		B12240F814742E51001692BE /* BSWebViewUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = B12240E914742BD9001692BE /* BSWebViewUserAgent.m */; };
+		B190C1A515656F7F0098DA0C /* UCSF-logo-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B190C1A415656F7F0098DA0C /* UCSF-logo-iPad.png */; };
+		B190C1A715656FD10098DA0C /* UCSF-logo-iPad-high-res.png in Resources */ = {isa = PBXBuildFile; fileRef = B190C1A615656FD10098DA0C /* UCSF-logo-iPad-high-res.png */; };
 		B194842A147184A5002CD8AF /* img in Resources */ = {isa = PBXBuildFile; fileRef = B1948429147184A5002CD8AF /* img */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,8 @@
 		84A7AF1F1422E0CB000ABA24 /* MWFWebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MWFWebView.xib; sourceTree = "<group>"; };
 		B12240E814742BD9001692BE /* BSWebViewUserAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSWebViewUserAgent.h; sourceTree = "<group>"; };
 		B12240E914742BD9001692BE /* BSWebViewUserAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSWebViewUserAgent.m; sourceTree = "<group>"; };
+		B190C1A415656F7F0098DA0C /* UCSF-logo-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UCSF-logo-iPad.png"; sourceTree = "<group>"; };
+		B190C1A615656FD10098DA0C /* UCSF-logo-iPad-high-res.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UCSF-logo-iPad-high-res.png"; sourceTree = "<group>"; };
 		B1948429147184A5002CD8AF /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
 		B1B32AA41475AD10005694C3 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +88,8 @@
 		84A7AEBE14217581000ABA24 = {
 			isa = PBXGroup;
 			children = (
+				B190C1A415656F7F0098DA0C /* UCSF-logo-iPad.png */,
+				B190C1A615656FD10098DA0C /* UCSF-logo-iPad-high-res.png */,
 				847961F1145B871A008AA79F /* arrowleft.png */,
 				847961F2145B871A008AA79F /* arrowright.png */,
 				847961F3145B871A008AA79F /* house.png */,
@@ -176,7 +182,7 @@
 		84A7AEC014217581000ABA24 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 84A7AEC314217581000ABA24 /* Build configuration list for PBXProject "UCSF Mobile" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -217,6 +223,8 @@
 				847961F5145B871B008AA79F /* arrowright.png in Resources */,
 				847961F6145B871B008AA79F /* house.png in Resources */,
 				B194842A147184A5002CD8AF /* img in Resources */,
+				B190C1A515656F7F0098DA0C /* UCSF-logo-iPad.png in Resources */,
+				B190C1A715656FD10098DA0C /* UCSF-logo-iPad-high-res.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +282,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -294,6 +303,7 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: University of California at San Francisco";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -312,10 +322,12 @@
 				CODE_SIGN_ENTITLEMENTS = "~/mwf/auxiliary/native/ios/Entitlements.plist";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "UCSFMobile/UCSFMobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -324,12 +336,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "~/mwf/auxiliary/native/ios/Entitlements.plist";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Richard Trott (BFA8L7397G)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "UCSFMobile/UCSFMobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=*]" = "BABA2648-C0F9-4621-8341-A1DC06100D9E";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -345,6 +361,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -363,10 +380,12 @@
 				CODE_SIGN_ENTITLEMENTS = "~/mwf/auxiliary/native/ios/Entitlements.plist";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "UCSFMobile/UCSFMobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Test;

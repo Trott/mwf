@@ -102,9 +102,6 @@ else
 
 <!-- 
 
-TODO: profile load times and payload sizes against current production site. may
-need to yui compress css, compress html, optimize pngs/sprites
-
 TODO: move .scss and sources for sprite out of webroot
 
 TODO: change all instances of css.php to main.css

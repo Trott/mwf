@@ -414,8 +414,6 @@ form > label {
     margin-top: 1em;
 }
 
-
-
 form input,
 form select,
 form textarea {
@@ -596,49 +594,6 @@ span.required:after {
     content: "*";
     color: #536895;
     padding-left:.2em;
-}
-
-/* invalid */
-form .invalid {
-    color: #a00;
-}
-
-form span.invalid {
-    display: block;
-}
-
-form span.invalid:before {
-    content: '\26a0';
-    font-size: 1.5em;
-    vertical-align: middle;
-}
-
-form input.invalid,
-form select.invalid,
-form textarea.invalid {
-    border: 1px solid #a00;
-}
-
-/* form date selection */
-form .date-field,
-form .month-field,
-form .week-field,
-form .datetime-field,
-form .datetime-local-field,
-form .time-field {
-    border-bottom: none;
-    padding: 0 0 0 10px;
-    margin-bottom: 0;
-}
-
-form .date-field select,
-form .month-field select,
-form .week-field select,
-form .datetime-field select,
-form .datetime-local-field select,
-form .time-field select {
-    display: inline;
-    width: auto;
 }
 
 
@@ -1195,6 +1150,10 @@ form textarea,
 form select {
     box-shadow: inset 0 0 3px #bbb;
     padding: 4px;
+}
+
+select {
+    background: url(img/select-options-bg.png) center right no-repeat;	  	
 }
 
 /* making control equal width */

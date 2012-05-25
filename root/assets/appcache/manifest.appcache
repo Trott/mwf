@@ -17,10 +17,11 @@ CACHE:
 /assets/css.php?lean
 
 #style sheet images
+/assets/img/select-options-bg.png
 /assets/img/background-decor.png
 /assets/img/external-link.png
-/assets/img/ucsf-header-bg.png
 /assets/img/homescreen-s6611822116.png
+/assets/img/ucsf-header-bg.png
 
 #javascript files
 http://www.google-analytics.com/ga.js

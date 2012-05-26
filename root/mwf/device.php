@@ -23,7 +23,6 @@
  * @uses HTML_End_HTML_Decorator
  */
 require_once(dirname(dirname(__FILE__)) . '/assets/lib/decorator.class.php');
-require_once(dirname(dirname(__FILE__)) . '/assets/lib/classification.class.php');
 require_once(dirname(dirname(__FILE__)) . '/assets/lib/user_agent.class.php');
 require_once(dirname(dirname(__FILE__)) . '/assets/lib/screen.class.php');
 
@@ -74,13 +73,6 @@ echo Site_Decorator::content()
         ->add_section(array(label('mwf.classification.isFull()'), js2bool2text('mwf.classification.isFull')))
         ->add_section(array(label('mwf.classification.isOverride()'), js2bool2text('mwf.classification.isOverride')))
         ->add_section(array(label('mwf.classification.isPreview()'), js2bool2text('mwf.classification.isPreview')))
-        ->add_subheader('PHP Classification')
-        ->add_section(array(label('Classification::is_mobile()'), bool2text(Classification::is_mobile())))
-        ->add_section(array(label('Classification::is_basic()'), bool2text(Classification::is_basic())))
-        ->add_section(array(label('Classification::is_standard()'), bool2text(Classification::is_standard())))
-        ->add_section(array(label('Classification::is_full()'), bool2text(Classification::is_full())))
-        ->add_section(array(label('Classification::is_override()'), bool2text(Classification::is_override())))
-        ->add_section(array(label('Classification::is_preview()'), bool2text(Classification::is_preview())))
         ->add_subheader('JS User Agent')
         ->add_section(array(label('mwf.userAgent.getOS()'), js2text('mwf.userAgent.getOS')))
         ->add_section(array(label('mwf.userAgent.getOSVersion()'), js2text('mwf.userAgent.getOSVersion')))

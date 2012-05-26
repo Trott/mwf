@@ -13,7 +13,6 @@
  * @license http://mwf.ucla.edu/license
  * @version 20120426
  *
- * @uses Classification
  * @uses Config
  * @uses Decorator
  * @uses Site_Decorator
@@ -27,7 +26,6 @@
  * @uses Footer_Site_Decorator
  * @uses Body_End_HTML_Decorator
  * @uses HTML_End_HTML_Decorator
- * @uses User_Agent
  * 
  * @link assets/redirect/unset_override.php
  */
@@ -37,8 +35,6 @@
 require_once(dirname(__FILE__) . '/assets/config.php');
 require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
 require_once(dirname(__FILE__) . '/assets/redirect/unset_override.php');
-require_once(dirname(__FILE__) . '/assets/lib/user_agent.class.php');
-require_once(dirname(__FILE__) . '/assets/lib/classification.class.php');
 
 /**
  * Handle differences between a subsection and the top-level menu, using key
@@ -135,7 +131,7 @@ TODO: check compass best practices. might want to use screen.css
 //TODO: Refactor this to read from config file rather than being a series of
 //   hardcoded items
 
-if (($main_menu) && (Classification::is_full())) {
+if ($main_menu) {
     echo Site_Decorator::ucsf_shuttle_menu('Shuttle', array('id' => 'il/shuttle/', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_shuttle_list_color_menu('Shuttles By Color', array('id' => 'il/shuttle/list/color', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_shuttle_list_location_menu('Shuttles By Location', array('id' => 'il/shuttle/list/location', 'style' => 'display:none'))->render();
@@ -170,8 +166,6 @@ if (!$main_menu)
  * Footer
  */
 $footer = Site_Decorator::ucsf_footer();
-if ($main_menu && Classification::is_full() && Config::get('frontpage', 'customizable_home_screen'))
-    $footer->add_footer_link('Customize Home Screen', "/customize_home_screen.php");
 echo $footer->render();
 
 /**

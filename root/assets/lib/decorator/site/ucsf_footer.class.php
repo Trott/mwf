@@ -12,11 +12,9 @@
  * @version 20120215
  *
  * @uses Default_Footer_Site_Decorator
- * @uses Classification
  */
 
 require_once(dirname(__FILE__).'/default_footer.class.php');
-require_once(dirname(dirname(dirname(__FILE__))).'/classification.class.php');
 
 class Ucsf_Footer_Site_Decorator extends Default_Footer_Site_Decorator
 {    

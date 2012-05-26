@@ -15,7 +15,6 @@
  * @license http://mwf.ucla.edu/license
  * @version 20111101
  *
- * @uses Classification
  * @uses JS
  * @uses JSMin
  * @uses Path
@@ -27,7 +26,6 @@
  * Include necessary libraries. 
  */
 
-require_once(dirname(__FILE__).'/lib/classification.class.php');
 require_once(dirname(__FILE__).'/lib/js.class.php');
 require_once(dirname(__FILE__).'/lib/jsmin.class.php');
 require_once(dirname(__FILE__).'/lib/path.class.php');
@@ -76,7 +74,7 @@ foreach($core_filenames as $filename)
  * to cause a redirect to return to this page after passing device info.
  */
 
-if(!Classification::init())
+if(!User_Agent::get_user_agent())
     die();
 
 JS::load('core/user_agent.js');
@@ -95,7 +93,7 @@ if(!isset($_GET['no_favicon']) && !isset($_GET['no_icon']))
  * Writes apple-touch-icon[-precomposed] to the DOM.
  */
 
-if(Classification::is_full() && (!Config::get('global', 'appicon_allow_disable_flag') || (!isset($_GET['no_appicon']) && !isset($_GET['no_icon']))))
+if(!Config::get('global', 'appicon_allow_disable_flag') || (!isset($_GET['no_appicon']) && !isset($_GET['no_icon'])))
     JS::load('full/appicon.php');
 
 /**
@@ -108,24 +106,10 @@ if(User_Agent::get_os() == 'iphone_os')
 }
 
 /**
- * Include preview_util as part of js.php and import the desktop preview.
- *
- * @uses /assets/js/desktop/preview_util.php
- * @uses /assets/js/desktop/preview.js [import]
- */
-
-if(Classification::is_preview())
-{
-    JS::load_from_key('jquery');
-    JS::load('desktop/preview_util.php');
-    JS::load('desktop/preview_menu.js');
-}
-
-/**
  * Load all standard (and touch_lib for compat) libraries specified in the URI.
  */
 
-if(Classification::is_standard() && (isset($_GET['standard_libs']) || isset($_GET['touch_libs'])) )
+if (isset($_GET['standard_libs']) || isset($_GET['touch_libs']))
 {
     $loadarr = isset($_GET['standard_libs']) ? explode(' ', $_GET['standard_libs']) : array();
 
@@ -140,7 +124,7 @@ if(Classification::is_standard() && (isset($_GET['standard_libs']) || isset($_GE
  * Load all full (and webkit_lib for compat) libraries specified in the URI.
  */
 
-if(Classification::is_full() && (isset($_GET['full_libs']) || isset($_GET['webkit_libs'])) )
+if(isset($_GET['full_libs']) || isset($_GET['webkit_libs']))
 {
     $loadarr = isset($_GET['full_libs']) ? explode(' ', $_GET['full_libs']) : array();
 
@@ -160,12 +144,12 @@ if(isset($_GET['basic']))
         if(Path_Validator::is_safe($file, 'js') && $contents = Path::get_contents($file))
             echo ' ' . JSMin::minify($contents);
 
-if(Classification::is_standard() && isset($_GET['standard']))
+if(isset($_GET['standard']))
     foreach(explode(' ', $_GET['standard']) as $file)
         if(Path_Validator::is_safe($file, 'js') && $contents = Path::get_contents($file))
             echo ' ' . JSMin::minify($contents);
 
-if(Classification::is_full() && isset($_GET['full']))
+if(isset($_GET['full']))
     foreach(explode(' ', $_GET['full']) as $file)
         if(Path_Validator::is_safe($file, 'js') && $contents = Path::get_contents($file))
             echo ' ' . JSMin::minify($contents);

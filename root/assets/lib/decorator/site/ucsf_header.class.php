@@ -12,11 +12,9 @@
  * @version 20120313
  *
  * @uses Header_Site_Decorator
- * @uses Classification
  * @uses Config
  */
 require_once(__DIR__ . '/header.class.php');
-require_once(dirname(dirname(__DIR__)) . '/classification.class.php');
 require_once(dirname(dirname(__DIR__)) . '/config.class.php');
 
 class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
@@ -34,8 +32,6 @@ class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
     }
 
     public function render($raw = false) {
-        if (Classification::is_native())
-            return;
 
         $this->add_class('header');
         $this->set_param('id', 'header');

@@ -1,7 +1,6 @@
 <?php
 require_once(dirname(__FILE__) . '/../assets/config.php');
 require_once(dirname(__FILE__) . '/../assets/lib/decorator.class.php');
-require_once(dirname(dirname(__FILE__)) . '/assets/lib/classification.class.php');
 
 switch (isset($_GET['campus']) ? $_GET['campus'] : 'none') {
     case 'Mission Bay':

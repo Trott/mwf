@@ -77,10 +77,6 @@ echo Site_Decorator::content()
         ->add_section(array(label('User_Agent::get_browser()'), text2text(User_Agent::get_browser())))
         ->add_section(array(label('User_Agent::get_browser_engine()'), text2text(User_Agent::get_browser_engine())))
         ->add_section(array(label('User_Agent::get_browser_engine_version()'), text2text(User_Agent::get_browser_engine_version())))
-        ->add_subheader('JS Screen')
-        ->add_section(array(label('mwf.screen.getHeight()'), js2text('mwf.screen.getHeight')))
-        ->add_section(array(label('mwf.screen.getWidth()'), js2text('mwf.screen.getWidth')))
-        ->add_section(array(label('mwf.screen.getPixelRatio()'), js2text('mwf.screen.getPixelRatio')))
         ->render();
 
 echo Site_Decorator::button()

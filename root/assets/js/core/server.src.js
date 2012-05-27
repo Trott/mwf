@@ -14,12 +14,10 @@
  * @requires mwf.site
  * @requires mwf.capability
  * @requires mwf.userAgent
- * @requires mwf.screen
  * 
  * @requires /root/assets/js/core/vars.php
  * @requires /root/assets/js/core/capability.js
  * @requires /root/assets/js/core/userAgent.js
- * @requires /root/assets/js/core/screen.js
  */
 
 (function(){
@@ -30,7 +28,6 @@
     
     var site = mwf.site,
     userAgent = mwf.userAgent,
-    screen = mwf.screen,
     mustRedirect = false,
     mustReload = false,
     setCookie = function(cookieName, cookieContent) {
@@ -97,13 +94,6 @@
         
     if(!site.cookie.exists(userAgent.cookieName))
         setCookie(userAgent.cookieName, userAgent.generateCookieContent());
-        
-    /**
-     * Set screen cookie if it doesn't already exist on server.
-     */
-        
-    if(!site.cookie.exists(screen.cookieName))
-        setCookie(screen.cookieName, screen.generateCookieContent());
 
 
     /**

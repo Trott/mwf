@@ -19,7 +19,6 @@ $_SERVER['HTTP_HOST'] = 'www.example.com:8080';
                 mwf.capability = new function() { this.cookie = function() {return true} }
                 var stub = new function() { this.cookieName='foo'; this.generateCookieContent = function() { return;} }
                 mwf.userAgent = stub;
-                mwf.screen = stub;
                 mwf.site.cookie.exists = function() { return false; };
                 mwf.override = new function() { this.isRedirecting = false };
                 mwf.browser = new function() { this.getMode = function() {return 'mode'}};

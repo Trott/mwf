@@ -12,13 +12,10 @@
  *
  * @requires mwf
  * @requires mwf.site
- * @requires mwf.capability
  * 
  * @uses document.cookie
  * @uses RegExp
  * @uses window.location
- * 
- * @see /root/assets/js/core/capability.js
  */
 
 mwf.override = new function(){
@@ -48,7 +45,7 @@ mwf.override = new function(){
          * If no support for cookies, then return early since override requires
          * a cookie.
          */
-        if(!mwf.capability.cookie()) {
+        if(!Modernizr.cookies) {
             
             return false;
             

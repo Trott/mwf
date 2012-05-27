@@ -11,7 +11,6 @@
  * @version 20111018
  *
  * @requires mwf
- * @requires mwf.capability
  * 
  */
 
@@ -27,7 +26,7 @@ mwf.standard.preferences=new function(){
      * @return bool
      */
     this.isSupported = function(){
-        return mwf.capability.localstorage(); 
+        return Modernizr.localstorage; 
     }
     
     /**

@@ -33,7 +33,6 @@ if(isset($_GET['mode']) && $_GET['mode'] == 'standards')
         $core_filenames = array('vars.php', 
                       'base.js',
                       'modernizr.js', 
-                      'capability.js', 
                       'browser.js',
                       'util.js',
                       'override.js');

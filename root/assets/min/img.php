@@ -14,7 +14,6 @@
  * @version 20120303
  *
  * @uses Device
- * @uses Screen
  * @uses Local_Image
  */
 /**
@@ -28,20 +27,19 @@ if (!isset($_GET['img'])) {
 /**
  * Require necessary libraries. 
  */
-include_once(dirname(dirname(__FILE__)) . '/lib/screen.class.php');
 include_once(dirname(dirname(__FILE__)) . '/lib/image.class.php');
 
 /**
  * @var int maximum width the image should be as defined first by the browser
  *          width and then more specifically by URI parameters.
  */
-$max_width = Screen::get_width() ? Screen::get_width() : PHP_INT_MAX;
+$max_width = PHP_INT_MAX;
 
 /**
  * @var int maximum height the image should be as defined first by the browser
  *          width and then more specifically by URI parameters.
  */
-$max_height = Screen::get_height() ? Screen::get_height() : PHP_INT_MAX;
+$max_height = PHP_INT_MAX;
 
 /**
  * @var bool true if the image should be compressed based on width.

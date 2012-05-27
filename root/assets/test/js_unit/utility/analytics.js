@@ -8,7 +8,6 @@
  *
  * @requires mwf
  * @requires mwf.site.analytics
- * @requires mwf.userAgent
  * @requires qunit
  * 
  */
@@ -252,20 +251,14 @@ test("mwf.site.analytics constructor populates path keys", function() {
 })
 
 test("mwf.site.analytics constructor notes native app", function() {
-    var saveIsNative = mwf.userAgent.isNative;
-    mwf.userAgent.isNative = function() {
-        return true;
-    }
-    
     _gaq = [];
     var save = _gaq;
-    mwf.site.analytics.init();
+    mwf.site.analytics.init('some random UA string prefix and then mwf-native-iphone/2.1');
     var success = false;
    
     for (var i=0; i<save.length; i++)
         if (save[i][0]=='_setCustomVar' && save[i][1]==1 && save[i][2]=='mwf_native_client'
-            && save[i][3]==mwf.userAgent.getOS())
+            && save[i][3]==='1')
             success=true;
-    ok(success, 'analytics constructor notes native app');
-    mwf.userAgent.isNative = saveIsNative;
+    ok(success, 'analytics constructor should note native app');
 })

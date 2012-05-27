@@ -345,10 +345,10 @@ a.button, div.button a{
     text-align: center;
 }
 
-.mwf_notmobile a.button:hover,
+.no-touch a.button:hover,
 a.button:focus,
 a.button:active,
-.mwf_notmobile div.button a:hover,
+.no-touch div.button a:hover,
 div.button a:focus,
 div.button a:active{
     background-color: #ffb300;
@@ -1098,16 +1098,16 @@ div.button a:last-child {
     -moz-border-radius-bottomright: .5em;
 }
 
-.mwf_notmobile a.button:hover,
+.no-touch a.button:hover,
 a.button:focus,
 a.button:active,
-.mwf_notmobile div.button a:hover,
+.no-touch div.button a:hover,
 div.button a:focus,
 div.button a:active,
-.mwf_notmobile a.button.light:hover,
+.no-touch a.button.light:hover,
 a.button.light:focus,
 a.button.light:active,
-.mwf_notmobile div.button a.light:hover,
+.no-touch div.button a.light:hover,
 div.button a.light:focus,
 div.button a.light:active{
     background: -webkit-gradient(linear, left top, left bottom, from(#ffc847), to(#ffb300));

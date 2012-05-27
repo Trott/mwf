@@ -13,11 +13,9 @@
  *
  * @uses Decorator
  * @uses Tag_HTML_Decorator
- * @uses Classification
  */
 require_once(dirname(dirname(dirname(__FILE__))) . '/decorator.class.php');
 require_once(dirname(dirname(__FILE__)) . '/html/tag.class.php');
-require_once(dirname(dirname(dirname(__FILE__))) . '/classification.class.php');
 
 class Menu_Site_Decorator extends Tag_HTML_Decorator {
 
@@ -39,8 +37,8 @@ class Menu_Site_Decorator extends Tag_HTML_Decorator {
         $this->_padded = $val ? true : false;
         return $this;
     }
-    
-    public function set_not_padded($val = true){
+
+    public function set_not_padded($val = true) {
         return $this->set_padded(!$val);
     }
 
@@ -131,18 +129,8 @@ class Menu_Site_Decorator extends Tag_HTML_Decorator {
             $this->add_inner_front($this->_title);
         }
 
-        if ($this->_home_screen && Classification::is_full() && Config::get('frontpage', 'customizable_home_screen')) {
-            $js = 'mwf.cm = mwf.full.customizableMenu("home_screen_layout");';
-            foreach ($this->_list as $key=>$value) {
-                $js .= 'mwf.cm.addItem(' . json_encode($key) . ',' . json_encode($value->render($raw)) . ');';
-            }
-            $js .= 'mwf.cm.render("main_menu_list");';
-            $this->add_inner(HTML_Decorator::tag('ol')->set_param('id', 'main_menu_list'));
-            $this->add_inner(HTML_Decorator::tag('script', $js));
-        } else {
-            if (count($this->_list) > 0) {
-                $this->add_inner(HTML_Decorator::tag('ol', $this->_list));
-            }
+        if (count($this->_list) > 0) {
+            $this->add_inner(HTML_Decorator::tag('ol', $this->_list));
         }
 
         return parent::render($raw);

@@ -19,10 +19,3 @@ mwf.ucsf.toggleHeaderAndFooter = function () {
 window.addEventListener('hashchange', mwf.ucsf.toggleHeaderAndFooter, false);
 window.addEventListener('DOMContentLoaded', mwf.ucsf.toggleHeaderAndFooter, false);
 
-mwf.ucsf.nativeAndroidDisplayFix = function () {
-    if (mwf.userAgent.isNative() && mwf.userAgent.getOS()=='android' && location.hash=="#/main_menu") {
-        document.getElementById('main_menu').setAttribute("style", "display:inline");
-    }
-}
-
-window.addEventListener('hashchange', mwf.ucsf.nativeAndroidDisplayFix, false);

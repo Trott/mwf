@@ -25,66 +25,6 @@ class JS_Vars_HelperTest extends PHPUnit_Framework_TestCase {
      * @runInSeparateProcess
      * @test
      */
-    public function getExistingCookieNames_noCookies_empty() {
-        $_COOKIE = array();
-        $cookie_names = JS_Vars_Helper::get_existing_cookie_names();
-        $this->assertEquals('[]', $cookie_names);
-    }
-
-    /**
-     * @runInSeparateProcess
-     * @test
-     */
-    public function getExistingCookieNames_cookies_cookies() {
-        $_COOKIE = array('mwftest_foo' => 'foo',
-            'mwftest_classification' => 'bar',
-            'mwftest_override' => 'baz');
-        $cookie_names = JS_Vars_Helper::get_existing_cookie_names();
-        $this->assertRegExp('/\bmwftest_classification\b/', $cookie_names);
-        $this->assertRegExp('/\bmwftest_override\b/', $cookie_names);
-        $this->assertNotRegExp('/\bmwftest_foo\b/', $cookie_names);
-    }
-
-    /**
-     * @runInSeparateProcess
-     * @test
-     */
-    public function getCookie_noCookie_false() {
-        $_COOKIE = array();
-        $cookie = JS_Vars_Helper::get_cookie('classification');
-        $this->assertEquals('false', $cookie);
-    }
-
-    /**
-     * @runInSeparateProcess
-     * @test
-     */
-    public function getCookie_cookie_cookieValue() {
-        $_COOKIE = array('mwftest_classification' => 'awesome');
-        $cookie = JS_Vars_Helper::get_cookie('classification');
-        $this->assertRegExp('/^[\'"]awesome[\'"]$/', $cookie);
-    }
-
-    /**
-     * @runInSeparateProcess
-     * @test
-     */
-    public function getCookieDomain_httpHostIsMExampleEduPort8080_MExampleEdu() {
-        $this->assertRegExp('/^[\'"]m\.example\.edu[\'"]$/', JS_Vars_Helper::get_cookie_domain());
-    }
-
-    /**
-     * @runInSeparateProcess
-     * @test
-     */
-    public function getCookiePrefix_mwftest_mwftest_() {
-        $this->assertRegExp('/^[\'"]mwftest_[\'"]$/', JS_Vars_Helper::get_cookie_prefix());
-    }
-
-    /**
-     * @runInSeparateProcess
-     * @test
-     */
     public function getSiteUrl_vanillaSiteUrl_vanillaSiteUrl() {
         Config::set('global', 'site_url', 'http://m.example.edu:8080/foo');
         $this->assertRegExp('/^[\'"]http:\\\\?\/\\\\?\/m\.example\.edu:8080\\\\?\/foo[\'"]/', JS_Vars_Helper::get_site_url());

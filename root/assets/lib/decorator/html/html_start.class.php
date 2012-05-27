@@ -14,7 +14,8 @@
  * @uses Config
  * @uses Tag_Open_HTML_Decorator
  */
-require_once(dirname(__FILE__) . '/tag_open.class.php');
+require_once(dirname(dirname(__DIR__)) .'/config.class.php');
+require_once(__DIR__ . '/tag_open.class.php');
 
 class HTML_Start_HTML_Decorator extends Tag_Open_HTML_Decorator {
 

@@ -10,11 +10,9 @@
  * @uses Site_Decorator
  * @uses HTML_Decorator
  * @uses Config
- * @uses Classification
  */
 require_once(__DIR__ . '/assets/lib/decorator.class.php');
 require_once(__DIR__ . '/assets/config.php');
-require_once(__DIR__ . '/assets/lib/user_agent.class.php');
 
 echo HTML_Decorator::html_start()->render();
 
@@ -26,7 +24,7 @@ echo Site_Decorator::ucsf_header()
         ->render();
 
 
-if (User_Agent::get_os() == 'android') {
+if (strpos($_SERVER['HTTP_USER_AGENT'], 'Android') !== false) {
     echo Site_Decorator::content()
             ->set_padded()
             ->add_header('Download UCSF Mobile 2.0!')
@@ -52,7 +50,7 @@ $continue_menu = Site_Decorator::menu()
         ->add_item('Continue to Shuttles', '/shuttle')
         ->add_item('Continue to Library', '/library');
 
-if (User_Agent::get_os() == 'android')
+if (strpos($_SERVER['HTTP_USER_AGENT'], 'Android') !== false)
     $continue_menu->add_item('Get UCSF Mobile 2.0 Now!', 'https://market.android.com/details?id=edu.ucsf.m');
 
 

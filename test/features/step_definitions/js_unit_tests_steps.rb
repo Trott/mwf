@@ -3,11 +3,6 @@ Given /^I am on the JS Unit Tests page$/ do
   @results = find_by_id('qunit-testresult')
 end
 
-Given /^I am on the JS Unit Tests page filtered for (.*)$/ do |filter|
-  visit "http://localhost/assets/test/js_unit/results.html?filter=#{filter}"
-  @results = find_by_id('qunit-testresult')
-end
-
 Then /I should see that all tests have passed/ do
   total = @results.find('.total').text
   passed = @results.find('.passed').text

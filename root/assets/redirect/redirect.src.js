@@ -1,7 +1,7 @@
 mwf.redirect = function(loc){
     
-    if(mwf.site.mobile.maxHeight > mwf.screen.getHeight()
-            && mwf.site.mobile.maxWidth  > mwf.screen.getWidth()){
+    if(mwf.site.mobile.maxHeight > screen.height
+            && mwf.site.mobile.maxWidth  > screen.width){
         window.location = loc;
     }
     

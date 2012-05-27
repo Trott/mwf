@@ -32,24 +32,10 @@ mwf.site=new function(){
 
     this.cookie = new function(){
 
-        this.prefix = <?php echo JS_Vars_Helper::get_cookie_prefix(); ?>;
-
-        this.domain = <?php echo  JS_Vars_Helper::get_cookie_domain(); ?>;
-
         this.exists = function(e){
-
-            var cookies = <?php echo JS_Vars_Helper::get_existing_cookie_names(); ?>;
-
-            for(var i=0; i<cookies.length; i++)
-                if(cookies[i] == e) return true;
 
             return false;
         };
-
-        this.override = <?php echo JS_Vars_Helper::get_cookie('override'); ?>;
-
-        this.classification = <?php echo JS_Vars_Helper::get_cookie('classification'); ?>;
-
     };
 
     this.localStorage = new function(){

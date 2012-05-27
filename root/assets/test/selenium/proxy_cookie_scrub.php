@@ -1,10 +1,12 @@
 <?php
-if (count($_COOKIE) > 0) {
+$cookie_count = count($_COOKIE);
+
+if ($cookie_count > 0) {
     $past = time() - 3600;
     foreach ($_COOKIE as $key => $value) {
         setcookie($key, FALSE, $past, '/');
     }
-    echo '<div>Redirecting...</div>';
+    echo '<div>Found ' . $cookie_count . ' cookies.<br>Redirecting...</div>';
     echo '<script>window.location.reload(true);</script>';
     exit;
 }

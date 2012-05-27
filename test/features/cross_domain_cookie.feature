@@ -8,7 +8,3 @@ Scenario: Basic Cross-Domain Cookie
   And I visit a page with a domain different from that of the framework
   Then framework cookies should be set
   And I should not be in an infinite redirect loop
-
-Scenario: Non-Standard Port
-  Given I visit a page hosted on a non-standard port
-  Then the framework should extract the correct cookie domain

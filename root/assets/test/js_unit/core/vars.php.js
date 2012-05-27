@@ -25,19 +25,6 @@ test("mwf.site.asset.root", function()
     var root = mwf.site.asset.root;
     ok(root, "mwf.site.asset.root is " + root);
 });
-            
-test("mwf.site.cookie.prefix", function()
-{
-    var prefix = mwf.site.cookie.prefix;
-    ok(prefix, "mwf.site.cookie.prefix is " + prefix);
-})
-
-test("mwf.site.cookie.domain", function()
-{
-    var domain = mwf.site.cookie.domain;
-    ok(typeof domain == 'string' || typeof domain == 'boolean',
-        "cookie domain should be string or boolean");
-})
 
 test("mwf.site.cookie.exists()", function()
 {

@@ -18,98 +18,11 @@
  */
 require_once(dirname(dirname(__FILE__)) . '/config.php');
 require_once(dirname(__FILE__) . '/https.class.php');
-require_once(dirname(__FILE__) . '/cookie.class.php');
 
 /**
  * Class that generates JS data from PHP data.
  */
 class JS_Vars_Helper {
-
-    private static $_cookie_domain;
-    private static $_cookies;
-
-    private static function init_cookies() {
-        $all_cookie_names = array('override');
-        if (!isset(self::$_cookies)) {
-            self::$_cookies = array();
-            foreach ($all_cookie_names as $cookie_name)
-                self::$_cookies[$cookie_name] = Cookie::get($cookie_name);
-        }
-    }
-
-    /**
-     *
-     * @return string
-     */
-    public static function get_existing_cookie_names() {
-        if (!isset(self::$_cookies))
-            self::init_cookies();
-
-        $prefix = Cookie::get_prefix();
-        $cookies_arr = array();
-        foreach (self::$_cookies as $key => $value)
-            if (isset($value))
-                $cookies_arr[] = $prefix . $key;
-        return(json_encode($cookies_arr));
-    }
-
-    /**
-     *
-     * @param string $cookie_name
-     * @return string 
-     */
-    public static function get_cookie($cookie_name) {
-        if (!isset(self::$_cookies))
-            self::init_cookies();
-
-        if (!isset(self::$_cookies[$cookie_name]))
-            return json_encode(false);
-
-        return json_encode(self::$_cookies[$cookie_name]);
-    }
-
-    /**
-     *
-     * @return string 
-     */
-    private static function get_raw_cookie_domain() {
-        /** @todo determine if we should first check HTTP_X_FORWARDED_SERVER */
-        if (isset(self::$_cookie_domain)) {
-            return self::$_cookie_domain;
-        }
-
-        if (isset($_SERVER['HTTP_HOST'])) { // actual host for multi-host requests
-            self::$_cookie_domain = $_SERVER['HTTP_HOST'];
-        } else { // fallthru that will not support successful multi-host requests
-            self::$_cookie_domain = Config::get('global', 'site_assets_url');
-            if (($pos = strpos(self::$_cookie_domain, '//')) !== false)
-                self::$_cookie_domain = substr(self::$_cookie_domain, $pos + 2);
-            if (($pos = strpos(self::$_cookie_domain, '/')) !== false)
-                self::$_cookie_domain = substr(self::$_cookie_domain, 0, $pos);
-        }
-
-        if (($pos = strpos(self::$_cookie_domain, ':')) !== false)
-            self::$_cookie_domain = substr(self::$_cookie_domain, 0, $pos);
-
-        return self::$_cookie_domain;
-    }
-
-    /**
-     *
-     * @return string 
-     */
-    public static function get_cookie_domain() {
-        return json_encode(self::get_raw_cookie_domain());
-    }
-
-    /**
-     *
-     * @return string 
-     */
-    public static function get_cookie_prefix() {
-        return json_encode(Cookie::get_prefix());
-    }
-
     /**
      *
      * @return string 

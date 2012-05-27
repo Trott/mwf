@@ -24,7 +24,6 @@
  */
 require_once(dirname(dirname(__FILE__)) . '/assets/lib/decorator.class.php');
 require_once(dirname(dirname(__FILE__)) . '/assets/lib/user_agent.class.php');
-require_once(dirname(dirname(__FILE__)) . '/assets/lib/screen.class.php');
 
 function label($text) {
     return HTML_Decorator::tag('div', $text, array('style' => 'color:#777; font-weight:bold'));
@@ -82,10 +81,6 @@ echo Site_Decorator::content()
         ->add_section(array(label('mwf.screen.getHeight()'), js2text('mwf.screen.getHeight')))
         ->add_section(array(label('mwf.screen.getWidth()'), js2text('mwf.screen.getWidth')))
         ->add_section(array(label('mwf.screen.getPixelRatio()'), js2text('mwf.screen.getPixelRatio')))
-        ->add_subheader('PHP Screen')
-        ->add_section(array(label('Screen::get_height()'), text2text(Screen::get_height())))
-        ->add_section(array(label('Screen::get_width()'), text2text(Screen::get_width())))
-        ->add_section(array(label('Screen::get_pixel_ratio()'), text2text(Screen::get_pixel_ratio())))
         ->render();
 
 echo Site_Decorator::button()

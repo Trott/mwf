@@ -26,15 +26,13 @@
  * @uses Footer_Site_Decorator
  * @uses Body_End_HTML_Decorator
  * @uses HTML_End_HTML_Decorator
- * 
- * @link assets/redirect/unset_override.php
  */
+
 /**
  * Require necessary libraries.
  */
 require_once(dirname(__FILE__) . '/assets/config.php');
 require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
-require_once(dirname(__FILE__) . '/assets/redirect/unset_override.php');
 
 /**
  * Handle differences between a subsection and the top-level menu, using key

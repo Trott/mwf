@@ -12,8 +12,3 @@ Scenario: Basic Cross-Domain Cookie
 Scenario: Non-Standard Port
   Given I visit a page hosted on a non-standard port
   Then the framework should extract the correct cookie domain
-
-Scenario: Non-Standard Port With Unset Override
-  Given I have no framework cookies
-  And I visit a page that loads the framework JavaScript from a non-standard port
-  Then the tag that loads js_unset_override.php will specify the non-standard port

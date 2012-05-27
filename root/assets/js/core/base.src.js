@@ -1,5 +1,5 @@
 /**
- * Removes a redirection override preference, if one exists, and defines several
+ * Defines several
  * namespaces deprecated as of MWF 1.2 that are nonetheless retained for
  * backwards compatibility.
  *
@@ -16,17 +16,6 @@
  * 
  * @uses document.write
  */
-
-/**
- * On a page that contains the redirect script assets/redirect/js.php, if
- * "override_redirect" or "ovrrdr" is set in the query string, then the script
- * will not redirect and a cookie is set that retains this override preference.
- * When a mobile page is visited that includes this script, then, this override
- * preference is erased.
- * 
- * @see /root/assets/redirect/js.php
- */
-document.write('<script type="text/javascript" src="'+mwf.site.asset.root+'/redirect/js_unset_override.php"></scr'+'ipt>');
 
 /**
  * @deprecated 1.2.00

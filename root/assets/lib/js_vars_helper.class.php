@@ -29,7 +29,7 @@ class JS_Vars_Helper {
     private static $_cookies;
 
     private static function init_cookies() {
-        $all_cookie_names = array('classification', 'user_agent', 'screen', 'override');
+        $all_cookie_names = array('user_agent', 'screen', 'override');
         if (!isset(self::$_cookies)) {
             self::$_cookies = array();
             foreach ($all_cookie_names as $cookie_name)

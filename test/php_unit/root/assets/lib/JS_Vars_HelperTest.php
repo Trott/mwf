@@ -37,10 +37,8 @@ class JS_Vars_HelperTest extends PHPUnit_Framework_TestCase {
      */
     public function getExistingCookieNames_cookies_cookies() {
         $_COOKIE = array('mwftest_foo' => 'foo',
-            'mwftest_classification' => 'bar',
             'mwftest_override' => 'baz');
         $cookie_names = JS_Vars_Helper::get_existing_cookie_names();
-        $this->assertRegExp('/\bmwftest_classification\b/', $cookie_names);
         $this->assertRegExp('/\bmwftest_override\b/', $cookie_names);
         $this->assertNotRegExp('/\bmwftest_foo\b/', $cookie_names);
     }
@@ -51,7 +49,7 @@ class JS_Vars_HelperTest extends PHPUnit_Framework_TestCase {
      */
     public function getCookie_noCookie_false() {
         $_COOKIE = array();
-        $cookie = JS_Vars_Helper::get_cookie('classification');
+        $cookie = JS_Vars_Helper::get_cookie('lorem_ipsum');
         $this->assertEquals('false', $cookie);
     }
 
@@ -60,8 +58,8 @@ class JS_Vars_HelperTest extends PHPUnit_Framework_TestCase {
      * @test
      */
     public function getCookie_cookie_cookieValue() {
-        $_COOKIE = array('mwftest_classification' => 'awesome');
-        $cookie = JS_Vars_Helper::get_cookie('classification');
+        $_COOKIE = array('mwftest_override' => 'awesome');
+        $cookie = JS_Vars_Helper::get_cookie('override');
         $this->assertRegExp('/^[\'"]awesome[\'"]$/', $cookie);
     }
 

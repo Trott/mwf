@@ -51,11 +51,6 @@ test("mwf.site.cookie.override()", function()
     //@todo: minimal unit test for override()
 })
 
-test("mwf.site.cookie.classification()", function()
-{
-    //@todo: minimal unit test for classification()
-})
-
 test("mwf.site.analytics.key", function()
 {
     var key = mwf.site.analytics.key;

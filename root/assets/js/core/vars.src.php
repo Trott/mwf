@@ -47,9 +47,6 @@ mwf.site=new function(){
         };
 
         this.override = <?php echo JS_Vars_Helper::get_cookie('override'); ?>;
-
-        this.classification = <?php echo JS_Vars_Helper::get_cookie('classification'); ?>;
-
     };
 
     this.localStorage = new function(){

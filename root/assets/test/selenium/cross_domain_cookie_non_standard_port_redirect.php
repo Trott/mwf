@@ -18,7 +18,6 @@ $_SERVER['HTTP_HOST'] = 'www.example.com:8080';
             <?php require_once(dirname(dirname(dirname(dirname(__FILE__)))).'/assets/js/core/vars.php'); ?>
                 mwf.capability = new function() { this.cookie = function() {return true} }
                 var stub = new function() { this.cookieName='foo'; this.generateCookieContent = function() { return;} }
-                mwf.classification = stub;
                 mwf.userAgent = stub;
                 mwf.screen = stub;
                 mwf.site.cookie.exists = function() { return false; };

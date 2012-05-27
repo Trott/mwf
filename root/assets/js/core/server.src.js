@@ -1,5 +1,5 @@
 /**
- * Responsible for writing classification, user agent and screen cookies back
+ * Responsible for writing cookies back
  * to the server and refreshing the page to propagate this if done as such.
  *
  * @package core
@@ -13,13 +13,11 @@
  * @requires mwf
  * @requires mwf.site
  * @requires mwf.capability
- * @requires mwf.classification
  * @requires mwf.userAgent
  * @requires mwf.screen
  * 
  * @requires /root/assets/js/core/vars.php
  * @requires /root/assets/js/core/capability.js
- * @requires /root/assets/js/core/classification.js
  * @requires /root/assets/js/core/userAgent.js
  * @requires /root/assets/js/core/screen.js
  */
@@ -31,7 +29,6 @@
      */
     
     var site = mwf.site,
-    classification = mwf.classification,
     userAgent = mwf.userAgent,
     screen = mwf.screen,
     mustRedirect = false,
@@ -93,17 +90,6 @@
     if (/^(\?|.*&)no_server_init([\=\&].*)?$/.test(window.location.search)) {
         return;
     }
-        
-    var classificationCookie = classification.generateCookieContent();
-        
-    /**
-     * Set classification cookie if it doesn't already exist on server.
-     * Set it if classification has changed (e.g., user turns on or off
-     *    something in their settings).
-     */
-        
-    if(!site.cookie.exists(classification.cookieName) || site.cookie.classification != classificationCookie)
-        setCookie(classification.cookieName, classificationCookie);
         
     /**
      * Set user agent cookie if it doesn't already exist on server.

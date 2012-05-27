@@ -2,8 +2,7 @@
 
 /**
  * Redirection file for non-mobile pages that redirects mobile devices to the
- * mobile site and generates an empty file for desktop browsers. This page
- * ignores classification overrides.
+ * mobile site and generates an empty file for desktop browsers. 
  *
  * This script file should NOT be included on the same page as /assets/js.php,
  * as /assets/js.php unsets the redirection override preference.

@@ -9,7 +9,6 @@
  * @license http://mwf.ucla.edu/license
  * @version 20111102
  * 
- * @requires mwf.classification
  * @requires mwf.userAgent
  * 
  * @uses document.addEventListener
@@ -31,7 +30,6 @@
         written = true;
         var classes = document.body.className.split(' '),
             i = classes.length,
-            classification = mwf.classification,
             userAgent = mwf.userAgent;
         
         /**
@@ -50,34 +48,7 @@
         if(nin('mwf')){
             classes[i++] = 'mwf';
         }
-        
-        /**
-         * Add body.mwf_mobile if device is mobile, else add body.mwf_notmobile.
-         */
-        if(classification.isMobile()){
-            if(nin("mwf_mobile")){
-                classes[i++] = "mwf_mobile";
-            }
-        }else{
-            if (nin("mwf_notmobile")){
-                classes[i++] = "mwf_notmobile";
-            }
-        }
-        
-        /**
-         * Add body.mwf_standard if device is classified as standard.
-         */
-        if(classification.isStandard() && nin("mwf_standard")){
-            classes[i++] = "mwf_standard";
-        }
-        
-        /**
-         * Add body.mwf_full if device is classified as full.
-         */
-        if(classification.isFull() && nin("mwf_full")){
-            classes[i++] = "mwf_full";
-        }
-        
+           
         var t,tv;
         
         /**

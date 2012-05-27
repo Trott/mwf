@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * @package mwf.ext.full
@@ -34,6 +35,7 @@ echo Site_Decorator::head()
 ?>
 
 <?php
+
 echo HTML_Decorator::body_start()->render();
 
 echo Site_Decorator::header()
@@ -65,15 +67,15 @@ echo Site_Decorator::content()
                     HTML_Decorator::tag('div', 'This is an alert message inside a content', array('class' => 'message alert')),
                     HTML_Decorator::tag('div', 'This is an confirm message inside a content', array('class' => 'message confirm')),
                     HTML_Decorator::tag('div', 'This is an error message inside a content', array('class' => 'message error')),
-                    HTML_Decorator::tag('div', 'This is an info message inside a content', array('class' => 'message info')) ))
+                    HTML_Decorator::tag('div', 'This is an info message inside a content', array('class' => 'message info'))))
         ->render();
 
-echo HTML_Decorator::tag('div', 'This is a padded alert message', array('class'=>'message alert'))->render();
-echo HTML_Decorator::tag('div', 'This is a padded confirm message', array('class'=>'message confirm'))->render();
-echo HTML_Decorator::tag('div', 'This is not a padded error message', array('class'=>'message error not-padded'))->render();
-echo HTML_Decorator::tag('div', 'This is not a padded info message', array('class'=>'message info not-padded'))->render();
+echo HTML_Decorator::tag('div', 'This is a padded alert message', array('class' => 'message alert'))->render();
+echo HTML_Decorator::tag('div', 'This is a padded confirm message', array('class' => 'message confirm'))->render();
+echo HTML_Decorator::tag('div', 'This is not a padded error message', array('class' => 'message error not-padded'))->render();
+echo HTML_Decorator::tag('div', 'This is not a padded info message', array('class' => 'message info not-padded'))->render();
 
-echo HTML_Decorator::tag('div', 'This is an alert message from existing markup', array('id'=>'alert-msg','class'=>'message alert'))->render();
+echo HTML_Decorator::tag('div', 'This is an alert message from existing markup', array('id' => 'alert-msg', 'class' => 'message alert'))->render();
 
 
 echo Site_Decorator::button()
@@ -84,33 +86,31 @@ echo Site_Decorator::default_footer()->render();
 ?>
 
 <script type="text/javascript">
-    if (mwf.classification.isFull()) {
-        // an alert message from existing markup
-        mwf.messages.modal({
-            id: "alert-msg"
-        });
+    mwf.messages.modal({
+        id: "alert-msg"
+    });
     
-        // a dynamic info message from dynamic markup
-        mwf.messages.modal({
-            text: "An dynamic info message",
-            type: "info"
-        });
+    // a dynamic info message from dynamic markup
+    mwf.messages.modal({
+        text: "An dynamic info message",
+        type: "info"
+    });
     
-        // a dynamic confirm message with callback
-        cb = function() {
-            alert("This is a call back function for confirm message.");
-        }
-    
-        mwf.messages.modal({
-            text: "A not-padded confirm message with call back",
-            type: "confirm",
-            padded: false,
-            callback: cb
-        });
+    // a dynamic confirm message with callback
+    cb = function() {
+        alert("This is a call back function for confirm message.");
     }
+    
+    mwf.messages.modal({
+        text: "A not-padded confirm message with call back",
+        type: "confirm",
+        padded: false,
+        callback: cb
+    });
 </script>
 
 <?php
+
 echo HTML_Decorator::body_end()->render();
 
 echo HTML_Decorator::html_end()->render();

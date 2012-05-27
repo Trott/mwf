@@ -13,13 +13,11 @@
  * @deprecated in MWF 1.2
  * 
  * @requires mwf.userAgent
- * @requires mwf.classification
  */
 
 mwf.user_agent = new function(){
 
-    var userAgent = mwf.userAgent,
-        classification = mwf.classification;
+    var userAgent = mwf.userAgent
     
     this.is_iphone_os=function() {
         return userAgent.getOS() == 'iphone_os';
@@ -41,23 +39,5 @@ mwf.user_agent = new function(){
     
     this.get_os_version=function() {
         return userAgent.getOSVersion.call(userAgent);
-    }
-    
-    this.is_mobile=classification.isMobile;
-    
-    this.is_basic=classification.isBasic;
-    
-    this.is_standard=classification.isStandard;
-    
-    this.is_full=function() {
-        return classification.isFull.call(classification);
-    }
-    
-    this.is_touch=classification.isStandard;
-    
-    this.is_overridden=classification.isOverride;
-    
-    this.is_preview=function() {
-        return classification.isPreview.call(classification);
     }
 };

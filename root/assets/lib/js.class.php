@@ -121,7 +121,7 @@ class JS {
     }
 
     /**
-     * Load a Javascript file for a given $key based on device classification.
+     * Load a Javascript file for a given $key.
      * If full, then $key may be assets/js/full/{$key}{$ext} for any extension
      * $ext defined in the array $_exts. If standard, or if full and not in 
      * assets/js/full, then it may be assets/js/standard/{$key}{$ext} for any
@@ -155,7 +155,7 @@ class JS {
 
     /**
      * Imports a Javascript file (live DOM write of a new script tag) for a
-     * given $key based on device classification. If full, then $key may be 
+     * given $key based. If full, then $key may be 
      * assets/js/full/{$key}{$ext} for any extension $ext in the array $_exts.
      * If standard, or if full and not in assets/js/full, this it may under
      * assets/js/standard/{$key}{$ext} for any extension $ext in $_exts. This

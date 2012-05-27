@@ -10,8 +10,6 @@
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license
  * @version 20111113
- *
- * @uses Classification
  */
 
 require_once(dirname(__FILE__).'/lib/user_agent.class.php');

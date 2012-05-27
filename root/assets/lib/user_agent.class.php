@@ -1,8 +1,6 @@
 <?php
 
 /**
- * Static accessor for device classification based on the classification cookie 
- * set by js/core/server.js based on assets/js/core/user_agent.js.
  *
  * @package core
  * @subpackage device

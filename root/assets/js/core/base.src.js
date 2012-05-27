@@ -29,8 +29,6 @@
 document.write('<script type="text/javascript" src="'+mwf.site.asset.root+'/redirect/js_unset_override.php"></scr'+'ipt>');
 
 /**
- * Classification-based namespaces.
- *
  * @deprecated 1.2.00
  */
 mwf.desktop=new function(){};
@@ -41,8 +39,6 @@ mwf.webkit=mwf.full;
 mwf.iphone=new function(){};
 
 /**
- * Classification-based namespaces for extensions.
- * 
  * @deprecated 1.2.00
  */
 mwf.ext=new function(){};

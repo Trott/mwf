@@ -10,7 +10,6 @@
  * @uses Site_Decorator
  * @uses HTML_Decorator
  * @uses Config
- * @uses Classification
  */
 require_once(__DIR__ . '/assets/lib/decorator.class.php');
 require_once(__DIR__ . '/assets/config.php');

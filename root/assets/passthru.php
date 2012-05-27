@@ -37,7 +37,6 @@ if(isset($_GET['mode']) && $_GET['mode'] == 'standards')
                       'browser.js',
                       'useragent.js',
                       'screen.js',
-                      'classification.js', 
                       'util.js',
                       'override.js',
                       'server.js');

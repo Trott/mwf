@@ -217,8 +217,7 @@ mwf.capability=new function(){
     
     /**
      * Determine if the device browser supports the simplest CSS 3 properties,
-     * namely border radius, box shadow and gradients. This is a qualifier for
-     * the mwf.classification.isFull() method.
+     * namely border radius, box shadow and gradients. 
      *
      * @return bool
      */

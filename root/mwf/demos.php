@@ -43,7 +43,6 @@ echo Site_Decorator::menu()
 ->set_padded()
 ->add_item('Entities', 'demos/entities.php')
 ->add_item('Forms without polyfills', 'demos/forms.php')
-->add_item('Forms with polyfills', 'demos/forms_polyfills.php')
 ->add_item('Messages', 'demos/messages.php');
 
 echo Site_Decorator::button()

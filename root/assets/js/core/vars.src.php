@@ -45,8 +45,6 @@ mwf.site=new function(){
 
             return false;
         };
-
-        this.override = <?php echo JS_Vars_Helper::get_cookie('override'); ?>;
     };
 
     this.localStorage = new function(){

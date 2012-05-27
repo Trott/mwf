@@ -46,11 +46,6 @@ test("mwf.site.cookie.exists()", function()
     //@todo: write a cookie and then confirm that exists() can find it
 })
 
-test("mwf.site.cookie.override()", function()
-{
-    //@todo: minimal unit test for override()
-})
-
 test("mwf.site.analytics.key", function()
 {
     var key = mwf.site.analytics.key;

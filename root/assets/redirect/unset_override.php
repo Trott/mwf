@@ -2,7 +2,7 @@
 
 /**
  * A PHP file that may be included in another file with headers not already sent
- * that unsets the redirection override preference set by /assets/redirect/js.php.
+ * that unsets the redirection preference set by /assets/redirect/js.php.
  *
  * @package core
  * @subpackage redirect

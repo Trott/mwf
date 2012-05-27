@@ -100,7 +100,7 @@ mwf.override = new function(){
              */
         } else {
                 
-            mwf.site.redirect('//'+mwf.site.cookie.domain+'/'+mwf.site.local.asset.root+'/passthru.php?override='+requestedOverride+'&return='+encodeURIComponent(returnLocation)+'&mode='+mwf.browser.getMode());
+            mwf.site.redirect('//'+mwf.site.cookie.domain+'/'+mwf.site.local.asset.root+'/passthru.php?override='+requestedOverride+'&return='+encodeURIComponent(returnLocation));
                 
         }
             

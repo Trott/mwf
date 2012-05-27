@@ -18,10 +18,8 @@
 
 require_once(dirname(__FILE__).'/lib/js.class.php');
 
-if(isset($_GET['mode']) && $_GET['mode'] == 'standards')
-    echo '<!DOCTYPE html>';
-
-?><html><head><title></title></head><body><script type="text/javascript"><?php
+?><!doctype html>
+<html><head><title></title></head><body><script type="text/javascript"><?php
 
     if(isset($_GET['return']) && strlen($_GET['return']) > 0)
     {
@@ -33,7 +31,6 @@ if(isset($_GET['mode']) && $_GET['mode'] == 'standards')
         $core_filenames = array('vars.php', 
                       'base.js',
                       'modernizr.js', 
-                      'browser.js',
                       'util.js',
                       'override.js');
 

@@ -87,9 +87,7 @@ if($override)
  * Include core libraries to perform redirect iff mobile
  */
 $core_dir = dirname(dirname(__FILE__)).'/js/core/';
-$core_filenames = array('vars.php', 
-                        'useragent.js',
-                        'screen.js');
+$core_filenames = array('vars.php');
 foreach($core_filenames as $core_filename)
     include_once($core_dir.$core_filename);
 

@@ -165,16 +165,6 @@ mwf.capability=new function(){
         }
     
         /**
-         * Determine if the device browser supports transforms (including 
-         * vendor prefixed versions).
-         * 
-         * @return bool
-         */
-        this.transforms = function(){
-            return _m.csstransforms && _m.csstransforms3d;
-        }
-    
-        /**
          * Determine if the device browser supports 2D transforms (including 
          * vendor prefixed versions).
          * 
@@ -182,16 +172,6 @@ mwf.capability=new function(){
          */
         this.transforms2d = function(){
             return _m.csstransforms;
-        }
-    
-        /**
-         * Determine if the device browser supports 3D transforms (including 
-         * vendor prefixed versions).
-         * 
-         * @return bool
-         */
-        this.transforms3d = function(){
-            return _m.csstransforms3d;
         }
         
         /**
@@ -253,15 +233,6 @@ mwf.capability=new function(){
      */
     this.event = function(eventName){
         return _m.hasEvent(eventName)
-    }
-    
-    /**
-     * Determine if the device browser supports inline SVG.
-     * 
-     * @return bool
-     */
-    this.inlinesvg = function(){
-        return _m.inlinesvg
     }
     
     /**
@@ -329,15 +300,6 @@ mwf.capability=new function(){
         }
         
         /**
-         * Determine if the device supports email input type
-         * 
-         * @return bool
-         */
-        this.email = function() {
-            return _m.inputtypes.email;
-        }
-        
-        /**
          * Determine if the device supports month input type
          * 
          * @return bool
@@ -383,15 +345,6 @@ mwf.capability=new function(){
         }
         
         /**
-         * Determine if the device supports url input type
-         * 
-         * @return bool
-         */
-        this.url = function() {
-            return _m.inputtypes.url;
-        }
-        
-        /**
          * Determine if the device supports week input type
          * 
          * @return bool
@@ -422,39 +375,12 @@ mwf.capability=new function(){
     }
     
     /**
-     * Determine if the device browser supports SVG.
-     * 
-     * @return bool
-     */
-    this.svg = function(){
-        return _m.svg
-    }
-    
-    /**
-     * Determine if device supports touch events.
-     *
-     * Modernizr Adapter: Check the modernizr.touch property.
-     */
-    this.touch = function(){
-        return _m.touch
-    }
-    
-    /**
      * Determine if the device browser supports HTML 5 video tag.
      * 
      * @return bool
      */
     this.video = function(){
         return !! _m.video;
-    }
-    
-    /**
-     * Determine if the device browser supports web sockets.
-     * 
-     * @return bool
-     */
-    this.websockets = function(){
-        return _m.websockets;
     }
     
     /**

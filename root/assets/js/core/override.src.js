@@ -19,7 +19,6 @@
  * @uses window.location
  * 
  * @see /root/assets/js/core/capability.js
- * @see /root/assets/js/core/server.js
  */
 
 mwf.override = new function(){

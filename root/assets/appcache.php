@@ -12,19 +12,6 @@
  * @version 20111113
  */
 
-require_once(dirname(__FILE__).'/lib/user_agent.class.php');
-
-/**
- * If device telemetry is not yet complete, send 404 so we don't cache 
- * incomplete JS and CSS.
- */
-
-if(!User_Agent::get_user_agent())
-{
-    header('HTTP/1.0 404 Not Found');
-    exit();
-}
-
 /**
  * Sets output to be parsed as an appcache manifest and to not itself be cached.
  */

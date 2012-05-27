@@ -23,7 +23,6 @@
  * @uses HTML_End_HTML_Decorator
  */
 require_once(dirname(dirname(__FILE__)) . '/assets/lib/decorator.class.php');
-require_once(dirname(dirname(__FILE__)) . '/assets/lib/user_agent.class.php');
 
 function label($text) {
     return HTML_Decorator::tag('div', $text, array('style' => 'color:#777; font-weight:bold'));
@@ -65,18 +64,6 @@ echo Site_Decorator::content()
         ->add_subheader('Server Info')
         ->add_section(array(label('User Agent'), $_SERVER['HTTP_USER_AGENT']))
         ->add_section(array(label('IP Address'), $_SERVER['REMOTE_ADDR']))
-        ->add_subheader('JS User Agent')
-        ->add_section(array(label('mwf.userAgent.getOS()'), js2text('mwf.userAgent.getOS')))
-        ->add_section(array(label('mwf.userAgent.getOSVersion()'), js2text('mwf.userAgent.getOSVersion')))
-        ->add_section(array(label('mwf.userAgent.getBrowser()'), js2text('mwf.userAgent.getBrowser')))
-        ->add_section(array(label('mwf.userAgent.getBrowserEngine()'), js2text('mwf.userAgent.getBrowserEngine')))
-        ->add_section(array(label('mwf.userAgent.getBrowserEngineVersion()'), js2text('mwf.userAgent.getBrowserEngineVersion')))
-        ->add_subheader('PHP User Agent')
-        ->add_section(array(label('User_Agent::get_os()'), text2text(User_Agent::get_os())))
-        ->add_section(array(label('User_Agent::get_os_version()'), text2text(User_Agent::get_os_version())))
-        ->add_section(array(label('User_Agent::get_browser()'), text2text(User_Agent::get_browser())))
-        ->add_section(array(label('User_Agent::get_browser_engine()'), text2text(User_Agent::get_browser_engine())))
-        ->add_section(array(label('User_Agent::get_browser_engine_version()'), text2text(User_Agent::get_browser_engine_version())))
         ->render();
 
 echo Site_Decorator::button()

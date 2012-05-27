@@ -4,8 +4,6 @@
  * @copyright Copyright (c) 2010-12 UC Regents
  * @license http://mwf.ucla.edu/license
  * @version 20120208
- *
- * @requires mwf.userAgent
  */
 
 mwf.site.analytics.trackPageview = function(url) {
@@ -24,7 +22,8 @@ mwf.site.analytics.trackPageview = function(url) {
 var _gaq = _gaq || [];
 
 
-mwf.site.analytics.init = function() {
+mwf.site.analytics.init = function(ua) {
+    ua = ua || navigator.userAgent;
     if(mwf.site.analytics.key) {
         _gaq.push(["_setAccount", mwf.site.analytics.key]);
     }
@@ -33,12 +32,12 @@ mwf.site.analytics.init = function() {
         _gaq.push(["t"+i+"._setAccount",mwf.site.analytics.pathKeys[i].a]);
     }
     
-    if (mwf.userAgent.isNative()) {
+    if (/ mwf\-native\-[a-z]*\/[\d\.]*$/.test(ua)) {
         // Special tracking for native client.
         // @todo: Make this configurable (on|off, at least) and customizable
         //   (might want to track native container version number, for example)
         // @todo: Possible to integration test this with PHP code?
-        _gaq.push(['_setCustomVar', 1, 'mwf_native_client', mwf.userAgent.getOS()]);       
+        _gaq.push(['_setCustomVar', 1, 'mwf_native_client', '1']);       
     }
 
     mwf.site.analytics.trackPageview();

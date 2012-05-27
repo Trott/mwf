@@ -35,11 +35,8 @@ if(isset($_GET['mode']) && $_GET['mode'] == 'standards')
                       'modernizr.js', 
                       'capability.js', 
                       'browser.js',
-                      'useragent.js',
-                      'screen.js',
                       'util.js',
-                      'override.js',
-                      'server.js');
+                      'override.js');
 
         /**
          * Include each core Javascript library.

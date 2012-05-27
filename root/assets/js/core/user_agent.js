@@ -1,1 +1,0 @@
-mwf.user_agent=new function(){var a=mwf.userAgent;this.is_iphone_os=function(){return a.getOS()=="iphone_os"};this.is_webkit_engine=function(){return a.getBrowserEngine()=="webkit"};this.get_browser=function(){return a.getBrowser.call(a)};this.get_browser_version=function(){return false};this.get_os=a.getOS;this.get_os_version=function(){return a.getOSVersion.call(a)}};

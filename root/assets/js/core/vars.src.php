@@ -42,16 +42,6 @@ mwf.site=new function(){
         this.prefix = <?php echo JS_Vars_Helper::get_localstorage_prefix(); ?>;
     };
 
-    this.analytics = new function(){
-    this.key = <?php echo JS_Vars_Helper::get_analytics_key(); ?>;
-        this.pathKeys =  <?php echo JS_Vars_Helper::get_path_keys(); ?>;
-    };
-
-    this.mobile = new function(){
-        this.maxWidth = <?php echo JS_Vars_Helper::get_mobile_max_width(); ?>;
-        this.maxHeight = <?php echo JS_Vars_Helper::get_mobile_max_height(); ?>;
-    };
-
     this.local = new function(){
     
         this.root = <?php echo JS_Vars_Helper::get_local_site_url(); ?>;

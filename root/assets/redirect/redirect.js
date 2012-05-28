@@ -1,1 +1,1 @@
-mwf.redirect=function(a){if(mwf.site.mobile.maxHeight>screen.height&&mwf.site.mobile.maxWidth>screen.width){window.location=a}};
+mwf.redirect=function(a){if(screen.height<600&&screen.width<800){window.location=a}};

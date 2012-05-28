@@ -33,22 +33,6 @@ test("mwf.site.cookie.exists()", function()
     //@todo: write a cookie and then confirm that exists() can find it
 })
 
-test("mwf.site.analytics.key", function()
-{
-    var key = mwf.site.analytics.key;
-    ok(key===null ? true : key, "mwf.site.analytics.key should return either null or a non-false value.");
-})
-
-test("mwf.site.mobile", function()
-{
-    var maxWidth = mwf.site.mobile.maxWidth;
-    var maxHeight = mwf.site.mobile.maxHeight;
-    equal(typeof maxWidth, 'number', 'maxWidth should be a number');
-    equal(typeof maxHeight, 'number', 'maxHeight should be a number');
-    equal(maxWidth % 1, 0, 'maxWidth should be an integer');
-    equal(maxHeight % 1, 0, 'maxHeight should be an integer');
-})
-
 test("mwf.site.local.domain()", function()
 {
     //@todo: minimal test for domain()

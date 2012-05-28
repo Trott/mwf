@@ -145,8 +145,4 @@ mwf.site=new function(){
     this.domain=function(){
         return this.local.domain;
     };
-
-    this.webroot=function(){
-        return this.root;
-    };
 };

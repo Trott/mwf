@@ -75,9 +75,3 @@ test("mwf.site.domain DEPRECATED", function()
     var domain = mwf.site.domain();
     ok(domain, "mwf.site.domain() returned " + domain);
 });
-                        
-test("mwf.site.webroot DEPRECATED", function() 
-{
-    var webroot = mwf.site.webroot();
-    ok(webroot, "mwf.site.webroot() returned " + webroot);
-});

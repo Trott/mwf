@@ -149,8 +149,4 @@ mwf.site=new function(){
     this.webroot=function(){
         return this.root;
     };
-
-    this.frontpage=function(){
-        return this.root+'/index.php';
-    };
 };

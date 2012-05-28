@@ -81,9 +81,3 @@ test("mwf.site.webroot DEPRECATED", function()
     var webroot = mwf.site.webroot();
     ok(webroot, "mwf.site.webroot() returned " + webroot);
 });
-
-test("mwf.site.frontpage DEPRECATED", function()
-{
-    var frontpage = mwf.site.frontpage();
-    ok(frontpage, "mwf.site.frontpage() returned " + frontpage);
-});

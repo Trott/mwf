@@ -44,7 +44,6 @@ header('Content-Type: text/javascript');
 $core_filenames = array('vars.php',
     'base.js',
     'modernizr.js',
-    'util.js',
     'override.js');
 
 /**

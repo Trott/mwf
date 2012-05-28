@@ -29,20 +29,7 @@
         requestedOverride = requestedOverride[1];
     }
     
-    if(requestedOverride) {
-        
-        
-        /**
-         * If no support for cookies, then return early since override requires
-         * a cookie.
-         */
-        if(!Modernizr.cookies) {
-            
-            return false;
-            
-        }
-        
-        
+    if(requestedOverride) {        
         /**
              * Determine the returnLocation on the content provider, removing
              * the override parameter.

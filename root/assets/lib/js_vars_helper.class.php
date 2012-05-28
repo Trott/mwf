@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Helper methods for vars.php.  Mostly it makes Config stuff from PHP accessible
+ * Helper methods.  Mostly it makes Config stuff from PHP accessible
  *     via JavaScript.
  *
  * @package core

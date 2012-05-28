@@ -22,7 +22,6 @@
 /**
  * Include necessary libraries. 
  */
-
 require_once(dirname(__FILE__) . '/lib/js.class.php');
 require_once(dirname(__FILE__) . '/lib/jsmin.class.php');
 require_once(dirname(__FILE__) . '/lib/path.class.php');
@@ -37,18 +36,10 @@ header("Expires: Wed, 11 Jan 1984 05:00:00 GMT");
 header('Content-Type: text/javascript');
 ?>/** Mobile Web Framework | http://mwf.ucla.edu */
 
+mwf={};
 <?php
-/**
- * Core Javascript libraries always included.
- */
-$core_filenames = array('vars.php',
-    'modernizr.js');
 
-/**
- * Include each core Javascript library.
- */
-foreach ($core_filenames as $filename)
-    JS::load('core/' . $filename);
+JS::load('core/modernizr.js');
 
 /**
  * Include utility libraries.
@@ -59,8 +50,7 @@ if (!isset($_GET['no_ga']))
 /**
  * Writes apple-touch-icon[-precomposed] to the DOM.
  */
-if (!Config::get('global', 'appicon_allow_disable_flag') || (!isset($_GET['no_appicon']) && !isset($_GET['no_icon'])))
-    JS::load('full/appicon.php');
+JS::load('full/appicon.php');
 
 /**
  * Moves the window below the URL bar.

@@ -139,10 +139,4 @@ mwf.site=new function(){
     this.reload=function(){
         document.location.reload();
     };
-
-    // Deprecated
-
-    this.domain=function(){
-        return this.local.domain;
-    };
 };

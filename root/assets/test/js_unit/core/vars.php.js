@@ -69,9 +69,3 @@ test("mwf.site.local.cookie.value()", function()
 {
     //@todo: minimal test for local.cookie.value()
 })
-
-test("mwf.site.domain DEPRECATED", function()  
-{  
-    var domain = mwf.site.domain();
-    ok(domain, "mwf.site.domain() returned " + domain);
-});

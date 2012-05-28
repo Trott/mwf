@@ -74,8 +74,6 @@ class JS {
          */
         self::$_dependencies['jquery_ui'] = array('jquery');
         self::$_dependencies['jquery_ui_touch_punch'] = array('jquery_ui');
-        self::$_dependencies['transitions'] = array('jquery');
-        self::$_dependencies['touch_transitions'] = array('transitions', 'jquery.swipe');
         self::$_dependencies['messages'] = array('jquery');
         self::$_dependencies['customizableMenu'] = array('preferences');
     }

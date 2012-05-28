@@ -2,8 +2,6 @@
 
 /**
  *
- * @package mwf.ext.full
- *
  * @author ilin
  * @copyright Copyright (c) 2010-11 UC Regents
  * @license http://mwf.ucla.edu/license

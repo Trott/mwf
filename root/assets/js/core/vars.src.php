@@ -131,12 +131,4 @@ mwf.site=new function(){
         };
 
     };
-    
-    this.redirect=function(target){
-        window.location=target;
-    };
-    
-    this.reload=function(){
-        document.location.reload();
-    };
 };

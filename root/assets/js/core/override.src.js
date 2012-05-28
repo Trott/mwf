@@ -19,13 +19,6 @@
  */
 
 mwf.override = new function(){
-        
-    this.isRedirecting = false;
-    
-    /**
-     * Store reference as local variable as optimized for compression.
-     */    
-    var currentOverride = mwf.site.cookie.override;
     
     var requestedOverride = (new RegExp("[\\?&]override=([^&#]*)")).exec( window.location.href );
     
@@ -36,7 +29,7 @@ mwf.override = new function(){
         requestedOverride = requestedOverride[1];
     }
     
-    if(requestedOverride && requestedOverride != currentOverride) {
+    if(requestedOverride) {
         
         
         /**
@@ -70,10 +63,9 @@ mwf.override = new function(){
         }
             
         /**
-             * Set the override cookie and refresh.
+             * Refresh
              */
         if(mwf.site.local.isSameOrigin()) {
-            currentOverride = requestedOverride;
             mwf.site.redirect(returnLocation);
             
         /**
@@ -85,27 +77,5 @@ mwf.override = new function(){
                 
         }
             
-        /**
-             * Mark this as redirecting so that mwf.server does not redirect too.
-             */
-        this.isRedirecting = true;
-            
-        /**
-             * Early exit since this is going to redirect.
-             */
-        return;
-            
-    }
-        
-    
-    
-    /**
-     * If no current override, then exit early - no need to define the wasX 
-     * methods.
-     */
-    if(!currentOverride) {
-    
-        return;
-        
     }
 };

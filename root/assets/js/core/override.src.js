@@ -19,9 +19,7 @@
  */
 
 mwf.override = new function(){
-    
-    this.cookieName = mwf.site.cookie.prefix+'override';
-    
+        
     this.isRedirecting = false;
     
     /**
@@ -75,23 +73,6 @@ mwf.override = new function(){
              * Set the override cookie and refresh.
              */
         if(mwf.site.local.isSameOrigin()) {
-                
-            if(requestedOverride == 'no') {
-                    
-                document.cookie = this.cookieName+'=;path=/;expires=Thu, 01-Jan-1970 00:00:01 GMT;';
-                    
-            }else{
-                    
-                document.cookie = this.cookieName+'='+requestedOverride+';path=/;';
-                    
-            }
-                
-            /**
-                 * Force server to redefine all cookies.
-                 */
-            mwf.site.cookie.exists = function(){
-                return false;
-            }
             currentOverride = requestedOverride;
             mwf.site.redirect(returnLocation);
             

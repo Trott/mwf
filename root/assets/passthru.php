@@ -29,8 +29,7 @@ require_once(dirname(__FILE__).'/lib/js.class.php');
          */
 
         $core_filenames = array('vars.php', 
-                      'modernizr.js', 
-                      'override.js');
+                      'modernizr.js');
 
         /**
          * Include each core Javascript library.

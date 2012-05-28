@@ -42,8 +42,7 @@ header('Content-Type: text/javascript');
  * Core Javascript libraries always included.
  */
 $core_filenames = array('vars.php',
-    'modernizr.js',
-    'override.js');
+    'modernizr.js');
 
 /**
  * Include each core Javascript library.

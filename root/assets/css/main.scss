@@ -1458,3 +1458,9 @@ ul.two-col-list li {
 .green {
     background-color: rgb(0,135,82);
 }
+
+/********
+* Maps 
+********/
+
+#map_canvas { position: absolute; top: 35px; left: 0; right: 0; bottom:0; z-index: 1; overflow: hidden; }

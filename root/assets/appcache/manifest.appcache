@@ -14,7 +14,7 @@ CACHE:
 /feedback
 
 #style sheets
-/assets/css.php?lean
+/assets/css/main.css
 
 #style sheet images
 /assets/img/select-options-bg.png

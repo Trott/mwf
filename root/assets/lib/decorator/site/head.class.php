@@ -97,11 +97,6 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
         return $this;
     }
 
-    public function add_stylesheet($href, $media = 'screen')
-    {
-        return $this->add_inner_tag('link', false, array('rel'=>'stylesheet', 'type'=>'text/css', 'href'=>$href, 'media'=>$media));
-    }
-
     public function add_javascript($src)
     {
         return $this->add_inner_tag('script', '', array('type'=>'text/javascript', 'src'=>$src));
@@ -118,7 +113,7 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
     
     public function render($raw=false)
     {   
-        $handler_css = $this->_handler_css ? $this->_handler_css : Config::get('global', 'site_assets_url').'/css.php';
+        $handler_css = $this->_handler_css ? $this->_handler_css : Config::get('global', 'site_assets_url').'/css/main.css';
         $handler_css .= $this->_generate_url_param_string($this->_handler_css_params);
 
         $handler_js = $this->_handler_js ? $this->_handler_js : Config::get('global', 'site_assets_url').'/js.php';

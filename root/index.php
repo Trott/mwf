@@ -90,19 +90,6 @@ else
  * Menu
  */
 ?>
-
-
-
-
-<!-- 
-
-TODO: move .scss and sources for sprite out of webroot
-
-TODO: change all instances of css.php to main.css
-
-TODO: check compass best practices. might want to use screen.css
-
--->
 <div class="menu front" id="main_menu">
     <ol>
         <li>
@@ -126,8 +113,6 @@ TODO: check compass best practices. might want to use screen.css
     </ol>
 </div>
 <?php
-//TODO: Refactor this to read from config file rather than being a series of
-//   hardcoded items
 
 if ($main_menu) {
     echo Site_Decorator::ucsf_shuttle_menu('Shuttle', array('id' => 'il/shuttle/', 'style' => 'display:none'))->render();

@@ -55,14 +55,6 @@ class Head_Site_DecoratorTest extends PHPUnit_Framework_TestCase {
         $this->assertNotContains('&amp;amp;', $this->object->render());
     }
 
-    /**
-     * @test
-     */
-    public function addStylesheet_href_stylesheetLinkRendered() {
-        $this->object->add_stylesheet('http://example.com/foo.css');
-        $this->assertContains('<link rel="stylesheet" type="text/css" href="http://example.com/foo.css" media="screen">', $this->object->render());
-    }
-
 }
 
 ?>

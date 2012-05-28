@@ -153,8 +153,4 @@ mwf.site=new function(){
     this.frontpage=function(){
         return this.root+'/index.php';
     };
-
-    this.webassetroot=function(){
-        return this.asset.root;
-    };
 };

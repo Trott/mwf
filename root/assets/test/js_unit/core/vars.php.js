@@ -87,9 +87,3 @@ test("mwf.site.frontpage DEPRECATED", function()
     var frontpage = mwf.site.frontpage();
     ok(frontpage, "mwf.site.frontpage() returned " + frontpage);
 });
-
-test("mwf.site.webassetroot DEPRECATED", function()
-{
-    var webassetroot = mwf.site.webassetroot();
-    ok(webassetroot, "mwf.site.webassetroot() returned " + webassetroot);
-});

@@ -1,6 +1,5 @@
 /**
- * Defines methods under mwf.override that process a query string specifying
- * override.
+ * Process a query string specifying override.
  *
  * @package core
  * @subpackage js

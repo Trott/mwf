@@ -56,9 +56,6 @@ foreach ($core_filenames as $filename)
 if (!isset($_GET['no_ga']))
     JS::load('utility/analytics.js');
 
-if (!isset($_GET['no_favicon']) && !isset($_GET['no_icon']))
-    JS::load('utility/favicon.js');
-
 /**
  * Writes apple-touch-icon[-precomposed] to the DOM.
  */

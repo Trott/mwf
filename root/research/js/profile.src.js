@@ -102,7 +102,7 @@ mwf.ucsfCtsiProfile = new function() {
     }
     
     this.getProfile = function(fno) {
-        mwf.util.importJS("http://profiles.ucsf.edu/CustomAPI/v1/JSONProfile.aspx?FNO="+fno+"&callback=mwf.ucsfCtsiProfile.renderProfile&publications=full&mobile=on");
+        document.write('<script src="http://profiles.ucsf.edu/CustomAPI/v1/JSONProfile.aspx?FNO='+fno+'&callback=mwf.ucsfCtsiProfile.renderProfile&publications=full&mobile=on"></script>');
     }
         
     this.toggleNarrative = function() {

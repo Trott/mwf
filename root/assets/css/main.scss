@@ -648,7 +648,7 @@ body.front header img {
  *
  */
 header {
-    background: #666666  url(img/ucsf-header-bg.png) repeat-x;
+    background: #666666  url(/assets/img/ucsf-header-bg.png) repeat-x;
     height: 36px;
 }
 
@@ -737,7 +737,7 @@ ul.bulleted li a {
 }
 
 a[rel~=external]:after, .detailed li a span.external:after {
-	content: "\a0 " url(img/external-link.png);
+	content: "\a0 " url(/assets/img/external-link.png);
 }
 
 /* Allow suppression of external link indicator via class "no-ext-ind".
@@ -762,7 +762,7 @@ li a, p a, a {
 }
 
 .menu li a {
-    background:url(img/ucsf-list-arrow.png) no-repeat 98%;
+    background:url(/assets/img/ucsf-list-arrow.png) no-repeat 98%;
 }
 
 .menu li {
@@ -828,7 +828,7 @@ li a, p a, a {
       for example, and also in .menu.detailed (see comment for no-ext-ind).
 */
 a[rel~=external]:after, span.external:after {
-    content: "\a0 " url(img/external-link.png);
+    content: "\a0 " url(/assets/img/external-link.png);
 }
 
 /* Allow suppression of external link indicator via class "no-ext-ind".
@@ -1153,7 +1153,7 @@ form select {
 }
 
 select {
-    background: url(img/select-options-bg.png) center right no-repeat;
+    background: url(/assets/img/select-options-bg.png) center right no-repeat;
     -webkit-appearance: none;	  	
 }
 
@@ -1379,27 +1379,27 @@ ul.two-col-list li {
     padding-left: 25px;
 }
 .ucsf-library-floorplan-legend-computer {
-    background-image: url(img/ucsf-library-floorplan-legend-computer.gif);
+    background-image: url(/assets/img/ucsf-library-floorplan-legend-computer.gif);
 }
 
 .ucsf-library-floorplan-legend-elevator {
-    background-image: url(img/ucsf-library-floorplan-legend-elevator.gif);
+    background-image: url(/assets/img/ucsf-library-floorplan-legend-elevator.gif);
 }
 
 .ucsf-library-floorplan-legend-photocopy {
-    background-image: url(img/ucsf-library-floorplan-legend-photocopy.gif);
+    background-image: url(/assets/img/ucsf-library-floorplan-legend-photocopy.gif);
 }
 
 .ucsf-library-floorplan-legend-reshelving {
-    background-image: url(img/ucsf-library-floorplan-legend-reshelving.gif);
+    background-image: url(/assets/img/ucsf-library-floorplan-legend-reshelving.gif);
 }
 
 .ucsf-library-floorplan-legend-restroom {
-    background-image: url(img/ucsf-library-floorplan-legend-restroom.gif);
+    background-image: url(/assets/img/ucsf-library-floorplan-legend-restroom.gif);
 }
 
 .ucsf-library-floorplan-legend-stairs {
-    background-image: url(img/ucsf-library-floorplan-legend-stairs.gif);
+    background-image: url(/assets/img/ucsf-library-floorplan-legend-stairs.gif);
 }
 
 /*********

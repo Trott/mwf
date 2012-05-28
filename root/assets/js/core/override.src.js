@@ -18,7 +18,7 @@
  * @uses window.location
  */
 
-mwf.override = new function(){
+(function(){
     
     var requestedOverride = (new RegExp("[\\?&]override=([^&#]*)")).exec( window.location.href );
     
@@ -78,4 +78,4 @@ mwf.override = new function(){
         }
             
     }
-};
+}());

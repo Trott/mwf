@@ -22,6 +22,7 @@
 /**
  * Include necessary libraries. 
  */
+
 require_once(dirname(__FILE__) . '/lib/js.class.php');
 require_once(dirname(__FILE__) . '/lib/jsmin.class.php');
 require_once(dirname(__FILE__) . '/lib/path.class.php');
@@ -72,46 +73,7 @@ if (!Config::get('global', 'appicon_allow_disable_flag') || (!isset($_GET['no_ap
  */
 JS::load('iphone/safariurlbar.js');
 
-/**
- * Load all standard (and touch_lib for compat) libraries specified in the URI.
- */
-if (isset($_GET['standard_libs']) || isset($_GET['touch_libs'])) {
-    $loadarr = isset($_GET['standard_libs']) ? explode(' ', $_GET['standard_libs']) : array();
+JS::load('ucsf/LightningTouch-1.0.1.min.js');
 
-    if (isset($_GET['touch_libs']))
-        $loadarr = array_merge(explode(' ', $_GET['touch_libs']), $loadarr);
+JS::load('ucsf/mainPage.js');
 
-    foreach ($loadarr as $load)
-        JS::load_from_key($load);
-}
-
-/**
- * Load all full (and webkit_lib for compat) libraries specified in the URI.
- */
-if (isset($_GET['full_libs']) || isset($_GET['webkit_libs'])) {
-    $loadarr = isset($_GET['full_libs']) ? explode(' ', $_GET['full_libs']) : array();
-
-    if (isset($_GET['webkit_libs']))
-        $loadarr = array_merge(explode(' ', $_GET['webkit_libs']), $loadarr);
-
-    foreach ($loadarr as $load)
-        JS::load_from_key($load);
-}
-
-/**
- * Load custom JS files (minified) based on user agent.
- */
-if (isset($_GET['basic']))
-    foreach (explode(' ', $_GET['basic']) as $file)
-        if (Path_Validator::is_safe($file, 'js') && $contents = Path::get_contents($file))
-            echo ' ' . JSMin::minify($contents);
-
-if (isset($_GET['standard']))
-    foreach (explode(' ', $_GET['standard']) as $file)
-        if (Path_Validator::is_safe($file, 'js') && $contents = Path::get_contents($file))
-            echo ' ' . JSMin::minify($contents);
-
-if (isset($_GET['full']))
-    foreach (explode(' ', $_GET['full']) as $file)
-        if (Path_Validator::is_safe($file, 'js') && $contents = Path::get_contents($file))
-            echo ' ' . JSMin::minify($contents);

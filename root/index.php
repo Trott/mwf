@@ -66,13 +66,6 @@ if ($main_menu) {
 
 $head = Site_Decorator::head()->set_title(Config::get('global', 'title_text'));
 
-if ($main_menu) {
-    $head->set_js_handler_params(array('full' => '/assets/js/ucsf/LightningTouch-1.0.1.min.js+/assets/js/ucsf/mainPage.js'));
-}
-
-if ($main_menu && Config::get('frontpage', 'customizable_home_screen'))
-    $head->add_js_handler_library('full_libs', 'customizableMenu');
-
 echo $head->render();
 
 echo HTML_Decorator::body_start($main_menu ? array('class' => 'front', 'data-default-target-id' => 'main_menu') : array())->render();

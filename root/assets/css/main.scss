@@ -899,10 +899,40 @@ body.front .menu.front li a{background:0;color:#fff;font-size:75%;font-weight:no
 }
 
 /**
+ * Border radius on everything
+ */
+form,
+.content,
+.menu, { 
+    @include border-radius() 
+}
+
+form > :first-child,
+.content > :first-child,
+.menu > ol:first-child > li:first-child,
+.menu > :first-child,
+.menu > :first-child:last-child li:first-child a:hover,
+.menu > :first-child:last-child li:first-child a:focus,
+.menu > :first-child:last-child li:first-child a:active,
+.menu > :first-child li:first-child a:hover,
+.menu > :first-child li:first-child a:focus,
+.menu > :first-child li:first-child a:active {
+    @include border-top-radius()
+}
+
+form > :last-child,
+.content > :last-child,
+.menu > :first-child:last-child,
+.menu li:last-child,
+.menu li:last-child a:hover,
+.menu li:last-child a:focus,
+.menu li:last-child a:active {
+    @include border-bottom-radius()
+}
+
+/**
  * Content
  */
-
-.content { @include border-radius() }
 
 .content > h1,
 .content > h2 {
@@ -918,14 +948,6 @@ body.front .menu.front li a{background:0;color:#fff;font-size:75%;font-weight:no
     background: -moz-linear-gradient(#fff, #e5e5e5);
     background: -o-linear-gradient(top, #fff, #e5e5e5);
     background: linear-gradient(#fff, #e5e5e5);
-}
-
-.content > *:first-child { 
-    @include border-top-radius() 
-}
-
-.content > *:last-child { 
-    @include border-bottom-radius() 
 }
 
 /**
@@ -946,35 +968,6 @@ body.front .menu.front li a{background:0;color:#fff;font-size:75%;font-weight:no
     background: -moz-linear-gradient(#fff, #e5e5e5);
     background: -o-linear-gradient(top, #fff, #e5e5e5);
     background: linear-gradient(#fff, #e5e5e5);
-}
-
-.menu { 
-    @include border-radius() 
-}
-
-.menu > ol:first-child > li:first-child,
-.menu > :first-child {
-    @include border-top-radius()
-}
-
-.menu > :first-child:last-child,
-.menu li:last-child {
-    @include border-bottom-radius()
-}
-
-.menu > :first-child:last-child li:first-child a:hover,
-.menu > :first-child:last-child li:first-child a:focus,
-.menu > :first-child:last-child li:first-child a:active,
-.menu > :first-child li:first-child a:hover,
-.menu > :first-child li:first-child a:focus,
-.menu > :first-child li:first-child a:active {
-    @include border-top-radius()
-}
-
-.menu li:last-child a:hover,
-.menu li:last-child a:focus,
-.menu li:last-child a:active {
-    @include border-bottom-radius()
 }
 
 /**
@@ -1020,17 +1013,6 @@ div.button a.light:active{
 /**
  * Forms
  */
-
-form,
-form .first,
-form > *:first-child {
-    @include border-top-radius()
-}
-
-form,
-form .last {
-    @include border-bottom-radius()
-}
 
 .content form {
     @include border-radius(0)

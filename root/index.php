@@ -34,26 +34,7 @@
 require_once(dirname(__FILE__) . '/assets/config.php');
 require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
 
-/**
- * Handle differences between a subsection and the top-level menu, using key
- * 'default' if on the front page or otherwise the $_GET['s'] parameter.
- */
-$menu_section = isset($_GET['s']) ? $_GET['s'] : 'default';
-
-$menu_names = Config::get('frontpage', 'menu.name.' . $menu_section);
-
-if (!isset($menu_names)) {
-    $menu_section = 'default';
-    $menu_names = Config::get('frontpage', 'menu.name.' . $menu_section);
-}
-
-$menu_ids = Config::get('frontpage', 'menu.id.' . $menu_section);
-$menu_urls = Config::get('frontpage', 'menu.url.' . $menu_section);
-$menu_classes = Config::get('frontpage', 'menu.class.' . $menu_section);
-$menu_externals = Config::get('frontpage', 'menu.external.' . $menu_section);
-$menu_lightnings = Config::get('frontpage', 'menu.lightning.' . $menu_section);
-
-$main_menu = ($menu_section == 'default');
+$main_menu = true;
 
 /**
  * Start page

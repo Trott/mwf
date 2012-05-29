@@ -15,18 +15,11 @@
  * @version 20111101
  *
  * @uses JS
- * @uses JSMin
- * @uses Path
- * @uses Path_Validator
  */
 /**
  * Include necessary libraries. 
  */
 require_once(dirname(__FILE__) . '/lib/js.class.php');
-require_once(dirname(__FILE__) . '/lib/jsmin.class.php');
-require_once(dirname(__FILE__) . '/lib/path.class.php');
-require_once(dirname(__FILE__) . '/lib/path_validator.class.php');
-$ext = '.js';
 
 /**
  * Defines the file to be parsed as a Javascript file and restricts online caching.

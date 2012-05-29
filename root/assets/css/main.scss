@@ -794,10 +794,6 @@ li a, p a, a {
     border-bottom: none;
 }
 
-.content.not-padded {
-    margin: 0;
-}
-
 .content h1.light,
 .content h2.light {
      border: 1px #dddddd;
@@ -816,10 +812,6 @@ li a, p a, a {
 .menu a:last-child li,
 .menu > *:last-child {
     border-bottom: none;
-}
-
-.menu.not-padded {
-    margin: 0;
 }
 
 /* The rel=external stuff is not solely for menus, but primarily.
@@ -849,10 +841,6 @@ a[rel=external].no-ext-ind:after {
 
 form {
     margin: 10px 10px 0 10px;
-}
-
-form.not-padded {
-    margin: 0;
 }
 
 .content form {
@@ -917,12 +905,6 @@ body.front .menu.front li a{background:0;color:#fff;font-size:75%;font-weight:no
     -moz-border-radius: .5em;
 }
 
-.content.not-padded {
-    border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-}
-
 .content > h1,
 .content > h2 {
     background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e5e5e5));
@@ -951,17 +933,6 @@ body.front .menu.front li a{background:0;color:#fff;font-size:75%;font-weight:no
     -webkit-border-bottom-right-radius: .5em;
     -moz-border-radius-bottomleft: .5em;
     -moz-border-radius-bottomright: .5em;
-}
-
-.content.not-padded > * {
-    -webkit-border-top-left-radius: 0;
-    -webkit-border-top-right-radius: 0;
-    -webkit-border-bottom-left-radius: 0;
-    -webkit-border-bottom-right-radius: 0;
-    -moz-border-radius-topleft: 0;
-    -moz-border-radius-topright: 0;
-    -moz-border-radius-bottomleft: 0;
-    -moz-border-radius-bottomright: 0;
 }
 
 /**
@@ -1027,49 +998,6 @@ body.front .menu.front li a{background:0;color:#fff;font-size:75%;font-weight:no
     -moz-border-radius-bottomright: .5em;
 }
 
-.menu.not-padded {
-    border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-}
-
-.menu.not-padded > ol:first-child > li:first-child,
-.menu.not-padded > :first-child {
-    -moz-border-radius-topleft: 0;
-    -moz-border-radius-topright: 0;
-    -webkit-border-top-left-radius: 0;
-    -webkit-border-top-right-radius: 0;
-}
-
-.menu.not-padded > :first-child:last-child,
-.menu.not-padded li:last-child {
-    -webkit-border-bottom-left-radius: 0;
-    -webkit-border-bottom-right-radius: 0;
-    -moz-border-radius-bottomleft: 0;
-    -moz-border-radius-bottomright: 0;
-}
-
-.menu.not-padded > :first-child:last-child li:first-child a:hover,
-.menu.not-padded > :first-child:last-child li:first-child a:focus,
-.menu.not-padded > :first-child:last-child li:first-child a:active,
-.menu.not-padded > :first-child li:first-child a:hover,
-.menu.not-padded > :first-child li:first-child a:focus,
-.menu.not-padded > :first-child li:first-child a:active {
-    -moz-border-radius-topleft: 0;
-    -moz-border-radius-topright: 0;
-    -webkit-border-top-left-radius: 0;
-    -webkit-border-top-right-radius: 0;
-}
-
-.menu.not-padded li:last-child a:hover,
-.menu.not-padded li:last-child a:focus,
-.menu.not-padded li:last-child a:active {
-    -webkit-border-bottom-left-radius: 0;
-    -webkit-border-bottom-right-radius: 0;
-    -moz-border-radius-bottomleft: 0;
-    -moz-border-radius-bottomright: 0;
-}
-
 /**
  * Button
  */
@@ -1122,10 +1050,6 @@ div.button a.light:active{
 
 form {
     border-radius: .5em;
-}
-
-form.not-padded {
-    border-radius: 0;
 }
 
 form,

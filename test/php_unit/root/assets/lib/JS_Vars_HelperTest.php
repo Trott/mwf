@@ -17,7 +17,6 @@ class JS_Vars_HelperTest extends PHPUnit_Framework_TestCase {
         $_SERVER['HTTP_HOST'] = 'm.example.edu:8080';
         require_once dirname(__FILE__) . '/../../../../../root/assets/lib/config.class.php';
         Config::set('global', 'cookie_prefix', 'mwftest_');
-        require_once dirname(__FILE__) . '/../../../../../root/assets/lib/cookie.class.php';
         require_once dirname(__FILE__) . '/../../../../../root/assets/lib/js_vars_helper.class.php';
     }
 

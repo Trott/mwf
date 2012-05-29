@@ -14,7 +14,6 @@
  *
  * @uses Config
  * @uses HTTPS
- * @uses Cookie
  */
 require_once(dirname(dirname(__FILE__)) . '/config.php');
 require_once(dirname(__FILE__) . '/https.class.php');

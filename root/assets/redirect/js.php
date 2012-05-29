@@ -14,7 +14,6 @@
  * @license http://mwf.ucla.edu/license
  * @version 20111108
  *
- * @uses Cookie
  */
 
 header('Content-Type: text/javascript');

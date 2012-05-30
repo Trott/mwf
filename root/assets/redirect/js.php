@@ -14,7 +14,6 @@
  * @license http://mwf.ucla.edu/license
  * @version 20111108
  *
- * @uses Cookie
  */
 
 header('Content-Type: text/javascript');
@@ -49,16 +48,9 @@ if($override)
     exit();
 
 /**
- * Include core libraries to perform redirect iff mobile
- */
-$core_dir = dirname(dirname(__FILE__)).'/js/core/';
-$core_filenames = array('vars.php');
-foreach($core_filenames as $core_filename)
-    include_once($core_dir.$core_filename);
-
-/**
  * Include the redirection routine itself
  */
+echo 'mwf={};';
 include(dirname(__FILE__).'/redirect.js');
 
 echo 'mwf.redirect("'.$_GET['m'].'");';

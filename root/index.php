@@ -34,57 +34,19 @@
 require_once(dirname(__FILE__) . '/assets/config.php');
 require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
 
-/**
- * Handle differences between a subsection and the top-level menu, using key
- * 'default' if on the front page or otherwise the $_GET['s'] parameter.
- */
-$menu_section = isset($_GET['s']) ? $_GET['s'] : 'default';
+echo HTML_Decorator::html_start()->add_appcache()->render();
 
-$menu_names = Config::get('frontpage', 'menu.name.' . $menu_section);
-
-if (!isset($menu_names)) {
-    $menu_section = 'default';
-    $menu_names = Config::get('frontpage', 'menu.name.' . $menu_section);
-}
-
-$menu_ids = Config::get('frontpage', 'menu.id.' . $menu_section);
-$menu_urls = Config::get('frontpage', 'menu.url.' . $menu_section);
-$menu_classes = Config::get('frontpage', 'menu.class.' . $menu_section);
-$menu_externals = Config::get('frontpage', 'menu.external.' . $menu_section);
-$menu_lightnings = Config::get('frontpage', 'menu.lightning.' . $menu_section);
-
-$main_menu = ($menu_section == 'default');
-
-/**
- * Start page
- */
-if ($main_menu) {
-    echo HTML_Decorator::html_start()->add_appcache()->render();
-} else {
-    echo HTML_Decorator::html_start()->render();
-}
-
-$head = Site_Decorator::head()->set_title(Config::get('global', 'title_text'));
-
-if ($main_menu) {
-    $head->set_js_handler_params(array('full' => '/assets/js/ucsf/LightningTouch-1.0.1.min.js+/assets/js/ucsf/mainPage.js'));
-}
-
-if ($main_menu && Config::get('frontpage', 'customizable_home_screen'))
-    $head->add_js_handler_library('full_libs', 'customizableMenu');
+$head = Site_Decorator::head()->set_title("UCSF Mobile");
 
 echo $head->render();
 
-echo HTML_Decorator::body_start($main_menu ? array('class' => 'front', 'data-default-target-id' => 'main_menu') : array())->render();
+echo HTML_Decorator::body_start(array('class' => 'front', 'data-default-target-id' => 'main_menu'))->render();
 
 /*
  * Header
  */
 
-if ($main_menu)
-    echo Site_Decorator::ucsf_header()->render();
-else
-    echo Site_Decorator::header()->set_title(ucwords(str_replace('_', ' ', $_GET['s'])))->render();
+echo Site_Decorator::ucsf_header()->render();
 
 /*
  * Menu
@@ -114,7 +76,7 @@ else
 </div>
 <?php
 
-if ($main_menu) {
+
     echo Site_Decorator::ucsf_shuttle_menu('Shuttle', array('id' => 'il/shuttle/', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_shuttle_list_color_menu('Shuttles By Color', array('id' => 'il/shuttle/list/color', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_shuttle_list_location_menu('Shuttles By Location', array('id' => 'il/shuttle/list/location', 'style' => 'display:none'))->render();
@@ -134,16 +96,7 @@ if ($main_menu) {
     echo Site_Decorator::ucsf_calendar_menu('Calendars', array('id' => 'il/calendars', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_social_media_menu('Social Media', array('id' => 'il/social', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_emergency_menu('Emergency', array('id' => 'il/emergency', 'style' => 'display:none'))->render();
-}
 
-/**
- * Back button
- */
-if (!$main_menu)
-    echo Site_Decorator::button()
-            ->set_padded()
-            ->add_option(Config::get('global', 'back_to_home_text'), 'index.php')
-            ->render();
 
 /**
  * Footer

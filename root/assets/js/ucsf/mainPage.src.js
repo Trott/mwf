@@ -2,7 +2,7 @@ mwf.ucsf = mwf.ucsf || {};
 
 mwf.ucsf.callAnalytics = function () {
     var path = (window.location.hash == '#/main_menu') ? '/' : window.location.hash.substr(4);
-    mwf.site.analytics.trackPageview(path);
+    mwf.analytics.trackPageview(path);
 }
 
 window.addEventListener('hashchange', mwf.ucsf.callAnalytics, false);

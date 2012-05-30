@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#27-May-2012
+#28-May-2012
 
 CACHE:
 
@@ -22,13 +22,11 @@ CACHE:
 /assets/img/external-link.png
 /assets/img/homescreen-s6611822116.png
 /assets/img/ucsf-header-bg.png
+/assets/img/watermark.png
 
 #javascript files
 http://www.google-analytics.com/ga.js
 /assets/js.php
-/assets/js.php?full=/assets/js/ucsf/LightningTouch-1.0.1.min.js+/assets/js/ucsf/mainPage.js
-/assets/js/ucsf/LightningTouch-1.0.1.min.js
-/assets/js/ucsf/mainPage.js
 
 NETWORK:
 *

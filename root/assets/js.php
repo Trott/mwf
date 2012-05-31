@@ -38,11 +38,6 @@ JS::load('core/modernizr.js');
 JS::load('utility/analytics.js');
 
 /**
- * Writes apple-touch-icon[-precomposed] to the DOM.
- */
-JS::load('full/appicon.php');
-
-/**
  * Moves the window below the URL bar.
  */
 JS::load('iphone/safariurlbar.js');

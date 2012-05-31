@@ -47,7 +47,7 @@ JS::load('full/appicon.php');
  */
 JS::load('iphone/safariurlbar.js');
 
-JS::load('ucsf/LightningTouch-1.0.1.min.js');
+JS::load('ucsf/LightningTouch-1.0.2.min.js');
 
 JS::load('ucsf/mainPage.js');
 

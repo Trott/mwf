@@ -9,7 +9,7 @@
 // Google Analytics API requires this to be a global
 var _gaq = _gaq || [];
 
-mwf.analytics = function() {
+mwf.analytics = new function(){
     // Key for the entire site. Tracks everything.
     var key = "UA-15855907-1";
     // Keys for just particular paths. Tracks only things in those paths.
@@ -46,8 +46,6 @@ mwf.analytics = function() {
 
         this.trackPageview();
     }
-    
-    return this;
-}();
+};
 
-this.init();
+mwf.analytics.init();

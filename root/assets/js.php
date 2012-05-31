@@ -34,11 +34,8 @@ mwf={};
 
 JS::load('core/modernizr.js');
 
-/**
- * Include utility libraries.
- */
-if (!isset($_GET['no_ga']))
-    JS::load('utility/analytics.js');
+
+JS::load('utility/analytics.js');
 
 /**
  * Writes apple-touch-icon[-precomposed] to the DOM.
@@ -50,7 +47,7 @@ JS::load('full/appicon.php');
  */
 JS::load('iphone/safariurlbar.js');
 
-JS::load('ucsf/LightningTouch-1.0.1.min.js');
+JS::load('ucsf/LightningTouch-1.0.2.min.js');
 
 JS::load('ucsf/mainPage.js');
 

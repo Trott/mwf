@@ -5,6 +5,10 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
     ExpiresActive On
     ExpiresDefault "access plus 0 seconds"
 </Files>
+<Files *.png>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 week"
+</Files>
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /

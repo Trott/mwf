@@ -1,6 +1,5 @@
-/* @import "compass/css3"; */
+@import "compass/css3";
 
-@import "compass/css3/border-radius";
 $default-border-radius: .5em;
 
 body, html {
@@ -640,7 +639,8 @@ body.front header img {
  *
  */
 header {
-    background: #666666  url(/assets/img/ucsf-header-bg.png) repeat-x;
+    @include background(linear-gradient(top, #414142, #57585a 58%, #58595b));
+
     height: 36px;
 }
 

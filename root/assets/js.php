@@ -34,11 +34,8 @@ mwf={};
 
 JS::load('core/modernizr.js');
 
-/**
- * Include utility libraries.
- */
-if (!isset($_GET['no_ga']))
-    JS::load('utility/analytics.js');
+
+JS::load('utility/analytics.js');
 
 /**
  * Writes apple-touch-icon[-precomposed] to the DOM.

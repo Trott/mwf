@@ -1153,7 +1153,8 @@ body {
 html {
     width:100%;
     position:relative;
-    @include background-with-css2-fallback(
+    background: rgba(98,172,180,1); /*Old browsers*/
+    @include background(
         url(/assets/img/watermark.png), 
         url(/assets/img/background-decor.png),
         radial-gradient(center, ellipse cover, rgba(141,201,207,1) 0%, rgba(98,172,180,1) 100%));

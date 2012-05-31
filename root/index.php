@@ -55,22 +55,22 @@ echo Site_Decorator::ucsf_header()->render();
 <div class="menu front" id="main_menu">
     <ol>
         <li>
-            <a data-target-id="il/shuttle/" href="shuttle/"><div class="homescreen-shuttle"></div><div>Shuttle</div></a>
+            <a data-target-id="il/shuttle/" href="shuttle/"><img src="/assets/img/homescreen/shuttle.png" alt=""><br/>Shuttle</a>
         </li><li>
-            <a data-target-id="il/directory" href="directory"><div class="homescreen-directory"></div><div>Directory</div></a>
+            <a data-target-id="il/directory" href="directory"><img src="/assets/img/homescreen/directory.png" alt=""><br/>Directory</a>
         </li><li>
-            <a data-target-id="il/news" href="news"><div class="homescreen-news"></div><div>News</div></a>
+            <a data-target-id="il/news" href="news"><img src="/assets/img/homescreen/news.png" alt=""><br/>News</a>
         </li><li>
-            <a data-target-id="il/maps/" href="maps/"><div class="homescreen-maps"></div><div>Maps</div></a>
+            <a data-target-id="il/maps/" href="maps/"><img src="/assets/img/homescreen/maps.png" alt=""><br/>Maps</a>
         </li><li>
-            <a data-target-id="il/library/" href="library/"><div class="homescreen-library"></div><div>Library</div></a>
+            <a data-target-id="il/library/" href="library/"><img src="/assets/img/homescreen/library.png" alt=""><br/>Library</a>         
         </li><li>
-            <a data-target-id="il/fitness" href="fitness"><div class="homescreen-fitness"></div><div>Fitness</div></a>
+            <a data-target-id="il/fitness" href="fitness"><img src="/assets/img/homescreen/fitness.png"><br/>Fitness</a>
         </li><li>
-            <a data-target-id="il/calendars" href="calendars"><div class="homescreen-calendars"></div><div>Calendars</div></a>
+            <a data-target-id="il/calendars" href="calendars"><img src="/assets/img/homescreen/calendars.png"><br/>Calendars</a>
         </li><li>
-            <a data-target-id="il/social" href="social"><div class="homescreen-social"></div><div>Social&nbsp;Media</div></a>
-        </li><li><a data-target-id="il/emergency" href="emergency"><div class="homescreen-emergency"></div><div>Emergency</div></a>
+            <a data-target-id="il/social" href="social"><img src="/assets/img/homescreen/social.png"><br/>Social&nbsp;Media</a>
+        </li><li><a data-target-id="il/emergency" href="emergency"><img src="/assets/img/homescreen/emergency.png"><br/>Emergency</a>
         </li>
     </ol>
 </div>

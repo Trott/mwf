@@ -1,18 +1,7 @@
-@import "homescreen/*.png";
-@include all-homescreen-sprites;
-@import "compass/css3";
-
-$icon_height: homescreen-sprite-height(shuttle);
-$icon_width: homescreen-sprite-width(shuttle);
+/* @import "compass/css3"; */
 
 @import "compass/css3/border-radius";
 $default-border-radius: .5em;
-
-.homescreen-calendars, .homescreen-directory, .homescreen-emergency, .homescreen-fitness, .homescreen-library, .homescreen-maps, .homescreen-news, .homescreen-shuttle, .homescreen-social {
-    width: $icon_width;
-    height: $icon_height;
-    margin: 0 auto 0.4em auto;
-}
 
 body, html {
     border: 0;

@@ -1,11 +1,20 @@
 CACHE MANIFEST
-#31-May-2012 v16
+#31-May-2012 v3
 
 CACHE:
 
 #images
 /assets/img/ucsf-logo.png
 /assets/img/ucsf-header-separator.png
+/assets/img/homescreen/calendars.png
+/assets/img/homescreen/directory.png
+/assets/img/homescreen/emergency.png
+/assets/img/homescreen/fitness.png
+/assets/img/homescreen/library.png
+/assets/img/homescreen/maps.png
+/assets/img/homescreen/news.png
+/assets/img/homescreen/shuttle.png
+/assets/img/homescreen/social.png
 
 #internal HTML documents
 /
@@ -20,7 +29,6 @@ CACHE:
 /assets/img/select-options-bg.png
 /assets/img/background-decor.png
 /assets/img/external-link.png
-/assets/img/homescreen-s6611822116.png
 /assets/img/ucsf-header-bg.png
 /assets/img/watermark.png
 

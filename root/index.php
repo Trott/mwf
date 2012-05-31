@@ -35,17 +35,10 @@ require_once(dirname(__FILE__) . '/assets/config.php');
 require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
 
 echo HTML_Decorator::html_start()->add_appcache()->render();
-?>
-<head>
-    <title>UCSF Mobile</title>
-    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" media="screen">
-    <script type="text/javascript" async="" src="//www.google-analytics.com/ga.js"></script>
-    <script type="text/javascript" src="/assets/js.php"></script>
-    <link rel="apple-touch-icon" href="/assets/img/ucsf-appicon.png">
-    <link rel="apple-touch-icon-precomposed" href="/assets/img/ucsf-appicon.png">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-</head>
-<?php
+
+$head = Site_Decorator::head()->set_title("UCSF Mobile");
+
+echo $head->render();
 
 echo HTML_Decorator::body_start(array('class' => 'front', 'data-default-target-id' => 'main_menu'))->render();
 

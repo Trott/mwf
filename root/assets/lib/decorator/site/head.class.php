@@ -119,7 +119,8 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
         $handler_js .= $this->_generate_url_param_string($this->_handler_js_params);
         
         $this->add_inner_tag_front('meta', false, array('name'=>'viewport', 'content'=>'width=device-width,initial-scale=1,maximum-scale=1'));
-        $this->add_inner_tag_front('script', null, array('type'=>'text/javascript', 'src'=>(HTTPS::is_https() ? HTTPS::convert_path($handler_js) : $handler_js)));
+        $this->add_inner_tag_front('script', null, array('async'=>TRUE, 'src'=>'//www.google-analytics.com/ga.js'));
+        $this->add_inner_tag_front('script', null, array('src'=>(HTTPS::is_https() ? HTTPS::convert_path($handler_js) : $handler_js)));
         $this->add_inner_tag_front('link', false, array('rel'=>'stylesheet', 'type'=>'text/css', 'href'=>(HTTPS::is_https() ? HTTPS::convert_path($handler_css) : $handler_css), 'media'=>'screen'));
         $this->add_inner_tag_front('title', $this->_title);
 

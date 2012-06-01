@@ -328,7 +328,7 @@ a.button, div.button {
 a.button, div.button a{
     border-bottom: 1px solid #aaa;
     padding: .5em 0 .4em 0;
-    background-color: #536895;
+    background-color: #666;
     color: #fff;
     display: block;
     font-size: 1.2em;
@@ -962,14 +962,6 @@ form > :last-child,
 /**
  * Button
  */
-
-a.button,
-div.button a {
-    background: -webkit-gradient(linear, left top, left bottom, from(#6883bc), to(#536895));
-    background: -moz-linear-gradient(#6883bc, #536895);
-    background: -o-linear-gradient(top, #6883bc, #536895);
-    background: linear-gradient(#6883bc, #536895);
-}
 
 a.button,
 div.button a:first-child {

@@ -1,15 +1,14 @@
 <?php
-require_once(dirname(__FILE__).'/assets/lib/decorator.class.php');
-require_once(dirname(__FILE__).'/assets/config.php');
+require_once(dirname(dirname(__DIR__)).'/assets/lib/decorator.class.php');
 echo HTML_Decorator::html_start()->render();
 echo Site_Decorator::head()->set_title(Config::get('global', 'title_text') . " | Feedback")->render();
 echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header("Feedback")
         ->render();
 if (empty($_POST['Field1'])) {
-	?>
-<form class="form padded" method="post" action="">
-<h1 class="form-first">Feedback</h1>
+	?>  
+<form class="form" method="post" action="">
+<h2>UCSF Mobile Feedback</h2>
 <label  id="title1" for="Field1">I am:</label> 
 <select id="Field1" name="Field1" class="field select medium" onclick="handleInput(this);" onkeyup="handleInput(this);" tabindex="1" > 
 <option value="Student" selected="selected">Student</option>
@@ -29,7 +28,7 @@ if (empty($_POST['Field1'])) {
 <label id="title205" for="Field205">Comments/Suggestions?<br/><span class="smallprint">(Include email for a response!)</span></label>
 <textarea id="Field205" name="Field205" class="field textarea medium" rows="10" cols="40" tabindex="8" onkeyup="handleInput(this); validateRange(205,'character');" onchange="handleInput(this);"></textarea><br />
 
-<input id="saveForm" name="saveForm" class="form-last" type="submit" value="Submit Feedback" />
+<input id="saveForm" name="saveForm" type="submit" value="Submit Feedback" />
 </form>
 <script type="text/javascript"> 
 __RULES = [];
@@ -57,10 +56,13 @@ __EMBEDKEY = "false"
     }
     curl_close($curl);
     ?>
-<div class="content padded"> 
-    <p class="content-first">Thank you for the feedback on UCSF Mobile!</p>
-    <p class="content-last"><a href="/">Continue</a></p>
+<div class="content"> 
+    <p>Thank you for your feedback on UCSF Mobile!</p>
 </div>
+
+<div class="content"><a class="button" href="/">Continue</a></div>
+
+
 <?php 
 }
 echo Site_Decorator::ucsf_footer()->render();

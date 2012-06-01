@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#31-May-2012 v6
+#01-Jun-2012 v2
 
 CACHE:
 
@@ -20,7 +20,7 @@ CACHE:
 /
 /emergency
 /about
-/feedback
+/feedback/
 
 #style sheets
 /assets/css/main.css

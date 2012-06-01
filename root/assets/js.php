@@ -42,7 +42,7 @@ JS::load('utility/analytics.js');
  */
 JS::load('iphone/safariurlbar.js');
 
-JS::load('ucsf/LightningTouch-1.0.2.min.js');
+JS::load('ucsf/LightningTouch-1.0.3.min.js');
 
 JS::load('ucsf/mainPage.js');
 

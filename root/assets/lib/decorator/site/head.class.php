@@ -44,7 +44,7 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
 
     public function add_javascript($src)
     {
-        return $this->add_inner_tag('script', '', array('type'=>'text/javascript', 'src'=>$src));
+        return $this->add_inner_tag('script', '', array('src'=>$src));
     }
 
     private function _generate_url_param_string($params) {

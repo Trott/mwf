@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#01-Jun-2012 v2
+#03-Jun-2012
 
 CACHE:
 
@@ -19,8 +19,6 @@ CACHE:
 #internal HTML documents
 /
 /emergency
-/about
-/feedback/
 
 #style sheets
 /assets/css/main.css

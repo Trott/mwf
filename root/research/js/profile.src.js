@@ -1,7 +1,9 @@
-mwf.ucsfCtsiProfile = new function() {
-        
+var ucsf = ucsf || {};
+ucsf.ctsiProfile = new function () {
+    "use strict";
+
     /* Callback for getProfile() */
-    this.renderProfile = function(data) {
+    this.renderProfile = function (data) {
         if (data.hasOwnProperty("Profiles")) {
             if ((data.Profiles instanceof Array) && (data.Profiles.length > 0)) {
                 var myProfile = data.Profiles[0];
@@ -27,7 +29,7 @@ mwf.ucsfCtsiProfile = new function() {
                 if (myProfile.hasOwnProperty("Narrative")) {
                     var item = document.createElement("li");
                     var anchor = document.createElement("a");
-                    anchor.setAttribute("href","javascript:mwf.ucsfCtsiProfile.toggleNarrative();");
+                    anchor.setAttribute("href","javascript:ucsf.ctsiProfile.toggleNarrative();");
                     var narrative = document.createElement("span");
                     narrative.setAttribute("class","smallprint");
                     narrative.setAttribute("id","ctsi-narrative");
@@ -101,11 +103,11 @@ mwf.ucsfCtsiProfile = new function() {
         }
     }
     
-    this.getProfile = function(fno) {
-        document.write('<script src="http://profiles.ucsf.edu/CustomAPI/v1/JSONProfile.aspx?FNO='+fno+'&callback=mwf.ucsfCtsiProfile.renderProfile&publications=full&mobile=on"></script>');
+    this.getProfile = function (fno) {
+        document.write('<script src="http://profiles.ucsf.edu/CustomAPI/v1/JSONProfile.aspx?FNO='+fno+'&callback=ucsf.ctsiProfile.renderProfile&publications=full&mobile=on"></script>');
     }
         
-    this.toggleNarrative = function() {
+    this.toggleNarrative = function () {
         var temp = document.getElementById("ctsi-narrative").innerHTML;
         document.getElementById("ctsi-narrative").innerHTML = document.getElementById("ctsi-narrative-hidden").innerHTML;
         document.getElementById("ctsi-narrative-hidden").innerHTML = temp;

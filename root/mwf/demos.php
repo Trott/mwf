@@ -29,7 +29,6 @@ echo HTML_Decorator::html_start()->render();
 
 echo Site_Decorator::head()
         ->set_title('MWF Demos')
-        ->add_js_handler_library('full_libs', 'messages')
         ->render();
 
 echo HTML_Decorator::body_start()->render();
@@ -42,8 +41,7 @@ echo Site_Decorator::menu()
 ->set_title('MWF Style Demos')
 ->set_padded()
 ->add_item('Entities', 'demos/entities.php')
-->add_item('Forms without polyfills', 'demos/forms.php')
-->add_item('Messages', 'demos/messages.php');
+->add_item('Forms without polyfills', 'demos/forms.php');
 
 echo Site_Decorator::button()
         ->set_padded()

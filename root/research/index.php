@@ -23,7 +23,9 @@ echo Site_Decorator::ucsf_header('Research Profile')
 
 <?php
 echo Site_Decorator::ucsf_footer()->render();
-?><script>ucsf.ctsiProfile.getProfile("<?php echo filter_var($_GET['fno'],FILTER_SANITIZE_EMAIL); ?>");</script><?php
+?>
+<script src="http://profiles.ucsf.edu/CustomAPI/v1/JSONProfile.aspx?FNO=<?php echo filter_var($_GET['fno'],FILTER_SANITIZE_EMAIL); ?>&callback=ucsf.ctsiProfile.renderProfile&publications=full&mobile=on"></script>
+<?php
 echo HTML_Decorator::body_end()->render();
 echo HTML_Decorator::html_end()->render();
 ?>

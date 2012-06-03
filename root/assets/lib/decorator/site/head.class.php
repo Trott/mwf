@@ -24,10 +24,6 @@ require_once(dirname(__DIR__).'/html/tag.class.php');
 class Head_Site_Decorator extends Tag_HTML_Decorator
 {
     private $_title = '';
-    private $_handler_css = false;
-    private $_handler_css_params = array();
-    private $_handler_js = false;
-    private $_handler_js_params = array();
 
     public function __construct()
     {
@@ -42,68 +38,16 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
         return $this;
     }
 
-    public function set_css_handler($path)
-    {
-        $this->_handler_css = $path;
-        if(strpos($path, '?') === false)
-            $this->_handler_css .= '?';
-        return $this;
-    }
-
-    public function set_css_handler_params($params = array())
-    {
-        $this->_handler_css_params = array_merge($this->_handler_css_params, $params);
-        return $this;
-    }
-
-    public function add_css_handler_library($type, $library)
-    {
-        if(is_array($library))
-            foreach($library as $l)
-                $this->add_css_handler_library($type, $l);
-        elseif(!isset($this->_handler_css_params[$type]))
-            $this->_handler_css_params[$type] = $library;
-        elseif(!in_array($library, explode('+', $this->_handler_css_params[$type])))
-            $this->_handler_css_params[$type] .= '+'.$library;
-
-        return $this;
-    }
-
-    public function set_js_handler($path)
-    {
-        $this->_handler_js = $path;
-        if(strpos($path, '?') === false)
-            $this->_handler_js .= '?';
-        return $this;
-    }
-
-    public function set_js_handler_params($params = array())
-    {
-        $this->_handler_js_params = array_merge($this->_handler_js_params, $params);
-        return $this;
-    }
-
     public function add_javascript($src)
     {
-        return $this->add_inner_tag('script', '', array('type'=>'text/javascript', 'src'=>$src));
-    }
-
-    private function _generate_url_param_string($params) {
-        $rv = '?';
-        foreach($params as $key=>$val) {
-            $rv .= is_int($key) ? $val.'&' : $key.'='.$val.'&';
-        }
-        $rv = rtrim($rv,'?&');
-        return $rv;
+        return $this->add_inner_tag('script', '', array('src'=>$src));
     }
     
     public function render($raw=false)
     {   
-        $handler_css = $this->_handler_css ? $this->_handler_css : Config::get('global', 'site_assets_url').'/css/main.css';
-        $handler_css .= $this->_generate_url_param_string($this->_handler_css_params);
+        $handler_css = Config::get('global', 'site_assets_url').'/css/main.css';
 
-        $handler_js = $this->_handler_js ? $this->_handler_js : Config::get('global', 'site_assets_url').'/js.php';
-        $handler_js .= $this->_generate_url_param_string($this->_handler_js_params);
+        $handler_js = Config::get('global', 'site_assets_url').'/js.php';
         
         $this->add_inner_tag_front('meta', false, array('name'=>'viewport', 'content'=>'width=device-width,initial-scale=1,maximum-scale=1'));
         $this->add_inner_tag_front('script', null, array('async'=>true, 'src'=>'//www.google-analytics.com/ga.js'));

@@ -42,19 +42,6 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
         return $this;
     }
 
-    public function add_css_handler_library($type, $library)
-    {
-        if(is_array($library))
-            foreach($library as $l)
-                $this->add_css_handler_library($type, $l);
-        elseif(!isset($this->_handler_css_params[$type]))
-            $this->_handler_css_params[$type] = $library;
-        elseif(!in_array($library, explode('+', $this->_handler_css_params[$type])))
-            $this->_handler_css_params[$type] .= '+'.$library;
-
-        return $this;
-    }
-
     public function set_js_handler($path)
     {
         $this->_handler_js = $path;

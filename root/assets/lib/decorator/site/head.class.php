@@ -42,20 +42,6 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
         return $this;
     }
 
-    public function set_js_handler($path)
-    {
-        $this->_handler_js = $path;
-        if(strpos($path, '?') === false)
-            $this->_handler_js .= '?';
-        return $this;
-    }
-
-    public function set_js_handler_params($params = array())
-    {
-        $this->_handler_js_params = array_merge($this->_handler_js_params, $params);
-        return $this;
-    }
-
     public function add_javascript($src)
     {
         return $this->add_inner_tag('script', '', array('type'=>'text/javascript', 'src'=>$src));

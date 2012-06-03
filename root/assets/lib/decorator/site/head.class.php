@@ -24,10 +24,6 @@ require_once(dirname(__DIR__).'/html/tag.class.php');
 class Head_Site_Decorator extends Tag_HTML_Decorator
 {
     private $_title = '';
-    private $_handler_css = false;
-    private $_handler_css_params = array();
-    private $_handler_js = false;
-    private $_handler_js_params = array();
 
     public function __construct()
     {
@@ -46,23 +42,12 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
     {
         return $this->add_inner_tag('script', '', array('src'=>$src));
     }
-
-    private function _generate_url_param_string($params) {
-        $rv = '?';
-        foreach($params as $key=>$val) {
-            $rv .= is_int($key) ? $val.'&' : $key.'='.$val.'&';
-        }
-        $rv = rtrim($rv,'?&');
-        return $rv;
-    }
     
     public function render($raw=false)
     {   
-        $handler_css = $this->_handler_css ? $this->_handler_css : Config::get('global', 'site_assets_url').'/css/main.css';
-        $handler_css .= $this->_generate_url_param_string($this->_handler_css_params);
+        $handler_css = Config::get('global', 'site_assets_url').'/css/main.css';
 
-        $handler_js = $this->_handler_js ? $this->_handler_js : Config::get('global', 'site_assets_url').'/js.php';
-        $handler_js .= $this->_generate_url_param_string($this->_handler_js_params);
+        $handler_js = Config::get('global', 'site_assets_url').'/js.php';
         
         $this->add_inner_tag_front('meta', false, array('name'=>'viewport', 'content'=>'width=device-width,initial-scale=1,maximum-scale=1'));
         $this->add_inner_tag_front('script', null, array('async'=>true, 'src'=>'//www.google-analytics.com/ga.js'));

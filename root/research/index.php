@@ -5,7 +5,7 @@ echo HTML_Decorator::html_start()->render();
 
 echo Site_Decorator::head()
         ->set_title(Config::get('global', 'title_text') . " | Research Profile")
-        ->add_js_handler_library('full','/research/js/profile.js')
+        ->add_inner_tag('script','',array('src'=>'/research/js/profile.js'))
         ->render();
 echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header('Research Profile')
@@ -23,7 +23,7 @@ echo Site_Decorator::ucsf_header('Research Profile')
 
 <?php
 echo Site_Decorator::ucsf_footer()->render();
-?><script>mwf.ucsfCtsiProfile.getProfile("<?php echo filter_var($_GET['fno'],FILTER_SANITIZE_EMAIL); ?>");</script><?php
+?><script>ucsf.ctsiProfile.getProfile("<?php echo filter_var($_GET['fno'],FILTER_SANITIZE_EMAIL); ?>");</script><?php
 echo HTML_Decorator::body_end()->render();
 echo HTML_Decorator::html_end()->render();
 ?>

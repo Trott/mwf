@@ -1,115 +1,130 @@
 var ucsf = ucsf || {};
-ucsf.ctsiProfile = new function () {
-    "use strict";
-
-    /* Callback for getProfile() */
-    this.renderProfile = function (data) {
+ucsf.ctsiProfile = {
+    /* Callback for Profiles API */
+    renderProfile: function (data) {
+        "use strict";
         if (data.hasOwnProperty("Profiles")) {
             if ((data.Profiles instanceof Array) && (data.Profiles.length > 0)) {
-                var myProfile = data.Profiles[0];
-                var menu = document.getElementById('ctsi-menu');
-                var header = document.getElementById('ctsi-header');
-                var items = document.getElementById('ctsi-items');
-                    
+                var myProfile = data.Profiles[0],
+                    menu = document.getElementById('ctsi-menu'),
+                    header = document.getElementById('ctsi-header'),
+                    items = document.getElementById('ctsi-items'),
+                    profilePhoto,
+                    headerHeight,
+                    item,
+                    anchor,
+                    narrative,
+                    narrativeTextShort,
+                    keywords,
+                    list,
+                    limit,
+                    i,
+                    thisItem,
+                    keywordsContainer,
+                    publications,
+                    pubList,
+                    pubLimit,
+                    j,
+                    pubItem,
+                    thisPublication,
+                    thisAnchor,
+                    publicationsContainer,
+                    fullProfileItem,
+                    fullProfileAnchor;
+
                 if (myProfile.hasOwnProperty("Name")) {
                     header.innerHTML = myProfile.Name;
-                        
+
                     if (myProfile.hasOwnProperty("PhotoURL")) {
-                        var profilePhoto = document.createElement("img");
-                        profilePhoto.setAttribute("src","/assets/min/img.php?max_height=80&img="+myProfile.PhotoURL);
-                        profilePhoto.setAttribute("alt","");
-                        profilePhoto.setAttribute("style","border-top-right-radius:0;float:left");
-                        profilePhoto.setAttribute("class","menu-first");
-                        var headerHeight = header.clientHeight;
-                        header.setAttribute("style","height:52px;padding-top:20px;border-radius:.5em .5em 0 0");
-                        menu.insertBefore(profilePhoto,header);
+                        profilePhoto = document.createElement("img");
+                        profilePhoto.setAttribute("src", "/assets/min/img.php?max_height=80&img=" + myProfile.PhotoURL);
+                        profilePhoto.setAttribute("alt", "");
+                        profilePhoto.setAttribute("style", "border-top-right-radius:0;float:left");
+                        profilePhoto.setAttribute("class", "menu-first");
+                        headerHeight = header.clientHeight;
+                        header.setAttribute("style", "height:52px;padding-top:20px;border-radius:.5em .5em 0 0");
+                        menu.insertBefore(profilePhoto, header);
                     }
                 }
-                    
+
                 if (myProfile.hasOwnProperty("Narrative")) {
-                    var item = document.createElement("li");
-                    var anchor = document.createElement("a");
-                    anchor.setAttribute("href","javascript:ucsf.ctsiProfile.toggleNarrative();");
-                    var narrative = document.createElement("span");
-                    narrative.setAttribute("class","smallprint");
-                    narrative.setAttribute("id","ctsi-narrative");
-                    var narrativeTextShort = myProfile.Narrative.substring(0,myProfile.Narrative.substring(0,200).lastIndexOf(' '));
-                    narrative.innerHTML = narrativeTextShort+'...';
-                    document.getElementById("ctsi-narrative-hidden").innerHTML=myProfile.Narrative;
+                    item = document.createElement("li");
+                    anchor = document.createElement("a");
+                    anchor.setAttribute("href", "#");
+                    anchor.setAttribute("onclick", "ucsf.ctsiProfile.toggleNarrative(); return false;");
+                    narrative = document.createElement("span");
+                    narrative.setAttribute("class", "smallprint");
+                    narrative.setAttribute("id", "ctsi-narrative");
+                    narrativeTextShort = myProfile.Narrative.substring(0, myProfile.Narrative.substring(0, 200).lastIndexOf(' '));
+                    narrative.innerHTML = narrativeTextShort + '...';
+                    document.getElementById("ctsi-narrative-hidden").innerHTML = myProfile.Narrative;
                     anchor.appendChild(narrative);
                     item.appendChild(anchor);
                     items.appendChild(item);
                 }
-                    
+
                 if (myProfile.hasOwnProperty("Keywords") && myProfile.Keywords.length > 0) {
-                    var keywords = myProfile.Keywords;
-                    var list = document.createElement("ol");
-                    var limit = keywords.length > 5 ? 5 : keywords.length;
-                    for (var i = 0; i < limit; i++) {
-                        var thisItem = document.createElement("li");
-                        thisItem.innerHTML=keywords[i];
+                    keywords = myProfile.Keywords;
+                    list = document.createElement("ol");
+                    limit = keywords.length > 5 ? 5 : keywords.length;
+                    for (i = 0; i < limit; i = i + 1) {
+                        thisItem = document.createElement("li");
+                        thisItem.innerHTML = keywords[i];
                         list.appendChild(thisItem);
                     }
-                    var keywordsContainer = document.getElementById("ctsi-keywords");
-                    keywordsContainer.innerHTML='<h1 class="content-first light">Research Interests</h1>';
+                    keywordsContainer = document.getElementById("ctsi-keywords");
+                    keywordsContainer.innerHTML = '<h1 class="content-first light">Research Interests</h1>';
                     keywordsContainer.appendChild(list);
                 }
-                    
+
                 if (myProfile.hasOwnProperty("Publications") && myProfile.Publications.length > 0) {
-                    var publications = myProfile.Publications;
-                    var pubList = document.createElement("ol");
-                    var pubLimit = publications.length > 5 ? 5 : publications.length;
-                    for (var j = 0; j < pubLimit; j++) {
+                    publications = myProfile.Publications;
+                    pubList = document.createElement("ol");
+                    pubLimit = publications.length > 5 ? 5 : publications.length;
+                    for (j = 0; j < pubLimit; j = j + 1) {
                         if (publications[j].hasOwnProperty('PublicationTitle')) {
-                            var pubItem = document.createElement("li");
-                            var thisPublication = document.createElement("span");
-                            thisPublication.setAttribute("class","smallprint");
-                            thisPublication.innerHTML=publications[j].PublicationTitle;
+                            pubItem = document.createElement("li");
+                            thisPublication = document.createElement("span");
+                            thisPublication.setAttribute("class", "smallprint");
+                            thisPublication.innerHTML = publications[j].PublicationTitle;
 
-                            var thisAnchor;
-                            if (publications[j].hasOwnProperty('PublicationSource') && 
-                                (publications[j].PublicationSource[0].hasOwnProperty('PublicationSourceURL')) &&
-                                (publications[j].PublicationSource[0].PublicationSourceURL.length > 0)) { 
+                            if (publications[j].hasOwnProperty('PublicationSource') &&
+                                    (publications[j].PublicationSource[0].hasOwnProperty('PublicationSourceURL')) &&
+                                    (publications[j].PublicationSource[0].PublicationSourceURL.length > 0)) {
                                 thisAnchor = document.createElement("a");
-
-                                thisAnchor.setAttribute("href",publications[j].PublicationSource[0].PublicationSourceURL);
-                                thisAnchor.setAttribute("rel","external");
-
+                                thisAnchor.setAttribute("href", publications[j].PublicationSource[0].PublicationSourceURL);
+                                thisAnchor.setAttribute("rel", "external");
                             } else {
                                 thisAnchor = document.createElement("p");
                             }
                             thisAnchor.appendChild(thisPublication);
                             pubItem.appendChild(thisAnchor);
- 
                             pubList.appendChild(pubItem);
                         }
                     }
-                    var publicationsContainer = document.getElementById("ctsi-publications");
-                    publicationsContainer.innerHTML='<h1 class="content-first light">Recent Publications</h1>';
+                    publicationsContainer = document.getElementById("ctsi-publications");
+                    publicationsContainer.innerHTML = '<h1 class="content-first light">Recent Publications</h1>';
                     publicationsContainer.appendChild(pubList);
                 }
-                
+
                 if (myProfile.hasOwnProperty("ProfilesURL")) {
-                    var fullProfileItem = document.createElement("li");
-                    var fullProfileAnchor = document.createElement("a");
-                    fullProfileAnchor.innerHTML="Full Research Profile";
-                    fullProfileAnchor.setAttribute("rel","external");
-                    fullProfileAnchor.setAttribute("href",myProfile.ProfilesURL);
-                    document.getElementById("ctsi-full-profile")
+                    fullProfileItem = document.createElement("li");
+                    fullProfileAnchor = document.createElement("a");
+                    fullProfileAnchor.innerHTML = "Full Research Profile";
+                    fullProfileAnchor.setAttribute("rel", "external");
+                    fullProfileAnchor.setAttribute("href", myProfile.ProfilesURL);
+                    document.getElementById("ctsi-full-profile");
                     fullProfileItem.appendChild(fullProfileAnchor);
                     document.getElementById('ctsi-full-profile').appendChild(fullProfileItem);
                 }
             }
         }
-    }
-    
-    this.getProfile = function (fno) {
-        document.write('<script src="http://profiles.ucsf.edu/CustomAPI/v1/JSONProfile.aspx?FNO='+fno+'&callback=ucsf.ctsiProfile.renderProfile&publications=full&mobile=on"></script>');
-    }
-        
-    this.toggleNarrative = function () {
+    },
+
+    toggleNarrative: function () {
+        "use strict";
         var temp = document.getElementById("ctsi-narrative").innerHTML;
         document.getElementById("ctsi-narrative").innerHTML = document.getElementById("ctsi-narrative-hidden").innerHTML;
         document.getElementById("ctsi-narrative-hidden").innerHTML = temp;
     }
-}
+};

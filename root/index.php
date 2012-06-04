@@ -52,6 +52,8 @@ echo Site_Decorator::ucsf_header()->render();
  * Menu
  */
 ?>
+<img style="display:none" alt="" src="/assets/img/background-decor.png">
+<img style="display:none" alt="" src="/assets/img/watermark.png">
 <div class="menu front" id="main_menu">
     <ol>
         <li>
@@ -65,12 +67,12 @@ echo Site_Decorator::ucsf_header()->render();
         </li><li>
             <a data-target-id="il/library/" href="library/"><img src="/assets/img/homescreen/library.png" alt=""><br/>Library</a>         
         </li><li>
-            <a data-target-id="il/fitness" href="fitness"><img src="/assets/img/homescreen/fitness.png"><br/>Fitness</a>
+            <a data-target-id="il/fitness" href="fitness"><img src="/assets/img/homescreen/fitness.png" alt=""><br/>Fitness</a>
         </li><li>
-            <a data-target-id="il/calendars" href="calendars"><img src="/assets/img/homescreen/calendars.png"><br/>Calendars</a>
+            <a data-target-id="il/calendars" href="calendars"><img src="/assets/img/homescreen/calendars.png" alt=""><br/>Calendars</a>
         </li><li>
-            <a data-target-id="il/social" href="social"><img src="/assets/img/homescreen/social.png"><br/>Social&nbsp;Media</a>
-        </li><li><a data-target-id="il/emergency" href="emergency"><img src="/assets/img/homescreen/emergency.png"><br/>Emergency</a>
+            <a data-target-id="il/social" href="social"><img src="/assets/img/homescreen/social.png" alt=""><br/>Social&nbsp;Media</a>
+        </li><li><a data-target-id="il/emergency" href="emergency"><img src="/assets/img/homescreen/emergency.png" alt=""><br/>Emergency</a>
         </li>
     </ol>
 </div>

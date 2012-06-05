@@ -19,7 +19,6 @@
 /**
  * Include necessary libraries. 
  */
-require_once(dirname(__FILE__) . '/lib/js.class.php');
 
 /**
  * Defines the file to be parsed as a Javascript file and restricts online caching.
@@ -32,17 +31,16 @@ header('Content-Type: text/javascript');
 mwf={};
 <?php
 
-JS::load('core/modernizr.js');
+require('js/core/modernizr.js');
 
 
-JS::load('utility/analytics.js');
+require('js/utility/analytics.js');
 
 /**
  * Moves the window below the URL bar.
  */
-JS::load('iphone/safariurlbar.js');
+require('js/iphone/safariurlbar.js');
 
-JS::load('ucsf/LightningTouch-1.0.3.min.js');
+require('js/ucsf/LightningTouch-1.0.3.min.js');
 
-JS::load('ucsf/mainPage.js');
-
+require('js/ucsf/mainPage.js');

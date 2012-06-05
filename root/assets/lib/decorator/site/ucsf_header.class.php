@@ -42,7 +42,7 @@ class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
 
         $image = HTML_Decorator::tag('img', false, $this->_image);
         $home_text = HTML_Decorator::tag('span', $this->_home_text);
-        $home_button = HTML_Decorator::tag('a', array($image, $home_text), array('href' => Config::get('global', 'site_url')));
+        $home_button = HTML_Decorator::tag('a', array($image, $home_text), array('href' => '/'));
 
 
         if ($this->_title_path)

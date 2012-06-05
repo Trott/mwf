@@ -1155,7 +1155,7 @@ html {
     background-size:auto 100%, 100% 70%, 100% 100%;
 }
 
-/* Don't hide banner on Android (which we detect with .touch.not-overflowscrolling--lame!)
+/* Don't hide banner on Android (which we detect with Modernizr .touch.not-overflowscrolling--lame!)
       because Android doesn't show the background branding (also lame!) */
 html.no-touch body.front header,
 html.touch.overflowscrolling body.front header{

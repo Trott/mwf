@@ -1,21 +1,22 @@
-mwf.ucsf = mwf.ucsf || {};
+var ucsf = ucsf || {};
 
-mwf.ucsf.callAnalytics = function () {
-    var path = (window.location.hash == '#/main_menu') ? '/' : window.location.hash.substr(4);
+ucsf.callAnalytics = function () {
+    "use strict";
+    var path = (window.location.hash === '#/main_menu') ? '/' : window.location.hash.substr(4);
     mwf.analytics.trackPageview(path);
-}
+};
 
-window.addEventListener('hashchange', mwf.ucsf.callAnalytics, false);
+window.addEventListener('hashchange', ucsf.callAnalytics, false);
 
-mwf.ucsf.toggleHeaderAndFooter = function () {
-    var header = document.getElementById('header');
-            
-    var headFootStyle = location.hash=="#/main_menu" ? "" : "display:block";
-            
-    if (header)
-        header.setAttribute("style",headFootStyle);
-}
+ucsf.toggleHeaderAndFooter = function () {
+    "use strict";
+    var header = document.getElementById('header'),
+        headFootStyle = location.hash === "#/main_menu" ? "" : "display:block";
 
-window.addEventListener('hashchange', mwf.ucsf.toggleHeaderAndFooter, false);
-window.addEventListener('DOMContentLoaded', mwf.ucsf.toggleHeaderAndFooter, false);
+    if (header) {
+        header.setAttribute("style", headFootStyle);
+    }
+};
 
+window.addEventListener('hashchange', ucsf.toggleHeaderAndFooter, false);
+window.addEventListener('DOMContentLoaded', ucsf.toggleHeaderAndFooter, false);

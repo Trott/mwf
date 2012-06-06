@@ -26,12 +26,9 @@
 header("Cache-Control: max-age=0, no-cache, no-store, must-revalidate");
 header("Expires: Wed, 11 Jan 1984 05:00:00 GMT");
 header('Content-Type: text/javascript');
-?>/** Mobile Web Framework | http://mwf.ucla.edu */
-mwf={};
-<?php
+?>var ucsf = ucsf || {};<?php
 
 require('js/core/modernizr.js');
-
 
 require('js/utility/analytics.js');
 

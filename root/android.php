@@ -3,7 +3,6 @@
 /**
  * @author trott
  * @copyright Copyright (c) 2010-12 UC Regents
- * @license http://mwf.ucla.edu/license
  * @version 20120313
  *
  * @uses Decorator

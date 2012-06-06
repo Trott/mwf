@@ -1,13 +1,11 @@
 /**
- * Unit tests for mwf.analytics
+ * Unit tests for ucsf.analytics
  *
  * @author trott
  * @copyright Copyright (c) 2012 UC Regents
- * @license http://mwf.ucla.edu/license
  * @version 20120226
  *
- * @requires mwf
- * @requires mwf.analytics
+ * @requires ucsf.analytics
  * @requires qunit
  * 
  */
@@ -22,26 +20,26 @@ module("utility/analytics.js", {
     }
 }); 
 
-test("mwf.analytics.trackPageview() global and path keys, no path match", function()
+test("ucsf.analytics.trackPageview() global and path keys, no path match", function()
 {
-    mwf.analytics.trackPageview("/bar/baz.html");
+    ucsf.analytics.trackPageview("/bar/baz.html");
     same(_gaq, 
         [["_trackPageview", "/bar/baz.html"]], 
         "reporting should occur for global key only");
 })
 
-test("mwf.analytics.trackPageview() global and path keys, path match", function()
+test("ucsf.analytics.trackPageview() global and path keys, path match", function()
 {
-    mwf.analytics.trackPageview("/library/baz.html");
+    ucsf.analytics.trackPageview("/library/baz.html");
     same(_gaq, 
         [["_trackPageview", "/library/baz.html"],["t0._trackPageview", "/library/baz.html"]], 
         "reporting should occur if for both keys");
 })
 
-test("mwf.analytics constructor notes native app", function() {
+test("ucsf.analytics constructor notes native app", function() {
     _gaq = [];
     var save = _gaq;
-    mwf.analytics.init('some random UA string prefix and then mwf-native-iphone/2.1');
+    ucsf.analytics.init('some random UA string prefix and then mwf-native-iphone/2.1');
     var success = false;
    
     for (var i=0; i<save.length; i++)

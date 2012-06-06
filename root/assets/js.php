@@ -32,11 +32,6 @@ require('js/core/modernizr.js');
 
 require('js/utility/analytics.js');
 
-/**
- * Moves the window below the URL bar.
- */
-require('js/iphone/safariurlbar.js');
-
 require('js/ucsf/LightningTouch-1.0.3.min.js');
 
 require('js/ucsf/mainPage.js');

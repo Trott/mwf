@@ -32,8 +32,14 @@ ucsf.news = {
 }
 };
 
+//TODO: add relevant stuff to offline appcache manifest. Is that going to even be possible? Does the Feed API require the network?
+//    Maybe don't load the feed API unless there's nothing in  localStroage? Urgh....
+//TODO: Maybe the thing to do is to try to load the Feed API/feeds with a low timeout and if that fails then use localstorage regardles
+//   of how out-of-date it may be?
+//TODO: Maybe in view, but "Loading..." should look better and should go away if there's an error.
 
-//TODO: move to view?
+
+//TODO: move to view
 function loadSection() {
     ucsf.news.headlines(document.getElementById('ucsf-news'),'feed_ucsf_news','http://feeds.feedburner.com/UCSF_News');
     ucsf.news.headlines(document.getElementById('media-coverage'),'feed_media_coverage','http://feeds.feedburner.com/UCSF_Media_Coverage');

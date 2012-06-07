@@ -50,7 +50,7 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
         $this->add_inner_tag('script', null, array('src'=>'https://www.google.com/jsapi'));
         $this->add_inner_tag('script', null, array('async'=>'', 'src'=>$handler_js));
         $this->add_inner_tag('script', null, array('async'=>'', 'src'=>'//www.google-analytics.com/ga.js'));
-        $this->add_inner_tag('script', ';google.load("feeds", "1");');
+        $this->add_inner_tag('script', ';if (typeof google!=="undefined") google.load("feeds","1");');
         
         $this->add_inner_tag_front('link', false, array('rel'=>'apple-touch-icon', 'href'=>'//assets/img/ucsf-appicon.png'));
         $this->add_inner_tag_front('link', false, array('rel'=>'apple-touch-icon-precomposed', 'href'=>'//assets/img/ucsf-appicon.png'));

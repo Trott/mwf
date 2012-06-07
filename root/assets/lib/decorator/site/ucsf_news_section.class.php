@@ -41,7 +41,7 @@ class UCSF_News_Section_Site_Decorator extends Tag_HTML_Decorator {
             . 'ucsf.news.headlines(document.getElementById("ucsf-news"),"feed_ucsf_news","http://feeds.feedburner.com/UCSF_News");'
             . 'ucsf.news.headlines(document.getElementById("media-coverage"),"feed_media_coverage","http://feeds.feedburner.com/UCSF_Media_Coverage");'
             . '}'
-            . 'google.setOnLoadCallback(loadSection);</script>';
+            . 'window.onload=loadSection;</script>';
     }
 
 }

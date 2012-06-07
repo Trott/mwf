@@ -38,4 +38,4 @@ require('js/ucsf/LightningTouch-1.0.3.min.js');
 
 require('js/ucsf/mainPage.js');
 
-require('js/ucsf/news.src.js');
+require('js/ucsf/news.js');

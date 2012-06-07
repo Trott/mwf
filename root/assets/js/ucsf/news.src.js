@@ -27,7 +27,6 @@ ucsf.news = {
     }
 };
 
-//TODO: minimize this thing
 //TODO: add relevant stuff to offline appcache manifest. Is that going to even be possible? Does the Feed API require the network?
 //    Maybe don't load the feed API unless there's nothing in  localStroage? Urgh....
 //TODO: Maybe the thing to do is to try to load the Feed API/feeds with a low timeout and if that fails then use localstorage regardles

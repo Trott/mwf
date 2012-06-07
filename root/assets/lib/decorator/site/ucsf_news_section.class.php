@@ -35,8 +35,8 @@ class UCSF_News_Section_Site_Decorator extends Tag_HTML_Decorator {
 
     public function render($raw = false) {
 
-        return '<div id="il/news" style="display:none"><section id="ucsf-news">Loading...</section>'
-            . '<section id="media-coverage">Loading...</section></div>'
+        return '<div id="il/news" style="display:none"><section id="ucsf-news" class="center"><progress>Loading...</progress></section>'
+            . '<section id="media-coverage" class="center"><progress>Loading...</progress></section></div>'
             . '<script>function loadSection() {'
             . 'ucsf.news.headlines(document.getElementById("ucsf-news"),"feed_ucsf_news","http://feeds.feedburner.com/UCSF_News");'
             . 'ucsf.news.headlines(document.getElementById("media-coverage"),"feed_media_coverage","http://feeds.feedburner.com/UCSF_Media_Coverage");'

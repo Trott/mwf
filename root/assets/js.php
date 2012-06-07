@@ -32,6 +32,10 @@ require('js/core/modernizr.js');
 
 require('js/utility/analytics.js');
 
+require('js/ucsf/template-2.0.0.min.js');
+
 require('js/ucsf/LightningTouch-1.0.3.min.js');
 
 require('js/ucsf/mainPage.js');
+
+require('js/ucsf/news.src.js');

@@ -102,8 +102,8 @@ class UCSF_News_Section_Site_Decorator extends Tag_HTML_Decorator {
             $this->add_inner($menu);
         }
 
-        return '<section id="ucsf-news">Loading...</section>'
-            . '<section id="media-coverage">Loading...</section>';
+        return '<div id="il/news" style="display:none"><section id="ucsf-news">Loading...</section>'
+            . '<section id="media-coverage">Loading...</section></div>';
         return parent::render($raw);
     }
 

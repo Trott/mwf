@@ -19,7 +19,6 @@ ucsf.news = {
                 if (! result.error) {
                     //var container = document.getElementById("feed");
                     container.innerHTML = template.render(this.feed);
-                    console.log(this);
                 } else {
                     //TODO: sucks, make better
                     alert(result.error.message);

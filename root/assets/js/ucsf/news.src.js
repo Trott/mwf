@@ -40,4 +40,4 @@ ucsf.news = {
     }
 };
 
-//TODO: Fix for Library news, Events, etc.
+//TODO: Fix for Library news, Events, etc. Maybe just pass in a precompiled template as an option for headlines()

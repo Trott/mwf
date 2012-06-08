@@ -1,1 +1,58 @@
-ucsf.news={loadFromStorage:function(a){var b;if(Modernizr.localstorage){b=window.localStorage.getItem(a);if(b!==null){return JSON.parse(b)}}return{}},headlines:function(a,b,e){var c=new Hogan.Template(function(j,h,g){var f=this;f.b(g=g||"");if(f.s(f.f("feed",j,h,1),j,h,0,9,149,"{{ }}")){f.rs(j,h,function(l,k,i){i.b('<div class="menu detailed"><h2>');i.b(i.v(i.f("title",l,k,0)));i.b("</h2><ol>");if(i.s(i.f("entries",l,k,1),l,k,0,70,126,"{{ }}")){i.rs(l,k,function(o,n,m){m.b('<li><a rel="external" href="');m.b(m.v(m.f("link",o,n,0)));m.b('">');m.b(m.v(m.f("title",o,n,0)));m.b("</a></li>")});l.pop()}i.b("</ol></div>")});j.pop()}if(!f.s(f.f("feed",j,h,1),j,h,1,0,0,"")){f.b('<div class="content"><p>News feed could not be loaded.</p></div>')}return f.fl()}),d;if(typeof google!=="undefined"){d=new google.feeds.Feed(e);d.load(function(f){var g={};if(!f.error){g={feed:this.feed};if(Modernizr.localstorage){window.localStorage.setItem(b,JSON.stringify(g))}}else{g=ucsf.news.loadFromStorage(b)}a.innerHTML=c.render(g)})}else{a.innerHTML=c.render(ucsf.news.loadFromStorage(b))}}};
+ucsf.news = {
+
+	loadFromStorage: function(storageId) {
+		var stored;
+		if (Modernizr.localstorage) {
+			stored = window.localStorage.getItem(storageId);
+			if (stored !== null) {
+				return JSON.parse(stored);
+			}
+		}
+		return {};
+	},
+
+	headlines: function (container, storageId, feedUrl, options) {
+		"use strict";
+        // template precompiled via Hogan.JS from news.hogan.src.js
+        var feed,
+        template = new Hogan.Template(function(c,p,i){var _=this;_.b(i=i||"");if(_.s(_.f("feed",c,p,1),c,p,0,9,247,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("<div class=\"menu detailed\"><h2>");_.b(_.v(_.f("title",c,p,0)));_.b("</h2><ol>");if(_.s(_.f("entries",c,p,1),c,p,0,70,224,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("  <li>    <a class=\"no-ext-ind\" rel=\"external\" href=\"");_.b(_.v(_.f("link",c,p,0)));_.b("\"><span class=\"external\">");_.b(_.v(_.f("title",c,p,0)));_.b("</span>    <div class=\"smallprint light\">");_.b(_.v(_.f("date",c,p,0)));_.b("</div></a>");});c.pop();}_.b("</ol></div>");});c.pop();}if(!_.s(_.f("feed",c,p,1),c,p,1,0,0,"")){_.b("<div class=\"content\"><p>News feed could not be loaded.</p></div>");};return _.fl();;});
+
+        options = options || {};
+        if (typeof google !== "undefined") {
+
+        	feed = new google.feeds.Feed(feedUrl);
+
+        	if (options.numEntries) {
+        		feed.setNumEntries(options.numEntries);
+        	}
+
+        	feed.load(function (result) {
+        		var i,
+        		content = {};
+
+        		if (! result.error) {
+        			content = {
+        				"feed": this.feed
+        			};
+        			if (options.showTime) {
+        				for (i = 0; i < content.feed.entries.length; i = i + 1) {
+        					content.feed.entries[i].date = new Date(content.feed.entries[i].publishedDate).toLocaleString().substr(0,21);
+        				}
+        			}
+        			if (Modernizr.localstorage) {
+        				window.localStorage.setItem(storageId, JSON.stringify(content));
+        			}
+        		} else {
+        			content = ucsf.news.loadFromStorage(storageId);
+        		}
+        		container.innerHTML = template.render(content);
+        	});
+        } else {
+        	container.innerHTML = template.render(ucsf.news.loadFromStorage(storageId));
+        }
+    }
+};
+
+//TODO: check for broken links
+//TODO: minify template-2.0.0
+//TODO: minify this

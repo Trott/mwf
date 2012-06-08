@@ -6,7 +6,11 @@ var template = '{{#feed}}'
     template += '<div class="menu detailed">';
     template += '<h2>{{title}}</h2>';
     template += '<ol>';
-    template += '{{#entries}}<li><a rel="external" href="{{link}}">{{title}}</a></li>{{/entries}}'
+    template += '{{#entries}}';
+    template += '  <li>';
+    template += '    <a class="no-ext-ind" rel="external" href="{{link}}"><span class="external">{{title}}</span>'
+    template += '    <div class="smallprint light">{{date}}</div></a>';
+    template += '{{/entries}}'
     template += '</ol>';
     template += '</div>';
     template += '{{/feed}}';

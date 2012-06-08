@@ -40,7 +40,6 @@ ucsf.news = {
     }
 };
 
-//TODO: google is undefined error when loaded without network
 //TODO: whoa, what's up with Modernizr not being defined in the shuttle planner?
 //TODO: get it to work on home page, at #/il/news, and at /news
 //TODO: maybe add some noscript value?

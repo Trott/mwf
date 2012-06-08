@@ -27,7 +27,7 @@ class UCSF_News_Section_Site_Decorator {
 
     public function render($raw = false) {
 
-        return '<noscript><style> .jsonly { display:none }</style><div class="content center"><p>JavaScript is required to load News content.</p></div></noscript>'
+        return '<noscript><div class="content center" ' . $this->_style . '><p>JavaScript is required to load News content.</p></div></noscript>'
             . '<div id="il/news" class="jsonly" ' . $this->_style . '>'
             . '<section id="ucsf-news" class="center"><progress>Loading...</progress></section>'
             . '<section id="media-coverage" class="center"><progress>Loading...</progress></section></div>'

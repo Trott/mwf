@@ -40,5 +40,4 @@ ucsf.news = {
     }
 };
 
-//TODO: get it to work on home page, at #/il/news, and at /news
 //TODO: maybe add some noscript value?

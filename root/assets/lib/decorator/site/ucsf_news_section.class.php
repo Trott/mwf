@@ -13,29 +13,21 @@
  * @uses Decorator
  * @uses Tag_HTML_Decorator
  */
-require_once(dirname(dirname(__DIR__)) . '/decorator.class.php');
-require_once(dirname(__DIR__) . '/html/tag.class.php');
-//require_once(dirname(dirname(dirname(dirname(dirname(__DIR__))))) . '/auxiliary/feed/feed.class.php');
 
-class UCSF_News_Section_Site_Decorator extends Tag_HTML_Decorator {
+class UCSF_News_Section_Site_Decorator {
 
-    private $_header_title;
-    private $_feeds;
-    private $_item_limit;
-    private $_alt_feeds;
+    private $_style;
 
     public function __construct($header_title, $feeds, $item_limit, $more, $alt_feeds, $params=array()) {
-        $this->_header_title = $header_title;
-        $this->_feeds = $feeds;
-        $this->_item_limit = $item_limit;
-        $this->_more = $more;
-        $this->_alt_feeds = $alt_feeds;
-        return parent::__construct('section', '', $params);
+        $this->_style = array_key_exists('style', $params) ? 
+                'style="' . htmlspecialchars($params['style']) . '"' : '';
+                
+        return $this;
     }
 
     public function render($raw = false) {
 
-        return '<div id="il/news" style="display:none"><section id="ucsf-news" class="center"><progress>Loading...</progress></section>'
+        return '<div id="il/news" ' . $this->_style . '><section id="ucsf-news" class="center"><progress>Loading...</progress></section>'
             . '<section id="media-coverage" class="center"><progress>Loading...</progress></section></div>'
             . '<script>function loadSection() {'
             . 'ucsf.news.headlines(document.getElementById("ucsf-news"),"feed_ucsf_news","http://feeds.feedburner.com/UCSF_News");'

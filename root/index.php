@@ -85,7 +85,7 @@ echo Site_Decorator::ucsf_header()->render();
     echo Site_Decorator::ucsf_directory_form('Directory', array('id' => 'il/directory', 'style' => 'display:none'))->render();
 
     echo Site_Decorator::ucsf_news_section(
-            HTML_Decorator::tag('a', 'News', array('href' => '/news')), Config::get('ucsf_news', 'feeds'), 4, TRUE, Config::get('ucsf_news', 'alternate_feeds'), array('id' => 'il/news', 'style' => 'display:none'))->render();
+            0, 0, 0, 0, 0, array('style' => 'display:none'))->render();
 
     echo Site_Decorator::ucsf_map_menu('Maps', array('id' => 'il/maps/', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_library_menu('Library', array('id' => 'il/library/', 'style' => 'display:none'))->set_lightning(true)->render();

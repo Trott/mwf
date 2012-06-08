@@ -27,7 +27,9 @@ class UCSF_News_Section_Site_Decorator {
 
     public function render($raw = false) {
 
-        return '<div id="il/news" ' . $this->_style . '><section id="ucsf-news" class="center"><progress>Loading...</progress></section>'
+        return '<noscript><style> .jsonly { display:none }</style><div class="content center"><p>JavaScript is required to load News content.</p></div></noscript>'
+            . '<div id="il/news" class="jsonly" ' . $this->_style . '>'
+            . '<section id="ucsf-news" class="center"><progress>Loading...</progress></section>'
             . '<section id="media-coverage" class="center"><progress>Loading...</progress></section></div>'
             . '<script>function loadSection() {'
             . 'ucsf.news.headlines(document.getElementById("ucsf-news"),"feed_ucsf_news","http://feeds.feedburner.com/UCSF_News");'

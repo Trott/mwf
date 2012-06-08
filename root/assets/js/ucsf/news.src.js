@@ -39,5 +39,3 @@ ucsf.news = {
         }
     }
 };
-
-//TODO: maybe add some noscript value?

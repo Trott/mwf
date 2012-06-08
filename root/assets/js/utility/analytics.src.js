@@ -2,14 +2,13 @@
  *
  * @author trott
  * @copyright Copyright (c) 2010-12 UC Regents
- * @license http://mwf.ucla.edu/license
  * @version 20120208
  */
 
 // Google Analytics API requires this to be a global
 var _gaq = _gaq || [];
 
-mwf.analytics = new function(){
+ucsf.analytics = new function(){
     // Key for the entire site. Tracks everything.
     var key = "UA-15855907-1";
     // Keys for just particular paths. Tracks only things in those paths.
@@ -48,4 +47,4 @@ mwf.analytics = new function(){
     }
 };
 
-mwf.analytics.init();
+ucsf.analytics.init();

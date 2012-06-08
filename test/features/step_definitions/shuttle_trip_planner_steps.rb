@@ -8,11 +8,8 @@ Given /I visit the Shuttle Trip Planner page/ do
 end
 
 Then /^I should see the route "([^"]*)" "([^"]*)"$/ do |id, value|
-  #wait_until { find("#" + id + " option[selected]").text == value }
-  #assert_equal(value, find("#" + id + " option[selected]").text)
   select = find('#' + id)
   select.find(:xpath, XPath::HTML.option(value)).should be_selected
-#  find("#" + id + "
 end
 
 Then /^I select a route "([^"]*)" "([^"]*)"$/ do |id, value|

@@ -78,6 +78,5 @@ ucsf.news = {
     }
 };
 
-//TODO: check for broken links
 //TODO: minify template-2.0.0
 //TODO: minify this

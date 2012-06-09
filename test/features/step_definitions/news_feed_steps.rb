@@ -1,5 +1,5 @@
 Given /I visit a news page/ do
-  visit 'http://localhost/assets/test/selenium/feed_test.html'
+  visit 'http://localhost/news'
 end
 
 Then /I should see news items/ do

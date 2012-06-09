@@ -6,3 +6,7 @@ Feature: News feed
 Scenario: News page
   Given I visit a news page
   Then I should see news items
+
+Scenario: News page via Lightning Touch hash
+  Given I visit the news hash
+  Then I should see news items

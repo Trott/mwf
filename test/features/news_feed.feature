@@ -10,3 +10,8 @@ Scenario: News page
 Scenario: News page via Lightning Touch hash
   Given I visit the news hash
   Then I should see news items
+
+Scenario: News page via home screen navigation
+  Given I am on the home page
+  And I click "News"
+  Then I should see news items

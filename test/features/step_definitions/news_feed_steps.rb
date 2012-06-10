@@ -9,3 +9,7 @@ end
 Then /I should see news items/ do
   should have_content("UCSF News")
 end
+
+And /I click "([^"]*)"/ do |link_text|
+  click_link(link_text)
+end

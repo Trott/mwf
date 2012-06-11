@@ -8,7 +8,8 @@ Given /I visit the Shuttle Trip Planner page/ do
 end
 
 Then /^I should see the route "([^"]*)" "([^"]*)"$/ do |id, value|
-  find("#" + id).value == value
+  select = find('#' + id)
+  select.find(:xpath, XPath::HTML.option(value)).should be_selected
 end
 
 Then /^I select a route "([^"]*)" "([^"]*)"$/ do |id, value|

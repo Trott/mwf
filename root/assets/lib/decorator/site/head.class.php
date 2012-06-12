@@ -34,11 +34,6 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
         
         return $this;
     }
-
-    public function add_javascript($src)
-    {
-        return $this->add_inner_tag('script', '', array('src'=>$src));
-    }
     
     public function render($raw=false)
     {   

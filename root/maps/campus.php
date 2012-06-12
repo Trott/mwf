@@ -39,7 +39,7 @@ switch (isset($_GET['campus']) ? $_GET['campus'] : 'none') {
 echo HTML_Decorator::html_start()->render();
 echo Site_Decorator::head()
         ->set_title(Config::get('global', 'title_text') . " | $startLocation Map")
-        ->add_javascript('http://maps.google.com/maps/api/js?sensor=false&v=3.5')
+        ->add_inner_tag('script', '', array('src'=>'http://maps.google.com/maps/api/js?sensor=false&v=3.5'))
         ->render();
 echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a', 'Maps', array('href' => '/maps')))->render();

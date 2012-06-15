@@ -41,11 +41,13 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
 
         $handler_js = '/assets/js.php';
         
-        $this->add_inner_tag_front('meta', false, array('name'=>'viewport', 
-            'content'=>'width=device-width,initial-scale=1,maximum-scale=1'));
-        $this->add_inner_tag_front('script', null, array('async'=>'', 'src'=>'//www.google-analytics.com/ga.js'));
-        $this->add_inner_tag_front('script', null, array('async'=>'', 'src'=>$handler_js));
-        
+        $this->add_inner_tag_front('meta', false, 
+            array('name'=>'viewport', 'content'=>'width=device-width,initial-scale=1,maximum-scale=1'));
+        $this->add_inner_tag('script', null, array('src'=>'https://www.google.com/jsapi'));
+        $this->add_inner_tag('script', null, array('async'=>'', 'src'=>$handler_js));
+        $this->add_inner_tag('script', null, array('async'=>'', 'src'=>'//www.google-analytics.com/ga.js'));
+        $this->add_inner_tag('script', ';if (typeof google!=="undefined") google.load("feeds","1",{nocss:true});');
+
         $this->add_inner_tag('link', false, 
             array('rel'=>'apple-touch-icon-precomposed', 
                 'sizes'=>'144x144', 
@@ -62,6 +64,10 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
             array('rel'=>'apple-touch-icon-precomposed', 
                 'href'=>'/apple-touch-icon-precomposed.png'));
         
+        $this->add_inner_tag_front('link', false, array('rel'=>'apple-touch-icon', 'href'=>'/assets/img/ucsf-appicon.png'));
+        $this->add_inner_tag_front('link', false, array('rel'=>'apple-touch-icon-precomposed', 'href'=>'/assets/img/ucsf-appicon.png'));
+        
+        $this->add_inner_tag_front('noscript', HTML_Decorator::tag('style', '.jsonly{display:none}'));
         $this->add_inner_tag_front('link', false, array('rel'=>'stylesheet', 'type'=>'text/css', 'href'=>$handler_css, 'media'=>'screen'));
         $this->add_inner_tag_front('title', $this->_title);
 

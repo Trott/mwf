@@ -17,3 +17,7 @@ end
 And /^I check the (.*) checkbox$/ do |checkbox|
   check(checkbox)
 end
+
+And /^I reload$/ do
+  evaluate_script('window.location.reload()')
+end

@@ -913,7 +913,7 @@ form > :first-child,
 form > :last-child,
 .content > :last-child,
 .menu > :first-child:last-child,
-.menu li:last-child,
+.menu :last-child,
 .menu li:last-child a:hover,
 .menu li:last-child a:focus,
 .menu li:last-child a:active {

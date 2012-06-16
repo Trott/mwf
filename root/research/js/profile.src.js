@@ -8,7 +8,7 @@ ucsf.ctsiProfile = {
                 var myProfile = data.Profiles[0],
                     menu = document.getElementById('ctsi-menu'),
                     header = document.getElementById('ctsi-header'),
-                    items = document.getElementById('ctsi-items'),
+                    items,
                     profilePhoto,
                     headerHeight,
                     item,
@@ -39,8 +39,7 @@ ucsf.ctsiProfile = {
                         profilePhoto = document.createElement("img");
                         profilePhoto.setAttribute("src", "/assets/min/img.php?max_height=80&img=" + myProfile.PhotoURL);
                         profilePhoto.setAttribute("alt", "");
-                        profilePhoto.setAttribute("style", "border-top-right-radius:0;float:left");
-                        profilePhoto.setAttribute("class", "menu-first");
+                        profilePhoto.setAttribute("style", "border-top-right-radius:0;border-bottom-left-radius:.5em;float:left");
                         headerHeight = header.clientHeight;
                         header.setAttribute("style", "height:52px;padding-top:20px");
                         menu.insertBefore(profilePhoto, header);
@@ -48,6 +47,8 @@ ucsf.ctsiProfile = {
                 }
 
                 if (myProfile.hasOwnProperty("Narrative")) {
+                    items = document.createElement("ol");
+                    menu.appendChild(items);
                     item = document.createElement("li");
                     anchor = document.createElement("a");
                     anchor.setAttribute("href", "#");
@@ -61,6 +62,8 @@ ucsf.ctsiProfile = {
                     anchor.appendChild(narrative);
                     item.appendChild(anchor);
                     items.appendChild(item);
+                    profilePhoto.setAttribute("style", "border-top-right-radius:0;float:left");
+
                 }
 
                 if (myProfile.hasOwnProperty("Keywords") && myProfile.Keywords.length > 0) {

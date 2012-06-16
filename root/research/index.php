@@ -13,7 +13,6 @@ echo Site_Decorator::ucsf_header('Research Profile')
 ?>
 <div class="menu detailed" id="ctsi-menu">
     <h1 id="ctsi-header"></h1>
-    <ol id="ctsi-items"></ol>
 </div>
 <div style="display:none" id="ctsi-narrative-hidden"></div>
 

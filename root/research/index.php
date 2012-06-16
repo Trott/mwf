@@ -27,6 +27,4 @@ echo Site_Decorator::ucsf_footer()->render();
 <script src="http://profiles.ucsf.edu/CustomAPI/v1/JSONProfile.aspx?FNO=<?php 
 	echo filter_var($_GET['fno'],FILTER_SANITIZE_EMAIL); 
 	?>&amp;callback=ucsf.ctsiProfile.renderProfile&amp;publications=full&amp;mobile=on"></script>
-<?php
-echo HTML_Decorator::body_end()->render();
-echo HTML_Decorator::html_end()->render();
+	

@@ -42,7 +42,7 @@ ucsf.ctsiProfile = {
                         profilePhoto.setAttribute("style", "border-top-right-radius:0;float:left");
                         profilePhoto.setAttribute("class", "menu-first");
                         headerHeight = header.clientHeight;
-                        header.setAttribute("style", "height:52px;padding-top:20px;border-radius:.5em .5em 0 0");
+                        header.setAttribute("style", "height:52px;padding-top:20px");
                         menu.insertBefore(profilePhoto, header);
                     }
                 }

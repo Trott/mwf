@@ -5,6 +5,8 @@
  * @version 20120208
  */
 
+var ucsf = ucsf || {};
+
 // Google Analytics API requires this to be a global
 var _gaq = _gaq || [];
 

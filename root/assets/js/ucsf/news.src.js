@@ -1,3 +1,4 @@
+/* globals ucsf:true, Hogan:true, google:true, Modernizr:true */
 ucsf.news = {
     loadFromStorage: function(storageId) {
         var stored;
@@ -25,7 +26,7 @@ ucsf.news = {
         }
         if (typeof google !== "undefined") {
 
-            feed = new google.feeds.Feed(feedUrl);
+           feed = new google.feeds.Feed(feedUrl);
 
             if (options.numEntries) {
                 feed.setNumEntries(options.numEntries);
@@ -64,8 +65,8 @@ ucsf.news = {
                                 hours = 12;
                             }
                             
-                            dateTime.time = hours + ':' + 
-                                minutes + ' ' + 
+                            dateTime.time = hours + ':' +
+                                minutes + ' ' +
                                 designation;
                         }
                         thisEntry.dateTime = dateTime;

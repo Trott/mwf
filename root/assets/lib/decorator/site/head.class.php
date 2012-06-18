@@ -64,8 +64,6 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
             array('rel'=>'apple-touch-icon-precomposed', 
                 'href'=>'/apple-touch-icon-precomposed.png'));
         
-        $this->add_inner_tag_front('link', false, array('rel'=>'apple-touch-icon', 'href'=>'/assets/img/ucsf-appicon.png'));
-        $this->add_inner_tag_front('link', false, array('rel'=>'apple-touch-icon-precomposed', 'href'=>'/assets/img/ucsf-appicon.png'));
         
         $this->add_inner_tag_front('noscript', HTML_Decorator::tag('style', '.jsonly{display:none}'));
         $this->add_inner_tag_front('link', false, array('rel'=>'stylesheet', 'type'=>'text/css', 'href'=>$handler_css, 'media'=>'screen'));

@@ -905,14 +905,15 @@ form > :first-child,
 .menu > :first-child:last-child li:first-child a:active,
 .menu > :first-child li:first-child a:hover,
 .menu > :first-child li:first-child a:focus,
-.menu > :first-child li:first-child a:active {
+.menu > :first-child li:first-child a:active,
+.menu > h1 {
     @include border-top-radius()
 }
 
 form > :last-child,
 .content > :last-child,
 .menu > :first-child:last-child,
-.menu li:last-child,
+.menu :last-child,
 .menu li:last-child a:hover,
 .menu li:last-child a:focus,
 .menu li:last-child a:active {

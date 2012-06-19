@@ -5,27 +5,30 @@
  * @version 20120208
  */
 
+var ucsf = ucsf || {};
+
 // Google Analytics API requires this to be a global
 var _gaq = _gaq || [];
 
-ucsf.analytics = new function(){
+ucsf.analytics = (function(){
     // Key for the entire site. Tracks everything.
     var key = "UA-15855907-1";
     // Keys for just particular paths. Tracks only things in those paths.
     var pathKeys = [{
-        a:"UA-552286-29", 
+        a:"UA-552286-29",
         s:"/library/"
     }];
 
     this.trackPageview = function(url) {
-        url = url || window.location.pathname + window.location.search + window.location.hash; 
+        url = url || window.location.pathname + window.location.search + window.location.hash;
         _gaq.push(["_trackPageview",url]);
     
         for (var i = 0; i < pathKeys.length; i++) {
-            if (url.substring(0,pathKeys[i].s.length) == pathKeys[i].s)
+            if (url.substring(0,pathKeys[i].s.length) === pathKeys[i].s) {
                 _gaq.push(["t"+i+"._trackPageview",url]);
+            }
         }
-    }
+    };
 
     this.init = function(ua) {
         ua = ua || navigator.userAgent;
@@ -40,11 +43,12 @@ ucsf.analytics = new function(){
             // @todo: Make this configurable (on|off, at least) and customizable
             //   (might want to track native container version number, for example)
             // @todo: Possible to integration test this with PHP code?
-            _gaq.push(['_setCustomVar', 1, 'mwf_native_client', '1']);       
+            _gaq.push(['_setCustomVar', 1, 'mwf_native_client', '1']);
         }
 
         this.trackPageview();
-    }
-};
+    };
+    return this;
+}());
 
 ucsf.analytics.init();

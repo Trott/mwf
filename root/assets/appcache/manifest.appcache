@@ -1,31 +1,31 @@
 CACHE MANIFEST
-#19-Jun-2012 v2
+#19-Jun-2012 v3
 
 CACHE:
 
 #images
 /assets/img/ucsf-logo.png
 /assets/img/ucsf-header-separator.png
-/assets/img/homescreen/tablet/calendars.png?full=assets/img/homescreen/tablet/calendars.png
-/assets/img/homescreen/tablet/directory.png?full=assets/img/homescreen/tablet/directory.png
-/assets/img/homescreen/tablet/emergency.png?full=assets/img/homescreen/tablet/emergency.png
-/assets/img/homescreen/tablet/fitness.png?full=assets/img/homescreen/tablet/fitness.png
-/assets/img/homescreen/tablet/library.png?full=assets/img/homescreen/tablet/library.png
-/assets/img/homescreen/tablet/maps.png?full=assets/img/homescreen/tablet/maps.png
-/assets/img/homescreen/tablet/news.png?full=assets/img/homescreen/tablet/news.png
-/assets/img/homescreen/tablet/shuttle.png?full=assets/img/homescreen/tablet/shuttle.png
-/assets/img/homescreen/tablet/social.png?full=assets/img/homescreen/tablet/social.png
+/assets/img/homescreen/calendars.png?full=assets/img/homescreen/tablet/calendars.png
+/assets/img/homescreen/directory.png?full=assets/img/homescreen/tablet/directory.png
+/assets/img/homescreen/emergency.png?full=assets/img/homescreen/tablet/emergency.png
+/assets/img/homescreen/fitness.png?full=assets/img/homescreen/tablet/fitness.png
+/assets/img/homescreen/library.png?full=assets/img/homescreen/tablet/library.png
+/assets/img/homescreen/maps.png?full=assets/img/homescreen/tablet/maps.png
+/assets/img/homescreen/news.png?full=assets/img/homescreen/tablet/news.png
+/assets/img/homescreen/shuttle.png?full=assets/img/homescreen/tablet/shuttle.png
+/assets/img/homescreen/social.png?full=assets/img/homescreen/tablet/social.png
 /rwd-router/assets/img/ucsf-logo.png
 /rwd-router/assets/img/ucsf-header-separator.png
-/rwd-router/assets/img/homescreen/tablet/calendars.png?full=assets/img/homescreen/tablet/calendars.png
-/rwd-router/assets/img/homescreen/tablet/directory.png?full=assets/img/homescreen/tablet/directory.png
-/rwd-router/assets/img/homescreen/tablet/emergency.png?full=assets/img/homescreen/tablet/emergency.png
-/rwd-router/assets/img/homescreen/tablet/fitness.png?full=assets/img/homescreen/tablet/fitness.png
-/rwd-router/assets/img/homescreen/tablet/library.png?full=assets/img/homescreen/tablet/library.png
-/rwd-router/assets/img/homescreen/tablet/maps.png?full=assets/img/homescreen/tablet/maps.png
-/rwd-router/assets/img/homescreen/tablet/news.png?full=assets/img/homescreen/tablet/news.png
-/rwd-router/assets/img/homescreen/tablet/shuttle.png?full=assets/img/homescreen/tablet/shuttle.png
-/rwd-router/assets/img/homescreen/tablet/social.png?full=assets/img/homescreen/tablet/social.png
+/rwd-router/assets/img/calendars.png?full=assets/img/homescreen/tablet/calendars.png
+/rwd-router/assets/img/directory.png?full=assets/img/homescreen/tablet/directory.png
+/rwd-router/assets/img/emergency.png?full=assets/img/homescreen/tablet/emergency.png
+/rwd-router/assets/img/fitness.png?full=assets/img/homescreen/tablet/fitness.png
+/rwd-router/assets/img/library.png?full=assets/img/homescreen/tablet/library.png
+/rwd-router/assets/img/maps.png?full=assets/img/homescreen/tablet/maps.png
+/rwd-router/assets/img/news.png?full=assets/img/homescreen/tablet/news.png
+/rwd-router/assets/img/shuttle.png?full=assets/img/homescreen/tablet/shuttle.png
+/rwd-router/assets/img/social.png?full=assets/img/homescreen/tablet/social.png
 
 #internal HTML documents
 /

@@ -7,8 +7,8 @@ echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a','Library', array('href'=>'/library')))
         ->render();
 ?>
-<div class="content padded"> 
-<h1 class="content-first">Use WiFi</h1> 
+<div class="content"> 
+<h1>Use WiFi</h1> 
  
 <div> 
 <p>Wireless access allows UCSF personnel and students to connect a laptop computer, and in some cases a handheld mobile device, to the campus network and internet from many UCSF locations.</p> 
@@ -26,12 +26,12 @@ echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a','Library', array('href'
 </ul>
 </div>
 </div>
-<div class="menu padded">
-<h1 class="menu-first">Help</h1> 
+<div class="menu">
+<h1>Help</h1> 
 <ol> 
-  <li><a href="http://its.ucsf.edu/main/campus_wireless.html" rel="external">ITS Wireless Access Page</a></li> 
-  <li><a href="http://its.ucsf.edu/main/MyAccess/myaccess_faqs.html" rel="external">MyAccess FAQ</a></li> 
-  <li class="menu-last"><a href="mailto:LibraryHelp@ucsf.edu">Contact the Tech Commons Staff</a></li> 
+  <li><a href="http://it.ucsf.edu/services/wireless-service" rel="external">WiFi Service</a></li> 
+  <li><a href="https://myaccess.ucsf.edu/eai/UCAlias/jsp/home.jsp" rel="external">MyAccess Accounts</a></li> 
+  <li><a href="mailto:LibraryHelp@ucsf.edu">Contact the Tech Commons Staff</a></li> 
 </ol> 
 </div> 
 <?php 

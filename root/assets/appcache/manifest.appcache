@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#18-Jun-2012 v2
+#19-Jun-2012 v5
 
 CACHE:
 
@@ -15,6 +15,15 @@ CACHE:
 /assets/img/homescreen/news.png
 /assets/img/homescreen/shuttle.png
 /assets/img/homescreen/social.png
+/assets/img/homescreen/tablet/calendars.png
+/assets/img/homescreen/tablet/directory.png
+/assets/img/homescreen/tablet/emergency.png
+/assets/img/homescreen/tablet/fitness.png
+/assets/img/homescreen/tablet/library.png
+/assets/img/homescreen/tablet/maps.png
+/assets/img/homescreen/tablet/news.png
+/assets/img/homescreen/tablet/shuttle.png
+/assets/img/homescreen/tablet/social.png
 
 #internal HTML documents
 /

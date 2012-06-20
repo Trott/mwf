@@ -57,13 +57,13 @@ echo Site_Decorator::ucsf_header()->render();
 <div class="menu front" id="main_menu">
     <ol>
         <li>
-            <a data-target-id="il/shuttle/" href="shuttle/"><img src="/assets/img/homescreen/shuttle.png" alt=""><br/>Shuttle</a>
+            <a data-target-id="il/shuttle/" href="shuttle/"><img src="/assets/img/homescreen/shuttle.png?full=/assets/img/homescreen/tablet/shuttle.png" alt=""><br/>Shuttle</a>
         </li><li>
-            <a data-target-id="il/directory" href="directory"><img src="/assets/img/homescreen/directory.png" alt=""><br/>Directory</a>
+            <a data-target-id="il/directory" href="directory"><img src="./assets/img/homescreen/directory.png?full=./assets/img/homescreen/tablet/directory.png" alt=""><br/>Directory</a>
         </li><li>
-            <a data-target-id="il/news" href="news"><img src="/assets/img/homescreen/news.png" alt=""><br/>News</a>
+            <a data-target-id="il/news" href="news"><img src="/assets/img/homescreen/tablet/news.png" alt=""><br/>News</a>
         </li><li>
-            <a data-target-id="il/maps/" href="maps/"><img src="/assets/img/homescreen/maps.png" alt=""><br/>Maps</a>
+            <a data-target-id="il/maps/" href="maps/"><img src="assets/img/homescreen/maps.png?full=assets/img/homescreen/tablet/maps.png" alt=""><br/>Maps</a>
         </li><li>
             <a data-target-id="il/library/" href="library/"><img src="/assets/img/homescreen/library.png" alt=""><br/>Library</a>         
         </li><li>

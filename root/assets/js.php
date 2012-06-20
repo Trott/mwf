@@ -26,7 +26,8 @@
 header("Cache-Control: max-age=0, no-cache, no-store, must-revalidate");
 header("Expires: Wed, 11 Jan 1984 05:00:00 GMT");
 header('Content-Type: text/javascript');
-?>var ucsf = ucsf || {};<?php
+
+require('js/ucsf/responsiveimgs.min.js');
 
 require('js/core/modernizr.js');
 

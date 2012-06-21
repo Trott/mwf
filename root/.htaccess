@@ -3,8 +3,7 @@ AddType text/cache-manifest .appcache
 AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
 
 ExpiresActive On
-ExpiresByType image/png
-ExpiresDefault "access plus 0 seconds"
+ExpiresByType image/png "access plus 0 seconds"
 
 <IfModule mod_rewrite.c>
     RewriteEngine On

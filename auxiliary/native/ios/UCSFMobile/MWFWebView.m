@@ -12,7 +12,6 @@
 @implementation MWFWebView
 
 @synthesize webView           = _webView;
-@synthesize splashView        = _splashView;
 @synthesize initPageLoaded    = _initPageLoaded;
 @synthesize parentWindow      = _parentWindow;
 
@@ -51,10 +50,7 @@
 {
     [super viewDidLoad];
     
-    
     [self.view insertSubview:self.webView    atIndex:0];
-    [self.view insertSubview:self.splashView atIndex:4];
-    self.splashView.hidden = NO;
     self.webView.backgroundColor = [UIColor colorWithRed:0.53215 green:0.73046875 blue:0.73046875 alpha:1.0];  
     [self.webView setOpaque:NO];
     
@@ -97,7 +93,6 @@
 - (void)viewDidUnload
 {
     [self setWebView:nil];
-    [self setSplashView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -148,10 +143,6 @@
     
     //Indicate that at least one page has loaded.
     self.initPageLoaded = YES;
-    
-    self.splashView.hidden = YES;
-    
-    
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
@@ -190,7 +181,6 @@
     [_webView release];
     [_parentWindow release];
     
-    [_splashView release];
     [super dealloc];
 }
 

@@ -35,7 +35,7 @@ echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a','Library',array('href'=
 </div> 
 <div> 
 <h4>iOS Mobile Devices (iPad, iPhone, iPod Touch)</h4> 
-<p>Go to the <a rel="external" href="http://security.ucsf.edu/EIS/services_products/RemoteAccessVPN/iOS-iPhone-VPN.html" target="_blank">VPN for iOS</a> page and read instructions for setting up your device.</p> 
+<p>Go to the <a rel="external" href="http://it.ucsf.edu/services/ios-vpn" target="_blank">VPN for iOS</a> page and read instructions for setting up your device.</p> 
 <ul class="bulleted"> 
   <li>View the instructions page on your mobile device and click link to install profile at bottom of page.</li> 
   <li>When prompted, enter your MyAccess credentials and device PIN</li> 
@@ -65,9 +65,9 @@ echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a','Library',array('href'=
 <div class="menu">
 <h2>Help</h2> 
 <ol> 
-  <li><a href="http://its.ucsf.edu/main/MyAccess/myaccess_faqs.html" rel="external">MyAccess FAQ</a></li> 
-  <li><a href="http://its.ucsf.edu/main/networking/219-DSY.html" rel="external">Request a VPN Account</a></li> 
-  <li><a href="http://its.ucsf.edu/main/7-DSY/email/secured_com/Remote_Access/web_vpn/81-DSY.html" rel="external">Web VPN Quick Start Guide</a></li> 
+  <li><a href="https://myaccess.ucsf.edu/eai/UCAlias/jsp/home.jsp" rel="external">MyAccess Accounts</a></li> 
+  <li><a href="https://myaccess.ucsf.edu/eai/UCAlias/jsp/newuser.jsp" rel="external">Request VPN/MyAccess</a></li> 
+  <li><a href="http://it.ucsf.edu/services/vpn/web-proxy-access" rel="external">Web VPN Tips</a></li> 
   <li class="menu-last"><a href="mailto:LibraryHelp@ucsf.edu">Contact the Tech Commons Staff</a></li> 
 </ol> 
 </div> 

@@ -30,6 +30,10 @@
 		84A7AF11142297CB000ABA24 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 84A7AF0D142297CA000ABA24 /* js */; };
 		84A7AF1E1422E0CB000ABA24 /* MWFWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A7AF1F1422E0CB000ABA24 /* MWFWebView.xib */; };
 		B12240F814742E51001692BE /* BSWebViewUserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = B12240E914742BD9001692BE /* BSWebViewUserAgent.m */; };
+		B12ECF2215924E4F006EF32E /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B12ECF2115924E4F006EF32E /* Default-Portrait~ipad.png */; };
+		B12ECF2515924E54006EF32E /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B12ECF2415924E54006EF32E /* Default-Portrait@2x~ipad.png */; };
+		B12ECF2715924E6D006EF32E /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B12ECF2615924E6D006EF32E /* Default-Landscape~ipad.png */; };
+		B12ECF2915924E91006EF32E /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B12ECF2815924E91006EF32E /* Default-Landscape@2x~ipad.png */; };
 		B190C1A515656F7F0098DA0C /* UCSF-logo-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B190C1A415656F7F0098DA0C /* UCSF-logo-iPad.png */; };
 		B190C1A715656FD10098DA0C /* UCSF-logo-iPad-high-res.png in Resources */ = {isa = PBXBuildFile; fileRef = B190C1A615656FD10098DA0C /* UCSF-logo-iPad-high-res.png */; };
 		B194842A147184A5002CD8AF /* img in Resources */ = {isa = PBXBuildFile; fileRef = B1948429147184A5002CD8AF /* img */; };
@@ -65,6 +69,10 @@
 		84A7AF1F1422E0CB000ABA24 /* MWFWebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MWFWebView.xib; sourceTree = "<group>"; };
 		B12240E814742BD9001692BE /* BSWebViewUserAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSWebViewUserAgent.h; sourceTree = "<group>"; };
 		B12240E914742BD9001692BE /* BSWebViewUserAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSWebViewUserAgent.m; sourceTree = "<group>"; };
+		B12ECF2115924E4F006EF32E /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		B12ECF2415924E54006EF32E /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		B12ECF2615924E6D006EF32E /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		B12ECF2815924E91006EF32E /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		B190C1A415656F7F0098DA0C /* UCSF-logo-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UCSF-logo-iPad.png"; sourceTree = "<group>"; };
 		B190C1A615656FD10098DA0C /* UCSF-logo-iPad-high-res.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UCSF-logo-iPad-high-res.png"; sourceTree = "<group>"; };
 		B1948429147184A5002CD8AF /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
@@ -88,6 +96,10 @@
 		84A7AEBE14217581000ABA24 = {
 			isa = PBXGroup;
 			children = (
+				B12ECF2815924E91006EF32E /* Default-Landscape@2x~ipad.png */,
+				B12ECF2615924E6D006EF32E /* Default-Landscape~ipad.png */,
+				B12ECF2415924E54006EF32E /* Default-Portrait@2x~ipad.png */,
+				B12ECF2115924E4F006EF32E /* Default-Portrait~ipad.png */,
 				B190C1A415656F7F0098DA0C /* UCSF-logo-iPad.png */,
 				B190C1A615656FD10098DA0C /* UCSF-logo-iPad-high-res.png */,
 				847961F1145B871A008AA79F /* arrowleft.png */,
@@ -225,6 +237,10 @@
 				B194842A147184A5002CD8AF /* img in Resources */,
 				B190C1A515656F7F0098DA0C /* UCSF-logo-iPad.png in Resources */,
 				B190C1A715656FD10098DA0C /* UCSF-logo-iPad-high-res.png in Resources */,
+				B12ECF2215924E4F006EF32E /* Default-Portrait~ipad.png in Resources */,
+				B12ECF2515924E54006EF32E /* Default-Portrait@2x~ipad.png in Resources */,
+				B12ECF2715924E6D006EF32E /* Default-Landscape~ipad.png in Resources */,
+				B12ECF2915924E91006EF32E /* Default-Landscape@2x~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,7 +352,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "~/mwf/auxiliary/native/ios/Entitlements.plist";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Richard Trott (BFA8L7397G)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: University of California, San Francisco";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -344,7 +360,7 @@
 				INFOPLIST_FILE = "UCSFMobile/UCSFMobile-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=*]" = "BABA2648-C0F9-4621-8341-A1DC06100D9E";
+				"PROVISIONING_PROFILE[sdk=*]" = "6C539983-4E01-4178-860B-0681B3A2ED26";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

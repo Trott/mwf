@@ -15,7 +15,6 @@
     
     @public
     UIWebView *_webView;        
-    UIImageView *_splashView;
     UIWindow *_parentWindow;
     
 }
@@ -23,8 +22,6 @@
 @property (nonatomic, retain) IBOutlet UIWindow *parentWindow;
 
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
-
-@property (nonatomic, retain) IBOutlet UIImageView *splashView;
 
 @property (nonatomic) BOOL initPageLoaded;
 

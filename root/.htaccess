@@ -2,10 +2,9 @@ AddDefaultCharset UTF-8
 AddType text/cache-manifest .appcache
 AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
 
-<Files *.appcache>
-    ExpiresActive On
-    ExpiresDefault "access plus 0 seconds"
-</Files>
+ExpiresActive On
+ExpiresByType image/png
+ExpiresDefault "access plus 0 seconds"
 
 <IfModule mod_rewrite.c>
     RewriteEngine On

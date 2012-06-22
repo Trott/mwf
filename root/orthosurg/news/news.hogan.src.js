@@ -9,7 +9,6 @@ var template = '{{#feed}}';
     template += '{{#entries}}';
     template += '  <li>';
     template += '    <a href="{{link}}"><span class="external">{{title}}</span>';
-    template += '    <div class="smallprint light">{{dateTime.date}}</div>';
     template += '    <div class="smallprint light">{{contentSnippet}}</div></a>';
     template += '{{/entries}}';
     template += '</ol>';

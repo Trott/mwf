@@ -271,6 +271,13 @@ footer a:hover {
 
 .menu li a {
     display: block;
+    background:url(/assets/img/ucsf-list-arrow.png) no-repeat 98%;
+    padding: 1em;
+    /**
+    * This is needed to keep the rounded corners on the last child.
+    * No, I don't really understand why.
+    **/
+    background-color: initial;
 }
 
 .menu li:hover {
@@ -753,10 +760,6 @@ a {
 	height: auto;
 }
 
-.menu li a {
-    background:url(/assets/img/ucsf-list-arrow.png) no-repeat 98%;
-}
-
 .menu li {
     background:#fff;
 }
@@ -858,11 +861,6 @@ header {
 
 body.front .menu {
     border:0;
-}
-
-
-.menu li a {
-    padding: 1em;
 }
 
 .menu.front li a {
@@ -1202,13 +1200,7 @@ footer a,footer a:visited {
 .menu li:hover {
     background-color: #fff;
 }
-/**
-* This is needed to keep the rounded corners on the last child.
-* No, I don't really understand why.
-**/
-.menu li a {
-    background-color: initial;
-}
+
 
 /********************************************************
  * TWO-COLUMN LIST STYLE

@@ -94,7 +94,7 @@ ucsf.news = (function () {
     };
 
     var script = document.createElement("script");
-    script.src = "https://www.google.com/jsapi";
+    script.src = "//www.google.com/jsapi";
     document.getElementsByTagName("head")[0].appendChild(script);
 
     return this;

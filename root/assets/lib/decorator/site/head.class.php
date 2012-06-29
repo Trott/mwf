@@ -44,7 +44,6 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
         $this->add_inner_tag_front('meta', false, 
             array('name'=>'viewport', 'content'=>'width=device-width,initial-scale=1,maximum-scale=1'));
         $this->add_inner_tag('script', null, array('async'=>'', 'src'=>$handler_js));
-        $this->add_inner_tag('script', null, array('async'=>'', 'src'=>'//www.google-analytics.com/ga.js'));
 
         $this->add_inner_tag('link', false, 
             array('rel'=>'apple-touch-icon-precomposed', 

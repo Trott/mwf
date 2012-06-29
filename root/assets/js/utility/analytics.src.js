@@ -48,6 +48,11 @@ ucsf.analytics = (function(){
 
         this.trackPageview();
     };
+
+    var script = document.createElement("script");
+    script.src = "//www.google-analytics.com/ga.js";
+    document.getElementsByTagName("head")[0].appendChild(script);
+
     return this;
 }());
 

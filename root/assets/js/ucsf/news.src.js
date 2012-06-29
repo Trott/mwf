@@ -1,7 +1,8 @@
 /* globals ucsf:true, Hogan:true, google:true, Modernizr:true */
 ucsf.news = (function () {
+    var me = {};
 
-    this.loadFromStorage = function (storageId) {
+    me.loadFromStorage = function (storageId) {
         var stored;
         if (Modernizr.localstorage) {
             stored = window.localStorage.getItem(storageId);
@@ -12,7 +13,7 @@ ucsf.news = (function () {
         return {};
     };
 
-    this.render = function (container, storageId, feedUrl, options) {
+    me.render = function (container, storageId, feedUrl, options) {
         var feed;
 
         feed = new google.feeds.Feed(feedUrl);
@@ -70,9 +71,7 @@ ucsf.news = (function () {
         });
     };
 
-    this.headlines = function (container, storageId, feedUrl, options) {
-        "use strict";
-            
+    me.headlines = function (container, storageId, feedUrl, options) {
         options = options || {};
 
         if (! options.template) {
@@ -94,5 +93,5 @@ ucsf.news = (function () {
     script.src = "//www.google.com/jsapi";
     document.getElementsByTagName("head")[0].appendChild(script);
 
-    return this;
+    return me;
 }());

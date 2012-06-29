@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#28-Jun-2012 vc
+#29-Jun-2012
 
 CACHE:
 
@@ -30,8 +30,8 @@ CACHE:
 /assets/img/watermark.png
 
 #javascript files
-https://www.google.com/jsapi
-http://www.google-analytics.com/ga.js
+//www.google.com/jsapi
+//www.google-analytics.com/ga.js
 /assets/js.php
 
 NETWORK:

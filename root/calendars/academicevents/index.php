@@ -16,13 +16,14 @@ echo Site_Decorator::ucsf_header()->render();
 <div class="jsonly">
 	<section id="academicevents" class="center"><progress>Loading...</progress></section>
 </div>
-<script>function loadSection() {
-    ucsf.news.headlines(document.getElementById("academicevents"),
-    	"feed_academic_events",
-    	"http://25livepub.collegenet.com/calendars/featured-academic-events.rss",
-    	{numEntries:10, showTime:1});
-}
-window.onload=loadSection;</script>
+
+<script type="notJs">
+	var _newsq = _newsq || [];
+    function loadSection() {
+        _newsq.push(["academicevents","feed_academic_events","http://25livepub.collegenet.com/calendars/featured-academic-events.rss", {numEntries:10, showTime:1}]);
+    }   
+    loadSection();window.onhashchange=loadSection;
+</script>
 <?php
 echo Site_Decorator::ucsf_footer()->render();
 echo HTML_Decorator::body_end()->render();

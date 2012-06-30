@@ -31,14 +31,17 @@ class UCSF_News_Section_Site_Decorator {
             . '<div id="il/news" class="jsonly" ' . $this->_style . '>'
             . '<section id="ucsf-news" class="center"><progress>Loading...</progress></section>'
             . '<section id="media-coverage" class="center"><progress>Loading...</progress></section></div>'
-            . '<script>function loadSection() {'
-            . ' if (document.getElementById("il/news").style.display !== "none") {'
-            . '    ucsf.news.headlines(document.getElementById("ucsf-news"),"feed_ucsf_news","http://feeds.feedburner.com/UCSF_News");'
-            . '    ucsf.news.headlines(document.getElementById("media-coverage"),"feed_media_coverage","http://feeds.feedburner.com/UCSF_Media_Coverage");'
+            . '<script type="notJs">var _newsq = _newsq || [];'
+            . ' function loadSection() {'
+            //. ' if (document.getElementById("il/news").style.display !== "none") {'
+            . '    _newsq.push(["ucsf-news","feed_ucsf_news","http://feeds.feedburner.com/UCSF_News"]);'
+            . '    _newsq.push(["media-coverage","feed_media_coverage","http://feeds.feedburner.com/UCSF_Media_Coverage"]);'
             . ' }'
-            . '}'    
-            . 'window.onload=loadSection;window.onhashchange=loadSection</script>';
+            //. '}'    
+            . 'loadSection();window.onhashchange=loadSection;'
+            .'</script>'
+            ;
     }
 
 }
-
+//Use autoload and callback on jsapi script tag in news.src.js if google does not exist?

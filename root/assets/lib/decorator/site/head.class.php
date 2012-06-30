@@ -43,8 +43,21 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
         
         $this->add_inner_tag_front('meta', false, 
             array('name'=>'viewport', 'content'=>'width=device-width,initial-scale=1,maximum-scale=1'));
-        $this->add_inner_tag('script', null, array('type'=>'notJs', 'id'=>'mainjs', 'src'=>$handler_js));
-        $this->add_inner_tag('script', "window.addEventListener('load', function () {var script = document.getElementById('mainjs');script.type='text/javascript'; script.parentNode.removeChild(script);document.body.appendChild(script);}, false);");
+        $this->add_inner_tag('script', null, array('type'=>'notJs', 'src'=>$handler_js));
+        $this->add_inner_tag('script', "window.addEventListener('load', function () {
+  var scripts = document.getElementsByTagName('script');
+  var scriptIndex = 0;
+  for (var i = 0, len = scripts.length; i < len; i++) {
+    var scriptEl = scripts[scriptIndex];
+    if (scriptEl.type == 'notJs') {
+      scriptEl.type = 'text/javascript';
+      scriptEl.parentNode.removeChild(scriptEl);
+      document.body.appendChild(scriptEl); 
+    } else {
+      scriptIndex++;
+    }
+  }
+}, false);");
 
         $this->add_inner_tag('link', false, 
             array('rel'=>'apple-touch-icon-precomposed', 

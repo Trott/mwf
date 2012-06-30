@@ -1,6 +1,10 @@
-/* globals ucsf:true, Hogan:true, google:true, Modernizr:true */
+/* globals ucsf:true, Hogan:true, google:true, Modernizr:true, _newsq:true */
 ucsf.news = (function () {
-    var me = {};
+    var me = {},
+        script = document.createElement("script");
+    
+    script.src = "//www.google.com/jsapi";
+    document.getElementsByTagName("head")[0].appendChild(script);
 
     me.loadFromStorage = function (storageId) {
         var stored;
@@ -77,21 +81,43 @@ ucsf.news = (function () {
         if (! options.template) {
             options.template =  new Hogan.Template(function(c,p,i){var _=this;_.b(i=i||"");if(_.s(_.f("feed",c,p,1),c,p,0,9,313,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("<div class=\"menu detailed\"><h2>");_.b(_.v(_.f("title",c,p,0)));_.b("</h2><ol>");if(_.s(_.f("entries",c,p,1),c,p,0,70,290,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("  <li>    <a class=\"no-ext-ind\" rel=\"external\" href=\"");_.b(_.v(_.f("link",c,p,0)));_.b("\"><span class=\"external\">");_.b(_.v(_.f("title",c,p,0)));_.b("</span>    <div class=\"smallprint light\">");_.b(_.v(_.d("dateTime.date",c,p,0)));_.b("</div>    <div class=\"smallprint light\">");_.b(_.v(_.d("dateTime.time",c,p,0)));_.b("</div></a>");});c.pop();}_.b("</ol></div>");});c.pop();}if(!_.s(_.f("feed",c,p,1),c,p,1,0,0,"")){_.b("<div class=\"content\"><p>News feed could not be loaded.</p></div>");};return _.fl();;});
         }
-        
-        if ((typeof google !== "undefined") && (navigator.onLine)) {
-            if (typeof google.feeds == "undefined") {
-                google.load("feeds","1",{nocss:true, callback:function () { ucsf.news.render(container, storageId, feedUrl, options);}});
-            } else {
-                this.render(container, storageId, feedUrl, options);
-            }
+    
+        if (! navigator.onLine) {
+            container.innerHTML = options.template.render(me.loadFromStorage(storageId));
+        } else if ((typeof google === "undefined") || (! google.hasOwnProperty('load'))) {
+            //use setTimeout 0 to allow other tasks to finish and then try again
+            setTimeout(
+                function () {
+                    if ((typeof google === "undefined") || (google.hasOwnProperty('load'))) {
+                        if (! google.hasOwnProperty('feeds')) {
+                            google.load("feeds","1",{nocss:true, callback:function () { ucsf.news.render(container, storageId, feedUrl, options);}});
+                        } else {
+                            me.render(container, storageId, feedUrl, options);
+                        }
+                    } else {
+                        container.innerHTML = options.template.render(me.loadFromStorage(storageId));
+                    }
+                }, 0);
+        } else if (! google.hasOwnProperty('feeds')) {
+            google.load("feeds","1",{nocss:true, callback:function () { ucsf.news.render(container, storageId, feedUrl, options);}});
         } else {
-            container.innerHTML = options.template.render(ucsf.news.loadFromStorage(storageId));
+            me.render(container, storageId, feedUrl, options);
         }
     };
 
-    var script = document.createElement("script");
-    script.src = "//www.google.com/jsapi";
-    document.getElementsByTagName("head")[0].appendChild(script);
+    var oldq = typeof _newsq === "undefined" ? [] : _newsq;
+    _newsq = {
+        push: function (params) {
+            if (params.length === 3) {
+                params[3] = {};
+            }
+            return me.headlines(document.getElementById(params[0]), params[1], params[2], params[3]);
+        }
+    };
+
+    for (var i=0, len=oldq.length; i<len; i++) {
+        _newsq.push(oldq[i]);
+    }
 
     return me;
 }());

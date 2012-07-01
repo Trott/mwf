@@ -11,9 +11,6 @@
  *
  * @uses Decorator
  * @uses Site_Decorator
- * @uses Menu_Site_Decorator
- * @uses Button_Full_Site_Decorator
- * @uses Footer_Site_Decorator
  */
 
 /**
@@ -60,29 +57,78 @@ require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
         <div class="menu front" id="main_menu">
             <ol>
                 <li>
-                    <a data-target-id="il/shuttle/" href="shuttle/"><img class="dashboard_icon" src="/assets/img/homescreen/shuttle.png" alt=""><br/>Shuttle</a>
+                    <a data-target-id="il/shuttle/" href="shuttle/"><img class="dashboard_icon" src="/assets/img/homescreen/shuttle.png" alt=""><br>Shuttle</a>
                 </li><li>
-                    <a data-target-id="il/directory" href="directory"><img class="dashboard_icon" src="/assets/img/homescreen/directory.png" alt=""><br/>Directory</a>
+                    <a data-target-id="il/directory" href="directory"><img class="dashboard_icon" src="/assets/img/homescreen/directory.png" alt=""><br>Directory</a>
                 </li><li>
-                    <a data-target-id="il/news" href="news"><img class="dashboard_icon" src="/assets/img/homescreen/news.png" alt=""><br/>News</a>
+                    <a data-target-id="il/news" href="news"><img class="dashboard_icon" src="/assets/img/homescreen/news.png" alt=""><br>News</a>
                 </li><li>
-                    <a data-target-id="il/maps/" href="maps/"><img class="dashboard_icon" src="/assets/img/homescreen/maps.png" alt=""><br/>Maps</a>
+                    <a data-target-id="il/maps/" href="maps/"><img class="dashboard_icon" src="/assets/img/homescreen/maps.png" alt=""><br>Maps</a>
                 </li><li>
-                    <a data-target-id="il/library/" href="library/"><img class="dashboard_icon" src="/assets/img/homescreen/library.png" alt=""><br/>Library</a>         
+                    <a data-target-id="il/library/" href="library/"><img class="dashboard_icon" src="/assets/img/homescreen/library.png" alt=""><br>Library</a>         
                 </li><li>
-                    <a data-target-id="il/fitness" href="fitness"><img class="dashboard_icon" src="/assets/img/homescreen/fitness.png" alt=""><br/>Fitness</a>
+                    <a data-target-id="il/fitness" href="fitness"><img class="dashboard_icon" src="/assets/img/homescreen/fitness.png" alt=""><br>Fitness</a>
                 </li><li>
-                    <a data-target-id="il/calendars" href="calendars"><img class="dashboard_icon" src="/assets/img/homescreen/calendars.png" alt=""><br/>Calendars</a>
+                    <a data-target-id="il/calendars" href="calendars"><img class="dashboard_icon" src="/assets/img/homescreen/calendars.png" alt=""><br>Calendars</a>
                 </li><li>
-                    <a data-target-id="il/social" href="social"><img class="dashboard_icon" src="/assets/img/homescreen/social.png" alt=""><br/>Social&nbsp;Media</a>
-                </li><li><a data-target-id="il/emergency" href="emergency"><img class="dashboard_icon" src="/assets/img/homescreen/emergency.png" alt=""><br/>Emergency</a>
+                    <a data-target-id="il/social" href="social"><img class="dashboard_icon" src="/assets/img/homescreen/social.png" alt=""><br>Social&nbsp;Media</a>
+                </li><li><a data-target-id="il/emergency" href="emergency"><img class="dashboard_icon" src="/assets/img/homescreen/emergency.png" alt=""><br>Emergency</a>
                 </li>
             </ol>
         </div>
-<?php
-    echo Site_Decorator::ucsf_shuttle_menu('Shuttle', array('id' => 'il/shuttle/', 'style' => 'display:none'))->set_lightning(true)->render();
-    echo Site_Decorator::ucsf_shuttle_list_color_menu('Shuttles By Color', array('id' => 'il/shuttle/list/color', 'style' => 'display:none'))->render();
-    echo Site_Decorator::ucsf_shuttle_list_location_menu('Shuttles By Location', array('id' => 'il/shuttle/list/location', 'style' => 'display:none'))->render();
+        <div id="il/shuttle/" style="display:none" class="menu detailed">
+            <h2>Shuttle</h2>
+            <ol>
+                <li><a href="/shuttle/planner">Trip Planner</a></li>
+                <li><a data-target-id="il/shuttle/list/color" href="/shuttle/list/color">Shuttles By Color</a></li>
+                <li><a data-target-id="il/shuttle/list/location" href="/shuttle/list/location">Shuttles By Location</a></li>
+                <li><a rel="external" href="http://campuslifeservices.ucsf.edu/transportation/shuttles/timetables/shuttlemap.pdf">System Map <span class="smallprint light">PDF</span></a></li>
+                <li><a rel="external" href="http://www.campuslifeservices.ucsf.edu/transportation/shuttles/timetables/pdf/ShuttleHolidaySchedule.pdf">Holiday Schedule <span class="smallprint light">PDF</span></a></li>
+            </ol>
+        </div>
+        <div id="il/shuttle/list/color" style="display:none" class="menu detailed">
+            <h2>Shuttles By Color</h2>
+            <ol>
+                <li><a href="/shuttle/schedule/blue"><div class="shuttle-color blue"></div> Blue</a></li>
+                <li><a href="/shuttle/schedule/gold"><div class="shuttle-color gold"></div> Gold</a></li>
+                <li><a href="/shuttle/schedule/grey"><div class="shuttle-color grey"></div> Grey</a></li>
+                <li><a href="/shuttle/schedule/tan"><div class="shuttle-color tan"></div> Tan</a></li>
+                <li><a href="/shuttle/schedule/black"><div class="shuttle-color black"></div> Black</a></li>
+                <li><a href="/shuttle/schedule/purple"><div class="shuttle-color purple"></div> Purple</a></li>
+                <li><a href="/shuttle/schedule/pink"><div class="shuttle-color pink"></div> Pink</a></li>
+                <li><a href="/shuttle/schedule/va"><div class="shuttle-color va"></div> VA</a></li>
+                <li><a href="/shuttle/schedule/bronze"><div class="shuttle-color bronze"></div> Bronze</a></li>
+                <li><a href="/shuttle/schedule/yellow"><div class="shuttle-color yellow"></div> Yellow</a></li>
+                <li><a href="/shuttle/schedule/red"><div class="shuttle-color red"></div> Red</a></li>
+                <li><a href="/shuttle/schedule/lime"><div class="shuttle-color lime"></div> Lime</a></li>
+                <li><a href="/shuttle/schedule/green"><div class="shuttle-color green"></div> Green</a></li>
+            </ol>
+        </div>
+        <div id="il/shuttle/list/location" style="display:none" class="menu detailed">
+            <h2>Shuttles By Location</h2>
+            <ol>
+                <li><a href="/shuttle/list/location/parnassus">Parnassus</a></li>
+                <li><a href="/shuttle/list/location/sfgh">SFGH</a></li>
+                <li><a href="/shuttle/list/location/mission_bay">Mission Bay (4th St.)</a></li>
+                <li><a href="/shuttle/list/location/mt_zion">Mt. Zion</a></li>
+                <li><a href="/shuttle/list/location/mcb">MCB</a></li>
+                <li><a href="/shuttle/list/location/china_basin">China Basin</a></li>
+                <li><a href="/shuttle/list/location/laurel_heights">Laurel Heights</a></li>
+                <li><a href="/shuttle/list/location/3360_geary">3360 Geary St. (Med Center)</a></li>
+                <li><a href="/shuttle/list/location/kezar">Kezar</a></li>
+                <li><a href="/shuttle/list/location/va">VA</a></li>
+                <li><a href="/shuttle/list/location/aldea">Aldea</a></li>
+                <li><a href="/shuttle/list/location/buchanan_dental">Buchanan Dental</a></li>
+                <li><a href="/shuttle/list/location/55_laguna">55 Laguna</a></li>
+                <li><a href="/shuttle/list/location/bart">16th St. BART</a></li>
+                <li><a href="/shuttle/list/location/17th">17th St. Lot</a></li>
+                <li><a href="/shuttle/list/location/18th">18th St. CPC</a></li>
+                <li><a href="/shuttle/list/location/2300">2300 Harrison</a></li>
+                <li><a href="/shuttle/list/location/20th">20th St. CPFM</a></li>
+                <li><a href="/shuttle/list/location/654_minnesota">654 Minnesota</a></li>
+            </ol>
+        </div>
+    <?php
     echo Site_Decorator::ucsf_directory_form('Directory', array('id' => 'il/directory', 'style' => 'display:none'))->render();
 
     echo Site_Decorator::ucsf_news_section(
@@ -99,13 +145,11 @@ require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
     echo Site_Decorator::ucsf_calendar_menu('Calendars', array('id' => 'il/calendars', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_social_media_menu('Social Media', array('id' => 'il/social', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_emergency_menu('Emergency', array('id' => 'il/emergency', 'style' => 'display:none'))->render();
-
-
-/**
- * Footer
- */
-$footer = Site_Decorator::ucsf_footer();
-echo $footer->render();
 ?>
+        <footer id="footer">
+            <p>&copy; 2012 Regents of the University of California<br>
+                <a href="/about">About</a> | <a href="/feedback/">Feedback</a>
+            </p>
+        </footer>
     </body>
 </html>

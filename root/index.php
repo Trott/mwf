@@ -12,7 +12,6 @@
  * @uses Decorator
  * @uses Site_Decorator
  * @uses HTML_Decorator
- * @uses Head_Site_Decorator
  * @uses Body_Start_HTML_Decorator
  * @uses Header_Site_Decorator
  * @uses Menu_Site_Decorator
@@ -27,11 +26,36 @@
  */
 require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
 ?><!DOCTYPE html>
-<html lang=en manifest=http://m.ucsf.edu/assets/appcache.php><?php
-
-$head = Site_Decorator::head()->set_title("UCSF Mobile");
-
-echo $head->render();
+<html lang="en" manifest="/assets/appcache.php">
+<head>
+    <meta charset="utf-8">
+    <title>UCSF Mobile</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" media="screen">
+    <noscript><style>.jsonly{display:none}</style></noscript>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <script type="text/notJs" src="/assets/js.php"></script>
+    <script>
+        window.addEventListener('load', function () {
+            var scripts = document.getElementsByTagName('script');
+            var scriptIndex = 0;
+            for (var i = 0, len = scripts.length; i < len; i++) {
+                var scriptEl = scripts[scriptIndex];
+                if (scriptEl.type === 'text/notJs') {
+                    scriptEl.type = 'text/javascript';
+                    scriptEl.parentNode.removeChild(scriptEl);
+                    document.body.appendChild(scriptEl); 
+                } else {
+                    scriptIndex++;
+                }
+            }
+        },  false);
+    </script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
+</head>
+<?php
 
 echo HTML_Decorator::body_start(array('class' => 'front', 'data-default-target-id' => 'main_menu'))->render();
 

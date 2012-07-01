@@ -1,9 +1,5 @@
 <?php
 /**
- * The front page when the user arrives at the mobile site on a mobile device.
- * If the user is on a non-mobile device and 
- * Config::get('global','site_nonmobile_url') is set, then they will be 
- * redirected.
  *
  * @package frontpage
  *
@@ -13,7 +9,6 @@
  * @license http://mwf.ucla.edu/license
  * @version 20120426
  *
- * @uses Config
  * @uses Decorator
  * @uses Site_Decorator
  * @uses HTML_Decorator
@@ -31,7 +26,6 @@
 /**
  * Require necessary libraries.
  */
-require_once(dirname(__FILE__) . '/assets/config.php');
 require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
 
 echo HTML_Decorator::html_start()->add_appcache()->render();

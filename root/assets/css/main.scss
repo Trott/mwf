@@ -764,7 +764,7 @@ a {
     background:#fff;
 }
 
-#main_menu.menu li {
+#main_menu li {
     background:inherit;
 }
 
@@ -863,17 +863,12 @@ body.front .menu {
     border:0;
 }
 
-.menu.front li a {
-    padding: 1em 0 0 0;
-}
-
-
 .content ol li{
     margin: 0 0 0 26px;
 }
 
-body.front .menu.front li{display:inline-block;height:108px;width:25%;list-style:none;padding:0;border:0;margin:0}
-body.front .menu.front li a{background:0;color:#fff;font-size:75%;font-weight:normal;text-align:center}
+.menu.front li{display:inline-block;height:108px;width:25%;list-style:none;padding:0;border:0;margin:0}
+.menu.front li a{padding: 1em 0 0 0;background:0;color:#fff;font-size:75%;font-weight:normal;text-align:center}
 
 
 @media all and (max-device-width: 320px) {
@@ -1167,7 +1162,7 @@ html.touch.overflowscrolling body.front header{
     display:none;
 }
 
-div#main_menu {
+#main_menu {
     margin:0
 }
 

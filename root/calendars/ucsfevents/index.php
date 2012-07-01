@@ -11,13 +11,13 @@ echo Site_Decorator::ucsf_header()->render();
 <noscript><div class="content center" ' . $this->_style . '><p>JavaScript is required to load calendar content.</p></div></noscript>
 <div class="jsonly">
 <section id="ucsfevents" class="center"><progress>Loading...</progress></section>
-<script>function loadSection() {
-    ucsf.news.headlines(document.getElementById("ucsfevents"),
-    	"feed_ucsf_events",
-    	"http://feeds2.feedburner.com/ucsf/event-calendar",
-    	{numEntries: 10, showTime: 1});
-}
-window.onload=loadSection;</script>
+<script type="notJs">
+	var _newsq = _newsq || [];
+    function loadSection() {
+        _newsq.push(["ucsfevents","feed_ucsf_events","http://feeds2.feedburner.com/ucsf/event-calendar", {numEntries: 10, showTime: 1}]);
+    }   
+    loadSection();window.onhashchange=loadSection;
+</script>
 <?php
 echo Site_Decorator::ucsf_footer()->render();
 echo HTML_Decorator::body_end()->render();

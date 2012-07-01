@@ -11,6 +11,7 @@ var ucsf = ucsf || {};
 var _gaq = _gaq || [];
 
 ucsf.analytics = (function(){
+    var me = {};
     // Key for the entire site. Tracks everything.
     var key = "UA-15855907-1";
     // Keys for just particular paths. Tracks only things in those paths.
@@ -19,7 +20,7 @@ ucsf.analytics = (function(){
         s:"/library/"
     }];
 
-    this.trackPageview = function(url) {
+    me.trackPageview = function(url) {
         url = url || window.location.pathname + window.location.search + window.location.hash;
         _gaq.push(["_trackPageview",url]);
     
@@ -30,7 +31,7 @@ ucsf.analytics = (function(){
         }
     };
 
-    this.init = function(ua) {
+    me.init = function(ua) {
         ua = ua || navigator.userAgent;
         _gaq.push(["_setAccount", key]);
     
@@ -38,7 +39,7 @@ ucsf.analytics = (function(){
             _gaq.push(["t"+i+"._setAccount",pathKeys[i].a]);
         }
     
-        if (/ mwf\-native\-[a-z]*\/[\d\.]*$/.test(ua)) {
+        if (/ mwf\-native\-[a-z]*\/[\d\.]*$/i.test(ua)) {
             // Special tracking for native client.
             // @todo: Make this configurable (on|off, at least) and customizable
             //   (might want to track native container version number, for example)
@@ -48,7 +49,12 @@ ucsf.analytics = (function(){
 
         this.trackPageview();
     };
-    return this;
+
+    var script = document.createElement("script");
+    script.src = "//www.google-analytics.com/ga.js";
+    document.getElementsByTagName("head")[0].appendChild(script);
+
+    return me;
 }());
 
 ucsf.analytics.init();

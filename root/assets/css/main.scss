@@ -146,13 +146,6 @@ footer {
 	text-align: center;
 }
 
-footer,
-footer a,
-footer a:visited,
-footer a:hover {
-	color: #666666;
-}
-
 footer a,
 footer a:visited {
 	text-decoration: none;
@@ -271,6 +264,13 @@ footer a:hover {
 
 .menu li a {
     display: block;
+    background:url(/assets/img/ucsf-list-arrow.png) no-repeat 98%;
+    padding: 1em;
+    /**
+    * This is needed to keep the rounded corners on the last child.
+    * No, I don't really understand why.
+    **/
+    background-color: initial;
 }
 
 .menu li:hover {
@@ -744,7 +744,7 @@ a[rel=external].no-ext-ind:after {
     content: "";
 }
 
-li a, p a, a {
+a {
 	color:#38939b;
 }
 
@@ -753,15 +753,11 @@ li a, p a, a {
 	height: auto;
 }
 
-.menu li a {
-    background:url(/assets/img/ucsf-list-arrow.png) no-repeat 98%;
-}
-
 .menu li {
     background:#fff;
 }
 
-#main_menu.menu li {
+#main_menu li {
     background:inherit;
 }
 
@@ -860,22 +856,12 @@ body.front .menu {
     border:0;
 }
 
-
-.menu li a {
-    padding: 1em;
-}
-
-.menu.front li a {
-    padding: 1em 0 0 0;
-}
-
-
 .content ol li{
     margin: 0 0 0 26px;
 }
 
-body.front .menu.front li{display:inline-block;height:108px;width:25%;list-style:none;padding:0;border:0;margin:0}
-body.front .menu.front li a{background:0;color:#fff;font-size:75%;font-weight:normal;text-align:center}
+.menu.front li{display:inline-block;height:108px;width:25%;list-style:none;padding:0;border:0;margin:0}
+.menu.front li a{padding: 1em 0 0 0;background:0;color:#fff;font-size:75%;font-weight:normal;text-align:center}
 
 
 @media all and (max-device-width: 320px) {
@@ -1169,7 +1155,7 @@ html.touch.overflowscrolling body.front header{
     display:none;
 }
 
-div#main_menu {
+#main_menu {
     margin:0
 }
 
@@ -1202,13 +1188,7 @@ footer a,footer a:visited {
 .menu li:hover {
     background-color: #fff;
 }
-/**
-* This is needed to keep the rounded corners on the last child.
-* No, I don't really understand why.
-**/
-.menu li a {
-    background-color: initial;
-}
+
 
 /********************************************************
  * TWO-COLUMN LIST STYLE

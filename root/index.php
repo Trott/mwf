@@ -12,7 +12,6 @@
  * @uses Decorator
  * @uses Site_Decorator
  * @uses HTML_Decorator
- * @uses Header_Site_Decorator
  * @uses Menu_Site_Decorator
  * @uses Button_Full_Site_Decorator
  * @uses Footer_Site_Decorator
@@ -55,14 +54,10 @@ require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
     <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
 </head>
 <body class="front" data-default-target-id="main_menu">
-<?php
-
-echo Site_Decorator::ucsf_header()->render();
-
-/*
- * Menu
- */
-?>
+<header id="header">
+    <a href="/"><img src="http://localhost/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
+</header>
+<!-- prefetch background images -->
 <img style="display:none" alt="" src="/assets/img/background-decor.png">
 <img style="display:none" alt="" src="/assets/img/watermark.png">
 <div class="menu front" id="main_menu">

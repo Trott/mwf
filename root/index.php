@@ -128,9 +128,14 @@ require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
                 <li><a href="/shuttle/list/location/654_minnesota">654 Minnesota</a></li>
             </ol>
         </div>
+        <form id="il/directory" style="display:none" method="get" action="/directory/query">
+            <h2>Directory</h2>
+            <label for="first_name">First Name</label><input id="first_name" type="text" name="first_name">
+            <label for="last_name">Last Name</label><input id="last_name" type="text" name="last_name">
+            <label for="department">Department</label><input id="department" type="text" name="department">
+            <input value="Search" type="submit">
+        </form>
     <?php
-    echo Site_Decorator::ucsf_directory_form('Directory', array('id' => 'il/directory', 'style' => 'display:none'))->render();
-
     echo Site_Decorator::ucsf_news_section(
             0, 0, 0, 0, 0, array('style' => 'display:none'))->render();
 

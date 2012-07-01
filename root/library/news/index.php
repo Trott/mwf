@@ -11,10 +11,13 @@ echo Site_Decorator::ucsf_header()->render();
 <noscript><div class="content center" ' . $this->_style . '><p>JavaScript is required to load News content.</p></div></noscript>
 <div class="jsonly">
 <section id="library-news" class="center"><progress>Loading...</progress></section>
-<script>function loadSection() {
-    ucsf.news.headlines(document.getElementById("library-news"),"feed_library_news","http://www.library.ucsf.edu/news/all/feed");
-}
-window.onload=loadSection;</script>
+<script type="notJs">
+	var _newsq = _newsq || [];
+    function loadSection() {
+        _newsq.push(["library-news","feed_library_news","http://www.library.ucsf.edu/news/all/feed"]);
+    }   
+    loadSection();window.onhashchange=loadSection;
+</script>
 <?php
 echo Site_Decorator::ucsf_footer()->render();
 echo HTML_Decorator::body_end()->render();

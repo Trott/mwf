@@ -148,8 +148,17 @@ require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
             <section id="ucsf-news" class="center"><progress>Loading...</progress></section>
             <section id="media-coverage" class="center"><progress>Loading...</progress></section>
         </div>
+        <div id="il/maps/" style="display:none" class="menu detailed">
+            <h2>Maps</h2>
+            <ol>
+                <li><a href="/maps/campus.php?campus=Parnassus">Parnassus</a></li>
+                <li><a href="/maps/campus.php?campus=Mission+Bay">Mission Bay</a></li>
+                <li><a href="/maps/campus.php?campus=Mt.+Zion">Mt. Zion</a></li>
+                <li><a href="/maps/campus.php?campus=SFGH">San Francisco General Hospital</a></li>
+                <li><a href="/maps/locations.php">Location List</a></li>
+            </ol>
+        </div>
     <?php
-    echo Site_Decorator::ucsf_map_menu('Maps', array('id' => 'il/maps/', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_library_menu('Library', array('id' => 'il/library/', 'style' => 'display:none'))->set_lightning(true)->render();
     echo Site_Decorator::ucsf_library_locations_menu('Locations', array('id' => 'il/library/locations', 'style' => 'display:none'))->set_lightning(true)->render();
     echo Site_Decorator::ucsf_library_locations_parnassus_menu('Parnassus Library', array('id' => 'il/library/locations/parnassus', 'style' => 'display:none'))->render();

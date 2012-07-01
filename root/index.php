@@ -12,7 +12,6 @@
  * @uses Decorator
  * @uses Site_Decorator
  * @uses HTML_Decorator
- * @uses Body_Start_HTML_Decorator
  * @uses Header_Site_Decorator
  * @uses Menu_Site_Decorator
  * @uses Button_Full_Site_Decorator
@@ -55,13 +54,8 @@ require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
 </head>
+<body class="front" data-default-target-id="main_menu">
 <?php
-
-echo HTML_Decorator::body_start(array('class' => 'front', 'data-default-target-id' => 'main_menu'))->render();
-
-/*
- * Header
- */
 
 echo Site_Decorator::ucsf_header()->render();
 

@@ -158,13 +158,57 @@ require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
                 <li><a href="/maps/locations.php">Location List</a></li>
             </ol>
         </div>
+        <div id="il/library/" style="display:none" class="menu detailed">
+            <h2>Library</h2>
+            <ol>
+                <li><a data-target-id="il/library/locations" href="/library/locations">Hours and Locations</a></li>
+                <li><a rel="external" href="http://ucsf.worldcat.org/m">Find Books and Journals</a></li>
+                <li><a rel="external" href="http://guides.library.ucsf.edu/content.php?pid=252446&amp;sid=2084303">Mobile Resources</a></li>
+                <li><a rel="external" href="http://tiny.ucsf.edu/reserve">Reserve a Study Room</a></li>
+                <li><a data-target-id="il/library/help/" href="/library/help/">Get Help</a></li>
+                <li><a href="/library/news">News</a></li>
+                <li><a rel="external" href="http://library.ucsf.edu/?ovrrdr=1">Full Library Site</a></li>
+            </ol>
+        </div>
+        <div id="il/library/locations" style="display:none" class="menu detailed">
+            <h2>Locations</h2>
+            <ol>
+                <li><a data-target-id="il/library/locations/parnassus" href="/library/locations/parnassus">Parnassus Library</a></li>
+                <li><a data-target-id="il/library/locations/mission_bay" href="/library/locations/mission_bay">Mission Bay Library</a></li>
+            </ol>
+        </div>
+        <div id="il/library/locations/parnassus" style="display:none" class="menu detailed">
+            <h2>Parnassus Library</h2>
+            <ol>
+                <li><a href="/maps/map.php?loc=Kalmanovitz+Library">Map<br><br><span class="smallprint">530 Parnassus Avenue<br>San Francisco, CA 94143-0840<br></span></a></li>
+                <li><a href="tel:+14154762334">(415) 476-2334</a></li>
+                <li><a rel="external" class="no-ext-ind" href="http://library.ucsf.edu/locations/hours?ovrrdr=1"><span class="smallprint">530 Parnassus Avenue<br>San Francisco, CA 94143-0840<br></span><br><br><span class="external">Holidays and exceptions</span></a></li>
+            </ol>
+        </div>
+        <div id="il/library/locations/mission_bay" style="display:none" class="menu detailed">
+            <h2>Mission Bay Library</h2>
+            <ol><li><a href="/maps/map.php?loc=Rutter+Center">Map<br><br><span class="smallprint">William J. Rutter Conference Center<br>Room 150<br>1675 Owens Street<br>San Francisco, CA 94143-2119<br></span></a></li>
+                <li><a href="tel:+14155144060">(415) 514-4060</a></li>
+                <li><a rel="external" class="no-ext-ind" href="http://library.ucsf.edu/locations/hours?ovrrdr=1"><span class="smallprint">William J. Rutter Conference Center<br>Room 150<br>1675 Owens Street<br>San Francisco, CA 94143-2119<br></span><br><br><span class="external">Holidays and exceptions</span></a></li>
+            </ol>
+        </div>
+        <div id="il/library/help/" style="display:none" class="menu detailed">
+            <h2>Help</h2>
+            <ol>
+                <li><a href="/library/askus/">Ask Us</a></li><li><a rel="external" href="http://guides.library.ucsf.edu/">Getting Started Guides</a></li>
+                <li><a data-target-id="il/library/howdoi/" href="/library/howdoi/">How Do I?</a></li>
+                <li><a href="/library/whereisit/">Where Is It?</a></li>
+            </ol>
+        </div>
+        <div id="il/library/howdoi/" style="display:none" class="menu detailed">
+            <h2>How Do I?</h2>
+            <ol>
+                <li><a href="/library/howdoi/remoteaccess">Get Network Access</a></li>
+                <li><a href="/library/howdoi/wifi">Use WiFi</a></li>
+                <li><a href="/library/howdoi/renew">Renew Books</a></li>
+            </ol>
+        </div>
     <?php
-    echo Site_Decorator::ucsf_library_menu('Library', array('id' => 'il/library/', 'style' => 'display:none'))->set_lightning(true)->render();
-    echo Site_Decorator::ucsf_library_locations_menu('Locations', array('id' => 'il/library/locations', 'style' => 'display:none'))->set_lightning(true)->render();
-    echo Site_Decorator::ucsf_library_locations_parnassus_menu('Parnassus Library', array('id' => 'il/library/locations/parnassus', 'style' => 'display:none'))->render();
-    echo Site_Decorator::ucsf_library_locations_missionbay_menu('Mission Bay Library', array('id' => 'il/library/locations/mission_bay', 'style' => 'display:none'))->render();
-    echo Site_Decorator::ucsf_library_help_menu('Help', array('id' => 'il/library/help/', 'style' => 'display:none'))->set_lightning(true)->render();
-    echo Site_Decorator::ucsf_library_howdoi_menu('How Do I?', array('id' => 'il/library/howdoi/', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_fitness_menu('Fitness', array('id' => 'il/fitness', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_calendar_menu('Calendars', array('id' => 'il/calendars', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_social_media_menu('Social Media', array('id' => 'il/social', 'style' => 'display:none'))->render();

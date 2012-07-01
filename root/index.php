@@ -12,7 +12,6 @@
  * @uses Decorator
  * @uses Site_Decorator
  * @uses HTML_Decorator
- * @uses HTML_Start_HTML_Decorator
  * @uses Head_Site_Decorator
  * @uses Body_Start_HTML_Decorator
  * @uses Header_Site_Decorator
@@ -27,8 +26,8 @@
  * Require necessary libraries.
  */
 require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
-
-echo HTML_Decorator::html_start()->add_appcache()->render();
+?><!DOCTYPE html>
+<html lang=en manifest=http://m.ucsf.edu/assets/appcache.php><?php
 
 $head = Site_Decorator::head()->set_title("UCSF Mobile");
 

@@ -26,6 +26,15 @@ require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
         <noscript><style>.jsonly{display:none}</style></noscript>
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
         <script type="text/notJs" src="/assets/js.php"></script>
+        <script type="text/notJs">
+            var _newsq = _newsq || [];
+            function loadSection() {
+                _newsq.push(["ucsf-news","feed_ucsf_news","http://feeds.feedburner.com/UCSF_News"]);
+                _newsq.push(["media-coverage","feed_media_coverage","http://feeds.feedburner.com/UCSF_Media_Coverage"]); 
+            }
+            loadSection();
+            window.onhashchange=loadSection;
+        </script>
         <script>
             window.addEventListener('load', function () {
                 var scripts = document.getElementsByTagName('script');
@@ -135,10 +144,11 @@ require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
             <label for="department">Department</label><input id="department" type="text" name="department">
             <input value="Search" type="submit">
         </form>
+        <div id="il/news" style="display:none">
+            <section id="ucsf-news" class="center"><progress>Loading...</progress></section>
+            <section id="media-coverage" class="center"><progress>Loading...</progress></section>
+        </div>
     <?php
-    echo Site_Decorator::ucsf_news_section(
-            0, 0, 0, 0, 0, array('style' => 'display:none'))->render();
-
     echo Site_Decorator::ucsf_map_menu('Maps', array('id' => 'il/maps/', 'style' => 'display:none'))->render();
     echo Site_Decorator::ucsf_library_menu('Library', array('id' => 'il/library/', 'style' => 'display:none'))->set_lightning(true)->render();
     echo Site_Decorator::ucsf_library_locations_menu('Locations', array('id' => 'il/library/locations', 'style' => 'display:none'))->set_lightning(true)->render();

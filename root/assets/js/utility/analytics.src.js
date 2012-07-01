@@ -39,7 +39,7 @@ ucsf.analytics = (function(){
             _gaq.push(["t"+i+"._setAccount",pathKeys[i].a]);
         }
     
-        if (/ mwf\-native\-[a-z]*\/[\d\.]*$/.test(ua)) {
+        if (/ mwf\-native\-[a-z]*\/[\d\.]*$/i.test(ua)) {
             // Special tracking for native client.
             // @todo: Make this configurable (on|off, at least) and customizable
             //   (might want to track native container version number, for example)

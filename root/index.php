@@ -58,7 +58,7 @@ require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
     </head>
     <body class="front" data-default-target-id="main_menu">
         <header id="header">
-            <a href="/"><img src="http://localhost/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
+            <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
         </header>
         <!-- prefetch background images -->
         <img style="display:none" alt="" src="/assets/img/background-decor.png">

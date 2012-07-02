@@ -24,7 +24,6 @@ class Ucsf_Library_Howdoi_Menu_Site_Decorator extends Menu_Site_Decorator {
     public function render($raw = false) {
         $this->add_item('Get Network Access', '/library/howdoi/remoteaccess');
         $this->add_item('Use WiFi', '/library/howdoi/wifi');
-        $this->add_item('Print and Copy', '/library/howdoi/print');
         $this->add_item('Renew Books', '/library/howdoi/renew');
         return parent::render($raw);
     }

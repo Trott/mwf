@@ -352,7 +352,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "~/mwf/auxiliary/native/ios/Entitlements.plist";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: University of California, San Francisco";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: University of California at San Francisco";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -360,7 +360,7 @@
 				INFOPLIST_FILE = "UCSFMobile/UCSFMobile-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=*]" = "6C539983-4E01-4178-860B-0681B3A2ED26";
+				"PROVISIONING_PROFILE[sdk=*]" = "B6B2B46A-F247-43A8-BBCE-2299791581F0";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

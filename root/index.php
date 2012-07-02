@@ -210,10 +210,34 @@ require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
         </div>
     <?php
     echo Site_Decorator::ucsf_fitness_menu('Fitness', array('id' => 'il/fitness', 'style' => 'display:none'))->render();
-    echo Site_Decorator::ucsf_calendar_menu('Calendars', array('id' => 'il/calendars', 'style' => 'display:none'))->render();
-    echo Site_Decorator::ucsf_social_media_menu('Social Media', array('id' => 'il/social', 'style' => 'display:none'))->render();
-    echo Site_Decorator::ucsf_emergency_menu('Emergency', array('id' => 'il/emergency', 'style' => 'display:none'))->render();
 ?>
+        <div id="il/calendars" style="display:none" class="menu detailed">
+            <h2>Calendars</h2>
+            <ol>
+                <li><a href="/calendars/ucsfevents">UCSF Events</a></li>
+                <li><a href="/calendars/academicevents">Featured Academic Events</a></li>
+                <li><a rel="external" href="http://www.ucsf.edu/about/ucsf-calendars?ovrrdr=1">UCSF Calendars Website</a></li>
+            </ol>
+        </div>
+        <div id="il/social" style="display:none" class="menu detailed">
+            <h2>Social Media</h2>
+            <ol>
+                <li><a rel="external" href="http://www.twitter.com/ucsf">Twitter</a></li>
+                <li><a rel="external" href="http://www.youtube.com/ucsf">YouTube</a></li>
+                <li><a rel="external" href="http://www.facebook.com/ucsf">Facebook</a></li>
+            </ol>
+        </div>
+        <div id="il/emergency" style="display:none" class="menu detailed">
+            <h2>Emergency</h2>
+            <ol>
+                <li><a href="tel:+911">911 <span class="smallprint">for emergencies only</span></a></li>
+                <li><a href="tel:+14154761414">UCSF Police Non-Emergency<br><span class="smallprint">(415) 476-1414</span></a></li>
+                <li><a href="tel:+14158857890">UCSF Medical Center Security<br><span class="smallprint">(415) 885-7890</span></a></li>
+                <li><a href="tel:+14155024000">Campus Emergency Information Hotline<br><span class="smallprint">(415) 502-4000</span></a></li>
+                <li><a href="tel:+18008738232">Back-up Campus Emergency Hotline<br><span class="smallprint">1 (800) 873-8232</span></a></li>
+                <li><a href="tel:+14158857828">UCSF Medical Center Information Hotline<br><span class="smallprint">(415) 885-7828</span></a></li>
+            </ol>
+        </div>
         <footer id="footer">
             <p>&copy; 2012 Regents of the University of California<br>
                 <a href="/about">About</a> | <a href="/feedback/">Feedback</a>

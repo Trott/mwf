@@ -167,9 +167,11 @@
         [[UIApplication sharedApplication] openURL:[request URL]];
     } else {
         //@todo: Handle custom URLs for UCSF apps that are not installed.
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UCSF Mobile" message:@"Action is unsupported." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert autorelease];
-        [alert show];
+        if (! [[[request URL] scheme] isEqualToString:@"about"]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UCSF Mobile" message:@"Action is unsupported." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert autorelease];
+            [alert show];
+        }
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     }
     

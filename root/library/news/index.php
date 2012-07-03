@@ -8,7 +8,7 @@ echo Site_Decorator::head()->render();
 echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header()->render();
 ?>
-<noscript><div class="content center" ' . $this->_style . '><p>JavaScript is required to load News content.</p></div></noscript>
+<noscript><div class="content center" ' . $this->_style . '><p>JavaScript is required to load this content.</p></div></noscript>
 <div class="jsonly">
 <section id="library-news" class="center"><progress>Loading...</progress></section>
 <script type="text/notJs">

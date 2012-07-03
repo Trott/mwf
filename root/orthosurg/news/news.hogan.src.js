@@ -16,7 +16,7 @@ var template = '{{#feed}}';
     template += '{{/feed}}';
     template += '{{^feed}}';
     template += '<div class="content">';
-    template += '<p>News feed could not be loaded.</p>';
+    template += '<p>Content could not be loaded.</p>';
     template += '</div>';
     template += '{{/feed}}';
 

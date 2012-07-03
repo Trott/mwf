@@ -10,7 +10,7 @@ echo Site_Decorator::ucsf_header()->render();
 ?>
 <noscript>
 	<div class="content center">
-		<p>JavaScript is required to load calendar content.</p>
+		<p>JavaScript is required to load this content.</p>
 	</div>
 </noscript>
 <div class="jsonly">

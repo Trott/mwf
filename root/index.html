@@ -1,23 +1,4 @@
-<?php
-/**
- *
- * @package frontpage
- *
- * @author ebollens
- * @author trott
- * @copyright Copyright (c) 2010-12 UC Regents
- * @license http://mwf.ucla.edu/license
- * @version 20120426
- *
- * @uses Decorator
- * @uses Site_Decorator
- */
-
-/**
- * Require necessary libraries.
- */
-require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" manifest="/assets/appcache.php">
     <head>
         <meta charset="utf-8">
@@ -208,9 +189,14 @@ require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
                 <li><a href="/library/howdoi/renew">Renew Books</a></li>
             </ol>
         </div>
-    <?php
-    echo Site_Decorator::ucsf_fitness_menu('Fitness', array('id' => 'il/fitness', 'style' => 'display:none'))->render();
-?>
+        <div id="il/fitness" style="display:none" class="menu detailed">
+            <h2>Fitness</h2>
+            <ol>
+                <li><a href="/fitness/schedule">Group Fitness and Pools</a></li>
+                <li><a href="/fitness/locations">Hours and Locations</a></li>
+                <li><a rel="external" href="http://campuslifeservices.ucsf.edu/fitnessrecreation/">Fitness &amp; Recreation Website</a></li>
+            </ol>
+        </div>
         <div id="il/calendars" style="display:none" class="menu detailed">
             <h2>Calendars</h2>
             <ol>

@@ -95,7 +95,7 @@ ucsf.news = (function () {
                     } else {
                         me.render(container, storageId, feedUrl, options);
                     }
-                }, 50);
+                }, 100);
         } else if (! google.hasOwnProperty('feeds')) {
             google.load("feeds","1",{nocss:true, callback:function () { ucsf.news.render(container, storageId, feedUrl, options);}});
         } else {

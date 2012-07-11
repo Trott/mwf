@@ -11,7 +11,7 @@ echo Site_Decorator::ucsf_header()->render();
 <noscript><div class="content center" ' . $this->_style . '><p>JavaScript is required to load this content.</p></div></noscript>
 <div class="jsonly">
 <section id="ucsfevents" class="center"><progress>Loading...</progress></section>
-<script type="text/notJs">
+<script type="text/javascript">
 	var _newsq = _newsq || [];
     function loadSection() {
         _newsq.push(["ucsfevents","feed_ucsf_events","http://feeds2.feedburner.com/ucsf/event-calendar", {numEntries: 10, showTime: 1}]);

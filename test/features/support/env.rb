@@ -10,7 +10,7 @@ World do
     Capybara::Selenium::Driver.new(app, :browser => :iphone)
   end
 
-  if ENV['DRIVER'] == 'firefox' then
+  if ENV['BROWSER'] == 'firefox' then
   	session = Capybara::Session.new(:selenium)
   else
   	session = Capybara::Session.new(:iphone)

@@ -31,7 +31,7 @@ class UCSF_News_Section_Site_Decorator {
             . '<div id="il/news" class="jsonly" ' . $this->_style . '>'
             . '<section id="ucsf-news" class="center"><progress>Loading...</progress></section>'
             . '<section id="media-coverage" class="center"><progress>Loading...</progress></section></div>'
-            . '<script type="text/notJs">var _newsq = _newsq || [];'
+            . '<script type="text/javascript">var _newsq = _newsq || [];'
             . ' function loadSection() {'
             //. ' if (document.getElementById("il/news").style.display !== "none") {'
             . '    _newsq.push(["ucsf-news","feed_ucsf_news","http://feeds.feedburner.com/UCSF_News"]);'

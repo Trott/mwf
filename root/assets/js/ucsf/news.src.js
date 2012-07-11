@@ -85,7 +85,7 @@ ucsf.news = (function () {
         if (! navigator.onLine) {
             container.innerHTML = options.template.render(me.loadFromStorage(storageId));
         } else if ((typeof google === "undefined") || (! google.hasOwnProperty('load'))) {
-            //use setTimeout 0 to allow other tasks to finish and then try again
+            //use setTimeout to allow other tasks to finish and then try again
             setTimeout(
                 function () {
                     if ((typeof google === "undefined") || (! google.hasOwnProperty('load'))) {
@@ -95,7 +95,7 @@ ucsf.news = (function () {
                     } else {
                         me.render(container, storageId, feedUrl, options);
                     }
-                }, 0);
+                }, 50);
         } else if (! google.hasOwnProperty('feeds')) {
             google.load("feeds","1",{nocss:true, callback:function () { ucsf.news.render(container, storageId, feedUrl, options);}});
         } else {

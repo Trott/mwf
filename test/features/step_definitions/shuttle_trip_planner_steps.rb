@@ -1,6 +1,7 @@
 Given /^my localStorage is empty$/ do
 	visit "http://localhost/"
-	evaluate_script('localStorage.clear()')
+	execute_script('localStorage.clear()')
+	visit "http://google.com/"
 end
 
 Given /I visit the Shuttle Trip Planner page/ do

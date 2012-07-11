@@ -7,7 +7,7 @@ Given /I visit the news hash/ do
 end
 
 Then /I should see news items/ do
-  should have_content("UCSF News")
+  find('h2', :text => 'UCSF News').should be_visible
 end
 
 And /I click "([^"]*)"/ do |link_text|

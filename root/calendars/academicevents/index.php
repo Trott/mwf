@@ -17,7 +17,7 @@ echo Site_Decorator::ucsf_header()->render();
 	<section id="academicevents" class="center"><progress>Loading...</progress></section>
 </div>
 
-<script type="text/notJs">
+<script type="text/javascript">
 	var _newsq = _newsq || [];
     function loadSection() {
         _newsq.push(["academicevents","feed_academic_events","http://25livepub.collegenet.com/calendars/featured-academic-events.rss", {numEntries:10, showTime:1}]);

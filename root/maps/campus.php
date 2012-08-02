@@ -82,8 +82,12 @@ if (empty($startLocation)):
                             google.maps.event.addListener(new google.maps.Marker({position: new google.maps.LatLng(<?php echo $location['lat']; ?>, <?php echo $location['lon']; ?>), map: map, title:"<?php echo htmlspecialchars($location['name']); ?>" }), 
                             'click', 
                             function(){
-                                var info = new google.maps.InfoWindow({content:"<?php echo htmlspecialchars($location['name']); ?>",
-                                    position:new google.maps.LatLng(<?php echo $location['lat']; ?>, <?php echo $location['lon']; ?>)});
+                                var lat = <?php echo htmlspecialchars($location['lat']); ?>;
+                                var lon = <?php echo htmlspecialchars($location['lon']); ?>;
+                                var info = new google.maps.InfoWindow({
+                                    content:"<div><?php echo htmlspecialchars($location['name']); ?></div><div><a href=\"https://maps.google.com/maps?daddr="+lat+","+lon+"\">Directions</a></div>",
+                                    position:new google.maps.LatLng(lat, lon)
+                                });
                                 info.open(map);
                             }
                         );
@@ -96,8 +100,12 @@ if (empty($startLocation)):
                             google.maps.event.addListener(new google.maps.Marker({position: new google.maps.LatLng(<?php echo $location['lat']; ?>, <?php echo $location['lon']; ?>), map: map, title:"<?php echo htmlspecialchars($location['name']); ?>" }), 
                             'click', 
                             function(){
-                                var info = new google.maps.InfoWindow({content:"<?php echo htmlspecialchars($location['name']); ?>",
-                                    position:new google.maps.LatLng(<?php echo $location['lat']; ?>, <?php echo $location['lon']; ?>)});
+                                var lat = <?php echo htmlspecialchars($location['lat']); ?>;
+                                var lon = <?php echo htmlspecialchars($location['lon']); ?>;
+                                var info = new google.maps.InfoWindow({
+                                    content:"<div><?php echo htmlspecialchars($location['name']); ?></div><div><a href=\"https://maps.google.com/maps?daddr="+lat+","+lon+"\">Directions</a></div>",
+                                    position:new google.maps.LatLng(lat, lon)
+                                });
                                 info.open(map);
                             }
                         );

@@ -1,0 +1,14 @@
+route_id,routes_short_name,route_long_name,route_type
+0,,Blue,3
+1,,Gold,3
+2,,Grey,3
+3,,Tan,3
+4,,Black,3
+5,,Purple,3
+6,,Pink,3
+7,,VA,3
+8,,Bronze,3
+9,,Yellow,3
+11,,Red,3
+12,,Lime,3
+15,,Green,3

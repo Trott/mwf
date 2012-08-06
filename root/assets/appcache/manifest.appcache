@@ -1,20 +1,11 @@
 CACHE MANIFEST
-#05-Aug-2012 v2
+#06-Aug-2012 v1
 
 CACHE:
 
 #images
 /assets/img/ucsf-logo.png
 /assets/img/ucsf-header-separator.png
-/assets/img/homescreen/calendars.png
-/assets/img/homescreen/directory.png
-/assets/img/homescreen/emergency.png
-/assets/img/homescreen/fitness.png
-/assets/img/homescreen/library.png
-/assets/img/homescreen/maps.png
-/assets/img/homescreen/news.png
-/assets/img/homescreen/shuttle.png
-/assets/img/homescreen/social.png
 
 #internal HTML documents
 /

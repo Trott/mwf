@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#11-Jul-2012 v1
+#05-Aug-2012 v2
 
 CACHE:
 
@@ -32,7 +32,7 @@ CACHE:
 #javascript files
 //www.google.com/jsapi
 //www.google-analytics.com/ga.js
-/assets/js.php
+/assets/js/ucsf.js
 
 NETWORK:
 *

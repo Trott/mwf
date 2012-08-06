@@ -3,44 +3,29 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    meta: {
-      version: '0.1.0',
-      banner: '/*! UCSF Mobile - v<%= meta.version %> - ' +
-      '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      '* http://m.ucsf.edu/\n' +
-      '* Copyright (c) <%= grunt.template.today("yyyy") %> ' +
-      'Rich Trott; Licensed BSD */'
-    },
     concat: {
       dist: {
-        src: ['root/assets/js/utility/analytics.src.js',
-              'root/assets/js/ucsf/mainPage.src.js',
-              'root/assets/js/ucsf/news.src.js'],
+        src: ['root/assets/js/core/modernizr.js',
+              'root/assets/js/utility/analytics.js',
+              'root/assets/js/ucsf/template-2.0.0.min.js',
+              'root/assets/js/ucsf/LightningTouch-1.0.3.min.js',
+              'root/assets/js/ucsf/mainPage.js',
+              'root/assets/js/ucsf/news.js',
+              'root/assets/js/ucsf/shuttle.js'],
         dest: 'dist/ucsf.js'
       }
     },
     lint: {
       beforeconcat: ['grunt.js'],
-      afterconcat: ['dist/ucsf.js']
+      afterconcat: []
     },
     qunit: {
-      files: ['root/assets/test/**/*.html']
+      files: []
     },
-    // concat: {
-    //   dist: {
-    //     src: ['root/assets/js/core/modernizr.js',
-    //           'root/assets/js/utility/analytics.src.js',
-    //           'root/assets/js/ucsf/template-2.0.0.min.js',
-    //           'root/js/ucsf/LightningTouch-1.0.3.min.js',
-    //           'root/assets/js/ucsf/mainPage.src.js',
-    //           'root/assets/js/ucsf/news.src.js'],
-    //     dest: 'root/assets/js/main.js'
-    //   }
-    // },
     min: {
       dist: {
-        src: ['<banner:meta.banner>', '<config:concat.dist.dest>'],
-        dest: 'dist/FILE_NAME.min.js'
+        src: [],
+        dest: '/dev/null'
       }
     },
     watch: {
@@ -69,6 +54,6 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', 'lint:beforeconcat concat lint:afterconcat min qunit');
+  grunt.registerTask('default', 'lint:beforeconcat concat');
 
 };

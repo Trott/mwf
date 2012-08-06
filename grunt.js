@@ -6,17 +6,17 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: ['root/assets/js/core/modernizr.js',
-              'root/assets/js/utility/analytics.js',
-              'root/assets/js/ucsf/template-2.0.0.min.js',
-              'root/assets/js/ucsf/LightningTouch-1.0.3.min.js',
-              'root/assets/js/ucsf/mainPage.js',
-              'root/assets/js/ucsf/news.js',
-              'root/assets/js/ucsf/shuttle.js'],
-        dest: 'dist/ucsf.js'
+              'dist/ucsf.partial.js'],
+        dest: 'root/assets/js/ucsf.js'
       }
     },
     lint: {
-      beforeconcat: ['grunt.js'],
+      beforeconcat: ['grunt.js',
+                      'root/assets/js/utility/analytics.src.js',
+                      'root/assets/js/utility/template-2.0.0.js',
+                      'root/assets/js/external/LightningTouch.js',
+                      'root/assets/js/ucsf/mainPage.src.js',
+                      'root/assets/js/ucsf/shuttle.src.js'],
       afterconcat: []
     },
     qunit: {
@@ -24,8 +24,13 @@ module.exports = function(grunt) {
     },
     min: {
       dist: {
-        src: [],
-        dest: '/dev/null'
+        src: ['root/assets/js/utility/analytics.src.js',
+              'root/assets/js/ucsf/template-2.0.0.js',
+              'root/assets/js/external/LightningTouch.js',
+              'root/assets/js/ucsf/mainPage.src.js',
+              'root/assets/js/ucsf/news.src.js',
+              'root/assets/js/ucsf/shuttle.src.js'],
+        dest: 'dist/ucsf.partial.js'
       }
     },
     watch: {
@@ -48,12 +53,13 @@ module.exports = function(grunt) {
       },
       globals: {Modernizr:true,
                 google:true,
-                Hogan:true}
+                Hogan:true,
+                ucsf:true}
     },
     uglify: {}
   });
 
   // Default task.
-  grunt.registerTask('default', 'lint:beforeconcat concat');
+  grunt.registerTask('default', 'lint:beforeconcat min concat');
 
 };

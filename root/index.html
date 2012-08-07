@@ -19,14 +19,14 @@
         <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
     </head>
     <body class="front" data-default-target-id="main_menu">
-        <header id="header">
-            <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
-        </header>
         <!-- prefetch background images -->
         <img style="display:none" alt="" src="/assets/img/background-decor.png">
         <img style="display:none" alt="" src="/assets/img/watermark.png">
-        <div class="menu front" id="main_menu">
-            <ol>
+        <div id="main_menu">
+            <header class="main">
+                <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
+            </header>
+            <ol class="menu front">
                 <li>
                     <a data-target-id="il/shuttle/" href="shuttle/">
                         <div class="springboard-icon" data-picture data-alt="">
@@ -102,15 +102,20 @@
                 </li>                    
             </ol>
         </div>
-        <div id="il/shuttle/" style="display:none" class="menu detailed">
-            <h2>Shuttle</h2>
-            <ol>
-                <li><a href="/shuttle/planner">Trip Planner</a></li>
-                <li><a data-target-id="il/shuttle/list/color" href="/shuttle/list/color">Shuttles By Color</a></li>
-                <li><a data-target-id="il/shuttle/list/location" href="/shuttle/list/location">Shuttles By Location</a></li>
-                <li><a rel="external" href="http://campuslifeservices.ucsf.edu/transportation/shuttles/timetables/shuttlemap.pdf">System Map <span class="smallprint light">PDF</span></a></li>
-                <li><a rel="external" href="http://www.campuslifeservices.ucsf.edu/transportation/shuttles/timetables/pdf/ShuttleHolidaySchedule.pdf">Holiday Schedule <span class="smallprint light">PDF</span></a></li>
-            </ol>
+        <div id="il/shuttle/" style="display:none">
+            <header class="header">
+                <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a><img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator"><span><a href="/shuttle">Shuttle</a></span>
+            </header>
+            <div class="menu detailed">
+                <h2>Shuttle</h2>
+                <ol>
+                    <li><a href="/shuttle/planner">Trip Planner</a></li>
+                    <li><a data-target-id="il/shuttle/list/color" href="/shuttle/list/color">Shuttles By Color</a></li>
+                    <li><a data-target-id="il/shuttle/list/location" href="/shuttle/list/location">Shuttles By Location</a></li>
+                    <li><a rel="external" href="http://campuslifeservices.ucsf.edu/transportation/shuttles/timetables/shuttlemap.pdf">System Map <span class="smallprint light">PDF</span></a></li>
+                    <li><a rel="external" href="http://www.campuslifeservices.ucsf.edu/transportation/shuttles/timetables/pdf/ShuttleHolidaySchedule.pdf">Holiday Schedule <span class="smallprint light">PDF</span></a></li>
+                </ol>
+            </div>
         </div>
         <div id="il/shuttle/list/color" style="display:none" class="menu detailed">
             <h2>Shuttles By Color</h2>

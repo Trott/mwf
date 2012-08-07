@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" manifest="/assets/appcache.php">
+<html lang="en" manifest="/assets/appcache/manifest.appcache">
     <head>
         <meta charset="utf-8">
         <title>UCSF Mobile</title>
@@ -7,7 +7,7 @@
         <script>
             window.onload = function () {
                 var deferred = document.createElement('script');
-                deferred.src = '/assets/js.php';
+                deferred.src = '/assets/js/ucsf.js';
                 document.body.appendChild(deferred);
             }
         </script>
@@ -28,23 +28,78 @@
         <div class="menu front" id="main_menu">
             <ol>
                 <li>
-                    <a data-target-id="il/shuttle/" href="shuttle/"><img class="dashboard_icon" src="/assets/img/homescreen/shuttle.png" alt=""><br>Shuttle</a>
+                    <a data-target-id="il/shuttle/" href="shuttle/">
+                        <div data-picture data-alt="">
+                            <div data-src="/assets/img/homescreen/shut-57.png" data-media></div>
+                            <div data-src="/assets/img/homescreen/shut-72.png" data-media="(min-width: 321px)"></div>
+                            <noscript><img src="/assets/img/homescreen/shut-57.png" alt=""></noscript>
+                        </div>
+                        Shuttle</a>
                 </li><li>
-                    <a data-target-id="il/directory" href="directory"><img class="dashboard_icon" src="/assets/img/homescreen/directory.png" alt=""><br>Directory</a>
+                    <a data-target-id="il/directory" href="directory">
+                        <div data-picture data-alt="">
+                            <div data-src="/assets/img/homescreen/dir-57.png" data-media></div>
+                            <div data-src="/assets/img/homescreen/dir-72.png" data-media="(min-width: 321px)"></div>
+                            <noscript><img src="/assets/img/homescreen/dir-57.png" alt=""></noscript>
+                        </div>
+                        Directory</a>
                 </li><li>
-                    <a data-target-id="il/news" href="news"><img class="dashboard_icon" src="/assets/img/homescreen/news.png" alt=""><br>News</a>
+                    <a data-target-id="il/news" href="news">
+                        <div data-picture data-alt="">
+                            <div data-src="/assets/img/homescreen/news-57.png" data-media></div>
+                            <div data-src="/assets/img/homescreen/news-72.png" data-media="(min-width: 321px)"></div>
+                            <noscript><img src="/assets/img/homescreen/news-57.png" alt=""></noscript>
+                        </div>
+                        News</a>
                 </li><li>
-                    <a data-target-id="il/maps/" href="maps/"><img class="dashboard_icon" src="/assets/img/homescreen/maps.png" alt=""><br>Maps</a>
+                    <a data-target-id="il/maps" href="maps">
+                        <div data-picture data-alt="">
+                            <div data-src="/assets/img/homescreen/map-57.png" data-media></div>
+                            <div data-src="/assets/img/homescreen/map-72.png" data-media="(min-width: 321px)"></div>
+                            <noscript><img src="/assets/img/homescreen/map-57.png" alt=""></noscript>
+                        </div>
+                        Maps</a>
                 </li><li>
-                    <a data-target-id="il/library/" href="library/"><img class="dashboard_icon" src="/assets/img/homescreen/library.png" alt=""><br>Library</a>         
+                    <a data-target-id="il/library" href="library">
+                        <div data-picture data-alt="">
+                            <div data-src="/assets/img/homescreen/lib-57.png" data-media></div>
+                            <div data-src="/assets/img/homescreen/lib-72.png" data-media="(min-width: 321px)"></div>
+                            <noscript><img src="/assets/img/homescreen/lib-57.png" alt=""></noscript>
+                        </div>
+                        Library</a>
                 </li><li>
-                    <a data-target-id="il/fitness" href="fitness"><img class="dashboard_icon" src="/assets/img/homescreen/fitness.png" alt=""><br>Fitness</a>
+                    <a data-target-id="il/fitness" href="fitness">
+                        <div data-picture data-alt="">
+                            <div data-src="/assets/img/homescreen/fit-57.png" data-media></div>
+                            <div data-src="/assets/img/homescreen/fit-72.png" data-media="(min-width: 321px)"></div>
+                            <noscript><img src="/assets/img/homescreen/fit-57.png" alt=""></noscript>
+                        </div>
+                        Fitness</a>
                 </li><li>
-                    <a data-target-id="il/calendars" href="calendars"><img class="dashboard_icon" src="/assets/img/homescreen/calendars.png" alt=""><br>Calendars</a>
+                    <a data-target-id="il/calendars" href="calendars">
+                        <div data-picture data-alt="">
+                            <div data-src="/assets/img/homescreen/cal-57.png" data-media></div>
+                            <div data-src="/assets/img/homescreen/cal-72.png" data-media="(min-width: 321px)"></div>
+                            <noscript><img src="/assets/img/homescreen/cal-57.png" alt=""></noscript>
+                        </div>
+                        Calendars</a>
                 </li><li>
-                    <a data-target-id="il/social" href="social"><img class="dashboard_icon" src="/assets/img/homescreen/social.png" alt=""><br>Social&nbsp;Media</a>
-                </li><li><a data-target-id="il/emergency" href="emergency"><img class="dashboard_icon" src="/assets/img/homescreen/emergency.png" alt=""><br>Emergency</a>
-                </li>
+                    <a data-target-id="il/social" href="social">
+                        <div data-picture data-alt="">
+                            <div data-src="/assets/img/homescreen/soc-57.png" data-media></div>
+                            <div data-src="/assets/img/homescreen/soc-72.png" data-media="(min-width: 321px)"></div>
+                            <noscript><img src="/assets/img/homescreen/soc-57.png" alt=""></noscript>
+                        </div>
+                        Social&nbsp;Media</a>
+                </li><li>
+                    <a data-target-id="il/emergency" href="emergency">
+                        <div data-picture data-alt="">
+                            <div data-src="/assets/img/homescreen/emerg-57.png" data-media></div>
+                            <div data-src="/assets/img/homescreen/emerg-72.png" data-media="(min-width: 321px)"></div>
+                            <noscript><img src="/assets/img/homescreen/emerg-57.png" alt=""></noscript>
+                        </div>
+                        Emergency</a>
+                </li>                    
             </ol>
         </div>
         <div id="il/shuttle/" style="display:none" class="menu detailed">
@@ -110,7 +165,7 @@
             <section id="ucsf-news" class="center"><progress>Loading...</progress></section>
             <section id="media-coverage" class="center"><progress>Loading...</progress></section>
         </div>
-        <div id="il/maps/" style="display:none" class="menu detailed">
+        <div id="il/maps" style="display:none" class="menu detailed">
             <h2>Maps</h2>
             <ol>
                 <li><a href="/maps/campus.php?campus=Parnassus">Parnassus</a></li>
@@ -120,7 +175,7 @@
                 <li><a href="/maps/locations.php">Location List</a></li>
             </ol>
         </div>
-        <div id="il/library/" style="display:none" class="menu detailed">
+        <div id="il/library" style="display:none" class="menu detailed">
             <h2>Library</h2>
             <ol>
                 <li><a data-target-id="il/library/locations" href="/library/locations">Hours and Locations</a></li>

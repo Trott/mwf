@@ -3,44 +3,37 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    meta: {
-      version: '0.1.0',
-      banner: '/*! UCSF Mobile - v<%= meta.version %> - ' +
-      '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      '* http://m.ucsf.edu/\n' +
-      '* Copyright (c) <%= grunt.template.today("yyyy") %> ' +
-      'Rich Trott; Licensed BSD */'
-    },
     concat: {
       dist: {
-        src: ['root/assets/js/utility/analytics.src.js',
-              'root/assets/js/ucsf/mainPage.src.js',
-              'root/assets/js/ucsf/news.src.js'],
-        dest: 'dist/ucsf.js'
+        src: ['root/assets/js/core/modernizr.js',
+              'root/assets/js/external/matchmedia.js',
+              'dist/ucsf.partial.js'],
+        dest: 'root/assets/js/ucsf.js'
       }
     },
     lint: {
-      beforeconcat: ['grunt.js'],
-      afterconcat: ['dist/ucsf.js']
+      beforeconcat: ['grunt.js',
+                      'root/assets/js/utility/analytics.src.js',
+                      'root/assets/js/utility/template-2.0.0.js',
+                      'root/assets/js/external/LightningTouch.js',
+                      'root/assets/js/external/picturefill.js',
+                      'root/assets/js/ucsf/mainPage.src.js',
+                      'root/assets/js/ucsf/shuttle.src.js'],
+      afterconcat: []
     },
     qunit: {
-      files: ['root/assets/test/**/*.html']
+      files: []
     },
-    // concat: {
-    //   dist: {
-    //     src: ['root/assets/js/core/modernizr.js',
-    //           'root/assets/js/utility/analytics.src.js',
-    //           'root/assets/js/ucsf/template-2.0.0.min.js',
-    //           'root/js/ucsf/LightningTouch-1.0.3.min.js',
-    //           'root/assets/js/ucsf/mainPage.src.js',
-    //           'root/assets/js/ucsf/news.src.js'],
-    //     dest: 'root/assets/js/main.js'
-    //   }
-    // },
     min: {
       dist: {
-        src: ['<banner:meta.banner>', '<config:concat.dist.dest>'],
-        dest: 'dist/FILE_NAME.min.js'
+        src: ['root/assets/js/utility/analytics.src.js',
+              'root/assets/js/ucsf/template-2.0.0.js',
+              'root/assets/js/external/LightningTouch.js',
+              'root/assets/js/external/picturefill.js',
+              'root/assets/js/ucsf/mainPage.src.js',
+              'root/assets/js/ucsf/news.src.js',
+              'root/assets/js/ucsf/shuttle.src.js'],
+        dest: 'dist/ucsf.partial.js'
       }
     },
     watch: {
@@ -63,12 +56,13 @@ module.exports = function(grunt) {
       },
       globals: {Modernizr:true,
                 google:true,
-                Hogan:true}
+                Hogan:true,
+                ucsf:true}
     },
     uglify: {}
   });
 
   // Default task.
-  grunt.registerTask('default', 'lint:beforeconcat concat lint:afterconcat min qunit');
+  grunt.registerTask('default', 'lint:beforeconcat min concat');
 
 };

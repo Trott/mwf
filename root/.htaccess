@@ -1,9 +1,15 @@
 AddDefaultCharset UTF-8
 AddType text/cache-manifest .appcache
-AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+AddOutputFilterByType DEFLATE application/javascript text/html text/plain text/xml text/css
 
 ExpiresActive On
+ExpiresByType application/javascript "access plus 0 seconds"
 ExpiresByType image/png "access plus 0 seconds"
+ExpiresByType text/cache-manifest "access plus 0 seconds"
+
+<filesMatch "\.(appcache|js)$">
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+</filesMatch>
 
 <IfModule mod_rewrite.c>
     RewriteEngine On

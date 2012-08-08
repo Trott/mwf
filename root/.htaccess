@@ -1,6 +1,6 @@
 AddDefaultCharset UTF-8
 AddType text/cache-manifest .appcache
-AddOutputFilterByType DEFLATE application/javascript text/html text/plain text/xml text/css
+AddOutputFilterByType DEFLATE application/javascript application/x-javascript text/css text/html text/plain text/xml
 
 ExpiresActive On
 ExpiresByType application/javascript "access plus 0 seconds"

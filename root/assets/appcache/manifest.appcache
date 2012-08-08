@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#07-Aug-2012 v4
+#07-Aug-2012 v5
 
 CACHE:
 
@@ -24,8 +24,7 @@ CACHE:
 //www.google.com/jsapi
 //www.google-analytics.com/ga.js
 /assets/js/ucsf.js
-/assets/js/external/matchmedia.js
-/assets/js/external/picturefill.js
+/assets/js/picturefill.js
 
 NETWORK:
 *

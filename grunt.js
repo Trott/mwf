@@ -8,6 +8,11 @@ module.exports = function(grunt) {
         src: ['root/assets/js/core/modernizr.js',
               'dist/ucsf.partial.js'],
         dest: 'root/assets/js/ucsf.js'
+      },
+      picturefill: {
+        src: ['root/assets/js/external/matchmedia.js',
+              'dist/picturefill.js'],
+        dest: 'root/assets/js/picturefill.js'
       }
     },
     lint: {
@@ -32,6 +37,10 @@ module.exports = function(grunt) {
               'root/assets/js/ucsf/news.src.js',
               'root/assets/js/ucsf/shuttle.src.js'],
         dest: 'dist/ucsf.partial.js'
+      },
+      picturefill: {
+        src: ['root/assets/js/external/picturefill.js'],
+        dest: 'dist/picturefill.js'
       }
     },
     watch: {

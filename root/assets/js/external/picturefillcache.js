@@ -12,8 +12,11 @@
         pfc_index,
         canvasTest = document.createElement('canvas');
 
-    if ((! localStorage) || (! applicationCache) || (!(canvasTest.getContext && canvasTest.getContext('2d'))) ) {
-        return;
+    // Don't run any of this stuff if application cache doesn't exist or isn't being used,
+    //     or localStorage or canvas are not available.
+    if ( (! applicationCache) || (applicationCache.status === applicationCache.UNCACHED) ||
+        (! localStorage) || (!(canvasTest.getContext && canvasTest.getContext('2d'))) ) {
+            return;
     }
 
     pfc_index_string = localStorage.getItem('pfc_index') || '{}';
@@ -28,10 +31,12 @@
     // Appcache == IE10 or later == no need to worry about attachEvent (IE8 and earlier)
     // Anything that has appcache is going to have addEventListener.
     applicationCache.addEventListener('updateready', clearCacheIndex, false);
+    applicationCache.addEventListener('obsolete', clearCacheIndex, false);
 
     // If the updateready event has already fired, clear the cache index.
-    if(applicationCache.status === applicationCache.UPDATEREADY) {
-      clearCacheIndex();
+    if((applicationCache.status === applicationCache.UPDATEREADY) ||
+        (applicationCache.status === applicationCache.OBSOLETE)) {
+            clearCacheIndex();
     }
 
     var srcFromCacheRan = false;

@@ -21,6 +21,7 @@ module.exports = function(grunt) {
                       'root/assets/js/utility/template-2.0.0.js',
                       'root/assets/js/external/LightningTouch.js',
                       'root/assets/js/external/picturefill.js',
+                      'root/assets/js/external/picturefillcache.js',
                       'root/assets/js/ucsf/mainPage.src.js',
                       'root/assets/js/ucsf/shuttle.src.js'],
       afterconcat: []
@@ -39,7 +40,8 @@ module.exports = function(grunt) {
         dest: 'dist/ucsf.partial.js'
       },
       picturefill: {
-        src: ['root/assets/js/external/picturefill.js'],
+        src: ['root/assets/js/external/picturefill.js',
+              'root/assets/js/external/picturefillcache.js'],
         dest: 'dist/picturefill.js'
       }
     },
@@ -61,10 +63,12 @@ module.exports = function(grunt) {
         eqnull: true,
         browser: true
       },
-      globals: {Modernizr:true,
-                google:true,
-                Hogan:true,
-                ucsf:true}
+      globals: {
+        Modernizr: true,
+        google: true,
+        Hogan: true,
+        ucsf: true
+      }
     },
     uglify: {}
   });

@@ -7,7 +7,8 @@
         localStorage = w.localStorage,
         canvas = w.canvas,
         sources,
-        src;
+        src,
+        datauri;
 
     
     // We'll use this to clear the cache index when appcache updates.
@@ -22,10 +23,10 @@
  
     // If the updateready event has already fired, clear the cache index.
     if(applicationCache.status === applicationCache.UPDATEREADY) {
-      clearCacheIndex(); 
+      clearCacheIndex();
     }
 
-    var ps = w.document.getElementsByTagName( "div" );        
+    var ps = w.document.getElementsByTagName( "div" );
     // Loop the pictures
     for( var i = 0, il = ps.length; i < il; i++ ){
         if( ps[ i ].getAttribute( "data-picture" ) !== null ){

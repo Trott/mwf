@@ -5,7 +5,6 @@
 
     var applicationCache = w.applicationCache,
         localStorage = w.localStorage,
-        canvas = w.canvas,
         sources,
         src,
         datauri;
@@ -17,10 +16,10 @@
     };
 
     // If appcache updates, clear the cache index.
-    // Appcache + localStorage + canvas requirement = no need to worry about attachEvent.
-    // Anything that has appcache + localStorage + canvas is going to have addEventListener.
+    // Appcache == IE10 or later == no need to worry about attachEvent (IE8 and earlier)
+    // Anything that has appcache is going to have addEventListener.
     applicationCache.addEventListener('updateready', clearCacheIndex, false);
- 
+
     // If the updateready event has already fired, clear the cache index.
     if(applicationCache.status === applicationCache.UPDATEREADY) {
       clearCacheIndex();
@@ -34,13 +33,13 @@
             sources = ps[ i ].getElementsByTagName( "div" );
 
             // See which ones are cached in localStorage. Use the cached value.
-                for( var j = 0, jl = sources.length; j < jl; j++ ){
-                    if ((src = sources[j].getAttribute( "data-src" )) !== null ) {
-                        if ((datauri = localStorage.getItem(src)) !== null) {
-                            sources[j].setAttribute('data-src', datauri);
-                        }
+            for( var j = 0, jl = sources.length; j < jl; j++ ){
+                if ((src = sources[j].getAttribute( "data-src" )) !== null ) {
+                    if ((datauri = localStorage.getItem(src)) !== null) {
+                        sources[j].setAttribute('data-src', datauri);
                     }
                 }
+            }
         }
     }
 

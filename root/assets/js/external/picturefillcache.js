@@ -9,14 +9,19 @@
         imageSrc,
         dataUri,
         pfc_index_string,
-        pfc_index;
+        pfc_index,
+        canvasTest = document.createElement('canvas');
+
+    if ((! localStorage) || (! applicationCache) || (!(canvasTest.getContext && canvasTest.getContext('2d'))) ) {
+        return;
+    }
 
     pfc_index_string = localStorage.getItem('pfc_index') || '{}';
     pfc_index = JSON.parse(pfc_index_string);
 
     // We'll use this to clear the cache index when appcache updates.
     var clearCacheIndex = function () {
-        localStorage.setItem('pfc_index', JSON.stringify({}));
+            localStorage.removeItem('pfc_index');
     };
 
     // If appcache updates, clear the cache index.
@@ -52,19 +57,35 @@
 
     var cacheImage = function () {
         var canvas, ctx, imageSrc;
+
+        imageSrc = this.getAttribute("src");
+        if ((imageSrc === null) || (imageSrc.length === 0)) {
+            return;
+        }
+
         canvas = w.document.createElement("canvas");
         canvas.width = this.width;
         canvas.height = this.height;
 
         ctx = canvas.getContext("2d");
         ctx.drawImage(this, 0, 0);
+        try {
+            dataUri = canvas.toDataURL();
+        } catch (e) {
+            // TODO: Improve error handling here. For now, if canvas.toDataURL()
+            //   throws an exception, don't cache the image and move on.
+            return;
+        }
 
-        dataUri = canvas.toDataURL();
-
-        imageSrc = this.getAttribute("src");
-        localStorage.setItem("pfc_s_"+imageSrc, dataUri);
         pfc_index["pfc_s_"+imageSrc] = 1;
-        localStorage.setItem("pfc_index", JSON.stringify(pfc_index));
+
+        try {
+            localStorage.setItem("pfc_s_"+imageSrc, dataUri);
+            localStorage.setItem("pfc_index", JSON.stringify(pfc_index));
+        } catch (e) {
+            // Caching failed but there's nothing to be done about it at this point.
+            // Previously cached items are still usable. Carry on.
+        }
     };
 
     w.picturefillOrig = w.picturefill;

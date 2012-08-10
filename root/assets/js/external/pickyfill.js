@@ -1,4 +1,4 @@
-/*! PicturefillCache - Offline caching for picturefill responsive image polyfill. Author: Rich Trott | Copyright: Regents of University of California, 2012 | License: MIT */
+/*! PickyFill - Offline caching for picturefill responsive image polyfill. Author: Rich Trott | Copyright: Regents of University of California, 2012 | License: MIT */
 
 (function( w ) {
     "use strict";
@@ -8,8 +8,8 @@
         image,
         imageSrc,
         dataUri,
-        pfc_index_string,
-        pfc_index,
+        pf_index_string,
+        pf_index,
         canvasTest = document.createElement('canvas');
 
     // Don't run any of this stuff if application cache doesn't exist or isn't being used,
@@ -19,12 +19,12 @@
             return;
     }
 
-    pfc_index_string = localStorage.getItem('pfc_index') || '{}';
-    pfc_index = JSON.parse(pfc_index_string);
+    pf_index_string = localStorage.getItem('pf_index') || '{}';
+    pf_index = JSON.parse(pf_index_string);
 
     // We'll use this to clear the cache index when appcache updates.
     var clearCacheIndex = function () {
-            localStorage.removeItem('pfc_index');
+            localStorage.removeItem('pf_index');
     };
 
     // If appcache updates, clear the cache index.
@@ -51,8 +51,8 @@
                 // See which ones are cached in localStorage. Use the cached value.
                 for( var j = 0, jl = sources.length; j < jl; j++ ){
                     if ((src = sources[j].getAttribute( "data-src" )) !== null ) {
-                        if ( pfc_index.hasOwnProperty('pfc_s_' + src)) {
-                            sources[j].setAttribute('data-src', localStorage.getItem('pfc_s_' + src));
+                        if ( pf_index.hasOwnProperty('pf_s_' + src)) {
+                            sources[j].setAttribute('data-src', localStorage.getItem('pf_s_' + src));
                         }
                     }
                 }
@@ -82,11 +82,11 @@
             return;
         }
 
-        pfc_index["pfc_s_"+imageSrc] = 1;
+        pf_index["pf_s_"+imageSrc] = 1;
 
         try {
-            localStorage.setItem("pfc_s_"+imageSrc, dataUri);
-            localStorage.setItem("pfc_index", JSON.stringify(pfc_index));
+            localStorage.setItem("pf_s_"+imageSrc, dataUri);
+            localStorage.setItem("pf_index", JSON.stringify(pf_index));
         } catch (e) {
             // Caching failed but there's nothing to be done about it at this point.
             // Previously cached items are still usable. Carry on.

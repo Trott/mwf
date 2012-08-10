@@ -22,21 +22,24 @@
     pf_index_string = localStorage.getItem('pf_index') || '{}';
     pf_index = JSON.parse(pf_index_string);
 
-    // We'll use this to clear the cache index when appcache updates.
-    var clearCacheIndex = function () {
+    // We'll use this to clear the pickyfill cache when appcache updates.
+    var clearCache = function () {
             localStorage.removeItem('pf_index');
+            for (var prop in pf_index) {
+                localStorage.removeItem(prop);
+            }
     };
 
-    // If appcache updates, clear the cache index.
+    // If appcache updates, clear the pickyfill cache.
     // Appcache == IE10 or later == no need to worry about attachEvent (IE8 and earlier)
     // Anything that has appcache is going to have addEventListener.
-    applicationCache.addEventListener('updateready', clearCacheIndex, false);
-    applicationCache.addEventListener('obsolete', clearCacheIndex, false);
+    applicationCache.addEventListener('updateready', clearCache, false);
+    applicationCache.addEventListener('obsolete', clearCache, false);
 
-    // If the updateready event has already fired, clear the cache index.
+    // If the updateready event or obsolete event has already fired, clear the pickyfill cache.
     if((applicationCache.status === applicationCache.UPDATEREADY) ||
         (applicationCache.status === applicationCache.OBSOLETE)) {
-            clearCacheIndex();
+            clearCache();
     }
 
     var srcFromCacheRan = false;

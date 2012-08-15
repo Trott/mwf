@@ -8,11 +8,6 @@ module.exports = function(grunt) {
         src: ['root/assets/js/core/modernizr.js',
               'dist/ucsf.partial.js'],
         dest: 'root/assets/js/ucsf.js'
-      },
-      picturefill: {
-        src: ['root/assets/js/external/matchmedia.js',
-              'dist/picturefill.js'],
-        dest: 'root/assets/js/picturefill.js'
       }
     },
     lint: {
@@ -20,8 +15,6 @@ module.exports = function(grunt) {
                       'root/assets/js/utility/analytics.src.js',
                       'root/assets/js/utility/template-2.0.0.js',
                       'root/assets/js/external/LightningTouch.js',
-                      'root/assets/js/external/picturefill.js',
-                      'root/assets/js/external/pickyfill.js',
                       'root/assets/js/ucsf/mainPage.src.js',
                       'root/assets/js/ucsf/shuttle.src.js'],
       afterconcat: []
@@ -38,11 +31,6 @@ module.exports = function(grunt) {
               'root/assets/js/ucsf/news.src.js',
               'root/assets/js/ucsf/shuttle.src.js'],
         dest: 'dist/ucsf.partial.js'
-      },
-      picturefill: {
-        src: ['root/assets/js/external/picturefill.js',
-              'root/assets/js/external/pickyfill.js'],
-        dest: 'dist/picturefill.js'
       }
     },
     watch: {

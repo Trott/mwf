@@ -30,16 +30,32 @@
         }
     };
 
-    // If appcache updates, clear the pickyfill cache.
+    // Unfortunately, reloading is the most reliable way to get stuff into the
+    //  pickyfill cache. If you wait for the user to reload, they may be offline
+    //  at that time. If we just had an updateready event, chances are very good
+    //  that they are still online. Another possibility is to just try to reload
+    //  the images that are currently shown, but there's no guarantee that those
+    //  images are in the new page or that the current page isn't missing important
+    //  images that will display in the new page and need to be cached.
+    var refreshCache = function () {
+        clearCache();
+        w.location.reload();
+    };
+
+    // If appcache updates, refresh the pickyfill cache to get new items.
+    // If appcache is obsolete, clear the pickyfill cache.
     // Appcache == IE10 or later == no need to worry about attachEvent (IE8 and earlier)
     // Anything that has appcache is going to have addEventListener.
-    applicationCache.addEventListener('updateready', clearCache, false);
+    applicationCache.addEventListener('updateready', refreshCache, false);
     applicationCache.addEventListener('obsolete', clearCache, false);
 
-    // If the updateready event or obsolete event has already fired, clear the pickyfill cache.
-    if((applicationCache.status === applicationCache.UPDATEREADY) ||
-        (applicationCache.status === applicationCache.OBSOLETE)) {
-            clearCache();
+    // If the event has already fired and we missed it, clear/refresh the pickyfill cache.
+    if(applicationCache.status === applicationCache.UPDATEREADY) {
+        refreshCache();
+    }
+
+    if (applicationCache.status === applicationCache.OBSOLETE) {
+        clearCache();
     }
 
     var srcFromCacheRan = false;
@@ -82,9 +98,15 @@
         ctx.drawImage(this, 0, 0);
         try {
             dataUri = canvas.toDataURL();
+
         } catch (e) {
             // TODO: Improve error handling here. For now, if canvas.toDataURL()
             //   throws an exception, don't cache the image and move on.
+            return;
+        }
+
+        // Do not cache if the resulting cache item will take more than 128Kb.
+        if (dataUri.length > 131072) {
             return;
         }
 
@@ -94,8 +116,9 @@
             localStorage.setItem("pf_s_"+imageSrc, dataUri);
             localStorage.setItem("pf_index", JSON.stringify(pf_index));
         } catch (e) {
-            // Caching failed but there's nothing to be done about it at this point.
-            // Previously cached items are still usable. Carry on.
+            // Caching failed. Remove item from index object so next cached item
+            //   doesn't wrongly indicate this item was successfully cached.
+            delete pf_index["pf_s_"+imageSrc];
         }
     };
 

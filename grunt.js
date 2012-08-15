@@ -6,7 +6,6 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: ['root/assets/js/core/modernizr.js',
-              'root/assets/js/external/matchmedia.js',
               'dist/ucsf.partial.js'],
         dest: 'root/assets/js/ucsf.js'
       }
@@ -16,7 +15,6 @@ module.exports = function(grunt) {
                       'root/assets/js/utility/analytics.src.js',
                       'root/assets/js/utility/template-2.0.0.js',
                       'root/assets/js/external/LightningTouch.js',
-                      'root/assets/js/external/picturefill.js',
                       'root/assets/js/ucsf/mainPage.src.js',
                       'root/assets/js/ucsf/shuttle.src.js'],
       afterconcat: []
@@ -29,7 +27,6 @@ module.exports = function(grunt) {
         src: ['root/assets/js/utility/analytics.src.js',
               'root/assets/js/ucsf/template-2.0.0.js',
               'root/assets/js/external/LightningTouch.js',
-              'root/assets/js/external/picturefill.js',
               'root/assets/js/ucsf/mainPage.src.js',
               'root/assets/js/ucsf/news.src.js',
               'root/assets/js/ucsf/shuttle.src.js'],
@@ -54,10 +51,12 @@ module.exports = function(grunt) {
         eqnull: true,
         browser: true
       },
-      globals: {Modernizr:true,
-                google:true,
-                Hogan:true,
-                ucsf:true}
+      globals: {
+        Modernizr: true,
+        google: true,
+        Hogan: true,
+        ucsf: true
+      }
     },
     uglify: {}
   });

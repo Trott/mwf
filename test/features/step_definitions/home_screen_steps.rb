@@ -4,5 +4,6 @@ end
 
 Then /I should see the home page/ do
   should have_selector("body.front")
-  should have_selector("div.menu.front")
+  should have_selector("div#main_menu")
+  should have_selector("ol.menu.front")
 end

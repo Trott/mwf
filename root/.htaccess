@@ -14,6 +14,7 @@ Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
     RewriteRule ^shuttle/(.+)$ /ci/shuttle/$1 [L]
     RewriteRule ^directory(.*)$ /ci/directory$1 [L]
     RewriteCond %{REQUEST_URI} !/fitness/index.php
+    RewriteCond %{REQUEST_URI} !/fitness/locations
     RewriteRule ^fitness/(.+)$ /ci/fitness/$1 [L]
     RewriteRule ^social/?$ /social.php [L]
     RewriteRule ^emergency/?$ /emergency.php [L]

@@ -4,7 +4,7 @@
  * Redirection file for non-mobile pages that redirects mobile devices to the
  * mobile site and generates an empty file for desktop browsers. 
  *
- * This script file should NOT be included on the same page as /assets/js.php.
+ * This script file should NOT be included on the same page as /assets/js/ucsf.js.
  *
  * @package core
  * @subpackage redirect

@@ -47,6 +47,8 @@ ucsf.analytics = (function(){
             _gaq.push(['_setCustomVar', 1, 'mwf_native_client', '1']);
         }
 
+        _gaq.push(['_setSiteSpeedSampleRate', 100]);
+
         this.trackPageview();
     };
 

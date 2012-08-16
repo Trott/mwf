@@ -108,8 +108,14 @@ input {
     padding: 4px;
 }
 
-.hide {
-    display: none;
+header.main {
+    display:none;
+}
+
+/* Don't hide banner on Android (which we detect with Modernizr .touch.not-overflowscrolling--lame!)
+      because Android doesn't show the background branding (also lame!) */
+html.touch.no-overflowscrolling header.main{
+    display:block;
 }
 
 header img {
@@ -617,14 +623,6 @@ span.required:after {
     margin-left: 0;
 }
 
-/**
- * Front Page
- */
-
-body.front header img {
-    float: none;
-}
-
 /* ucsf-default-basic
  *
  *
@@ -632,18 +630,7 @@ body.front header img {
  */
 header {
     @include background(linear-gradient(top, #414142, #57585a 58%, #58595b));
-
     height: 36px;
-}
-
-body.front header {
-	text-align: left;
-	border-bottom: 0px solid #ffffff;
-}
-
-body.front header span {
-        display: inline;
-        padding: 0;
 }
 
 body header span {
@@ -750,6 +737,16 @@ a {
     background:inherit;
 }
 
+.springboard-icon {
+    height: 60px;
+}
+
+@media all and (min-width: 321px) {
+    .springboard-icon {
+        height: 75px;
+    }
+}
+
 /****************************************************************************
  * Page Elements
  */
@@ -828,10 +825,6 @@ form {
  * Special Styles
  */
 
-/**
- * Front Page
- */
-
 header {
     border-bottom: 0px solid #fff;
 }
@@ -851,7 +844,6 @@ body.front .menu {
 
 .menu.front li{display:inline-block;height:108px;width:25%;list-style:none;padding:0;border:0;margin:0}
 .menu.front li a{padding: 1em 0 0 0;background:0;color:#fff;font-size:75%;font-weight:normal;text-align:center}
-
 
 @media all and (max-device-width: 320px) {
     .dashboard_icon {
@@ -1135,13 +1127,6 @@ html {
     background-repeat:no-repeat, no-repeat, no-repeat;
     background-position:left top, right bottom, left top;
     background-size:auto 100%, 100% 70%, 100% 100%;
-}
-
-/* Don't hide banner on Android (which we detect with Modernizr .touch.not-overflowscrolling--lame!)
-      because Android doesn't show the background branding (also lame!) */
-html.no-touch body.front header,
-html.touch.overflowscrolling body.front header{
-    display:none;
 }
 
 #main_menu {

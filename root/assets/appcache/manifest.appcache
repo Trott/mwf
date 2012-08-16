@@ -1,20 +1,20 @@
 CACHE MANIFEST
-#11-Jul-2012 v1
+#15-Aug-2012 v3
 
 CACHE:
 
 #images
 /assets/img/ucsf-logo.png
 /assets/img/ucsf-header-separator.png
-/assets/img/homescreen/calendars.png
-/assets/img/homescreen/directory.png
-/assets/img/homescreen/emergency.png
-/assets/img/homescreen/fitness.png
-/assets/img/homescreen/library.png
-/assets/img/homescreen/maps.png
-/assets/img/homescreen/news.png
-/assets/img/homescreen/shuttle.png
-/assets/img/homescreen/social.png
+/assets/img/homescreen/cal-72.png
+/assets/img/homescreen/dir-72.png
+/assets/img/homescreen/emerg-72.png
+/assets/img/homescreen/fit-72.png
+/assets/img/homescreen/lib-72.png
+/assets/img/homescreen/map-72.png
+/assets/img/homescreen/news-72.png
+/assets/img/homescreen/shut-72.png
+/assets/img/homescreen/soc-72.png
 
 #internal HTML documents
 /
@@ -32,7 +32,7 @@ CACHE:
 #javascript files
 //www.google.com/jsapi
 //www.google-analytics.com/ga.js
-/assets/js.php
+/assets/js/ucsf.js
 
 NETWORK:
 *

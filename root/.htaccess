@@ -1,29 +1,22 @@
 AddDefaultCharset UTF-8
 AddType text/cache-manifest .appcache
-AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+AddOutputFilterByType DEFLATE application/javascript application/x-javascript text/css text/html text/plain text/xml
 
 ExpiresActive On
-ExpiresByType image/png "access plus 0 seconds"
-ExpiresByType text/cache-manifest "access plus 0 seconds"
-
-<filesMatch "\.appcache$">
-    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
-</filesMatch>
+ExpiresDefault "access plus 0 seconds"
+Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
     RewriteRule ^public(.*)$ /ci/public$1 [L]
-    RewriteCond %{REQUEST_URI} !/shuttle/index.php
+    RewriteCond %{REQUEST_URI} !/shuttle/index.html
     RewriteRule ^shuttle/(.+)$ /ci/shuttle/$1 [L]
     RewriteRule ^directory(.*)$ /ci/directory$1 [L]
     RewriteCond %{REQUEST_URI} !/fitness/index.php
+    RewriteCond %{REQUEST_URI} !/fitness/locations
     RewriteRule ^fitness/(.+)$ /ci/fitness/$1 [L]
     RewriteRule ^social/?$ /social.php [L]
     RewriteRule ^emergency/?$ /emergency.php [L]
     RewriteRule ^about/?$ /about.php [L]
-# For Blackboard Mobile Central links
-    RewriteCond %{QUERY_STRING} ^s=shuttle$
-    RewriteRule .* /android.php? [R=permanent,L]
-    RewriteRule ^library/options$ /android.php [R=permanent,L]
 </IfModule>

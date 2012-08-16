@@ -44,7 +44,7 @@ class Head_Site_Decorator extends Tag_HTML_Decorator
         $this->add_inner_tag('script', "
             window.onload = function () {
                 var deferred = document.createElement('script');
-                deferred.src = '/assets/js.php';
+                deferred.src = '/assets/js/ucsf.js';
                 document.body.appendChild(deferred);
             }");
 

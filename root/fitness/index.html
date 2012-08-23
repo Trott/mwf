@@ -9,9 +9,18 @@
 <section class="menu detailed">
 <h1>Fitness</h1>
 <ol>
+	<li id="fitness-updates"><progress>Loading...</progress></li>
     <li><a href="/fitness/schedule">Group Fitness and Pools</a>
     <li><a href="/fitness/locations">Hours and Locations</a></li>
     <li class="menu-last"><a href="http://campuslifeservices.ucsf.edu/fitnessrecreation/" rel="external">Fitness &amp; Recreation Website</a></li>
 </ol>
 </section>
-<footer id="footer"><p>University of California &copy; 2010-12 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer></body></html>
+<footer id="footer"><p>University of California &copy; 2010-12 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer>
+		<script>
+            var _newsq = _newsq || [];
+            function loadSection() {
+                _newsq.push(["fitness-updates", "feed_fitness_updates", "http://campuslifeservices.ucsf.edu/fitnessrecreation/pub_alert_rss", {template: function(c,p,i){var _=this;_.b(i=i||"");if(_.s(_.f("feed",c,p,1),c,p,0,9,224,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("<a href=\"/fitness/updates\">");_.b(_.v(_.f("title",c,p,0)));if(_.s(_.f("entries",c,p,1),c,p,0,57,108,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("<br><span class=\"smallprint light\">");_.b(_.v(_.f("title",c,p,0)));_.b("</span>");});c.pop();}if(!_.s(_.f("entries",c,p,1),c,p,1,0,0,"")){_.b("<br><span class=\"smallprint light\">There are no updates at this time.</span>");};_.b("</a>");});c.pop();}return _.fl();;}}]);
+            }
+            loadSection();
+        </script>
+    </body></html>

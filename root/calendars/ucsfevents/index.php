@@ -1,7 +1,6 @@
 <?php
 
 require_once(dirname(dirname(__DIR__)) . '/assets/lib/decorator.class.php');
-require_once(dirname(dirname(__DIR__)) . '/assets/config.php');
 
 echo HTML_Decorator::html_start()->render();
 echo Site_Decorator::head()->render();

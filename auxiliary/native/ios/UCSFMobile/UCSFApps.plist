@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+    <dict>
+        <key>customURL</key>
+        <string>x-edu-ucsf-trivia://</string>
+        <key>appStoreURL</key>
+        <string>http://itunes.apple.com/us/app/ucsf-trivia/id522796115?mt=8</string>
+    </dict>
+    <dict>
+        <key>customURL</key>
+        <string>x-edu-ucsf-inside://</string>
+        <key>appStoreURL</key>
+        <string>http://itunes.apple.com/us/app/ucsf-insider/id532353891?mt=8</string>
+    </dict>
+</array>
+</plist>

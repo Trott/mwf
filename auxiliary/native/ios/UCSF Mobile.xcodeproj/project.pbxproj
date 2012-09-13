@@ -34,6 +34,7 @@
 		B12ECF2515924E54006EF32E /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B12ECF2415924E54006EF32E /* Default-Portrait@2x~ipad.png */; };
 		B12ECF2715924E6D006EF32E /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B12ECF2615924E6D006EF32E /* Default-Landscape~ipad.png */; };
 		B12ECF2915924E91006EF32E /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B12ECF2815924E91006EF32E /* Default-Landscape@2x~ipad.png */; };
+		B177C77F16029A4000DAB5D4 /* UCSFApps.plist in Resources */ = {isa = PBXBuildFile; fileRef = B177C77E16029A4000DAB5D4 /* UCSFApps.plist */; };
 		B190C1A515656F7F0098DA0C /* UCSF-logo-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B190C1A415656F7F0098DA0C /* UCSF-logo-iPad.png */; };
 		B190C1A715656FD10098DA0C /* UCSF-logo-iPad-high-res.png in Resources */ = {isa = PBXBuildFile; fileRef = B190C1A615656FD10098DA0C /* UCSF-logo-iPad-high-res.png */; };
 		B194842A147184A5002CD8AF /* img in Resources */ = {isa = PBXBuildFile; fileRef = B1948429147184A5002CD8AF /* img */; };
@@ -73,6 +74,7 @@
 		B12ECF2415924E54006EF32E /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		B12ECF2615924E6D006EF32E /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		B12ECF2815924E91006EF32E /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		B177C77E16029A4000DAB5D4 /* UCSFApps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UCSFApps.plist; sourceTree = "<group>"; };
 		B190C1A415656F7F0098DA0C /* UCSF-logo-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UCSF-logo-iPad.png"; sourceTree = "<group>"; };
 		B190C1A615656FD10098DA0C /* UCSF-logo-iPad-high-res.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UCSF-logo-iPad-high-res.png"; sourceTree = "<group>"; };
 		B1948429147184A5002CD8AF /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				84A7AED614217581000ABA24 /* InfoPlist.strings */,
 				84A7AED914217581000ABA24 /* main.m */,
 				84A7AEDB14217581000ABA24 /* UCSFMobile-Prefix.pch */,
+				B177C77E16029A4000DAB5D4 /* UCSFApps.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				B12ECF2515924E54006EF32E /* Default-Portrait@2x~ipad.png in Resources */,
 				B12ECF2715924E6D006EF32E /* Default-Landscape~ipad.png in Resources */,
 				B12ECF2915924E91006EF32E /* Default-Landscape@2x~ipad.png in Resources */,
+				B177C77F16029A4000DAB5D4 /* UCSFApps.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

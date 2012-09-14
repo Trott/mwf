@@ -14,6 +14,7 @@
 @synthesize webView           = _webView;
 @synthesize initPageLoaded    = _initPageLoaded;
 @synthesize parentWindow      = _parentWindow;
+@synthesize ucsfAppsInfo;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -23,13 +24,20 @@
         // Custom initialization
         
 		// Set custom user agent 			
-        
 		BSWebViewUserAgent *agent = [[BSWebViewUserAgent alloc] init];
 		NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"%@/%@", [agent userAgentString],@" MWF-Native-iOS/1.2.07"], @"UserAgent", nil];
 		[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
 		[dictionary release];
 		[agent release];
         
+        // Load info we may need later about other UCSF apps
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"UCSFApps" ofType:@"plist"];
+        NSData* data = [NSData dataWithContentsOfFile:path];
+        self.ucsfAppsInfo = [NSPropertyListSerialization propertyListFromData:data
+                                                                 mutabilityOption:NSPropertyListImmutable
+                                                                           format:NULL
+                                                                 errorDescription:NULL];
+
         //Initial page has not been loaded.
         self.initPageLoaded = NO;
     }
@@ -152,7 +160,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    if (navigationType == UIWebViewNavigationTypeLinkClicked) 
+    if (navigationType == UIWebViewNavigationTypeLinkClicked)
         webView.scalesPageToFit=YES;
     
     NSString *scheme = [[request URL] scheme];
@@ -166,7 +174,13 @@
     if ([[UIApplication sharedApplication] canOpenURL:[request URL]]) {
         [[UIApplication sharedApplication] openURL:[request URL]];
     } else {
-        //@todo: Handle custom URLs for UCSF apps that are not installed.
+        //@todo: Handle custom URLs for UCSF apps that are not installed. For now, just logging.
+        NSDictionary *fallbackURLs = [self.ucsfAppsInfo valueForKey:@"fallbackURL"];
+        if (fallbackURLs) {
+            NSLog(@"%@", [fallbackURLs valueForKey:@"x-edu-ucsf-trivia://"]);
+            NSLog(@"%@", [fallbackURLs valueForKey:@"x-edu-ucsf-inside://"]);
+        }
+        
         if (! [[[request URL] scheme] isEqualToString:@"about"]) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UCSF Mobile" message:@"Action is unsupported." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert autorelease];

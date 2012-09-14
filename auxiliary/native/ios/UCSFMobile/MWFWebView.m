@@ -160,7 +160,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    if (navigationType == UIWebViewNavigationTypeLinkClicked) 
+    if (navigationType == UIWebViewNavigationTypeLinkClicked)
         webView.scalesPageToFit=YES;
     
     NSString *scheme = [[request URL] scheme];
@@ -175,12 +175,10 @@
         [[UIApplication sharedApplication] openURL:[request URL]];
     } else {
         //@todo: Handle custom URLs for UCSF apps that are not installed. For now, just logging.
-        
-        if (self.ucsfAppsInfo) {
-            for (NSDictionary* dict in self.ucsfAppsInfo) {
-                NSLog(@"%@", [dict valueForKey:@"customURL"]);
-                NSLog(@"%@", [dict valueForKey:@"appStoreURL"]);
-            }
+        NSDictionary *fallbackURLs = [self.ucsfAppsInfo valueForKey:@"fallbackURL"];
+        if (fallbackURLs) {
+            NSLog(@"%@", [fallbackURLs valueForKey:@"x-edu-ucsf-trivia://"]);
+            NSLog(@"%@", [fallbackURLs valueForKey:@"x-edu-ucsf-inside://"]);
         }
         
         if (! [[[request URL] scheme] isEqualToString:@"about"]) {

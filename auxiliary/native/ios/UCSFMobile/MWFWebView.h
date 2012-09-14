@@ -23,7 +23,7 @@
 
 @property (nonatomic) BOOL initPageLoaded;
 
-@property (nonatomic, retain) NSMutableArray *ucsfAppsInfo;
+@property (nonatomic, retain) NSMutableDictionary *ucsfAppsInfo;
 
 - (IBAction)forward:(id)sender;
 - (IBAction)home:(id)sender;

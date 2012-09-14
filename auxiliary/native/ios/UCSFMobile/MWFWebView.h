@@ -1,5 +1,5 @@
 //
-//  OnlineWebView.h
+//  MWFWebView.h
 //  MWFMobile
 //
 //  Created by UCLA OIT ECTG on 9/14/11.
@@ -10,8 +10,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MWFWebView : UIViewController <UIWebViewDelegate, UIAlertViewDelegate> {
-
-    
     
     @public
     UIWebView *_webView;        
@@ -24,6 +22,8 @@
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
 
 @property (nonatomic) BOOL initPageLoaded;
+
+@property (nonatomic, retain) NSMutableArray *ucsfAppsInfo;
 
 - (IBAction)forward:(id)sender;
 - (IBAction)home:(id)sender;

@@ -75,7 +75,7 @@
 
 - (void) goHome
 {
-    NSString *fullURL = @"http://m.ucsf.edu/";
+    NSString *fullURL = @"http://m.ucsf.edu/nativeios.html";
     NSURL *url = [NSURL URLWithString:fullURL];
 	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];
     [self.webView loadRequest:requestObj];
@@ -158,6 +158,15 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
+- (BOOL)openUrlViaExternalApp:(NSURLRequest *)request
+{
+    if (! [[UIApplication sharedApplication] canOpenURL:[request URL]]) {
+        return FALSE;
+    }
+    [[UIApplication sharedApplication] openURL:[request URL]];
+    return TRUE;
+}
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     if (navigationType == UIWebViewNavigationTypeLinkClicked)
@@ -171,16 +180,19 @@
         return YES;
     }
     
-    if ([[UIApplication sharedApplication] canOpenURL:[request URL]]) {
-        [[UIApplication sharedApplication] openURL:[request URL]];
-    } else {
-        //@todo: Handle custom URLs for UCSF apps that are not installed. For now, just logging.
-        NSDictionary *fallbackURLs = [self.ucsfAppsInfo valueForKey:@"fallbackURL"];
-        if (fallbackURLs) {
-            NSLog(@"%@", [fallbackURLs valueForKey:@"x-edu-ucsf-trivia://"]);
-            NSLog(@"%@", [fallbackURLs valueForKey:@"x-edu-ucsf-inside://"]);
+    BOOL openedExternally = FALSE;
+    openedExternally = [self openUrlViaExternalApp:request];
+    if (! openedExternally) {
+        NSString *fallbackURLString = [[self.ucsfAppsInfo valueForKey:@"fallbackURL"] valueForKey:[[request URL] absoluteString]];
+        
+        if (fallbackURLString) {
+            NSURLRequest *fallbackRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:fallbackURLString]];
+            openedExternally = [self openUrlViaExternalApp:fallbackRequest];
         }
         
+    }
+     
+    if (! openedExternally) {
         if (! [[[request URL] scheme] isEqualToString:@"about"]) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UCSF Mobile" message:@"Action is unsupported." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert autorelease];

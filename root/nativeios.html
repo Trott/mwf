@@ -248,7 +248,7 @@
     <header>
         <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a><img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator"><span><a href="/events">Events</a></span>
     </header>
-    <noscript><div class="content center" ' . $this->_style . '><p>JavaScript is required to load this content.</p></div></noscript>
+    <noscript><div class="content center"><p>JavaScript is required to load this content.</p></div></noscript>
     <div class="jsonly">
         <section id="ucsfevents" class="center"><progress>Loading...</progress></section>
     </div>
@@ -265,37 +265,38 @@
             </ol>
         </div>
     </div>
-    <div id="il/emergency" style="display:none">
-        <header>
-            <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a><img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator"><span><a href="/emergency">Emergency</a></span>
-        </header>
-        <div class="menu detailed">
-            <h2>Emergency</h2>
-            <ol>
-                <li><a href="tel:+911">911 <span class="smallprint">for emergencies only</span></a></li>
-                <li><a href="tel:+14154761414">UCSF Police Non-Emergency<br><span class="smallprint">(415) 476-1414</span></a></li>
-                <li><a href="tel:+14158857890">UCSF Medical Center Security<br><span class="smallprint">(415) 885-7890</span></a></li>
-                <li><a href="tel:+14155024000">Campus Emergency Information Hotline<br><span class="smallprint">(415) 502-4000</span></a></li>
-                <li><a href="tel:+18008738232">Back-up Campus Emergency Hotline<br><span class="smallprint">1 (800) 873-8232</span></a></li>
-                <li><a href="tel:+14158857828">UCSF Medical Center Information Hotline<br><span class="smallprint">(415) 885-7828</span></a></li>
-            </ol>
-        </div>
+</div>
+<div id="il/emergency" style="display:none">
+    <header>
+        <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a><img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator"><span><a href="/emergency">Emergency</a></span>
+    </header>
+    <div class="menu detailed">
+        <h2>Emergency</h2>
+        <ol>
+            <li><a href="tel:+911">911 <span class="smallprint">for emergencies only</span></a></li>
+            <li><a href="tel:+14154761414">UCSF Police Non-Emergency<br><span class="smallprint">(415) 476-1414</span></a></li>
+            <li><a href="tel:+14158857890">UCSF Medical Center Security<br><span class="smallprint">(415) 885-7890</span></a></li>
+            <li><a href="tel:+14155024000">Campus Emergency Information Hotline<br><span class="smallprint">(415) 502-4000</span></a></li>
+            <li><a href="tel:+18008738232">Back-up Campus Emergency Hotline<br><span class="smallprint">1 (800) 873-8232</span></a></li>
+            <li><a href="tel:+14158857828">UCSF Medical Center Information Hotline<br><span class="smallprint">(415) 885-7828</span></a></li>
+        </ol>
     </div>
-    <footer id="footer">
-        <p>&copy; 2012 Regents of the University of California<br>
-            <a href="/about">About</a> | <a href="/feedback/">Feedback</a>
-        </p>
-    </footer>
-    <script>
-    var _newsq = _newsq || [];
-    function loadSection() {
-        _newsq.push(["ucsf-news","feed_ucsf_news","http://feeds.feedburner.com/UCSF_News"]);
-        _newsq.push(["media-coverage","feed_media_coverage","http://feeds.feedburner.com/UCSF_Media_Coverage"]);
-        _newsq.push(["fitness-updates", "feed_fitness_updates", "http://campuslifeservices.ucsf.edu/fitnessrecreation/pub_alert_rss", {template: function(c,p,i){var _=this;_.b(i=i||"");if(_.s(_.f("feed",c,p,1),c,p,0,9,224,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("<a href=\"/fitness/updates\">");_.b(_.v(_.f("title",c,p,0)));if(_.s(_.f("entries",c,p,1),c,p,0,57,108,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("<br><span class=\"smallprint light\">");_.b(_.v(_.f("title",c,p,0)));_.b("</span>");});c.pop();}if(!_.s(_.f("entries",c,p,1),c,p,1,0,0,"")){_.b("<br><span class=\"smallprint light\">There are no updates at this time.</span>");};_.b("</a>");});c.pop();}return _.fl();;}}]);
-        _newsq.push(["ucsfevents","feed_ucsf_events","http://feeds2.feedburner.com/ucsf/event-calendar", {numEntries: 10, showTime: 1}]);
-    }
-    loadSection();
-    window.onhashchange=loadSection;
-    </script>
+</div>
+<footer id="footer">
+    <p>&copy; 2012 Regents of the University of California<br>
+        <a href="/about">About</a> | <a href="/feedback/">Feedback</a>
+    </p>
+</footer>
+<script>
+var _newsq = _newsq || [];
+function loadSection() {
+    _newsq.push(["ucsf-news","feed_ucsf_news","http://feeds.feedburner.com/UCSF_News"]);
+    _newsq.push(["media-coverage","feed_media_coverage","http://feeds.feedburner.com/UCSF_Media_Coverage"]);
+    _newsq.push(["fitness-updates", "feed_fitness_updates", "http://campuslifeservices.ucsf.edu/fitnessrecreation/pub_alert_rss", {template: function(c,p,i){var _=this;_.b(i=i||"");if(_.s(_.f("feed",c,p,1),c,p,0,9,224,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("<a href=\"/fitness/updates\">");_.b(_.v(_.f("title",c,p,0)));if(_.s(_.f("entries",c,p,1),c,p,0,57,108,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("<br><span class=\"smallprint light\">");_.b(_.v(_.f("title",c,p,0)));_.b("</span>");});c.pop();}if(!_.s(_.f("entries",c,p,1),c,p,1,0,0,"")){_.b("<br><span class=\"smallprint light\">There are no updates at this time.</span>");};_.b("</a>");});c.pop();}return _.fl();;}}]);
+    _newsq.push(["ucsfevents","feed_ucsf_events","http://feeds2.feedburner.com/ucsf/event-calendar", {numEntries: 10, showTime: 1}]);
+}
+loadSection();
+window.onhashchange=loadSection;
+</script>
 </body>
 </html>

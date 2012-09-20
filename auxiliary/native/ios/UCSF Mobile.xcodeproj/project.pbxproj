@@ -296,8 +296,8 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CODE_SIGN_IDENTITY = "iPhone Distribution: University of California at San Francisco";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: University of California, San Francisco";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: University of California, San Francisco";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -313,7 +313,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				PROVISIONING_PROFILE = "B6B2B46A-F247-43A8-BBCE-2299791581F0";
+				PROVISIONING_PROFILE = "6C539983-4E01-4178-860B-0681B3A2ED26";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6C539983-4E01-4178-860B-0681B3A2ED26";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;

@@ -385,15 +385,6 @@ class Input_Site_DecoratorTest extends PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function secondary_void_classSecondary() {
-        $this->object->type_button();
-        $this->object->secondary();
-        $this->assertContains('class="secondary"', $this->object->render());
-    }
-
-    /**
-     * @test
-     */
     public function neutral_void_classNeutral() {
         $this->object->type_button();
         $this->object->neutral();

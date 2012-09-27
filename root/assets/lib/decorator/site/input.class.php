@@ -450,15 +450,6 @@ class Input_Site_Decorator extends Decorator implements Tag_ParamsInterface {
      *
      * @return Input_Site_Decorator 
      */
-    public function secondary() {
-        $this->_button_type = 'secondary';
-        return $this;
-    }
-
-    /**
-     *
-     * @return Input_Site_Decorator 
-     */
     public function neutral() {
         $this->_button_type = 'neutral';
         return $this;

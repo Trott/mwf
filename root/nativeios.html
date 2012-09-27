@@ -40,13 +40,14 @@
 </li><li>
 <a data-target-id="il/fitness" href="fitness"><img class="dashboard_icon" src="/assets/img/homescreen/fit-72.png" alt=""><br>Fitness</a>
 </li><li>
-<a data-target-id="il/events" href="events"><img class="dashboard_icon" src="/assets/img/homescreen/cal-72.png" alt=""><br>Events</a>
+<!-- <a data-target-id="il/events" href="events"><img class="dashboard_icon" src="/assets/img/homescreen/cal-72.png" alt=""><br>Events</a> -->
+<a href="events"><img class="dashboard_icon" src="/assets/img/homescreen/cal-72.png" alt=""><br>Events</a>
 </li><li>
 <a data-target-id="il/social" href="social"><img class="dashboard_icon" src="/assets/img/homescreen/soc-72.png" alt=""><br>Social&nbsp;Media</a>
 </li><li><a href="x-edu-ucsf-trivia://"><img class="dashboard_icon" src="/assets/img/homescreen/triv-72.png" alt=""><br>Trivia</a>
 </li><li><a href="mnucsfsig://"><img class="dashboard_icon" src="/assets/img/homescreen/guide-72.png" alt=""><br>Insider</a>
 </li><li><a data-target-id="il/emergency" href="emergency"><img class="dashboard_icon" src="/assets/img/homescreen/emerg-72.png" alt=""><br>Emergency</a>
-</li>                
+</li>
 </ol>
 </div>
 <div id="il/shuttle/" style="display:none">
@@ -243,7 +244,7 @@
         </ol>
     </div>
 </div>
-<div id="il/events" style="display:none">
+<!-- <div id="il/events" style="display:none">
     <header>
         <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a><img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator"><span><a href="/events">Events</a></span>
     </header>
@@ -251,7 +252,7 @@
     <div class="jsonly">
         <section id="ucsfevents" class="center"><progress>Loading...</progress></section>
     </div>
-</div>
+</div> -->
 <div id="il/social" style="display:none">
     <header>
         <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a><img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator"><span><a href="/social">Social Media</a></span>
@@ -291,7 +292,7 @@ var _newsq = _newsq || [];
 function loadSection() {
     _newsq.push(["ucsf-news","feed_ucsf_news","http://feeds.feedburner.com/UCSF_News"]);
     _newsq.push(["media-coverage","feed_media_coverage","http://feeds.feedburner.com/UCSF_Media_Coverage"]);
-    _newsq.push(["ucsfevents","feed_ucsf_events","http://feeds2.feedburner.com/ucsf/event-calendar", {numEntries: 10, showTime: 1}]);
+    // _newsq.push(["ucsfevents","feed_ucsf_events","http://feeds2.feedburner.com/ucsf/event-calendar", {numEntries: 10, showTime: 1}]);
 }
 loadSection();
 window.onhashchange=loadSection;

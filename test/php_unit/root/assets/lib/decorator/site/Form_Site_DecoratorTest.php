@@ -306,22 +306,6 @@ class Form_Site_DecoratorTest extends PHPUnit_Framework_TestCase {
     /**
      * @test
      */
-    public function addLinkButtonSecondary_text_classSecondary() {
-        $result = $this->object->add_link_button_secondary('not a primary button')->render();
-        $this->assertRegExp('/class="[^"]*secondary[^"]*"/', $result);
-    }
-
-    /**
-     * @test
-     */
-    public function addLinkButtonSecondary_text_classButton() {
-        $result = $this->object->add_link_button_secondary('not primary')->render();
-        $this->assertRegExp('/class="[^"]*button[^"]*"/', $result);
-    }
-
-    /**
-     * @test
-     */
     public function addLinkButtonNeutral_text_classNeutral() {
         $result = $this->object->add_link_button_neutral('i can do it all on my own')->render();
         $this->assertRegExp('/class="[^"]*neutral[^"]*"/', $result);

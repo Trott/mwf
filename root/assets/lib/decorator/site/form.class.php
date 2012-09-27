@@ -163,16 +163,6 @@ class Form_Site_Decorator extends Tag_HTML_Decorator {
      * @param string $url 
      * @return Form_Site_Decorator
      */
-    public function add_link_button_secondary($text, $url='#') {
-        return $this->_add_link_button($text, $url, 'secondary');
-    }
-
-    /**
-     *
-     * @param string $text
-     * @param string $url 
-     * @return Form_Site_Decorator
-     */
     public function add_link_button_neutral($text, $url='#') {
         return $this->_add_link_button($text, $url, 'neutral');
     }

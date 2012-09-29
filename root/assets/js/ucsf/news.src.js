@@ -65,6 +65,9 @@ ucsf.news = (function () {
                     }
                     thisEntry.dateTime = dateTime;
                 }
+                if (options.more) {
+                    content.feed.entries.push(options.more);
+                }
                 if (Modernizr.localstorage) {
                     window.localStorage.setItem(storageId, JSON.stringify(content));
                 }

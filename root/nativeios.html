@@ -290,7 +290,8 @@
 <script>
 var _newsq = _newsq || [];
 function loadSection() {
-    _newsq.push(["ucsf-news","feed_ucsf_news","http://feeds.feedburner.com/UCSF_News"]);
+    _newsq.push(["ucsf-news","feed_ucsf_news","http://feeds.feedburner.com/UCSF_News",
+        {more:{title:"More...",link:"http://ucsf.edu/news"}}]);
     _newsq.push(["media-coverage","feed_media_coverage","http://feeds.feedburner.com/UCSF_Media_Coverage"]);
     // _newsq.push(["ucsfevents","feed_ucsf_events","http://feeds2.feedburner.com/ucsf/event-calendar", {numEntries: 10, showTime: 1}]);
 }

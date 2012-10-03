@@ -37,7 +37,7 @@ ucsf.ctsiProfile = {
 
                     if (myProfile.hasOwnProperty("PhotoURL")) {
                         profilePhoto = document.createElement("img");
-                        profilePhoto.setAttribute("src", "/assets/min/img.php?max_height=80&img=" + myProfile.PhotoURL);
+                        profilePhoto.setAttribute("src", "http://src.sencha.io/80/" + myProfile.PhotoURL);
                         profilePhoto.setAttribute("alt", "");
                         profilePhoto.setAttribute("style", "border-top-right-radius:0;border-bottom-left-radius:.5em;float:left");
                         headerHeight = header.clientHeight;

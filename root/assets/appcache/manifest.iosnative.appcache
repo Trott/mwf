@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#28-Sep-2012
+#18-Oct-2012
 
 CACHE:
 
@@ -16,7 +16,7 @@ CACHE:
 /assets/img/homescreen/news-72.png
 /assets/img/homescreen/shut-72.png
 /assets/img/homescreen/soc-72.png
-/assets/img/homescreen/triv-72.png
+# /assets/img/homescreen/triv-72.png
 
 #internal HTML documents
 /

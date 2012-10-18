@@ -348,7 +348,6 @@
 		84A7AEE514217581000ABA24 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "~/mwf/auxiliary/native/ios/Entitlements.plist";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -410,7 +409,6 @@
 		B1B32A9C14759DC5005694C3 /* Test */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "~/mwf/auxiliary/native/ios/Entitlements.plist";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: University of California, San Francisco";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";

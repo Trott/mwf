@@ -3,7 +3,7 @@ var hogan = require("hogan.js");
 
 // construct template string
 var template = '<div class="menu">';
-    template += '<h2>Locations</h2>';
+    template += '<h2>{{title}}</h2>';
     template += '<ol>';
     template += '{{#entries}}';
     template += '  <li>';

@@ -8,7 +8,7 @@ var template = '<div class="menu detailed">';
     template += '{{#entries}}';
     template += '  <li>';
     template += '    <a href="tel:{{PHONE}}">';
-    template += '        <div>{{NAME2}}</div>';
+    template += '        <div>{{NAME2}}</div>{{NAME1}}';
     template += '        <div class="smallprint light">{{STREET1}}</div>';
     template += '        <div class="smallprint light">{{STREET2}}</div>';
     template += '        <div class="smallprint light">{{PHONE}}</div>';

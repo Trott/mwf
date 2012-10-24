@@ -18,18 +18,21 @@
         <section id="ortho-dir" class="center"><progress>Loading...</progress></section>
     </div>
     <script>
-    function render(locations) {
+    function render(entries) {
         var template,
-            title = "Locations";
+            title = "Locations",
+            locations;
         if (window.location.search) {
             template = new Hogan.Template(
-                function(c,p,i){var _=this;_.b(i=i||"");_.b("<div class=\"menu detailed\"><h2>");_.b(_.v(_.f("title",c,p,0)));_.b("</h2><ol>");if(_.s(_.f("entries",c,p,1),c,p,0,61,294,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("  <li>    <a href=\"tel:");_.b(_.v(_.f("PHONE",c,p,0)));_.b("\">        <div>");_.b(_.v(_.f("NAME2",c,p,0)));_.b("</div>        <div class=\"smallprint light\">");_.b(_.v(_.f("STREET1",c,p,0)));_.b("</div>        <div class=\"smallprint light\">");_.b(_.v(_.f("STREET2",c,p,0)));_.b("</div>        <div class=\"smallprint light\">");_.b(_.v(_.f("PHONE",c,p,0)));_.b("</div>    </a>");});c.pop();}_.b("</ol></div>");return _.fl();;}
+                function(c,p,i){var _=this;_.b(i=i||"");_.b("<div class=\"menu detailed\"><h2>");_.b(_.v(_.f("title",c,p,0)));_.b("</h2><ol>");if(_.s(_.f("entries",c,p,1),c,p,0,61,303,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("  <li>    <a href=\"tel:");_.b(_.v(_.f("PHONE",c,p,0)));_.b("\">        <div>");_.b(_.v(_.f("NAME2",c,p,0)));_.b("</div>");_.b(_.v(_.f("NAME1",c,p,0)));_.b("        <div class=\"smallprint light\">");_.b(_.v(_.f("STREET1",c,p,0)));_.b("</div>        <div class=\"smallprint light\">");_.b(_.v(_.f("STREET2",c,p,0)));_.b("</div>        <div class=\"smallprint light\">");_.b(_.v(_.f("PHONE",c,p,0)));_.b("</div>    </a>");});c.pop();}_.b("</ol></div>");return _.fl();;}
                 );
-            title = locations[0].NAME1;
+            title = entries.title || '';
+            locations = entries.locations || [];
         } else {
             template = new Hogan.Template(
                 function(c,p,i){var _=this;_.b(i=i||"");_.b("<div class=\"menu\"><h2>");_.b(_.v(_.f("title",c,p,0)));_.b("</h2><ol>");if(_.s(_.f("entries",c,p,1),c,p,0,52,101,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("  <li>    <a href=\"?");_.b(_.v(_.f("LINK",c,p,0)));_.b("\">");_.b(_.v(_.f("DESCRIPTION",c,p,0)));_.b("</a>");});c.pop();}_.b("</ol></div>");return _.fl();;}
                 );
+            locations = entries;
         }
         document.getElementById("ortho-dir").innerHTML = template.render({entries: locations, title: title});
     }

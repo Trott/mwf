@@ -2,18 +2,12 @@
 var hogan = require("hogan.js");
 
 // construct template string
-var template = '<div class="menu detailed">';
-    template += '<h2>Directory</h2>';
+var template = '<div class="menu">';
+    template += '<h2>Locations</h2>';
     template += '<ol>';
     template += '{{#entries}}';
     template += '  <li>';
-    template += '    <a href="tel:{{PHONE}}">';
-    template += '        <div>{{NAME2}}</div>';
-    template += '        {{NAME1}}';
-    template += '        <div class="smallprint light">{{STREET1}}</div>';
-    template += '        <div class="smallprint light">{{STREET2}}</div>';
-    template += '        <div class="smallprint light">{{PHONE}}</div>';
-    template += '    </a>';
+    template += '    <a href="?{{LINK}}">{{DESCRIPTION}}</a>';
     template += '{{/entries}}';
     template += '</ol>';
     template += '</div>';

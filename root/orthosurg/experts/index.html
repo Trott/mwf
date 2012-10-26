@@ -24,7 +24,7 @@
         experts;
         if (window.location.search) {
             template = new Hogan.Template(
-                function(c,p,i){var _=this;_.b(i=i||"");_.b("<div class=\"menu detailed\"><h2>");_.b(_.v(_.f("title",c,p,0)));_.b("</h2><ol>");if(_.s(_.f("experts",c,p,1),c,p,0,61,203,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("<li><a href=\"");_.b(_.v(_.f("LINK",c,p,0)));_.b("\"><div>");_.b(_.v(_.f("NAME",c,p,0)));_.b("</div><div class=\"smallprint light\">");_.b(_.v(_.f("POSITION",c,p,0)));_.b("</div><div class=\"smallprint light\">");_.b(_.v(_.f("LOCATION",c,p,0)));_.b("</div></a>");});c.pop();}_.b("</ol></div>");return _.fl();;}
+                function(c,p,i){var _=this;_.b(i=i||"");_.b("<div class=\"menu detailed\"><h2>");_.b(_.v(_.f("title",c,p,0)));_.b("</h2><ol>");if(_.s(_.f("experts",c,p,1),c,p,0,61,267,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("<li><a class=\"no-ext-ind\" rel=\"external\" href=\"");_.b(_.v(_.f("LINK",c,p,0)));_.b("\"><div><span class=\"external\">");_.b(_.v(_.f("NAME",c,p,0)));_.b("</span></div><div class=\"smallprint light\">");_.b(_.v(_.f("POSITION",c,p,0)));_.b("</div><div class=\"smallprint light\">");_.b(_.v(_.f("LOCATION",c,p,0)));_.b("</div></a>");});c.pop();}_.b("</ol></div>");return _.fl();;}
                 );
             title = entries.title || '';
             experts = entries.experts || [];

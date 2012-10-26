@@ -15,15 +15,14 @@
 	</header>
 	<noscript><div class="content center" ><p>JavaScript is required to load this content.</p></div></noscript>
 	<div class="jsonly">
-		<section id="ortho-dir" class="center"><progress>Loading...</progress></section>
+		<section id="ortho-fac" class="center"><progress>Loading...</progress></section>
 	</div>
-	<div class="content"><p>This won't start working until we have a JSONP listing of faculty at <a href="http://orthosurg.ucsf.edu/mobile/faculty.cfm">http://orthosurg.ucsf.edu/mobile/faculty.cfm</a> similar to the JSONP listing of locations currently at <a href="http://orthosurg.ucsf.edu/mobile/addresses.cfm">http://orthosurg.ucsf.edu/mobile/addresses.cfm</a>. Once that JSONP data exists, the Hogan template on this page needs to be updated to reflect the data fields in that JSONP data.</p></div>
 	<script>
-	function render(locations) {
+	function render(data) {
 		var template = new Hogan.Template(
-			function(c,p,i){var _=this;_.b(i=i||"");_.b("<div class=\"menu detailed\"><h2>Faculty</h2><ol>");if(_.s(_.f("entries",c,p,1),c,p,0,61,311,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("  <li>    <a href=\"tel:");_.b(_.v(_.f("PHONE",c,p,0)));_.b("\">        <div>");_.b(_.v(_.f("NAME2",c,p,0)));_.b("</div>        ");_.b(_.v(_.f("NAME1",c,p,0)));_.b("        <div class=\"smallprint light\">");_.b(_.v(_.f("STREET1",c,p,0)));_.b("</div>        <div class=\"smallprint light\">");_.b(_.v(_.f("STREET2",c,p,0)));_.b("</div>        <div class=\"smallprint light\">");_.b(_.v(_.f("PHONE",c,p,0)));_.b("</div>    </a>");});c.pop();}_.b("</ol></div>");return _.fl();;}
+			function(c,p,i){var _=this;_.b(i=i||"");_.b("<div class=\"menu detailed\"><h2>");_.b(_.v(_.f("title",c,p,0)));_.b("</h2><ol>");if(_.s(_.f("experts",c,p,1),c,p,0,61,266,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("<li><a href=\"tel:");_.b(_.v(_.f("TEL",c,p,0)));_.b("\"><div>");_.b(_.v(_.f("NAME",c,p,0)));_.b("</div><div class=smallprint>");_.b(_.v(_.f("POSITION",c,p,0)));_.b("</div><div class=smallprint>");_.b(_.v(_.f("LOCATION",c,p,0)));_.b("</div><div class=smallprint>");_.b(_.v(_.f("LOCATION2",c,p,0)));_.b("</div><div class=smallprint>");_.b(_.v(_.f("TEL",c,p,0)));_.b("</div></a>");});c.pop();}_.b("</ol></div>");return _.fl();;}
 		);
-		document.getElementById("ortho-dir").innerHTML = template.render({entries: locations});
+		document.getElementById("ortho-fac").innerHTML = template.render(data);
 	}
 	</script>
 	<script src="http://orthosurg.ucsf.edu/mobile/faculty.cfm"></script>

@@ -34,9 +34,11 @@
 		B12ECF2515924E54006EF32E /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B12ECF2415924E54006EF32E /* Default-Portrait@2x~ipad.png */; };
 		B12ECF2715924E6D006EF32E /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B12ECF2615924E6D006EF32E /* Default-Landscape~ipad.png */; };
 		B12ECF2915924E91006EF32E /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B12ECF2815924E91006EF32E /* Default-Landscape@2x~ipad.png */; };
+		B177C77F16029A4000DAB5D4 /* UCSFApps.plist in Resources */ = {isa = PBXBuildFile; fileRef = B177C77E16029A4000DAB5D4 /* UCSFApps.plist */; };
 		B190C1A515656F7F0098DA0C /* UCSF-logo-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B190C1A415656F7F0098DA0C /* UCSF-logo-iPad.png */; };
 		B190C1A715656FD10098DA0C /* UCSF-logo-iPad-high-res.png in Resources */ = {isa = PBXBuildFile; fileRef = B190C1A615656FD10098DA0C /* UCSF-logo-iPad-high-res.png */; };
 		B194842A147184A5002CD8AF /* img in Resources */ = {isa = PBXBuildFile; fileRef = B1948429147184A5002CD8AF /* img */; };
+		B1CBB493160BD9F2004F04F3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CBB492160BD9F2004F04F3 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,10 +75,12 @@
 		B12ECF2415924E54006EF32E /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		B12ECF2615924E6D006EF32E /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		B12ECF2815924E91006EF32E /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		B177C77E16029A4000DAB5D4 /* UCSFApps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UCSFApps.plist; sourceTree = "<group>"; };
 		B190C1A415656F7F0098DA0C /* UCSF-logo-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UCSF-logo-iPad.png"; sourceTree = "<group>"; };
 		B190C1A615656FD10098DA0C /* UCSF-logo-iPad-high-res.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UCSF-logo-iPad-high-res.png"; sourceTree = "<group>"; };
 		B1948429147184A5002CD8AF /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
 		B1B32AA41475AD10005694C3 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		B1CBB492160BD9F2004F04F3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 		84A7AEBE14217581000ABA24 = {
 			isa = PBXGroup;
 			children = (
+				B1CBB492160BD9F2004F04F3 /* Default-568h@2x.png */,
 				B12ECF2815924E91006EF32E /* Default-Landscape@2x~ipad.png */,
 				B12ECF2615924E6D006EF32E /* Default-Landscape~ipad.png */,
 				B12ECF2415924E54006EF32E /* Default-Portrait@2x~ipad.png */,
@@ -164,6 +169,7 @@
 				84A7AED614217581000ABA24 /* InfoPlist.strings */,
 				84A7AED914217581000ABA24 /* main.m */,
 				84A7AEDB14217581000ABA24 /* UCSFMobile-Prefix.pch */,
+				B177C77E16029A4000DAB5D4 /* UCSFApps.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -241,6 +247,8 @@
 				B12ECF2515924E54006EF32E /* Default-Portrait@2x~ipad.png in Resources */,
 				B12ECF2715924E6D006EF32E /* Default-Landscape~ipad.png in Resources */,
 				B12ECF2915924E91006EF32E /* Default-Landscape@2x~ipad.png in Resources */,
+				B177C77F16029A4000DAB5D4 /* UCSFApps.plist in Resources */,
+				B1CBB493160BD9F2004F04F3 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +296,8 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: University of California, San Francisco";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: University of California, San Francisco";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -304,6 +313,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "6C539983-4E01-4178-860B-0681B3A2ED26";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6C539983-4E01-4178-860B-0681B3A2ED26";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -316,6 +327,7 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: University of California at San Francisco";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: University of California at San Francisco";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -326,7 +338,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"PROVISIONING_PROFILE[sdk=*]" = "9721B73A-D976-4ADD-A25D-E3C4E84979EC";
+				PROVISIONING_PROFILE = "B6B2B46A-F247-43A8-BBCE-2299791581F0";
+				"PROVISIONING_PROFILE[sdk=*]" = "B6B2B46A-F247-43A8-BBCE-2299791581F0";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -341,7 +354,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "UCSFMobile/UCSFMobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -352,14 +365,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "~/mwf/auxiliary/native/ios/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: University of California at San Francisco";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: University of California at San Francisco";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "UCSFMobile/UCSFMobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "B6B2B46A-F247-43A8-BBCE-2299791581F0";
 				"PROVISIONING_PROFILE[sdk=*]" = "B6B2B46A-F247-43A8-BBCE-2299791581F0";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -374,6 +389,7 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: University of California at San Francisco";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -384,6 +400,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "B6B2B46A-F247-43A8-BBCE-2299791581F0";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -394,13 +411,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "~/mwf/auxiliary/native/ios/Entitlements.plist";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: University of California, San Francisco";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UCSFMobile/UCSFMobile-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "UCSFMobile/UCSFMobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6C539983-4E01-4178-860B-0681B3A2ED26";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

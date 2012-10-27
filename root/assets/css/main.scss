@@ -399,15 +399,20 @@ form > textarea {
 /*
  * Forms Basic Elements
  */
-form > label {
+form > label,
+form > select {
     margin-top: 1em;
 }
+
+form > label + select {
+    margin-top: 0;
+} 
 
 form input,
 form select,
 form textarea {
     border: 1px solid #CCC;
-    font-size: .9em;
+    font-size: 1em;
 }
 
 form input,
@@ -505,32 +510,6 @@ form input[type="reset"].primary:focus,
 form button.primary:focus,
 form a.button.primary:focus {
     background-color: #ffb300;
-}
-
-form input[type="submit"].secondary,
-form input[type="reset"].secondary,
-form button.secondary,
-form a.button.secondary,
-form input[type="submit"][disabled="disabled"].secondary:hover,
-form input[type="reset"][disabled="disabled"].secondary:hover,
-form button[disabled="disabled"].secondary:hover,
-form a.button.secondary:hover.disabled,
-form input[type="submit"][disabled="disabled"].secondary:focus,
-form input[type="reset"][disabled="disabled"].secondary:focus,
-form button[disabled="disabled"].secondary:focus,
-form a.button.secondary:focus.disabled {
-    background-color: #9caccf;
-}
-
-form input[type="submit"].secondary:hover,
-form input[type="reset"].secondary:hover,
-form button.secondary:hover,
-form a.button.secondary:hover,
-form input[type="submit"].secondary:focus,
-form input[type="reset"].secondary:focus,
-form button.secondary:focus,
-form a.button.secondary:focus {
-    background-color: #869ac5;
 }
 
 /* full width form - default */
@@ -700,7 +679,7 @@ ul.bulleted li {
 }
 
 ul.bulleted li a {
-	padding: 0em;
+	padding: 0;
 	display: inline;
 }
 
@@ -1062,38 +1041,6 @@ form a.button.primary:focus {
     background: linear-gradient(#faa422, #db8504);
 }
 
-form input[type="submit"].secondary,
-form input[type="reset"].secondary,
-form button.secondary,
-form a.button.secondary,
-form input[type="submit"].secondary:hover:disabled,
-form input[type="reset"].secondary:hover:disabled,
-form button.secondary:hover:disabled,
-form a.button.secondary:hover.disabled,
-form input[type="submit"].secondary:focus:disabled,
-form input[type="reset"].secondary:focus:disabled,
-form button.secondary:focus:disabled,
-form a.button.secondary:focus.disabled {
-    background: -moz-linear-gradient(#9caccf, #869ac5);
-    background: -o-linear-gradient(top, #9caccf, #869ac5);
-    background: -webkit-gradient(linear, left top, left bottom, from(#9caccf), to(#869ac5), color-stop(0.8, #869ac5));
-    background: linear-gradient(#9caccf, #869ac5);
-}
-
-form input[type="submit"].secondary:hover,
-form input[type="reset"].secondary:hover,
-form button.secondary:hover,
-form a.button.secondary:hover,
-form input[type="submit"].secondary:focus,
-form input[type="reset"].secondary:focus,
-form button.secondary:focus,
-form a.button.secondary:focus {
-    background: -moz-linear-gradient(#869ac5, #7188bb);
-    background: -o-linear-gradient(top, #869ac5, #7188bb);
-    background: -webkit-gradient(linear, left top, left bottom, from(#869ac5), to(#7188bb), color-stop(0.8, #7188bb));
-    background: linear-gradient(#869ac5, #7188bb);
-}
-
 body,html {
     height:100%;
 }
@@ -1268,6 +1215,12 @@ ul.two-col-list li {
 }
 .green {
     background-color: rgb(0,135,82);
+}
+
+.reverse_trip {
+    font-size: x-small;
+    width: 3em;
+    margin: 1em 50% 0 50%;
 }
 
 /********

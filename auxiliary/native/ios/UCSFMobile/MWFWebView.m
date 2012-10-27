@@ -14,6 +14,7 @@
 @synthesize webView           = _webView;
 @synthesize initPageLoaded    = _initPageLoaded;
 @synthesize parentWindow      = _parentWindow;
+@synthesize ucsfAppsInfo;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -23,13 +24,20 @@
         // Custom initialization
         
 		// Set custom user agent 			
-        
 		BSWebViewUserAgent *agent = [[BSWebViewUserAgent alloc] init];
 		NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"%@/%@", [agent userAgentString],@" MWF-Native-iOS/1.2.07"], @"UserAgent", nil];
 		[[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
 		[dictionary release];
 		[agent release];
         
+        // Load info we may need later about other UCSF apps
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"UCSFApps" ofType:@"plist"];
+        NSData* data = [NSData dataWithContentsOfFile:path];
+        self.ucsfAppsInfo = [NSPropertyListSerialization propertyListFromData:data
+                                                                 mutabilityOption:NSPropertyListImmutable
+                                                                           format:NULL
+                                                                 errorDescription:NULL];
+
         //Initial page has not been loaded.
         self.initPageLoaded = NO;
     }
@@ -67,7 +75,7 @@
 
 - (void) goHome
 {
-    NSString *fullURL = @"http://m.ucsf.edu/";
+    NSString *fullURL = @"http://m.ucsf.edu/nativeios.html";
     NSURL *url = [NSURL URLWithString:fullURL];
 	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];
     [self.webView loadRequest:requestObj];
@@ -150,9 +158,18 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
+- (BOOL)openUrlViaExternalApp:(NSURLRequest *)request
+{
+    if (! [[UIApplication sharedApplication] canOpenURL:[request URL]]) {
+        return FALSE;
+    }
+    [[UIApplication sharedApplication] openURL:[request URL]];
+    return TRUE;
+}
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    if (navigationType == UIWebViewNavigationTypeLinkClicked) 
+    if (navigationType == UIWebViewNavigationTypeLinkClicked)
         webView.scalesPageToFit=YES;
     
     NSString *scheme = [[request URL] scheme];
@@ -163,10 +180,19 @@
         return YES;
     }
     
-    if ([[UIApplication sharedApplication] canOpenURL:[request URL]]) {
-        [[UIApplication sharedApplication] openURL:[request URL]];
-    } else {
-        //@todo: Handle custom URLs for UCSF apps that are not installed.
+    BOOL openedExternally = FALSE;
+    openedExternally = [self openUrlViaExternalApp:request];
+    if (! openedExternally) {
+        NSString *fallbackURLString = [[self.ucsfAppsInfo valueForKey:@"fallbackURL"] valueForKey:[[request URL] absoluteString]];
+        
+        if (fallbackURLString) {
+            NSURLRequest *fallbackRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:fallbackURLString]];
+            openedExternally = [self openUrlViaExternalApp:fallbackRequest];
+        }
+        
+    }
+     
+    if (! openedExternally) {
         if (! [[[request URL] scheme] isEqualToString:@"about"]) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UCSF Mobile" message:@"Action is unsupported." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert autorelease];

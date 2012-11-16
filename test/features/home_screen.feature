@@ -6,3 +6,7 @@ Feature: Home screen
 Scenario: Home screen
   Given I am on the home page
   Then I should see the home page
+
+Scenario: Native iOS Home screen
+  Given I am on the Native iOS home page
+  Then I should see the home page

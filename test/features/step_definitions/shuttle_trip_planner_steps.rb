@@ -1,11 +1,11 @@
 Given /^my localStorage is empty$/ do
-	visit "http://localhost/"
+	visit "/"
 	execute_script('localStorage.clear()')
 	visit "http://google.com/"
 end
 
 Given /I visit the Shuttle Trip Planner page/ do
-	visit "http://localhost/shuttle/planner"
+	visit "/shuttle/planner"
 end
 
 Then /^I should see the route "([^"]*)" "([^"]*)"$/ do |id, value|

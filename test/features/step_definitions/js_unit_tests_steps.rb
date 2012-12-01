@@ -1,5 +1,5 @@
 Given /^I am on the JS Unit Tests page$/ do 
-  visit "http://localhost/assets/test/js_unit/"
+  visit "/assets/test/js_unit/"
   @results = find_by_id('qunit-testresult')
 end
 

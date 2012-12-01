@@ -5,16 +5,20 @@ require 'selenium/webdriver'
 
 World(Test::Unit::Assertions)
 
-World do
-  Capybara.register_driver :iphone do |app|
+Capybara.ignore_hidden_elements = true
+
+Capybara.app_host = ENV['BASE_URL'] ? ENV['BASE_URL'] : "http://localhost"
+
+Capybara.register_driver :iphone do |app|
     Capybara::Selenium::Driver.new(app, :browser => :iphone)
-  end
+end
 
-  if ENV['BROWSER'] == 'firefox' then
-  	session = Capybara::Session.new(:selenium)
-  else
-  	session = Capybara::Session.new(:iphone)
-  end
+if ENV['BROWSER'] == 'firefox' then
+    page = Capybara::Session.new(:selenium)
+else
+    page = Capybara::Session.new(:iphone)
+end
 
-  session
+World do
+    page
 end

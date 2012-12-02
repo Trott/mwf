@@ -6,24 +6,24 @@ Feature: Shuttle Trip Planner
 Scenario: Remember Last Trip
   Given my localStorage is empty
   And I visit the Shuttle Trip Planner page
-  Then I should see the route "starting_from" "Parnassus"
-  And I should see the route "ending_at" "Mission Bay (4th St.)"
-  And I select a route "starting_from" "Mt. Zion"
-  And I select a route "ending_at" "654 Minnesota"
+  Then I should see the route "starting_from" "From Parnassus"
+  And I should see the route "ending_at" "To Mission Bay (4th St.)"
+  And I select a route "starting_from" "From Mt. Zion"
+  And I select a route "ending_at" "To 654 Minnesota"
   And I route the trip
   And I visit the Shuttle Trip Planner page
-  Then I should see the route "starting_from" "Mt. Zion"
-  And I should see the route "ending_at" "654 Minnesota"
+  Then I should see the route "starting_from" "From Mt. Zion"
+  And I should see the route "ending_at" "To 654 Minnesota"
 
 Scenario: Remember Reversed Trip
   Given my localStorage is empty
   And I visit the Shuttle Trip Planner page
-  Then I should see the route "starting_from" "Parnassus"
-  And I should see the route "ending_at" "Mission Bay (4th St.)"
-  And I select a route "starting_from" "Mt. Zion"
-  And I select a route "ending_at" "654 Minnesota"
+  Then I should see the route "starting_from" "From Parnassus"
+  And I should see the route "ending_at" "To Mission Bay (4th St.)"
+  And I select a route "starting_from" "From Mt. Zion"
+  And I select a route "ending_at" "To 654 Minnesota"
   And I route the trip
   And I reverse the trip
   And I visit the Shuttle Trip Planner page
-  Then I should see the route "starting_from" "654 Minnesota"
-  And I should see the route "ending_at" "Mt. Zion"
+  Then I should see the route "starting_from" "From 654 Minnesota"
+  And I should see the route "ending_at" "To Mt. Zion"

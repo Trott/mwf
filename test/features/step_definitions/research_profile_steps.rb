@@ -1,5 +1,5 @@
 Given /I am on a Research Profile page/ do
-  visit "http://localhost/research/?fno=Richard.Schneider%40ucsf.edu"
+  visit "/research/?fno=Richard.Schneider%40ucsf.edu"
 end
 
 Then /I should see the Research Profile page/ do

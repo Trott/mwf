@@ -3,19 +3,20 @@ AUTOMATED TESTS IN IPHONE SIMULATOR -- INSTALLATION:
 You must be using Mac OS X and XCode 4.2 or later.
 
 The tests currently assume that you have your MWF site running on your machine and
-accessible at http://localhost/.
+accessible at http://localhost/. You can change to a different URL by specifying
+something like BASE_URL=http://example.com on the cucumber command line.
 
 * Add Cucumber to your Ruby environment:
 
-    sudo gem install cucumber
+    gem install cucumber
 
 * Add RSpec to your Ruby environment:
 
-    sudo gem install rspec
+    gem install rspec
 
 * Add Capybara to your Ruby environment:
 
-    sudo gem install capybara
+    gem install capybara
 
 * Get iWebDriver code:
 

@@ -25,3 +25,6 @@ And /^I reverse the trip$/ do
 	click_button('Reverse Trip')
 end
 
+Then /^I should see "(.*?)"$/ do |text|
+    should have_text(text)
+end

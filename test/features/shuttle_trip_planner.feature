@@ -27,3 +27,11 @@ Scenario: Remember Reversed Trip
   And I visit the Shuttle Trip Planner page
   Then I should see the route "starting_from" "From 654 Minnesota"
   And I should see the route "ending_at" "To Mt. Zion"
+
+Scenario: Show Multiple Shutles
+  Given I visit the Shuttle Trip Planner page
+  And I select a route "starting_from" "From 16th St. BART"
+  And I select a route "ending_at" "To MCB"
+  And I route the trip
+  Then I should see "Red"
+  And I should see "Yellow"

@@ -9,6 +9,8 @@ Capybara.ignore_hidden_elements = true
 
 Capybara.app_host = ENV['BASE_URL'] ? ENV['BASE_URL'].sub(/\/+$/,'') : "http://localhost"
 
+Capybara.default_wait_time = 5;
+
 Capybara.register_driver :iphone do |app|
     Capybara::Selenium::Driver.new(app, :browser => :iphone)
 end

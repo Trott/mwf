@@ -42,8 +42,8 @@ class Ucsf_Library_Location_Menu_Site_Decorator extends Menu_Site_Decorator {
         
         $hours_array = preg_split("/[\n]+/", $this->_hours);
         $hours = array();
-        foreach ($address_array as $address_element) {
-            $hours[] = $address_element;
+        foreach ($hours_array as $hours_element) {
+            $hours[] = $hours_element;
             $hours[] = HTML_Decorator::tag_open('br');
         }
 

@@ -44,14 +44,6 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
      * @test
      * @runInSeparateProcess
      */
-    public function get_varDir_notFalse() {
-        $this->assertTrue(!!Config::get('global','var_dir'));
-    }
-    
-    /**
-     * @test
-     * @runInSeparateProcess
-     */
     public function get_gobbledygook_false() {
         $this->assertEquals(false, Config::get('global','gobbledygook'));
     }

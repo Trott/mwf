@@ -31,7 +31,7 @@ class Config {
     // @todo: If we are supporting only PHP 5.3.0 and above, use a namespace for
     //    the constants.
     public static function init() {
-        if (defined('MWF_CONFIG_SITE_URL') && defined('MWF_CONFIG_SITE_ASSETS_URL') && defined('MWF_CONFIG_VAR_DIR'))
+        if (defined('MWF_CONFIG_SITE_URL') && defined('MWF_CONFIG_SITE_ASSETS_URL'))
             return;
 
         if (self::get('base', 'site_url')) {
@@ -57,12 +57,6 @@ class Config {
             define('MWF_CONFIG_SITE_ASSETS_URL', self::get('base', 'site_assets_url'));
         } else {
             define('MWF_CONFIG_SITE_ASSETS_URL', MWF_CONFIG_SITE_URL . '/assets');
-        }
-
-        if (self::get('base', 'var_dir')) {
-            define('MWF_CONFIG_VAR_DIR', realpath(self::get('base', 'var_dir')));
-        } else {
-            define('MWF_CONFIG_VAR_DIR', realpath(dirname(dirname(dirname(__DIR__))) . '/var'));
         }
     }
 

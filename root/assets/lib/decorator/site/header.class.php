@@ -13,11 +13,9 @@
  *
  * @uses Decorator
  * @uses Tag_HTML_Decorator
- * @uses Config
  * @uses HTTPS
  */
 require_once(dirname(dirname(dirname(__FILE__))) . '/decorator.class.php');
-require_once(dirname(dirname(dirname(__FILE__))) . '/config.class.php');
 require_once(dirname(dirname(dirname(__FILE__))) . '/https.class.php');
 require_once(dirname(dirname(__FILE__)) . '/html/tag.class.php');
 
@@ -46,39 +44,6 @@ class Header_Site_Decorator extends Tag_HTML_Decorator {
         $this->_image['src'] = $image;
         $this->_image['alt'] = $alt;
         return $this;
-    }
-
-    public function render($raw = false) {
-        if (!$this->_image) {
-            $image_path = Config::get('global', 'header_home_button');
-            if (HTTPS::is_https()) {
-                HTTPS::convert_path($image_path);
-            }
-            if ($image_path) {
-                $alt_text = Config::get('global', 'header_home_button_alt');
-                if (! $alt_text) {
-                    $alt_text = '';
-                }
-                $this->set_image($image_path, $alt_text);
-            }
-        }
-        $this->add_inner(HTML_Decorator::tag('a', 
-                HTML_Decorator::tag('img', false, $this->_image), 
-                array('href' => (HTTPS::is_https() ? HTTPS::convert_path(Config::get('global', 'site_url')) : Config::get('global', 'site_url')))));
-
-        if ($this->_title) {
-            $title = HTML_Decorator::tag('span', $this->_title);
-
-            if ($this->_title_path) {
-                $this->add_inner('a', $title, array('href' => $this->_title_path));
-            } else {
-                $this->add_inner($title);
-            }
-        }
-
-        $this->set_param('id', 'header');
-
-        return parent::render($raw);
     }
 
 }

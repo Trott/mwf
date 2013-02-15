@@ -12,10 +12,8 @@
  * @version 20120313
  *
  * @uses Header_Site_Decorator
- * @uses Config
  */
 require_once(__DIR__ . '/header.class.php');
-require_once(dirname(dirname(__DIR__)) . '/config.class.php');
 
 class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
 
@@ -26,8 +24,8 @@ class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
 
     public function __construct($section='') {
         $this->_title = ($section);
-        $this->_image = (array('src' => Config::get('global', 'header_home_button'),
-            'alt' => Config::get('global', 'header_home_button_alt')));
+        $this->_image = (array('src' => '/assets/img/ucsf-logo.png',
+            'alt' => 'UCSF'));
         parent::__construct();
     }
 
@@ -37,7 +35,7 @@ class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
         $this->set_param('id', 'header');
 
         if (!$this->_home_text) {
-            $this->_home_text = Config::get('global', 'header_home_text');
+            $this->_home_text = 'Mobile';
         }
 
         $image = HTML_Decorator::tag('img', false, $this->_image);
@@ -51,7 +49,7 @@ class Ucsf_Header_Site_Decorator extends Header_Site_Decorator {
             $title = $this->_title ? $this->_title : '';
 
         if ($title) {
-            $separator_img_url = Config::get('global', 'site_assets_url') . '/img/ucsf-header-separator.png';
+            $separator_img_url = '/assets/img/ucsf-header-separator.png';
             $separator = HTML_Decorator::tag('img', false, array("src" => $separator_img_url, "alt" => " | ", "class" => "separator"));
             $title_span = HTML_Decorator::tag('span', $title);
 

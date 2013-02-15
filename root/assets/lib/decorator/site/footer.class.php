@@ -13,10 +13,8 @@
  *
  * @uses Decorator
  * @uses Tag_HTML_Decorator
- * @uses Config
  */
 require_once(dirname(dirname(__DIR__)) . '/decorator.class.php');
-require_once(dirname(dirname(__DIR__)) . '/config.class.php');
 require_once(dirname(__DIR__) . '/html/tag.class.php');
 
 class Footer_Site_Decorator extends Tag_HTML_Decorator {
@@ -29,7 +27,7 @@ class Footer_Site_Decorator extends Tag_HTML_Decorator {
     public function __construct() {
         parent::__construct('footer');
 
-        if ($copyright = Config::get('global', 'copyright_text'))
+        if ($copyright = "University of California © 2010-13 UC Regents")
             $this->set_copyright_text($copyright);
     }
 

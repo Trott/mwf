@@ -20,8 +20,7 @@ echo Site_Decorator::ucsf_header('Research Profile')
 <div class="menu"><ol id="ctsi-full-profile"></ol></div>
 
 <?php
-echo Site_Decorator::ucsf_footer()->render();
-?>
+?><footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer>
 <script src="http://profiles.ucsf.edu/CustomAPI/v1/JSONProfile.aspx?FNO=<?php 
 	echo filter_var($_GET['fno'],FILTER_SANITIZE_EMAIL); 
 	?>&amp;callback=ucsf.ctsiProfile.renderProfile&amp;publications=full&amp;mobile=on"></script>

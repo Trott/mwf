@@ -16,6 +16,5 @@ for ($i = 0, $n = count($legend_icons_titles); $i < $n; $i++) {
 echo Site_Decorator::ucsf_library_floorplan('Parnassus Floor 2', array(),
 		'../../../img/maps/2.gif', $legend,
 		"Technology Commons: 230, 231, 240\nLearning Technologies: 240\nTeaching &amp; Learning Center\nConference Room: 201");
-echo Site_Decorator::ucsf_footer()->render();
-echo HTML_Decorator::body_end()->render();
+?><footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer><?php echo HTML_Decorator::body_end()->render();
 echo HTML_Decorator::html_end()->render();

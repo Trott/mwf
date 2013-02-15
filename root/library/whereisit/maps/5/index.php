@@ -17,6 +17,5 @@ echo Site_Decorator::ucsf_library_floorplan('Parnassus Floor 5', array(),
 		'../../../img/maps/5.gif', $legend,
 		implode("\n", array('Books, A-P: A', 'Archives: 527', 
 				'Lange Room: 522', 'UCSF Quiet Study: 506')));
-echo Site_Decorator::ucsf_footer()->render();
-echo HTML_Decorator::body_end()->render();
+?><footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer><?php echo HTML_Decorator::body_end()->render();
 echo HTML_Decorator::html_end()->render();

@@ -1,5 +1,4 @@
 <?php
-require_once(dirname(__FILE__) . '/../assets/config.php');
 require_once(dirname(__FILE__) . '/../assets/lib/decorator.class.php');
 require_once(dirname(__FILE__) . '/location/locations.class.php');
 $locations = new Locations('http://' . $_SERVER['SERVER_NAME'] . '/maps/ucsf_map_coordinates.xml');

@@ -11,7 +11,6 @@
  * @uses Config
  */
 require_once(__DIR__ . '/assets/lib/decorator.class.php');
-require_once(__DIR__ . '/assets/config.php');
 
 echo HTML_Decorator::html_start()->render();
 

@@ -10,7 +10,7 @@ if ($search_results = (isset($_GET['search']) && strlen(trim($_GET['search'])) >
 
 echo HTML_Decorator::html_start()->render();
 echo Site_Decorator::head()
-        ->set_title(Config::get('global', 'title_text') . " | Map")
+        ->set_title('UCSF Mobile' . " | Map")
         ->add_inner_tag('script', '', array('src' => 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'))
         ->render();
 echo HTML_Decorator::body_start()->render();

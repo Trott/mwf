@@ -3,7 +3,7 @@ require_once(dirname(__FILE__).'/assets/config.php');
 require_once(dirname(__FILE__).'/assets/lib/decorator.class.php');
 
 echo HTML_Decorator::html_start()->render();
-echo Site_Decorator::head()->set_title(Config::get('global', 'title_text') . ' | Emergency')->render();
+echo Site_Decorator::head()->set_title('UCSF Mobile' . ' | Emergency')->render();
 echo HTML_Decorator::body_start()->render();
 echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a','Emergency',array('href'=>'/emergency')))->render();
 

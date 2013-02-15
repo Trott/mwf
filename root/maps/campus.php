@@ -38,7 +38,7 @@ switch (isset($_GET['campus']) ? $_GET['campus'] : 'none') {
 
 echo HTML_Decorator::html_start()->render();
 echo Site_Decorator::head()
-        ->set_title(Config::get('global', 'title_text') . " | $startLocation Map")
+        ->set_title('UCSF Mobile' . " | $startLocation Map")
         ->add_inner_tag('script', '', array('src'=>'http://maps.google.com/maps/api/js?sensor=false&v=3.5'))
         ->render();
 echo HTML_Decorator::body_start()->render();

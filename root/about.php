@@ -15,7 +15,7 @@ require_once(__DIR__ . '/assets/config.php');
 
 echo HTML_Decorator::html_start()->render();
 
-echo Site_Decorator::head()->set_title(Config::get('global', 'title_text') . " | About")->render();
+echo Site_Decorator::head()->set_title('UCSF Mobile' . " | About")->render();
 
 echo HTML_Decorator::body_start()->render();
 

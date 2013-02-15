@@ -13,9 +13,7 @@
  *
  * @uses Decorator
  * @uses Tag_HTML_Decorator
- * @uses Config
  */
-require_once(dirname(dirname(dirname(__FILE__))) . '/config.class.php');
 require_once(dirname(__FILE__) . '/footer.class.php');
 
 class Default_Footer_Site_Decorator extends Footer_Site_Decorator {
@@ -23,8 +21,8 @@ class Default_Footer_Site_Decorator extends Footer_Site_Decorator {
     public function __construct() {
         parent::__construct();
 
-        if ($footer_link_titles = Config::get('global', 'footer_link_titles')) {
-            $footer_link_urls = Config::get('global', 'footer_link_urls');
+        if ($footer_link_titles = array("About", "Feedback")) {
+            $footer_link_urls = array("/about", "/feedback/");
             foreach ($footer_link_titles as $key=>$title) {
                 if (array_key_exists($key, $footer_link_urls)) {
                     $this->add_footer_link($title, $footer_link_urls[$key]);

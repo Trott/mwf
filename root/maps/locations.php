@@ -7,9 +7,8 @@ $search_results = false;
 if ($search_results = (isset($_GET['search']) && strlen(trim($_GET['search'])) > 0 && $search = trim($_GET['search'])))
     $locations = $locations->search($search);
 
-echo HTML_Decorator::html_start()->render();
-
-?>
+?><!DOCYPE html>
+<html>
 <head>
     <meta charset="utf-8">
     <title>UCSF Mobile | Map</title>

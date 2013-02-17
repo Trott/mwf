@@ -1,19 +1,8 @@
 <?php
-/**
- * @author trott
- * @copyright Copyright (c) 2010-11 UC Regents
- * @license http://mwf.ucla.edu/license
- * @version 20120313
- *
- * @uses Decorator
- * @uses Site_Decorator
- * @uses HTML_Decorator
- * @uses Config
- */
 require_once(__DIR__ . '/assets/lib/decorator.class.php');
-
-echo HTML_Decorator::html_start()->render();
 ?>
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
     <title>UCSF Mobile | About</title>

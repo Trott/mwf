@@ -1,7 +1,7 @@
 <?php 
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))).'/assets/lib/decorator.class.php');
-echo HTML_Decorator::html_start()->render();
-?>
+?><!DOCYPE html>
+<html>
 <head>
     <meta charset="utf-8">
     <title>UCSF Mobile | Library | Parnassus Floor 2</title>

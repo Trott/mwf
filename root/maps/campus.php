@@ -35,9 +35,8 @@ switch (isset($_GET['campus']) ? $_GET['campus'] : 'none') {
         $startLocation = '';
 }
 
-echo HTML_Decorator::html_start()->render();
-
-?>
+?><!DOCYPE html>
+<html>
 <head>
     <meta charset="utf-8">
     <title>UCSF Mobile</title>

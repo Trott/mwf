@@ -1,6 +1,4 @@
-<?php
-require_once(dirname(dirname(__FILE__)).'/assets/lib/decorator.class.php');
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -20,17 +18,21 @@ require_once(dirname(dirname(__FILE__)).'/assets/lib/decorator.class.php');
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
 </head>
-<?php
-echo HTML_Decorator::body_start()->render();
-?>
+<body>
 <header class="header" id="header">
     <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
     <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
     <span><a href="/library">Library</a></span>
 </header>
-<?php
-echo Site_Decorator::ucsf_library_menu()->render();
-
-?><footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer><?php echo HTML_Decorator::body_end()->render();
-echo HTML_Decorator::html_end()->render();
-?>
+<div class="menu detailed">
+    <ol>
+        <li><a href="/library/locations">Hours and Locations</a></li>
+        <li><a rel="external" href="http://ucsf.worldcat.org/m">Find Books and Journals</a></li>
+        <li><a rel="external" href="http://guides.library.ucsf.edu/content.php?pid=252446&amp;sid=2084303">Mobile Resources</a></li>
+        <li><a rel="external" href="http://tiny.ucsf.edu/reserve">Reserve a Study Room</a></li><li><a href="/library/help/">Get Help</a></li>
+        <li><a href="/library/news">News</a></li><li><a rel="external" href="http://library.ucsf.edu/?ovrrdr=1">Full Library Site</a></li>
+    </ol>
+</div>
+<footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer>
+</body>
+</html>

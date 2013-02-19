@@ -1,6 +1,6 @@
 <?php 
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))).'/assets/lib/decorator.class.php');
-?><!DOCYPE html>
+?><!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -28,18 +28,21 @@ echo HTML_Decorator::body_start()->render();
     <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
     <span><a href="/library">Library</a></span>
 </header>
-<?php
-$legend_icons_titles = array('Computers','Elevators','Photocopiers','Reshelving Area','Restrooms','Stairs');
-$legend_icons_styles = array("ucsf-library-floorplan-legend ucsf-library-floorplan-legend-computer","ucsf-library-floorplan-legend ucsf-library-floorplan-legend-elevator","ucsf-library-floorplan-legend ucsf-library-floorplan-legend-photocopy","ucsf-library-floorplan-legend ucsf-library-floorplan-legend-reshelving","ucsf-library-floorplan-legend ucsf-library-floorplan-legend-restroom","ucsf-library-floorplan-legend ucsf-library-floorplan-legend-stairs");
-
-$legend = array();
-for ($i = 0, $n = count($legend_icons_titles); $i < $n; $i++) {
-	$legend[] = array('title' => $legend_icons_titles[$i], 'params' => array('class' => $legend_icons_styles[$i]));
-}
-
-echo Site_Decorator::ucsf_library_floorplan('Parnassus Floor 3', array(),
-		'../../../img/maps/3.gif', $legend,
-		implode("\n", array('Service Desk/Reserves: A', 'Copy Services/Cashier: B', 
-          'Current Journals: C', 'Hearst Reading Room: F', 'Group Study Rooms: 316-325')));
-?><footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer><?php echo HTML_Decorator::body_end()->render();
+<div class="content">
+    <h2>Parnassus Floor 3</h2>
+    <div>
+        <img alt="" src="../../../img/maps/3.gif" style="max-width: 100%">
+        <ul class="two-col-list">
+            <li><span class="ucsf-library-floorplan-legend ucsf-library-floorplan-legend-computer">Computers</span></li>
+            <li><span class="ucsf-library-floorplan-legend ucsf-library-floorplan-legend-elevator">Elevators</span></li>
+            <li><span class="ucsf-library-floorplan-legend ucsf-library-floorplan-legend-photocopy">Photocopiers</span></li>
+            <li><span class="ucsf-library-floorplan-legend ucsf-library-floorplan-legend-reshelving">Reshelving Area</span></li>
+            <li><span class="ucsf-library-floorplan-legend ucsf-library-floorplan-legend-restroom">Restrooms</span></li>
+            <li><span class="ucsf-library-floorplan-legend ucsf-library-floorplan-legend-stairs">Stairs</span></li>
+        </ul>
+        <br class="clear">
+    </div>
+    <div><span class="smallprint">Service Desk/Reserves: A<br>Copy Services/Cashier: B<br>Current Journals: C<br>Hearst Reading Room: F<br>Group Study Rooms: 316-325<br></span></div>
+</div>
+<footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer><?php echo HTML_Decorator::body_end()->render();
 echo HTML_Decorator::html_end()->render();

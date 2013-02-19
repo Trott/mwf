@@ -35,7 +35,7 @@ switch (isset($_GET['campus']) ? $_GET['campus'] : 'none') {
         $startLocation = '';
 }
 
-?><!DOCYPE html>
+?><!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">

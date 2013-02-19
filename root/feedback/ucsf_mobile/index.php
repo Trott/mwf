@@ -1,6 +1,6 @@
 <?php
 require_once(dirname(dirname(__DIR__)).'/assets/lib/decorator.class.php');
-?><!DOCYPE html>
+?><!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">

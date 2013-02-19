@@ -7,7 +7,7 @@ $search_results = false;
 if ($search_results = (isset($_GET['search']) && strlen(trim($_GET['search'])) > 0 && $search = trim($_GET['search'])))
     $locations = $locations->search($search);
 
-?><!DOCYPE html>
+?><!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">

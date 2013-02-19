@@ -1,6 +1,6 @@
 <?php
 require_once(dirname(dirname(dirname(dirname(__FILE__)))).'/assets/lib/decorator.class.php');
-?><!DOCYPE html>
+?><!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -38,7 +38,8 @@ echo HTML_Decorator::body_start()->render();
 <li class="menu-last"><a href="5">Floor 5<br/><span class="smallprint">Books, A-P<br/>Archives<br/>Lange Room<br/>UCSF Quiet Study</span></a></li>
 </ol>
 </div>
+<footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer>
 <?php 
-?><footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer><?php echo HTML_Decorator::body_end()->render();
+echo HTML_Decorator::body_end()->render();
 echo HTML_Decorator::html_end()->render();
 ?>

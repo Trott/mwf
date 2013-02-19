@@ -30,29 +30,24 @@ echo HTML_Decorator::body_start()->render();
     <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
     <span>About</span>
 </header>
-<?php
-//Decorator doesn't yet handle unordered lists, too tedious to use HTML_Decorator::tag, so they're hardcoded for now.
-echo Site_Decorator::content()
-        ->set_padded()
-        ->add_header('About UCSF Mobile')
-        ->add_section(array('UCSF Mobile is a joint project of:', 
-            HTML_Decorator::tag('ul', array(
-                HTML_Decorator::tag('li', 'Information Technology Services'),
-                HTML_Decorator::tag('li', 'Library & Center for Knowledge Management'),
-                HTML_Decorator::tag('li', 'University Relations')),
-                    array('class'=>'bulleted')),
-            'In collaboration with:',
-            HTML_Decorator::tag('ul', array(
-                HTML_Decorator::tag('li', 'Transportation Services (Shuttle)'),
-                HTML_Decorator::tag('li', 'Campus Life Services (Fitness)'),
-                HTML_Decorator::tag('li', 'Campus Planning (Maps)')),
-                    array('class'=>'bulleted'))
-            ))
-        ->add_section(array('The UCSF Mobile website is powered by the ',
-                HTML_Decorator::tag('a', 'Mobile Web Framework', array('href' => 'http://mwf.ucla.edu')), 
-            '.'))
-        ->render();
-
-?><footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer><?php echo HTML_Decorator::body_end()->render();
+<div class="content">
+    <h2>About UCSF Mobile</h2>
+    <div>UCSF Mobile is a joint project of:
+        <ul class="bulleted">
+            <li>Information Technology Services</li>
+            <li>Library &amp; Center for Knowledge Management</li>
+            <li>University Relations</li>
+        </ul>
+        In collaboration with:
+        <ul class="bulleted">
+            <li>Transportation Services (Shuttle)</li>
+            <li>Campus Life Services (Fitness)</li>
+            <li>Campus Planning (Maps)</li>
+        </ul>
+    </div>
+    <div>The UCSF Mobile website is powered by the <a href="http://mwf.ucla.edu">Mobile Web Framework</a>.</div>
+</div>
+<footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer>
+<?php echo HTML_Decorator::body_end()->render();
 echo HTML_Decorator::html_end()->render();
 ?>

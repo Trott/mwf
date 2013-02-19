@@ -24,10 +24,13 @@ require_once(__DIR__ . '/assets/lib/decorator.class.php');
 <?php
 
 echo HTML_Decorator::body_start()->render();
-
-echo Site_Decorator::ucsf_header("About")
-        ->render();
-
+?>
+<header class="header" id="header">
+    <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
+    <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
+    <span>About</span>
+</header>
+<?php
 //Decorator doesn't yet handle unordered lists, too tedious to use HTML_Decorator::tag, so they're hardcoded for now.
 echo Site_Decorator::content()
         ->set_padded()

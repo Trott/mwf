@@ -22,9 +22,13 @@ require_once(dirname(dirname(dirname(dirname(__FILE__)))).'/assets/lib/decorator
 </head>
 <?php
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a','Library',array('href'=>'/library')))
-        ->render();
-?><div class="menu padded detailed">
+?>
+<header class="header" id="header">
+    <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
+    <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
+    <span><a href="/library">Library</a></span>
+</header>
+<div class="menu padded detailed">
 <h1 class="menu-first">Parnassus Floor Maps</h1>
 <ol>
 <li><a href="1">Floor 1<br/><span class="smallprint">Conference Rooms<br/>Administration<br/>Bound Journals</span></a></li>

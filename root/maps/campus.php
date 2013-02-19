@@ -59,7 +59,13 @@ switch (isset($_GET['campus']) ? $_GET['campus'] : 'none') {
 <?php
 
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a', 'Maps', array('href' => '/maps')))->render();
+?>
+<header class="header" id="header">
+    <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
+    <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
+    <span><a href="/maps">Maps</a></span>
+</header>
+<?php
 echo HTML_Decorator::tag('div', '', array('id' => 'map_canvas'))->render();
 ?>
 <script type="text/javascript">

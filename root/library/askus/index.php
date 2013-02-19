@@ -4,7 +4,7 @@ require_once(dirname(dirname(dirname(__FILE__))).'/assets/lib/decorator.class.ph
 <html>
 <head>
     <meta charset="utf-8">
-    <title>UCSF Mobile | Library | Mobile Resources</title>
+    <title>UCSF Mobile | Library | Ask Us</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css" media="screen">
     <noscript><style>.jsonly{display:none}</style></noscript>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -22,9 +22,12 @@ require_once(dirname(dirname(dirname(__FILE__))).'/assets/lib/decorator.class.ph
 </head>
 <?php
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a','Library', array('href'=>'/library')))
-        ->render();
 ?>
+<header class="header" id="header">
+    <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
+    <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
+    <span><a href="/library">Library</a></span>
+</header>
 <div class="menu detailed padded">
 <h1 class="menu-first">Ask Us</h1>
 

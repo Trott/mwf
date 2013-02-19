@@ -22,8 +22,13 @@ require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))).'/assets/lib/
 </head>
 <?php
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a','Library',array('href'=>'/library')))->render();
-
+?>
+<header class="header" id="header">
+    <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
+    <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
+    <span><a href="/library">Library</a></span>
+</header>
+<?php
 $legend_icons_titles = array('Computers','Elevators','Photocopiers','Reshelving Area','Restrooms','Stairs');
 $legend_icons_styles = array("ucsf-library-floorplan-legend ucsf-library-floorplan-legend-computer","ucsf-library-floorplan-legend ucsf-library-floorplan-legend-elevator","ucsf-library-floorplan-legend ucsf-library-floorplan-legend-photocopy","ucsf-library-floorplan-legend ucsf-library-floorplan-legend-reshelving","ucsf-library-floorplan-legend ucsf-library-floorplan-legend-restroom","ucsf-library-floorplan-legend ucsf-library-floorplan-legend-stairs");
 

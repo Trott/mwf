@@ -23,8 +23,13 @@ require_once(dirname(__FILE__) . '/../assets/lib/decorator.class.php');
 </head>
 <?php
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a', 'Maps', array('href'=>'/maps')))->render();
-
+?>
+<header class="header" id="header">
+    <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
+    <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
+    <span><a href="/maps">Maps</a></span>
+</header>
+<?php
 echo Site_Decorator::ucsf_map_menu()->render();
 
 ?><footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer><?php echo HTML_Decorator::body_end()->render();

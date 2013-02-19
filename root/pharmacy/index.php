@@ -25,8 +25,10 @@ require_once(dirname(__DIR__) . '/assets/lib/decorator.class.php');
 <?php
 
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header()->render();
 ?>
+<header class="header" id="header">
+    <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
+</header>
 <noscript><div class="content center" ' . $this->_style . '><p>JavaScript is required to load this content.</p></div></noscript>
 <div class="jsonly">
 <section id="pharmacy-news" class="center"><progress>Loading...</progress></section>

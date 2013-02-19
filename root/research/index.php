@@ -24,9 +24,13 @@ require_once(dirname(dirname(__FILE__)) . '/assets/lib/decorator.class.php');
 <?php
 
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header('Research Profile')
-        ->render();
 ?>
+<header class="header" id="header">
+    <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
+    <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
+    <span>Research Profile</span>
+</header>
+
 <div class="menu detailed" id="ctsi-menu">
     <h1 id="ctsi-header"></h1>
 </div>

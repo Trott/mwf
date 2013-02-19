@@ -22,8 +22,13 @@ require_once(dirname(dirname(dirname(__FILE__))).'/assets/lib/decorator.class.ph
 </head>
 <?php
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a','Library', array('href'=>'/library')))
-        ->render();
+?>
+<header class="header" id="header">
+    <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
+    <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
+    <span><a href="/library">Library</a></span>
+</header>
+<?php
 
 echo Site_Decorator::ucsf_library_howdoi_menu()->render();
 

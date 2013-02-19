@@ -31,8 +31,12 @@ if ($search_results = (isset($_GET['search']) && strlen(trim($_GET['search'])) >
 <?php
 
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header(HTML_Decorator::tag('a', 'Maps', array('href' => '/maps')))->render();
 ?>
+<header class="header" id="header">
+    <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
+    <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
+    <span><a href="/maps">Maps</a></span>
+</header>
 <form class="padded" action="locations.php" method="get">
     <h1 class="light">Search Locations</h1><br/>
     <input type="text" id="menu-filter" name="search" />

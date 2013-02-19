@@ -22,8 +22,13 @@ require_once(dirname(dirname(__DIR__)).'/assets/lib/decorator.class.php');
 </head>
 <?php
 echo HTML_Decorator::body_start()->render();
-echo Site_Decorator::ucsf_header("Feedback")
-        ->render();
+?>
+<header class="header" id="header">
+    <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
+    <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
+    <span>Feedback</span>
+</header>
+<?php
 if (empty($_POST['Field1'])) {
 	?>  
 <form class="form" method="post" action="">

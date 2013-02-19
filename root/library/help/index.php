@@ -1,6 +1,4 @@
-<?php
-require_once(dirname(dirname(dirname(__FILE__))).'/assets/lib/decorator.class.php');
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -20,17 +18,20 @@ require_once(dirname(dirname(dirname(__FILE__))).'/assets/lib/decorator.class.ph
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
 </head>
-<?php
-echo HTML_Decorator::body_start()->render();
-?>
+<body>
 <header class="header" id="header">
     <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
     <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
     <span><a href="/library">Library</a></span>
 </header>
-<?php
-echo Site_Decorator::ucsf_library_help_menu()->render();
-
-?><footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer><?php echo HTML_Decorator::body_end()->render();
-echo HTML_Decorator::html_end()->render();
-?>
+<div class="menu detailed">
+    <ol>
+        <li><a href="/library/askus/">Ask Us</a></li>
+        <li><a rel="external" href="http://guides.library.ucsf.edu/">Getting Started Guides</a></li>
+        <li><a href="/library/howdoi/">How Do I?</a></li>
+        <li><a href="/library/whereisit/">Where Is It?</a></li>
+    </ol>
+</div>
+<footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer>
+</body>
+</html>

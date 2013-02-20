@@ -1,6 +1,4 @@
-<?php
-require_once(dirname(dirname(dirname(dirname(__FILE__)))).'/assets/lib/decorator.class.php');
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -20,18 +18,20 @@ require_once(dirname(dirname(dirname(dirname(__FILE__)))).'/assets/lib/decorator
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
 </head>
-<?php
-echo HTML_Decorator::body_start()->render();
-?>
+<body>
 <header class="header" id="header">
     <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
     <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
     <span><a href="/library">Library</a></span>
 </header>
-<?php
-
-echo Site_Decorator::ucsf_library_locations_missionbay_menu()->render();
-
-?><footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer><?php echo HTML_Decorator::body_end()->render();
-echo HTML_Decorator::html_end()->render();
-?>
+<div class="menu detailed">
+    <h2>Mission Bay Library</h2>
+    <ol>
+        <li><a href="/maps/map.php?loc=Rutter+Center">Map<br><br><span class="smallprint">William J. Rutter Conference Center<br>Room 150<br>1675 Owens Street<br>San Francisco, CA 94143-2119<br></span></a></li>
+        <li><a href="tel:+14155144060">(415) 514-4060</a></li>
+        <li><a rel="external" class="no-ext-ind" href="http://library.ucsf.edu/locations/hours?ovrrdr=1"><span class="smallprint">Mon - Thurs: 9:00am - 9:00pm<br>Fri: 9:00am - 5:30pm<br>Sat: 10:00am - 6:00pm<br>Sun: CLOSED<br>UCSF student access until midnight: Use eastern entrance with ID access. Enter library through computer lab CC151 with ID.<br></span><br><br><span class="external">Holidays and exceptions</span></a></li>
+    </ol>
+</div>
+<footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer>
+</body>
+</html>

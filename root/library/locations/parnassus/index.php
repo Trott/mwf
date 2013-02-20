@@ -1,6 +1,4 @@
-<?php
-require_once(dirname(dirname(dirname(dirname(__FILE__)))).'/assets/lib/decorator.class.php');
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -20,18 +18,20 @@ require_once(dirname(dirname(dirname(dirname(__FILE__)))).'/assets/lib/decorator
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
 </head>
-<?php
-echo HTML_Decorator::body_start()->render();
-?>
+<body>
 <header class="header" id="header">
     <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
     <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
     <span><a href="/library">Library</a></span>
 </header>
-<?php
-
-echo Site_Decorator::ucsf_library_locations_parnassus_menu()->render();
-
-?><footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer><?php echo HTML_Decorator::body_end()->render();
-echo HTML_Decorator::html_end()->render();
-?>
+<div class="menu detailed">
+    <h2>Parnassus Library</h2>
+    <ol>
+        <li><a href="/maps/map.php?loc=Kalmanovitz+Library">Map<br><br><span class="smallprint">530 Parnassus Avenue<br>San Francisco, CA 94143-0840<br></span></a></li>
+        <li><a href="tel:+14154762334">(415) 476-2334</a></li>
+        <li><a rel="external" class="no-ext-ind" href="http://library.ucsf.edu/locations/hours?ovrrdr=1"><span class="smallprint">Mon - Thurs: 7:45 am - 10:00 pm<br>Fri: 7:45 am - 8:00 pm<br>Sat: 10:00 am - 6:00 pm<br>Sun: 12:00 noon - 10:00 pm<br>24/7 Hearst Room, Parnassus Library (with student ID)<br>24/7 Computer Lab, S166 (with student ID)<br></span><br><br><span class="external">Holidays and exceptions</span></a></li>
+    </ol>
+</div>
+<footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer>
+</body>
+</html>

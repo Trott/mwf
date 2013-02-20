@@ -1,6 +1,4 @@
-<?php
-require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -20,19 +18,19 @@ require_once(dirname(__FILE__) . '/assets/lib/decorator.class.php');
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
 </head>
-<?php
-echo HTML_Decorator::body_start()->render();
-?>
+<body>
 <header class="header" id="header">
     <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
     <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
     <span><a href="/social">Social Media</a></span>
 </header>
-<?php
-echo Site_Decorator::ucsf_social_media_menu()->render();
-
-?>
+<div class="menu detailed">
+    <ol>
+        <li><a rel="external" href="http://www.twitter.com/ucsf">Twitter</a></li>
+        <li><a rel="external" href="http://www.youtube.com/ucsf">YouTube</a></li>
+        <li><a rel="external" href="http://www.facebook.com/ucsf">Facebook</a></li>
+    </ol>
+</div>
 <footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer>
-<?php echo HTML_Decorator::body_end()->render();
-echo HTML_Decorator::html_end()->render();
-?>
+</body>
+</html>

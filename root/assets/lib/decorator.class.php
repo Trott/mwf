@@ -10,7 +10,6 @@
  * @version 20110518
  *
  * @link HTML_Decorator
- * @link Site_Decorator
  */
 
 class Decorator
@@ -27,4 +26,3 @@ class Decorator
 }
 
 require_once(dirname(__FILE__).'/decorator/html_decorator.class.php');
-require_once(dirname(__FILE__).'/decorator/site_decorator.class.php');

@@ -1,6 +1,4 @@
-<?php
-require_once(dirname(dirname(dirname(dirname(__FILE__)))).'/assets/lib/decorator.class.php');
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -20,9 +18,7 @@ require_once(dirname(dirname(dirname(dirname(__FILE__)))).'/assets/lib/decorator
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
 </head>
-<?php
-echo HTML_Decorator::body_start()->render();
-?>
+<body>
 <header class="header" id="header">
     <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
     <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
@@ -71,6 +67,4 @@ Copying: <a href="tel:+14154768128">(415) 476-8128</a></p>
 
 </div>
 <?php 
-?><footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer><?php echo HTML_Decorator::body_end()->render();
-echo HTML_Decorator::html_end()->render();
-?>
+?><footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer></body></html>

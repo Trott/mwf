@@ -1,6 +1,4 @@
-<?php
-require_once(dirname(dirname(__FILE__)) . '/assets/lib/decorator.class.php');
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -21,10 +19,7 @@ require_once(dirname(dirname(__FILE__)) . '/assets/lib/decorator.class.php');
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
 </head>
-<?php
-
-echo HTML_Decorator::body_start()->render();
-?>
+<body>
 <header class="header" id="header">
     <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
     <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
@@ -32,7 +27,7 @@ echo HTML_Decorator::body_start()->render();
 </header>
 
 <div class="menu detailed" id="ctsi-menu">
-    <h1 id="ctsi-header"></h1>
+    <h1 id="ctsi-header"><progress>Loading...</progress></h1>
 </div>
 <div style="display:none" id="ctsi-narrative-hidden"></div>
 
@@ -40,9 +35,10 @@ echo HTML_Decorator::body_start()->render();
 <div class="menu detailed" id="ctsi-publications"></div>
 <div class="menu"><ol id="ctsi-full-profile"></ol></div>
 
-<?php
-?><footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer>
+<footer id="footer"><p>University of California &copy; 2010-13 UC Regents<br><a href="/about">About</a> | <a href="/feedback/">Feedback</a></p></footer>
 <script src="http://profiles.ucsf.edu/CustomAPI/v1/JSONProfile.aspx?FNO=<?php 
 	echo filter_var($_GET['fno'],FILTER_SANITIZE_EMAIL); 
 	?>&amp;callback=ucsf.ctsiProfile.renderProfile&amp;publications=full&amp;mobile=on"></script>
+</body>
+</html>
 	

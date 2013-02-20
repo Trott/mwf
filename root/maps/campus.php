@@ -1,5 +1,4 @@
 <?php
-require_once(dirname(__FILE__) . '/../assets/lib/decorator.class.php');
 
 switch (isset($_GET['campus']) ? $_GET['campus'] : 'none') {
     case 'Mission Bay':
@@ -56,18 +55,13 @@ switch (isset($_GET['campus']) ? $_GET['campus'] : 'none') {
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
 </head>
-<?php
-
-echo HTML_Decorator::body_start()->render();
-?>
+<body>
 <header class="header" id="header">
     <a href="/"><img src="/assets/img/ucsf-logo.png" alt="UCSF"><span>Mobile</span></a>
     <img src="/assets/img/ucsf-header-separator.png" alt=" | " class="separator">
     <span><a href="/maps">Maps</a></span>
 </header>
-<?php
-echo HTML_Decorator::tag('div', '', array('id' => 'map_canvas'))->render();
-?>
+<div id="map_canvas"></div>
 <script type="text/javascript">
     var lat=<?php echo $lat; ?>;
     var lon=<?php echo $lon; ?>;
@@ -138,7 +132,5 @@ if (empty($startLocation)):
     <?php endif; ?>
 <?php endif; ?>
 </script>
-<?php
-echo HTML_Decorator::body_end()->render();
-echo HTML_Decorator::html_end()->render();
-?>
+</body>
+</html>

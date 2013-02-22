@@ -1,5 +1,0 @@
-mwf.redirect = function(loc){
-    
-
-    
-};

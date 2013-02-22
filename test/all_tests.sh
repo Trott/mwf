@@ -1,7 +1,4 @@
 #!/bin/bash
 
-# test in iPhone simulator
-cucumber
-
-# test in Firefox
-cucumber BROWSER=firefox
+# test in iPhone simulator then (if that passed) Firefox
+cucumber && cucumber BROWSER=firefox

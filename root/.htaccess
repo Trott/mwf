@@ -18,5 +18,5 @@ Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
     RewriteRule ^fitness/(.+)$ /ci/fitness/$1 [L]
     RewriteRule ^social/?$ /social.php [L]
     RewriteRule ^emergency/?$ /emergency.php [L]
-    RewriteRule ^about/?$ /about.php [L]
+    RewriteRule ^about/?$ /about.html [L]
 </IfModule>

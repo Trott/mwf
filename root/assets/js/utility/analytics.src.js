@@ -43,7 +43,7 @@ ucsf.analytics = (function(){
             // Special tracking for native client.
             // @todo: Make this configurable (on|off, at least) and customizable
             //   (might want to track native container version number, for example)
-            // @todo: Possible to integration test this with PHP code?
+            // @todo: Unit test this by not loading _gaq object and just leaving it as an array.
             _gaq.push(['_setCustomVar', 1, 'mwf_native_client', '1']);
         }
 

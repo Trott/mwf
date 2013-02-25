@@ -131,3 +131,22 @@ ucsf.ctsiProfile = {
         document.getElementById("ctsi-narrative-hidden").innerHTML = temp;
     }
 };
+
+// Now that the callbacks are defined, let's append the <script> tag.
+if (window.location.search) {
+    window.onload = function () {
+        "use strict";
+        var queryString = decodeURIComponent(window.location.search),
+            match = queryString.match(/[&?]fno=([\w.@]+)/),
+            fno,
+            deferred;
+        if (match !== null) {
+            fno = match[1];
+            deferred = document.createElement('script');
+            deferred.src = 'http://profiles.ucsf.edu/CustomAPI/v1/JSONProfile.aspx?FNO=' +
+                fno +
+                '&callback=ucsf.ctsiProfile.renderProfile&publications=full&mobile=on';
+            document.body.appendChild(deferred);
+        }
+    };
+}

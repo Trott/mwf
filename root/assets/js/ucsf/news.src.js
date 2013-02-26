@@ -1,4 +1,5 @@
 /* globals ucsf:true, Hogan:true, google:true, Modernizr:true, _newsq:true */
+var _newsq = _newsq || [];
 ucsf.news = (function () {
     "use strict";
     var me = {},

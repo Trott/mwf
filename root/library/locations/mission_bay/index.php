@@ -27,7 +27,7 @@
 <div class="menu detailed">
     <h2>Mission Bay Library</h2>
     <ol>
-        <li><a href="/maps/map.php?loc=Rutter+Center">Map<br><br><span class="smallprint">William J. Rutter Conference Center<br>Room 150<br>1675 Owens Street<br>San Francisco, CA 94143-2119<br></span></a></li>
+        <li><a href="/maps/map/?loc=Rutter+Center">Map<br><br><span class="smallprint">William J. Rutter Conference Center<br>Room 150<br>1675 Owens Street<br>San Francisco, CA 94143-2119<br></span></a></li>
         <li><a href="tel:+14155144060">(415) 514-4060</a></li>
         <li><a rel="external" class="no-ext-ind" href="http://library.ucsf.edu/locations/hours?ovrrdr=1"><span class="smallprint">Mon - Thurs: 9:00am - 9:00pm<br>Fri: 9:00am - 5:30pm<br>Sat: 10:00am - 6:00pm<br>Sun: CLOSED<br>UCSF student access until midnight: Use eastern entrance with ID access. Enter library through computer lab CC151 with ID.<br></span><br><br><span class="external">Holidays and exceptions</span></a></li>
     </ol>

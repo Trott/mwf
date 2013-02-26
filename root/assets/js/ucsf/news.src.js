@@ -2,11 +2,7 @@
 var _newsq = _newsq || [];
 ucsf.news = (function () {
     "use strict";
-    var me = {},
-        script = document.createElement("script");
-    
-    script.src = "//www.google.com/jsapi";
-    document.getElementsByTagName("head")[0].appendChild(script);
+    var me = {};
 
     me.loadFromStorage = function (storageId) {
         var stored;
@@ -90,22 +86,16 @@ ucsf.news = (function () {
     
         if (! navigator.onLine) {
             container.innerHTML = template.render(me.loadFromStorage(storageId));
-        } else if ((typeof google === "undefined") || (! google.hasOwnProperty('load'))) {
-            //use setTimeout to allow other tasks to finish and then try again
-            setTimeout(
-                function () {
-                    if ((typeof google === "undefined") || (! google.hasOwnProperty('load'))) {
-                        container.innerHTML = template.render(me.loadFromStorage(storageId));
-                    } else if (! google.hasOwnProperty('feeds')) {
-                        google.load("feeds","1",{nocss:true, callback:function () { ucsf.news.render(container, storageId, feedUrl, options, template);}});
-                    } else {
-                        me.render(container, storageId, feedUrl, options, template);
-                    }
-                }, 100);
-        } else if (! google.hasOwnProperty('feeds')) {
-            google.load("feeds","1",{nocss:true, callback:function () { ucsf.news.render(container, storageId, feedUrl, options, template);}});
         } else {
-            me.render(container, storageId, feedUrl, options, template);
+            yepnope([{load:'http://www.google.com/jsapi', callback: function() {
+                google.load("feeds", "1", 
+                    {
+                        nocss:true, callback:function () { 
+                            ucsf.news.render(container, storageId, feedUrl, options, template);
+                        }
+                    }
+                );
+            }}]);
         }
     };
 

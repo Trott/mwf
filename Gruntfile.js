@@ -7,6 +7,7 @@ module.exports = function(grunt) {
     concat: {
       full: {
         src: ['root/assets/js/core/modernizr.js',
+              'root/assets/js/core/yepnope.1.5.4-min.js',
               'root/assets/js/core/template-2.0.0.min.js',
               'dist/ucsf.partial.min.js'],
         dest: 'root/assets/js/ucsf.js'
@@ -16,7 +17,8 @@ module.exports = function(grunt) {
               'root/assets/js/external/LightningTouch.js',
               'root/assets/js/ucsf/mainPage.src.js',
               'root/assets/js/ucsf/shuttle.src.js',
-              'root/assets/js/ucsf/news.src.js'],
+              'root/assets/js/ucsf/news.src.js',
+              'root/assets/js/ucsf/maps.src.js'],
         dest: 'dist/ucsf.partial.js'
       }
     },
@@ -37,7 +39,7 @@ module.exports = function(grunt) {
         noarg: true,
         sub: true,
         undef: true,
-        predef: ['Modernizr','Hogan','google','_newsq'],
+        predef: ['Modernizr','Hogan','google','_newsq', 'yepnope'],
         boss: true,
         eqnull: true,
         browser: true
